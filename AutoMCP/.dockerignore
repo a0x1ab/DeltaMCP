@@ -1,0 +1,14 @@
+experiment_results/
+201*/
+202*/
+compare_*/
+
+.DS_Store
+.git/
+*.log
+__pycache__/
+*.pyc
+.env
+.venv/
+
+*.md
