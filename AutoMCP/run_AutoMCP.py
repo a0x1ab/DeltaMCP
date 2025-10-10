@@ -8,6 +8,7 @@ class AutoMCPRunner:
     def __init__(self, workspace_root=None):
         self.root = Path(workspace_root) if workspace_root else Path.cwd()
         self.data_dir = self.root / "data"
+        self.automcp_dir = self.root / "AutoMCP"
 
     def get_versions(self):
         if not self.data_dir.exists():
@@ -20,14 +21,14 @@ class AutoMCPRunner:
             ]
         )
 
-    def run_version(self, version):
+    def run_version(self, version, monitor_callback=None):
         spec_file = self.data_dir / version / "storage.json"
-        output_dir = self.root / version
+        output_dir = self.automcp_dir / "generated" / version
 
         if not spec_file.exists():
             raise FileNotFoundError(f"No spec: {spec_file}")
 
-        output_dir.mkdir(exist_ok=True)
+        output_dir.mkdir(parents=True, exist_ok=True)
         print(f"Running {version}...")
 
         cmd = [
@@ -44,19 +45,32 @@ class AutoMCPRunner:
             "--input",
             f"data/{version}/storage.json",
             "--output",
-            version,
+            f"AutoMCP/generated/{version}",
         ]
 
         try:
-            result = subprocess.run(
-                cmd, cwd=self.root, capture_output=True, text=True, timeout=300
-            )
-            if result.returncode != 0:
-                print(f"Failed: {result.stderr}")
+            if monitor_callback:
+                process = subprocess.Popen(
+                    cmd, cwd=self.root, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+                )
+                monitor_callback(process.pid)
+                stdout, stderr = process.communicate(timeout=300)
+                result_code = process.returncode
+            else:
+                result = subprocess.run(
+                    cmd, cwd=self.root, capture_output=True, text=True, timeout=300
+                )
+                result_code = result.returncode
+                stderr = result.stderr
+            
+            if result_code != 0:
+                print(f"Failed: {stderr}")
+                raise RuntimeError(f"Generation failed: {stderr}")
             else:
                 print(f"Completed successfully")
         except Exception as e:
             print(f"Error: {e}")
+            raise
 
 
 def main():

@@ -1,0 +1,6 @@
+python-dotenv
+mcp
+requests
+psutil
+fastmcp
+uvicorn
