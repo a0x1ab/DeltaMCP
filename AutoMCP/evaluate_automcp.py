@@ -11,9 +11,15 @@ from run_automcp import AutoMCPRunner
 
 class AutoMCPEvaluator:
     def __init__(self):
-        self.root = Path.cwd().parent
-        self.automcp_dir = Path.cwd()
-        self.data_dir = self.root / "data"
+        # If we're running from the AutoMCP directory, go up one level
+        current_dir = Path.cwd()
+        if current_dir.name == "AutoMCP":
+            self.root = current_dir.parent
+            self.automcp_dir = current_dir
+        else:
+            self.root = current_dir
+            self.automcp_dir = self.root / "AutoMCP"
+        self.data_dir = self.root / "azure-rest-api-specs" / "specification" / "storage" / "resource-manager" / "Microsoft.Storage" / "stable"
         self.generated_dir = self.automcp_dir / "generated"
         self.process_stats = {}
         self.runner = AutoMCPRunner(self.root)

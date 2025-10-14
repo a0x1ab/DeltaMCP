@@ -7,54 +7,56 @@ def preprocess_spec_file(spec_file_path):
     with open(spec_file_path) as f:
         data = json.load(f)
     
-    file_cache = {}
-    processed_refs = set()
-    stack = [data]
+    files = {}
     
-    while stack:
-        obj = stack.pop()
-        if isinstance(obj, dict):
-            if '$ref' in obj:
-                ref = obj['$ref']
-                
-                if ref in processed_refs:
-                    continue
-                processed_refs.add(ref)
-                
-                try:
-                    if ref.startswith('#/'):
-                        result = data
-                        for part in ref[2:].split('/'):
-                            result = result[part]
-                    else:
-                        external_file = ref.split('#/')[0]
-                        external_path = os.path.join(os.path.dirname(spec_file_path), external_file)
-                        
-                        if external_path not in file_cache:
-                            try:
-                                with open(external_path) as f:
-                                    file_cache[external_path] = json.load(f)
-                            except FileNotFoundError:
-                                continue
-                        
-                        result = file_cache[external_path]
-                        
-                        if '#/' in ref:
-                            for part in ref.split('#/')[1].split('/'):
-                                result = result[part]
+    for iteration in range(10):
+        refs_found = 0
+        
+        def process_object(obj):
+            nonlocal refs_found
+            
+            if isinstance(obj, dict):
+                if '$ref' in obj:
+                    ref = obj['$ref']
+                    refs_found += 1
                     
-                    obj.clear()
-                    obj.update(result)
-                    stack.append(obj)
-                    
-                except (KeyError, TypeError, FileNotFoundError):
-                    continue
-            else:
-                stack.extend(obj.values())
-        elif isinstance(obj, list):
-            stack.extend(obj)
+                    try:
+                        if ref.startswith('#/'):
+                            content = data
+                            for part in ref[2:].split('/'):
+                                content = content[part]
+                        else:
+                            file_path = ref.split('#/')[0]
+                            full_path = os.path.join(os.path.dirname(spec_file_path), file_path)
+                            
+                            if full_path not in files:
+                                with open(full_path) as f:
+                                    files[full_path] = json.load(f)
+                            
+                            content = files[full_path]
+                            if '#/' in ref:
+                                for part in ref.split('#/')[1].split('/'):
+                                    content = content[part]
+                        
+                        obj.clear()
+                        obj.update(content)
+                    except:
+                        pass
+                
+                for value in list(obj.values()):
+                    process_object(value)
+            
+            elif isinstance(obj, list):
+                for item in obj:
+                    process_object(item)
+        
+        process_object(data)
+        
+        if refs_found == 0:
+            break
     
     return data
+
 def diff_spec_files(old_spec_path, new_spec_path):
     result = subprocess.run(['openapi-diff', old_spec_path, new_spec_path, '--format', 'json'], 
                           capture_output=True, text=True)

@@ -6,8 +6,16 @@ from datetime import datetime
 
 class AutoMCPRunner:
     def __init__(self, workspace_root=None):
-        self.root = Path(workspace_root) if workspace_root else Path.cwd()
-        self.data_dir = self.root / "data"
+        if workspace_root:
+            self.root = Path(workspace_root)
+        else:
+            # If we're running from the AutoMCP directory, go up one level
+            current_dir = Path.cwd()
+            if current_dir.name == "AutoMCP":
+                self.root = current_dir.parent
+            else:
+                self.root = current_dir
+        self.data_dir = self.root / "azure-rest-api-specs" / "specification" / "storage" / "resource-manager" / "Microsoft.Storage" / "stable"
         self.automcp_dir = self.root / "AutoMCP"
 
     def get_versions(self):
@@ -43,7 +51,7 @@ class AutoMCPRunner:
             "wine",
             "AutoMCP/automcp.exe",
             "--input",
-            f"data/{version}/storage.json",
+            f"azure-rest-api-specs/specification/storage/resource-manager/Microsoft.Storage/stable/{version}/storage.json",
             "--output",
             f"AutoMCP/generated/{version}",
         ]
