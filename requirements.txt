@@ -4,3 +4,4 @@ requests
 psutil
 fastmcp
 uvicorn
+prance
