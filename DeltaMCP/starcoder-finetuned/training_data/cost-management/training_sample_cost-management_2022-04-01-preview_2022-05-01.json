@@ -1,0 +1,1957 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "deleted": [
+          "host",
+          "schemes",
+          "consumes",
+          "produces",
+          "securityDefinitions"
+        ],
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": {
+                "description": "Days of Week.",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "DaysOfWeek"
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/DaysOfWeek"
+            },
+            {
+              "oldValue": {
+                "description": "Destination of the view data. Currently only csv format is supported.",
+                "properties": {
+                  "fileFormats": {
+                    "description": "Destination of the view data. Currently only csv format is supported.",
+                    "items": {
+                      "description": "Destination of the view data. Currently only csv format is supported.",
+                      "enum": [
+                        "Csv"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "FileFormat"
+                      }
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/FileDestination"
+            },
+            {
+              "oldValue": {
+                "description": "Destination of the view data. Currently only csv format is supported.",
+                "enum": [
+                  "Csv"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "FileFormat"
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/FileFormat"
+            },
+            {
+              "oldValue": {
+                "description": "The properties of the scheduled action notification.",
+                "properties": {
+                  "message": {
+                    "description": "Optional message to be added in the email. Length is limited to 250 characters.",
+                    "type": "string"
+                  },
+                  "subject": {
+                    "description": "Subject of the email. Length is limited to 70 characters.",
+                    "type": "string"
+                  },
+                  "to": {
+                    "description": "Array of email addresses.",
+                    "items": {
+                      "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$",
+                      "type": "string"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "to",
+                  "subject"
+                ],
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/NotificationProperties"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The Resource model definition.",
+                "properties": {
+                  "eTag": {
+                    "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Resource Id.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Resource name.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "Resource type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-ms-azure-resource": true
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ProxyResource"
+            },
+            {
+              "oldValue": {
+                "description": "Frequency of the schedule.",
+                "enum": [
+                  "Daily",
+                  "Weekly",
+                  "Monthly"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "ScheduleFrequency",
+                  "values": [
+                    {
+                      "description": "Cost analysis data will be emailed every day.",
+                      "name": "Daily",
+                      "value": "Daily"
+                    },
+                    {
+                      "description": "Cost analysis data will be emailed every week.",
+                      "name": "Weekly",
+                      "value": "Weekly"
+                    },
+                    {
+                      "description": "Cost analysis data will be emailed every month.",
+                      "name": "Monthly",
+                      "value": "Monthly"
+                    }
+                  ]
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduleFrequency"
+            },
+            {
+              "oldValue": {
+                "description": "The properties of the schedule.",
+                "properties": {
+                  "dayOfMonth": {
+                    "description": "UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "daysOfWeek": {
+                    "description": "Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.",
+                    "items": {
+                      "description": "Days of Week.",
+                      "enum": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                        "Sunday"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "DaysOfWeek"
+                      }
+                    },
+                    "type": "array"
+                  },
+                  "endDate": {
+                    "description": "The end date and time of the scheduled action (UTC).",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "description": "Frequency of the schedule.",
+                    "enum": [
+                      "Daily",
+                      "Weekly",
+                      "Monthly"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ScheduleFrequency",
+                      "values": [
+                        {
+                          "description": "Cost analysis data will be emailed every day.",
+                          "name": "Daily",
+                          "value": "Daily"
+                        },
+                        {
+                          "description": "Cost analysis data will be emailed every week.",
+                          "name": "Weekly",
+                          "value": "Weekly"
+                        },
+                        {
+                          "description": "Cost analysis data will be emailed every month.",
+                          "name": "Monthly",
+                          "value": "Monthly"
+                        }
+                      ]
+                    }
+                  },
+                  "hourOfDay": {
+                    "description": "UTC time at which cost analysis data will be emailed.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "startDate": {
+                    "description": "The start date and time of the scheduled action (UTC).",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "weeksOfMonth": {
+                    "description": "Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.",
+                    "items": {
+                      "description": "Weeks of month.",
+                      "enum": [
+                        "First",
+                        "Second",
+                        "Third",
+                        "Fourth",
+                        "Last"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "WeeksOfMonth"
+                      }
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "endDate",
+                  "frequency",
+                  "startDate"
+                ],
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduleProperties"
+            },
+            {
+              "oldValue": {
+                "allOf": [
+                  {
+                    "description": "The Resource model definition.",
+                    "properties": {
+                      "eTag": {
+                        "description": "Resource Etag.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Resource Id.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "kind": {
+                        "description": "Kind of the scheduled action.",
+                        "enum": [
+                          "Email"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ScheduledActionKind",
+                          "values": [
+                            {
+                              "description": "Cost analysis data will be emailed.",
+                              "name": "Email",
+                              "value": "Email"
+                            }
+                          ]
+                        }
+                      },
+                      "name": {
+                        "description": "Resource name.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "systemData": {
+                        "description": "Metadata pertaining to creation and last modification of the resource.",
+                        "properties": {
+                          "createdAt": {
+                            "description": "The timestamp of resource creation (UTC).",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdBy": {
+                            "description": "The identity that created the resource.",
+                            "type": "string"
+                          },
+                          "createdByType": {
+                            "description": "The type of identity that created the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          },
+                          "lastModifiedAt": {
+                            "description": "The timestamp of resource last modification (UTC)",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastModifiedBy": {
+                            "description": "The identity that last modified the resource.",
+                            "type": "string"
+                          },
+                          "lastModifiedByType": {
+                            "description": "The type of identity that last modified the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          }
+                        },
+                        "readOnly": true,
+                        "type": "object"
+                      },
+                      "type": {
+                        "description": "Resource type.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                  }
+                ],
+                "description": "Scheduled action definition.",
+                "properties": {
+                  "properties": {
+                    "description": "The properties of the scheduled action.",
+                    "properties": {
+                      "displayName": {
+                        "description": "Scheduled action name.",
+                        "type": "string"
+                      },
+                      "fileDestination": {
+                        "description": "Destination of the view data. Currently only csv format is supported.",
+                        "properties": {
+                          "fileFormats": {
+                            "description": "Destination of the view data. Currently only csv format is supported.",
+                            "items": {
+                              "description": "Destination of the view data. Currently only csv format is supported.",
+                              "enum": [
+                                "Csv"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "FileFormat"
+                              }
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "notification": {
+                        "description": "The properties of the scheduled action notification.",
+                        "properties": {
+                          "message": {
+                            "description": "Optional message to be added in the email. Length is limited to 250 characters.",
+                            "type": "string"
+                          },
+                          "subject": {
+                            "description": "Subject of the email. Length is limited to 70 characters.",
+                            "type": "string"
+                          },
+                          "to": {
+                            "description": "Array of email addresses.",
+                            "items": {
+                              "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$",
+                              "type": "string"
+                            },
+                            "maxItems": 20,
+                            "minItems": 1,
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "to",
+                          "subject"
+                        ],
+                        "type": "object"
+                      },
+                      "schedule": {
+                        "description": "The properties of the schedule.",
+                        "properties": {
+                          "dayOfMonth": {
+                            "description": "UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "daysOfWeek": {
+                            "description": "Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.",
+                            "items": {
+                              "description": "Days of Week.",
+                              "enum": [
+                                "Monday",
+                                "Tuesday",
+                                "Wednesday",
+                                "Thursday",
+                                "Friday",
+                                "Saturday",
+                                "Sunday"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DaysOfWeek"
+                              }
+                            },
+                            "type": "array"
+                          },
+                          "endDate": {
+                            "description": "The end date and time of the scheduled action (UTC).",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "frequency": {
+                            "description": "Frequency of the schedule.",
+                            "enum": [
+                              "Daily",
+                              "Weekly",
+                              "Monthly"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "ScheduleFrequency",
+                              "values": [
+                                {
+                                  "description": "Cost analysis data will be emailed every day.",
+                                  "name": "Daily",
+                                  "value": "Daily"
+                                },
+                                {
+                                  "description": "Cost analysis data will be emailed every week.",
+                                  "name": "Weekly",
+                                  "value": "Weekly"
+                                },
+                                {
+                                  "description": "Cost analysis data will be emailed every month.",
+                                  "name": "Monthly",
+                                  "value": "Monthly"
+                                }
+                              ]
+                            }
+                          },
+                          "hourOfDay": {
+                            "description": "UTC time at which cost analysis data will be emailed.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "startDate": {
+                            "description": "The start date and time of the scheduled action (UTC).",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "weeksOfMonth": {
+                            "description": "Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.",
+                            "items": {
+                              "description": "Weeks of month.",
+                              "enum": [
+                                "First",
+                                "Second",
+                                "Third",
+                                "Fourth",
+                                "Last"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "WeeksOfMonth"
+                              }
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "endDate",
+                          "frequency",
+                          "startDate"
+                        ],
+                        "type": "object"
+                      },
+                      "scope": {
+                        "description": "Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.",
+                        "type": "string"
+                      },
+                      "status": {
+                        "description": "Status of the scheduled action.",
+                        "enum": [
+                          "Enabled",
+                          "Disabled"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ScheduledActionStatus",
+                          "values": [
+                            {
+                              "description": "Scheduled action is saved but will not be executed.",
+                              "name": "Disabled",
+                              "value": "Disabled"
+                            },
+                            {
+                              "description": "Scheduled action is saved and will be executed.",
+                              "name": "Enabled",
+                              "value": "Enabled"
+                            }
+                          ]
+                        }
+                      },
+                      "viewId": {
+                        "description": "Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "displayName",
+                      "notification",
+                      "schedule",
+                      "status",
+                      "viewId"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduledAction"
+            },
+            {
+              "oldValue": {
+                "description": "Kind of the scheduled action.",
+                "enum": [
+                  "Email"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "ScheduledActionKind",
+                  "values": [
+                    {
+                      "description": "Cost analysis data will be emailed.",
+                      "name": "Email",
+                      "value": "Email"
+                    }
+                  ]
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduledActionKind"
+            },
+            {
+              "oldValue": {
+                "description": "Scheduled actions list result. It contains a list of scheduled actions.",
+                "properties": {
+                  "nextLink": {
+                    "description": "The link (url) to the next page of results.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "The list of scheduled actions.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "description": "The Resource model definition.",
+                          "properties": {
+                            "eTag": {
+                              "description": "Resource Etag.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "id": {
+                              "description": "Resource Id.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "kind": {
+                              "description": "Kind of the scheduled action.",
+                              "enum": [
+                                "Email"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ScheduledActionKind",
+                                "values": [
+                                  {
+                                    "description": "Cost analysis data will be emailed.",
+                                    "name": "Email",
+                                    "value": "Email"
+                                  }
+                                ]
+                              }
+                            },
+                            "name": {
+                              "description": "Resource name.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "systemData": {
+                              "description": "Metadata pertaining to creation and last modification of the resource.",
+                              "properties": {
+                                "createdAt": {
+                                  "description": "The timestamp of resource creation (UTC).",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "createdBy": {
+                                  "description": "The identity that created the resource.",
+                                  "type": "string"
+                                },
+                                "createdByType": {
+                                  "description": "The type of identity that created the resource.",
+                                  "enum": [
+                                    "User",
+                                    "Application",
+                                    "ManagedIdentity",
+                                    "Key"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "createdByType"
+                                  }
+                                },
+                                "lastModifiedAt": {
+                                  "description": "The timestamp of resource last modification (UTC)",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "lastModifiedBy": {
+                                  "description": "The identity that last modified the resource.",
+                                  "type": "string"
+                                },
+                                "lastModifiedByType": {
+                                  "description": "The type of identity that last modified the resource.",
+                                  "enum": [
+                                    "User",
+                                    "Application",
+                                    "ManagedIdentity",
+                                    "Key"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "createdByType"
+                                  }
+                                }
+                              },
+                              "readOnly": true,
+                              "type": "object"
+                            },
+                            "type": {
+                              "description": "Resource type.",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object",
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "Scheduled action definition.",
+                      "properties": {
+                        "properties": {
+                          "description": "The properties of the scheduled action.",
+                          "properties": {
+                            "displayName": {
+                              "description": "Scheduled action name.",
+                              "type": "string"
+                            },
+                            "fileDestination": {
+                              "description": "Destination of the view data. Currently only csv format is supported.",
+                              "properties": {
+                                "fileFormats": {
+                                  "description": "Destination of the view data. Currently only csv format is supported.",
+                                  "items": {
+                                    "description": "Destination of the view data. Currently only csv format is supported.",
+                                    "enum": [
+                                      "Csv"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "FileFormat"
+                                    }
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "notification": {
+                              "description": "The properties of the scheduled action notification.",
+                              "properties": {
+                                "message": {
+                                  "description": "Optional message to be added in the email. Length is limited to 250 characters.",
+                                  "type": "string"
+                                },
+                                "subject": {
+                                  "description": "Subject of the email. Length is limited to 70 characters.",
+                                  "type": "string"
+                                },
+                                "to": {
+                                  "description": "Array of email addresses.",
+                                  "items": {
+                                    "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$",
+                                    "type": "string"
+                                  },
+                                  "maxItems": 20,
+                                  "minItems": 1,
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "to",
+                                "subject"
+                              ],
+                              "type": "object"
+                            },
+                            "schedule": {
+                              "description": "The properties of the schedule.",
+                              "properties": {
+                                "dayOfMonth": {
+                                  "description": "UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "daysOfWeek": {
+                                  "description": "Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.",
+                                  "items": {
+                                    "description": "Days of Week.",
+                                    "enum": [
+                                      "Monday",
+                                      "Tuesday",
+                                      "Wednesday",
+                                      "Thursday",
+                                      "Friday",
+                                      "Saturday",
+                                      "Sunday"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "DaysOfWeek"
+                                    }
+                                  },
+                                  "type": "array"
+                                },
+                                "endDate": {
+                                  "description": "The end date and time of the scheduled action (UTC).",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "frequency": {
+                                  "description": "Frequency of the schedule.",
+                                  "enum": [
+                                    "Daily",
+                                    "Weekly",
+                                    "Monthly"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "ScheduleFrequency",
+                                    "values": [
+                                      {
+                                        "description": "Cost analysis data will be emailed every day.",
+                                        "name": "Daily",
+                                        "value": "Daily"
+                                      },
+                                      {
+                                        "description": "Cost analysis data will be emailed every week.",
+                                        "name": "Weekly",
+                                        "value": "Weekly"
+                                      },
+                                      {
+                                        "description": "Cost analysis data will be emailed every month.",
+                                        "name": "Monthly",
+                                        "value": "Monthly"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "hourOfDay": {
+                                  "description": "UTC time at which cost analysis data will be emailed.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "startDate": {
+                                  "description": "The start date and time of the scheduled action (UTC).",
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "weeksOfMonth": {
+                                  "description": "Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.",
+                                  "items": {
+                                    "description": "Weeks of month.",
+                                    "enum": [
+                                      "First",
+                                      "Second",
+                                      "Third",
+                                      "Fourth",
+                                      "Last"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "WeeksOfMonth"
+                                    }
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "endDate",
+                                "frequency",
+                                "startDate"
+                              ],
+                              "type": "object"
+                            },
+                            "scope": {
+                              "description": "Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.",
+                              "type": "string"
+                            },
+                            "status": {
+                              "description": "Status of the scheduled action.",
+                              "enum": [
+                                "Enabled",
+                                "Disabled"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ScheduledActionStatus",
+                                "values": [
+                                  {
+                                    "description": "Scheduled action is saved but will not be executed.",
+                                    "name": "Disabled",
+                                    "value": "Disabled"
+                                  },
+                                  {
+                                    "description": "Scheduled action is saved and will be executed.",
+                                    "name": "Enabled",
+                                    "value": "Enabled"
+                                  }
+                                ]
+                              }
+                            },
+                            "viewId": {
+                              "description": "Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "displayName",
+                            "notification",
+                            "schedule",
+                            "status",
+                            "viewId"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduledActionListResult"
+            },
+            {
+              "oldValue": {
+                "description": "The properties of the scheduled action.",
+                "properties": {
+                  "displayName": {
+                    "description": "Scheduled action name.",
+                    "type": "string"
+                  },
+                  "fileDestination": {
+                    "description": "Destination of the view data. Currently only csv format is supported.",
+                    "properties": {
+                      "fileFormats": {
+                        "description": "Destination of the view data. Currently only csv format is supported.",
+                        "items": {
+                          "description": "Destination of the view data. Currently only csv format is supported.",
+                          "enum": [
+                            "Csv"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "FileFormat"
+                          }
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "notification": {
+                    "description": "The properties of the scheduled action notification.",
+                    "properties": {
+                      "message": {
+                        "description": "Optional message to be added in the email. Length is limited to 250 characters.",
+                        "type": "string"
+                      },
+                      "subject": {
+                        "description": "Subject of the email. Length is limited to 70 characters.",
+                        "type": "string"
+                      },
+                      "to": {
+                        "description": "Array of email addresses.",
+                        "items": {
+                          "pattern": "^[A-Za-z0-9._%+-]+@(?:[A-Za-z0-9-]+\\.)+[A-Za-z]{2,}$",
+                          "type": "string"
+                        },
+                        "maxItems": 20,
+                        "minItems": 1,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "to",
+                      "subject"
+                    ],
+                    "type": "object"
+                  },
+                  "schedule": {
+                    "description": "The properties of the schedule.",
+                    "properties": {
+                      "dayOfMonth": {
+                        "description": "UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "daysOfWeek": {
+                        "description": "Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.",
+                        "items": {
+                          "description": "Days of Week.",
+                          "enum": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
+                            "Sunday"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "DaysOfWeek"
+                          }
+                        },
+                        "type": "array"
+                      },
+                      "endDate": {
+                        "description": "The end date and time of the scheduled action (UTC).",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "frequency": {
+                        "description": "Frequency of the schedule.",
+                        "enum": [
+                          "Daily",
+                          "Weekly",
+                          "Monthly"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ScheduleFrequency",
+                          "values": [
+                            {
+                              "description": "Cost analysis data will be emailed every day.",
+                              "name": "Daily",
+                              "value": "Daily"
+                            },
+                            {
+                              "description": "Cost analysis data will be emailed every week.",
+                              "name": "Weekly",
+                              "value": "Weekly"
+                            },
+                            {
+                              "description": "Cost analysis data will be emailed every month.",
+                              "name": "Monthly",
+                              "value": "Monthly"
+                            }
+                          ]
+                        }
+                      },
+                      "hourOfDay": {
+                        "description": "UTC time at which cost analysis data will be emailed.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "startDate": {
+                        "description": "The start date and time of the scheduled action (UTC).",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "weeksOfMonth": {
+                        "description": "Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.",
+                        "items": {
+                          "description": "Weeks of month.",
+                          "enum": [
+                            "First",
+                            "Second",
+                            "Third",
+                            "Fourth",
+                            "Last"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "WeeksOfMonth"
+                          }
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "endDate",
+                      "frequency",
+                      "startDate"
+                    ],
+                    "type": "object"
+                  },
+                  "scope": {
+                    "description": "Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Status of the scheduled action.",
+                    "enum": [
+                      "Enabled",
+                      "Disabled"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ScheduledActionStatus",
+                      "values": [
+                        {
+                          "description": "Scheduled action is saved but will not be executed.",
+                          "name": "Disabled",
+                          "value": "Disabled"
+                        },
+                        {
+                          "description": "Scheduled action is saved and will be executed.",
+                          "name": "Enabled",
+                          "value": "Enabled"
+                        }
+                      ]
+                    }
+                  },
+                  "viewId": {
+                    "description": "Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "displayName",
+                  "notification",
+                  "schedule",
+                  "status",
+                  "viewId"
+                ],
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduledActionProperties"
+            },
+            {
+              "oldValue": {
+                "description": "The Resource model definition.",
+                "properties": {
+                  "eTag": {
+                    "description": "Resource Etag.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "Resource Id.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "kind": {
+                    "description": "Kind of the scheduled action.",
+                    "enum": [
+                      "Email"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ScheduledActionKind",
+                      "values": [
+                        {
+                          "description": "Cost analysis data will be emailed.",
+                          "name": "Email",
+                          "value": "Email"
+                        }
+                      ]
+                    }
+                  },
+                  "name": {
+                    "description": "Resource name.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "systemData": {
+                    "description": "Metadata pertaining to creation and last modification of the resource.",
+                    "properties": {
+                      "createdAt": {
+                        "description": "The timestamp of resource creation (UTC).",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "description": "The identity that created the resource.",
+                        "type": "string"
+                      },
+                      "createdByType": {
+                        "description": "The type of identity that created the resource.",
+                        "enum": [
+                          "User",
+                          "Application",
+                          "ManagedIdentity",
+                          "Key"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "createdByType"
+                        }
+                      },
+                      "lastModifiedAt": {
+                        "description": "The timestamp of resource last modification (UTC)",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lastModifiedBy": {
+                        "description": "The identity that last modified the resource.",
+                        "type": "string"
+                      },
+                      "lastModifiedByType": {
+                        "description": "The type of identity that last modified the resource.",
+                        "enum": [
+                          "User",
+                          "Application",
+                          "ManagedIdentity",
+                          "Key"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "createdByType"
+                        }
+                      }
+                    },
+                    "readOnly": true,
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "Resource type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-ms-azure-resource": true
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduledActionProxyResource"
+            },
+            {
+              "oldValue": {
+                "description": "Status of the scheduled action.",
+                "enum": [
+                  "Enabled",
+                  "Disabled"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "ScheduledActionStatus",
+                  "values": [
+                    {
+                      "description": "Scheduled action is saved but will not be executed.",
+                      "name": "Disabled",
+                      "value": "Disabled"
+                    },
+                    {
+                      "description": "Scheduled action is saved and will be executed.",
+                      "name": "Enabled",
+                      "value": "Enabled"
+                    }
+                  ]
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ScheduledActionStatus"
+            },
+            {
+              "oldValue": {
+                "description": "Weeks of month.",
+                "enum": [
+                  "First",
+                  "Second",
+                  "Third",
+                  "Fourth",
+                  "Last"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "WeeksOfMonth"
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/WeeksOfMonth"
+            },
+            {
+              "oldValue": {
+                "description": "Metadata pertaining to creation and last modification of the resource.",
+                "properties": {
+                  "createdAt": {
+                    "description": "The timestamp of resource creation (UTC).",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "createdBy": {
+                    "description": "The identity that created the resource.",
+                    "type": "string"
+                  },
+                  "createdByType": {
+                    "description": "The type of identity that created the resource.",
+                    "enum": [
+                      "User",
+                      "Application",
+                      "ManagedIdentity",
+                      "Key"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "createdByType"
+                    }
+                  },
+                  "lastModifiedAt": {
+                    "description": "The timestamp of resource last modification (UTC)",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastModifiedBy": {
+                    "description": "The identity that last modified the resource.",
+                    "type": "string"
+                  },
+                  "lastModifiedByType": {
+                    "description": "The type of identity that last modified the resource.",
+                    "enum": [
+                      "User",
+                      "Application",
+                      "ManagedIdentity",
+                      "Key"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "createdByType"
+                    }
+                  }
+                },
+                "readOnly": true,
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/systemData"
+            }
+          ],
+          "parameters": [
+            {
+              "oldValue": {
+                "description": "Scheduled action name.",
+                "in": "path",
+                "name": "name",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/scheduledActionNameParameter"
+            },
+            {
+              "oldValue": {
+                "description": "The scope associated with scheduled action operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.",
+                "in": "path",
+                "name": "scope",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/scopeParameter"
+            }
+          ]
+        }
+      },
+      "info": {
+        "title": {
+          "from": "CostManagementClient",
+          "to": "Cost Management common types"
+        },
+        "version": {
+          "from": "2022-04-01-preview",
+          "to": "2022-05-01"
+        }
+      },
+      "paths": {
+        "deleted": [
+          "/{scope}/providers/Microsoft.CostManagement/scheduledActions",
+          "/{scope}/providers/Microsoft.CostManagement/scheduledActions/{name}",
+          "/{scope}/providers/Microsoft.CostManagement/scheduledActions/{name}/execute",
+          "/providers/Microsoft.CostManagement/checkNameAvailability",
+          "/providers/Microsoft.CostManagement/scheduledActions",
+          "/providers/Microsoft.CostManagement/scheduledActions/{name}",
+          "/providers/Microsoft.CostManagement/scheduledActions/{name}/execute",
+          "/{scope}/providers/Microsoft.CostManagement/checkNameAvailability"
+        ]
+      },
+      "security": {
+        "deleted": [
+          "azure_auth"
+        ]
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "json",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "typing",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Optional",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Union",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Any",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "ImportFrom",
+          "module": "fastmcp",
+          "names": [
+            {
+              "type": "alias",
+              "name": "FastMCP",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[MCP SERVER] FastMCP server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Assign",
+              "targets": [
+                {
+                  "type": "Name",
+                  "id": "mcp",
+                  "ctx": {
+                    "type": "Store"
+                  }
+                }
+              ],
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Name",
+                  "id": "FastMCP",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": "my-server",
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              },
+              "type_comment": null
+            },
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "mcp",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "transport",
+                    "value": {
+                      "type": "Constant",
+                      "value": "stdio",
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

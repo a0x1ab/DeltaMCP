@@ -1,0 +1,2791 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The Action Groups information, used by the alert rule.",
+                "properties": {
+                  "customEmailSubject": {
+                    "description": "An optional custom email subject to use in email notifications.",
+                    "type": "string"
+                  },
+                  "customWebhookPayload": {
+                    "description": "An optional custom web-hook payload to use in web-hook notifications.",
+                    "type": "string"
+                  },
+                  "groupIds": {
+                    "description": "The Action Group resource IDs.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "groupIds"
+                ]
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ActionGroupsInformation"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "allOf": [
+                  {
+                    "description": "An Azure resource object",
+                    "properties": {
+                      "id": {
+                        "description": "The resource ID.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "location": {
+                        "default": "global",
+                        "description": "The resource location.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The resource name.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "tags": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "The resource tags.",
+                        "type": "object"
+                      },
+                      "type": {
+                        "description": "The resource type.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                  }
+                ],
+                "description": "The alert rule information",
+                "properties": {
+                  "properties": {
+                    "description": "The alert rule properties.",
+                    "properties": {
+                      "actionGroups": {
+                        "description": "The Action Groups information, used by the alert rule.",
+                        "properties": {
+                          "customEmailSubject": {
+                            "description": "An optional custom email subject to use in email notifications.",
+                            "type": "string"
+                          },
+                          "customWebhookPayload": {
+                            "description": "An optional custom web-hook payload to use in web-hook notifications.",
+                            "type": "string"
+                          },
+                          "groupIds": {
+                            "description": "The Action Group resource IDs.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "groupIds"
+                        ]
+                      },
+                      "description": {
+                        "description": "The alert rule description.",
+                        "type": "string"
+                      },
+                      "detector": {
+                        "description": "The detector information. By default this is not populated, unless it's specified in expandDetector",
+                        "properties": {
+                          "description": {
+                            "description": "The Smart Detector description.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "The detector id.",
+                            "type": "string"
+                          },
+                          "imagePaths": {
+                            "description": "The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector",
+                            "items": {
+                              "type": "string"
+                            },
+                            "readOnly": true,
+                            "type": "array"
+                          },
+                          "name": {
+                            "description": "The Smart Detector name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "parameterDefinitions": {
+                            "description": "The Smart Detector parameters definitions.'",
+                            "items": {
+                              "description": "The detector parameter definition.",
+                              "properties": {
+                                "description": {
+                                  "description": "The detector parameter description.",
+                                  "type": "string"
+                                },
+                                "displayName": {
+                                  "description": "The detector parameter display name.",
+                                  "type": "string"
+                                },
+                                "isMandatory": {
+                                  "description": "A value indicating whether this detector parameter is mandatory.",
+                                  "type": "boolean"
+                                },
+                                "name": {
+                                  "description": "The detector parameter name.",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "The detector parameter type.",
+                                  "enum": [
+                                    "String",
+                                    "Integer",
+                                    "Double",
+                                    "Boolean",
+                                    "DateTime"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "DetectorParameterType",
+                                    "values": [
+                                      {
+                                        "description": "Defines a string parameter.",
+                                        "value": "String"
+                                      },
+                                      {
+                                        "description": "Defines an integer parameter.",
+                                        "value": "Integer"
+                                      },
+                                      {
+                                        "description": "Defines a double parameter.",
+                                        "value": "Double"
+                                      },
+                                      {
+                                        "description": "Defines a boolean parameter.",
+                                        "value": "Boolean"
+                                      },
+                                      {
+                                        "description": "Defines a DateTime parameter.",
+                                        "value": "DateTime"
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "readOnly": true,
+                            "type": "array"
+                          },
+                          "parameters": {
+                            "additionalProperties": {
+                              "type": "object"
+                            },
+                            "description": "The detector's parameters.'",
+                            "type": "object"
+                          },
+                          "supportedCadences": {
+                            "description": "The Smart Detector supported cadences.",
+                            "items": {
+                              "format": "int32",
+                              "type": "integer"
+                            },
+                            "readOnly": true,
+                            "type": "array"
+                          },
+                          "supportedResourceTypes": {
+                            "description": "The Smart Detector supported resource types.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "readOnly": true,
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "id"
+                        ]
+                      },
+                      "frequency": {
+                        "description": "The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.",
+                        "format": "duration",
+                        "type": "string"
+                      },
+                      "scope": {
+                        "description": "The alert rule resources scope.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "severity": {
+                        "description": "The alert rule severity.",
+                        "enum": [
+                          "Sev0",
+                          "Sev1",
+                          "Sev2",
+                          "Sev3",
+                          "Sev4"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "Severity"
+                        }
+                      },
+                      "state": {
+                        "description": "The alert rule state.",
+                        "enum": [
+                          "Enabled",
+                          "Disabled"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "AlertRuleState"
+                        }
+                      },
+                      "throttling": {
+                        "description": "Optional throttling information for the alert rule.",
+                        "properties": {
+                          "duration": {
+                            "description": "The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes",
+                            "format": "duration",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "state",
+                      "severity",
+                      "frequency",
+                      "detector",
+                      "scope",
+                      "actionGroups"
+                    ]
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AlertRule"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The alert rule patch information",
+                "properties": {
+                  "id": {
+                    "description": "The resource ID.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "The resource name.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "properties": {
+                    "description": "The alert rule properties.",
+                    "properties": {
+                      "actionGroups": {
+                        "description": "The Action Groups information, used by the alert rule.",
+                        "properties": {
+                          "customEmailSubject": {
+                            "description": "An optional custom email subject to use in email notifications.",
+                            "type": "string"
+                          },
+                          "customWebhookPayload": {
+                            "description": "An optional custom web-hook payload to use in web-hook notifications.",
+                            "type": "string"
+                          },
+                          "groupIds": {
+                            "description": "The Action Group resource IDs.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "groupIds"
+                        ]
+                      },
+                      "description": {
+                        "description": "The alert rule description.",
+                        "type": "string"
+                      },
+                      "frequency": {
+                        "description": "The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.",
+                        "format": "duration",
+                        "type": "string"
+                      },
+                      "severity": {
+                        "description": "The alert rule severity.",
+                        "enum": [
+                          "Sev0",
+                          "Sev1",
+                          "Sev2",
+                          "Sev3",
+                          "Sev4"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "Severity"
+                        }
+                      },
+                      "state": {
+                        "description": "The alert rule state.",
+                        "enum": [
+                          "Enabled",
+                          "Disabled"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "AlertRuleState"
+                        }
+                      },
+                      "throttling": {
+                        "description": "Optional throttling information for the alert rule.",
+                        "properties": {
+                          "duration": {
+                            "description": "The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes",
+                            "format": "duration",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "tags": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "The resource tags.",
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The resource type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AlertRulePatchObject"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The alert rule properties.",
+                "properties": {
+                  "actionGroups": {
+                    "description": "The Action Groups information, used by the alert rule.",
+                    "properties": {
+                      "customEmailSubject": {
+                        "description": "An optional custom email subject to use in email notifications.",
+                        "type": "string"
+                      },
+                      "customWebhookPayload": {
+                        "description": "An optional custom web-hook payload to use in web-hook notifications.",
+                        "type": "string"
+                      },
+                      "groupIds": {
+                        "description": "The Action Group resource IDs.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "groupIds"
+                    ]
+                  },
+                  "description": {
+                    "description": "The alert rule description.",
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "description": "The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.",
+                    "format": "duration",
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "The alert rule severity.",
+                    "enum": [
+                      "Sev0",
+                      "Sev1",
+                      "Sev2",
+                      "Sev3",
+                      "Sev4"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "Severity"
+                    }
+                  },
+                  "state": {
+                    "description": "The alert rule state.",
+                    "enum": [
+                      "Enabled",
+                      "Disabled"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "AlertRuleState"
+                    }
+                  },
+                  "throttling": {
+                    "description": "Optional throttling information for the alert rule.",
+                    "properties": {
+                      "duration": {
+                        "description": "The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes",
+                        "format": "duration",
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AlertRulePatchProperties"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The alert rule properties.",
+                "properties": {
+                  "actionGroups": {
+                    "description": "The Action Groups information, used by the alert rule.",
+                    "properties": {
+                      "customEmailSubject": {
+                        "description": "An optional custom email subject to use in email notifications.",
+                        "type": "string"
+                      },
+                      "customWebhookPayload": {
+                        "description": "An optional custom web-hook payload to use in web-hook notifications.",
+                        "type": "string"
+                      },
+                      "groupIds": {
+                        "description": "The Action Group resource IDs.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "groupIds"
+                    ]
+                  },
+                  "description": {
+                    "description": "The alert rule description.",
+                    "type": "string"
+                  },
+                  "detector": {
+                    "description": "The detector information. By default this is not populated, unless it's specified in expandDetector",
+                    "properties": {
+                      "description": {
+                        "description": "The Smart Detector description.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "The detector id.",
+                        "type": "string"
+                      },
+                      "imagePaths": {
+                        "description": "The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector",
+                        "items": {
+                          "type": "string"
+                        },
+                        "readOnly": true,
+                        "type": "array"
+                      },
+                      "name": {
+                        "description": "The Smart Detector name.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "parameterDefinitions": {
+                        "description": "The Smart Detector parameters definitions.'",
+                        "items": {
+                          "description": "The detector parameter definition.",
+                          "properties": {
+                            "description": {
+                              "description": "The detector parameter description.",
+                              "type": "string"
+                            },
+                            "displayName": {
+                              "description": "The detector parameter display name.",
+                              "type": "string"
+                            },
+                            "isMandatory": {
+                              "description": "A value indicating whether this detector parameter is mandatory.",
+                              "type": "boolean"
+                            },
+                            "name": {
+                              "description": "The detector parameter name.",
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "The detector parameter type.",
+                              "enum": [
+                                "String",
+                                "Integer",
+                                "Double",
+                                "Boolean",
+                                "DateTime"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DetectorParameterType",
+                                "values": [
+                                  {
+                                    "description": "Defines a string parameter.",
+                                    "value": "String"
+                                  },
+                                  {
+                                    "description": "Defines an integer parameter.",
+                                    "value": "Integer"
+                                  },
+                                  {
+                                    "description": "Defines a double parameter.",
+                                    "value": "Double"
+                                  },
+                                  {
+                                    "description": "Defines a boolean parameter.",
+                                    "value": "Boolean"
+                                  },
+                                  {
+                                    "description": "Defines a DateTime parameter.",
+                                    "value": "DateTime"
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "readOnly": true,
+                        "type": "array"
+                      },
+                      "parameters": {
+                        "additionalProperties": {
+                          "type": "object"
+                        },
+                        "description": "The detector's parameters.'",
+                        "type": "object"
+                      },
+                      "supportedCadences": {
+                        "description": "The Smart Detector supported cadences.",
+                        "items": {
+                          "format": "int32",
+                          "type": "integer"
+                        },
+                        "readOnly": true,
+                        "type": "array"
+                      },
+                      "supportedResourceTypes": {
+                        "description": "The Smart Detector supported resource types.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "readOnly": true,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ]
+                  },
+                  "frequency": {
+                    "description": "The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.",
+                    "format": "duration",
+                    "type": "string"
+                  },
+                  "scope": {
+                    "description": "The alert rule resources scope.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "severity": {
+                    "description": "The alert rule severity.",
+                    "enum": [
+                      "Sev0",
+                      "Sev1",
+                      "Sev2",
+                      "Sev3",
+                      "Sev4"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "Severity"
+                    }
+                  },
+                  "state": {
+                    "description": "The alert rule state.",
+                    "enum": [
+                      "Enabled",
+                      "Disabled"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "AlertRuleState"
+                    }
+                  },
+                  "throttling": {
+                    "description": "Optional throttling information for the alert rule.",
+                    "properties": {
+                      "duration": {
+                        "description": "The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes",
+                        "format": "duration",
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "state",
+                  "severity",
+                  "frequency",
+                  "detector",
+                  "scope",
+                  "actionGroups"
+                ]
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AlertRuleProperties"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "List of Smart Detector alert rules.",
+                "properties": {
+                  "nextLink": {
+                    "description": "The URL to get the next set of results.",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "List of Smart Detector alert rules.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "description": "An Azure resource object",
+                          "properties": {
+                            "id": {
+                              "description": "The resource ID.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "location": {
+                              "default": "global",
+                              "description": "The resource location.",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "The resource name.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "tags": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "The resource tags.",
+                              "type": "object"
+                            },
+                            "type": {
+                              "description": "The resource type.",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object",
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "The alert rule information",
+                      "properties": {
+                        "properties": {
+                          "description": "The alert rule properties.",
+                          "properties": {
+                            "actionGroups": {
+                              "description": "The Action Groups information, used by the alert rule.",
+                              "properties": {
+                                "customEmailSubject": {
+                                  "description": "An optional custom email subject to use in email notifications.",
+                                  "type": "string"
+                                },
+                                "customWebhookPayload": {
+                                  "description": "An optional custom web-hook payload to use in web-hook notifications.",
+                                  "type": "string"
+                                },
+                                "groupIds": {
+                                  "description": "The Action Group resource IDs.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "groupIds"
+                              ]
+                            },
+                            "description": {
+                              "description": "The alert rule description.",
+                              "type": "string"
+                            },
+                            "detector": {
+                              "description": "The detector information. By default this is not populated, unless it's specified in expandDetector",
+                              "properties": {
+                                "description": {
+                                  "description": "The Smart Detector description.",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "id": {
+                                  "description": "The detector id.",
+                                  "type": "string"
+                                },
+                                "imagePaths": {
+                                  "description": "The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "readOnly": true,
+                                  "type": "array"
+                                },
+                                "name": {
+                                  "description": "The Smart Detector name.",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "parameterDefinitions": {
+                                  "description": "The Smart Detector parameters definitions.'",
+                                  "items": {
+                                    "description": "The detector parameter definition.",
+                                    "properties": {
+                                      "description": {
+                                        "description": "The detector parameter description.",
+                                        "type": "string"
+                                      },
+                                      "displayName": {
+                                        "description": "The detector parameter display name.",
+                                        "type": "string"
+                                      },
+                                      "isMandatory": {
+                                        "description": "A value indicating whether this detector parameter is mandatory.",
+                                        "type": "boolean"
+                                      },
+                                      "name": {
+                                        "description": "The detector parameter name.",
+                                        "type": "string"
+                                      },
+                                      "type": {
+                                        "description": "The detector parameter type.",
+                                        "enum": [
+                                          "String",
+                                          "Integer",
+                                          "Double",
+                                          "Boolean",
+                                          "DateTime"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                          "modelAsString": true,
+                                          "name": "DetectorParameterType",
+                                          "values": [
+                                            {
+                                              "description": "Defines a string parameter.",
+                                              "value": "String"
+                                            },
+                                            {
+                                              "description": "Defines an integer parameter.",
+                                              "value": "Integer"
+                                            },
+                                            {
+                                              "description": "Defines a double parameter.",
+                                              "value": "Double"
+                                            },
+                                            {
+                                              "description": "Defines a boolean parameter.",
+                                              "value": "Boolean"
+                                            },
+                                            {
+                                              "description": "Defines a DateTime parameter.",
+                                              "value": "DateTime"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "readOnly": true,
+                                  "type": "array"
+                                },
+                                "parameters": {
+                                  "additionalProperties": {
+                                    "type": "object"
+                                  },
+                                  "description": "The detector's parameters.'",
+                                  "type": "object"
+                                },
+                                "supportedCadences": {
+                                  "description": "The Smart Detector supported cadences.",
+                                  "items": {
+                                    "format": "int32",
+                                    "type": "integer"
+                                  },
+                                  "readOnly": true,
+                                  "type": "array"
+                                },
+                                "supportedResourceTypes": {
+                                  "description": "The Smart Detector supported resource types.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "readOnly": true,
+                                  "type": "array"
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ]
+                            },
+                            "frequency": {
+                              "description": "The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.",
+                              "format": "duration",
+                              "type": "string"
+                            },
+                            "scope": {
+                              "description": "The alert rule resources scope.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "severity": {
+                              "description": "The alert rule severity.",
+                              "enum": [
+                                "Sev0",
+                                "Sev1",
+                                "Sev2",
+                                "Sev3",
+                                "Sev4"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "Severity"
+                              }
+                            },
+                            "state": {
+                              "description": "The alert rule state.",
+                              "enum": [
+                                "Enabled",
+                                "Disabled"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "AlertRuleState"
+                              }
+                            },
+                            "throttling": {
+                              "description": "Optional throttling information for the alert rule.",
+                              "properties": {
+                                "duration": {
+                                  "description": "The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes",
+                                  "format": "duration",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "required": [
+                            "state",
+                            "severity",
+                            "frequency",
+                            "detector",
+                            "scope",
+                            "actionGroups"
+                          ]
+                        }
+                      }
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AlertRulesList"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "An Azure resource object",
+                "properties": {
+                  "id": {
+                    "description": "The resource ID.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "location": {
+                    "default": "global",
+                    "description": "The resource location.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "The resource name.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "tags": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "The resource tags.",
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The resource type.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-ms-azure-resource": true
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AzureResource"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The detector information. By default this is not populated, unless it's specified in expandDetector",
+                "properties": {
+                  "description": {
+                    "description": "The Smart Detector description.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "The detector id.",
+                    "type": "string"
+                  },
+                  "imagePaths": {
+                    "description": "The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "name": {
+                    "description": "The Smart Detector name.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "parameterDefinitions": {
+                    "description": "The Smart Detector parameters definitions.'",
+                    "items": {
+                      "description": "The detector parameter definition.",
+                      "properties": {
+                        "description": {
+                          "description": "The detector parameter description.",
+                          "type": "string"
+                        },
+                        "displayName": {
+                          "description": "The detector parameter display name.",
+                          "type": "string"
+                        },
+                        "isMandatory": {
+                          "description": "A value indicating whether this detector parameter is mandatory.",
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "description": "The detector parameter name.",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The detector parameter type.",
+                          "enum": [
+                            "String",
+                            "Integer",
+                            "Double",
+                            "Boolean",
+                            "DateTime"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "DetectorParameterType",
+                            "values": [
+                              {
+                                "description": "Defines a string parameter.",
+                                "value": "String"
+                              },
+                              {
+                                "description": "Defines an integer parameter.",
+                                "value": "Integer"
+                              },
+                              {
+                                "description": "Defines a double parameter.",
+                                "value": "Double"
+                              },
+                              {
+                                "description": "Defines a boolean parameter.",
+                                "value": "Boolean"
+                              },
+                              {
+                                "description": "Defines a DateTime parameter.",
+                                "value": "DateTime"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "parameters": {
+                    "additionalProperties": {
+                      "type": "object"
+                    },
+                    "description": "The detector's parameters.'",
+                    "type": "object"
+                  },
+                  "supportedCadences": {
+                    "description": "The Smart Detector supported cadences.",
+                    "items": {
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  },
+                  "supportedResourceTypes": {
+                    "description": "The Smart Detector supported resource types.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              },
+              "op": "add",
+              "from": "",
+              "path": "/Detector"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The detector parameter definition.",
+                "properties": {
+                  "description": {
+                    "description": "The detector parameter description.",
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "description": "The detector parameter display name.",
+                    "type": "string"
+                  },
+                  "isMandatory": {
+                    "description": "A value indicating whether this detector parameter is mandatory.",
+                    "type": "boolean"
+                  },
+                  "name": {
+                    "description": "The detector parameter name.",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "The detector parameter type.",
+                    "enum": [
+                      "String",
+                      "Integer",
+                      "Double",
+                      "Boolean",
+                      "DateTime"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "DetectorParameterType",
+                      "values": [
+                        {
+                          "description": "Defines a string parameter.",
+                          "value": "String"
+                        },
+                        {
+                          "description": "Defines an integer parameter.",
+                          "value": "Integer"
+                        },
+                        {
+                          "description": "Defines a double parameter.",
+                          "value": "Double"
+                        },
+                        {
+                          "description": "Defines a boolean parameter.",
+                          "value": "Boolean"
+                        },
+                        {
+                          "description": "Defines a DateTime parameter.",
+                          "value": "DateTime"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/DetectorParameterDefinition"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "API error.",
+                "properties": {
+                  "error": {
+                    "description": "API error body.",
+                    "properties": {
+                      "code": {
+                        "description": "Error code",
+                        "type": "string"
+                      },
+                      "message": {
+                        "description": "Error message indicating why the operation failed.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/SmartDetectorErrorResponse"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "API error body.",
+                "properties": {
+                  "code": {
+                    "description": "Error code",
+                    "type": "string"
+                  },
+                  "message": {
+                    "description": "Error message indicating why the operation failed.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/SmartDetectorErrorResponseBody"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Optional throttling information for the alert rule.",
+                "properties": {
+                  "duration": {
+                    "description": "The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes",
+                    "format": "duration",
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ThrottlingInformation"
+            },
+            {
+              "oldValue": {
+                "description": "Operation provided by provider",
+                "properties": {
+                  "display": {
+                    "description": "Properties of the operation",
+                    "properties": {
+                      "description": {
+                        "description": "Description of the operation",
+                        "type": "string"
+                      },
+                      "operation": {
+                        "description": "Operation name",
+                        "type": "string"
+                      },
+                      "provider": {
+                        "description": "Provider name",
+                        "type": "string"
+                      },
+                      "resource": {
+                        "description": "Resource name",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": {
+                    "description": "Name of the operation",
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/operation"
+            },
+            {
+              "oldValue": {
+                "description": "Lists the operations available in the AlertsManagement RP.",
+                "properties": {
+                  "nextLink": {
+                    "description": "URL to fetch the next set of operations.",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "Array of operations",
+                    "items": {
+                      "description": "Operation provided by provider",
+                      "properties": {
+                        "display": {
+                          "description": "Properties of the operation",
+                          "properties": {
+                            "description": {
+                              "description": "Description of the operation",
+                              "type": "string"
+                            },
+                            "operation": {
+                              "description": "Operation name",
+                              "type": "string"
+                            },
+                            "provider": {
+                              "description": "Provider name",
+                              "type": "string"
+                            },
+                            "resource": {
+                              "description": "Resource name",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "name": {
+                          "description": "Name of the operation",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "value"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/operationsList"
+            }
+          ],
+          "parameters": [
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The name of the alert rule.",
+                "in": "path",
+                "name": "alertRuleName",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AlertRuleNameParameter"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Indicates if Smart Detector should be expanded.",
+                "in": "query",
+                "name": "expandDetector",
+                "type": "boolean",
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ExpandDetectorParameter"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The name of the resource group.",
+                "in": "path",
+                "name": "resourceGroupName",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ResourceGroupNameParameter"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The Azure subscription Id.",
+                "in": "path",
+                "minLength": 1,
+                "name": "subscriptionId",
+                "required": true,
+                "type": "string"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/subscriptionId"
+            }
+          ]
+        }
+      },
+      "info": {
+        "description": {
+          "from": "Azure Alerts Management Service provides a single pane of glass of alerts across Azure Monitor.",
+          "to": "APIs for Azure Smart Detector Alert Rules CRUD operations."
+        },
+        "version": {
+          "from": "2021-01-01-preview",
+          "to": "2021-04-01"
+        }
+      },
+      "paths": {
+        "added": [
+          "/subscriptions/{subscriptionId}/providers/microsoft.alertsManagement/smartDetectorAlertRules",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.alertsManagement/smartDetectorAlertRules/{alertRuleName}"
+        ],
+        "deleted": [
+          "/providers/Microsoft.AlertsManagement/operations"
+        ]
+      },
+      "security": {
+        "added": [
+          "azure_auth"
+        ]
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "json",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "typing",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Optional",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Union",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Any",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "ImportFrom",
+          "module": "fastmcp",
+          "names": [
+            {
+              "type": "alias",
+              "name": "FastMCP",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[MCP SERVER] FastMCP server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Assign",
+              "targets": [
+                {
+                  "type": "Name",
+                  "id": "mcp",
+                  "ctx": {
+                    "type": "Store"
+                  }
+                }
+              ],
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Name",
+                  "id": "FastMCP",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": "my-server",
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              },
+              "type_comment": null
+            },
+            {
+              "type": "FunctionDef",
+              "name": "Operations_List",
+              "args": {
+                "type": "arguments",
+                "posonlyargs": [],
+                "args": [
+                  {
+                    "type": "arg",
+                    "arg": "api_version",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  }
+                ],
+                "vararg": null,
+                "kwonlyargs": [],
+                "kw_defaults": [],
+                "kwarg": null,
+                "defaults": [
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  }
+                ]
+              },
+              "body": [
+                {
+                  "type": "Expr",
+                  "value": {
+                    "type": "Constant",
+                    "value": "List all operations available through Azure Alerts Management Resource Provider.",
+                    "kind": null
+                  }
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "base_url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": "https://management.azure.com",
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "JoinedStr",
+                    "values": [
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "base_url",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/providers/Microsoft.AlertsManagement/operations",
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "params",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "cookies",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "extra_headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Call",
+                    "func": {
+                      "type": "Attribute",
+                      "value": {
+                        "type": "Name",
+                        "id": "os",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "attr": "getenv",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "args": [
+                      {
+                        "type": "Constant",
+                        "value": "EXTRA_HEADERS",
+                        "kind": null
+                      }
+                    ],
+                    "keywords": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Name",
+                    "id": "extra_headers",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "For",
+                          "target": {
+                            "type": "Tuple",
+                            "elts": [
+                              {
+                                "type": "Name",
+                                "id": "k",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              },
+                              {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "ctx": {
+                              "type": "Store"
+                            }
+                          },
+                          "iter": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "json",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "loads",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Name",
+                                    "id": "extra_headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "attr": "items",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          },
+                          "body": [
+                            {
+                              "type": "Assign",
+                              "targets": [
+                                {
+                                  "type": "Subscript",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "slice": {
+                                    "type": "Name",
+                                    "id": "k",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "ctx": {
+                                    "type": "Store"
+                                  }
+                                }
+                              ],
+                              "value": {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "type_comment": null
+                            }
+                          ],
+                          "orelse": [],
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "print",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Failed to parse EXTRA_HEADERS:",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "Name",
+                                    "id": "e",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "api_version",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "api-version",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "api_version",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Try",
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Name",
+                          "id": "resp",
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "get",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Name",
+                            "id": "url",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          }
+                        ],
+                        "keywords": [
+                          {
+                            "type": "keyword",
+                            "arg": "params",
+                            "value": {
+                              "type": "Name",
+                              "id": "params",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "headers",
+                            "value": {
+                              "type": "Name",
+                              "id": "headers",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "cookies",
+                            "value": {
+                              "type": "Name",
+                              "id": "cookies",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "type_comment": null
+                    },
+                    {
+                      "type": "Expr",
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "resp",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "raise_for_status",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [],
+                        "keywords": []
+                      }
+                    },
+                    {
+                      "type": "If",
+                      "test": {
+                        "type": "Compare",
+                        "left": {
+                          "type": "Constant",
+                          "value": "application/json",
+                          "kind": null
+                        },
+                        "ops": [
+                          {
+                            "type": "In"
+                          }
+                        ],
+                        "comparators": [
+                          {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "get",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "Content-Type",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          }
+                        ]
+                      },
+                      "body": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "resp",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "json",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          }
+                        }
+                      ],
+                      "orelse": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Dict",
+                            "keys": [
+                              {
+                                "type": "Constant",
+                                "value": "raw",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "status_code",
+                                "kind": null
+                              }
+                            ],
+                            "values": [
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "text",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "status_code",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "handlers": [
+                    {
+                      "type": {
+                        "type": "Attribute",
+                        "value": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "exceptions",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "attr": "RequestException",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "HTTP request failed: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "type": "Name",
+                        "id": "Exception",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Unexpected error: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    }
+                  ],
+                  "orelse": [],
+                  "finalbody": []
+                }
+              ],
+              "decorator_list": [
+                {
+                  "type": "Call",
+                  "func": {
+                    "type": "Attribute",
+                    "value": {
+                      "type": "Name",
+                      "id": "mcp",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "attr": "tool",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "args": [],
+                  "keywords": [
+                    {
+                      "type": "keyword",
+                      "arg": "name",
+                      "value": {
+                        "type": "Constant",
+                        "value": "Operations_List",
+                        "kind": null
+                      }
+                    },
+                    {
+                      "type": "keyword",
+                      "arg": "description",
+                      "value": {
+                        "type": "Constant",
+                        "value": "List all operations available through Azure Alerts Management Resource Provider.",
+                        "kind": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "returns": null,
+              "type_comment": null,
+              "type_params": []
+            },
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "mcp",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "transport",
+                    "value": {
+                      "type": "Constant",
+                      "value": "stdio",
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

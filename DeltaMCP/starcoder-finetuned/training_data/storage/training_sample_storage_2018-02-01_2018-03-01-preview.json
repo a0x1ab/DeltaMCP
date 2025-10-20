@@ -1,0 +1,2142 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                "properties": {
+                  "policy": {
+                    "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                    "type": "object"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ManagementPoliciesRules"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                "properties": {
+                  "properties": {
+                    "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                    "properties": {
+                      "policy": {
+                        "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ManagementPoliciesRulesSetParameter"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "allOf": [
+                  {
+                    "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                    "properties": {
+                      "id": {
+                        "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name of the resource",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "title": "Resource",
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                  }
+                ],
+                "description": "The Get Storage Account ManagementPolicies operation response.",
+                "properties": {
+                  "properties": {
+                    "allOf": [
+                      {
+                        "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                        "properties": {
+                          "policy": {
+                            "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                            "type": "object"
+                          }
+                        }
+                      }
+                    ],
+                    "description": "The Storage Account Data Policies properties.",
+                    "properties": {
+                      "lastModifiedTime": {
+                        "description": "Returns the date and time the ManagementPolicies was last modified.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/StorageAccountManagementPolicies"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "allOf": [
+                  {
+                    "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                    "properties": {
+                      "policy": {
+                        "description": "The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.",
+                        "type": "object"
+                      }
+                    }
+                  }
+                ],
+                "description": "The Storage Account Data Policies properties.",
+                "properties": {
+                  "lastModifiedTime": {
+                    "description": "Returns the date and time the ManagementPolicies was last modified.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/StorageAccountManagementPoliciesRulesProperty"
+            }
+          ],
+          "parameters": [
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The name of the Storage Account Management Policy. It should always be 'default'",
+                "enum": [
+                  "default"
+                ],
+                "in": "path",
+                "name": "managementPolicyName",
+                "required": true,
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "ManagementPolicyName"
+                },
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ManagementPolicyName"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+                "in": "path",
+                "maxLength": 24,
+                "minLength": 3,
+                "name": "accountName",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/StorageAccountName"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2018-02-01",
+          "to": "2018-03-01-preview"
+        }
+      },
+      "paths": {
+        "added": [
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/managementPolicies/{managementPolicyName}"
+        ],
+        "modified": {
+          "/providers/Microsoft.Storage/operations": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/OperationsList/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/checkNameAvailability": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountCheckNameAvailability/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/locations/{location}/usages": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/UsageList/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "operationID": {
+                    "from": "Usage_ListByLocation",
+                    "to": "Usages_ListByLocation"
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/skus": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/SkuList/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/parameters/api-version"
+                        },
+                        {
+                          "oldValue": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto6637",
+                            "identity": {
+                              "principalId": "911871cc-ffd1-4fc4-ac11-7a316433ea66",
+                              "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                              "type": "SystemAssigned"
+                            },
+                            "kind": "Storage",
+                            "location": "eastus2euap",
+                            "name": "sto6637",
+                            "properties": {
+                              "creationTime": "2017-05-24T10:09:39.5625175Z",
+                              "primaryEndpoints": {
+                                "blob": "https://sto6637.blob.core.windows.net/",
+                                "file": "https://sto6637.file.core.windows.net/",
+                                "queue": "https://sto6637.queue.core.windows.net/",
+                                "table": "https://sto6637.table.core.windows.net/"
+                              },
+                              "primaryLocation": "eastus2euap",
+                              "provisioningState": "Succeeded",
+                              "secondaryLocation": "centraluseuap",
+                              "statusOfPrimary": "available",
+                              "statusOfSecondary": "available",
+                              "supportsHttpsTrafficOnly": false
+                            },
+                            "sku": {
+                              "name": "Standard_GRS",
+                              "tier": "Standard"
+                            },
+                            "tags": {
+                              "key1": "value1",
+                              "key2": "value2"
+                            },
+                            "type": "Microsoft.Storage/storageAccounts"
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/2"
+                        },
+                        {
+                          "oldValue": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/res8186/providers/Microsoft.Storage/storageAccounts/sto834",
+                            "kind": "Storage",
+                            "location": "eastus2euap",
+                            "name": "sto834",
+                            "properties": {
+                              "creationTime": "2017-05-24T13:28:20.8686541Z",
+                              "primaryEndpoints": {
+                                "blob": "https://sto834.blob.core.windows.net/",
+                                "file": "https://sto834.file.core.windows.net/",
+                                "queue": "https://sto834.queue.core.windows.net/",
+                                "table": "https://sto834.table.core.windows.net/"
+                              },
+                              "primaryLocation": "eastus2euap",
+                              "provisioningState": "Succeeded",
+                              "secondaryLocation": "centraluseuap",
+                              "statusOfPrimary": "available",
+                              "statusOfSecondary": "available",
+                              "supportsHttpsTrafficOnly": false
+                            },
+                            "sku": {
+                              "name": "Standard_GRS",
+                              "tier": "Standard"
+                            },
+                            "tags": {
+                              "key1": "value1",
+                              "key2": "value2"
+                            },
+                            "type": "Microsoft.Storage/storageAccounts"
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/2"
+                        },
+                        {
+                          "oldValue": {
+                            "id": "/subscriptions/{subscription-id}/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto9174",
+                            "identity": {
+                              "principalId": "933e3ddf-1802-4a51-9469-18a33b576f88",
+                              "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                              "type": "SystemAssigned"
+                            },
+                            "kind": "Storage",
+                            "location": "eastus2euap",
+                            "name": "sto9174",
+                            "properties": {
+                              "creationTime": "2017-05-24T09:46:19.6556989Z",
+                              "primaryEndpoints": {
+                                "blob": "https://sto9174.blob.core.windows.net/",
+                                "file": "https://sto9174.file.core.windows.net/",
+                                "queue": "https://sto9174.queue.core.windows.net/",
+                                "table": "https://sto9174.table.core.windows.net/"
+                              },
+                              "primaryLocation": "eastus2euap",
+                              "provisioningState": "Succeeded",
+                              "secondaryLocation": "centraluseuap",
+                              "statusOfPrimary": "available",
+                              "statusOfSecondary": "available",
+                              "supportsHttpsTrafficOnly": false
+                            },
+                            "sku": {
+                              "name": "Standard_GRS",
+                              "tier": "Standard"
+                            },
+                            "tags": {
+                              "key1": "value1",
+                              "key2": "value2"
+                            },
+                            "type": "Microsoft.Storage/storageAccounts"
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/2"
+                        },
+                        {
+                          "oldValue": "/subscriptions/{subscription-id}/resourceGroups/res2627/providers/Microsoft.Storage/storageAccounts/sto1125",
+                          "value": "/subscriptions/{subscription-id}/resourceGroups/weitest/providers/Microsoft.Storage/storageAccounts/weiwebtest",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/id"
+                        },
+                        {
+                          "oldValue": "Storage",
+                          "value": "StorageV2",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/kind"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/location"
+                        },
+                        {
+                          "oldValue": "sto1125",
+                          "value": "weiwebtest",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/name"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": "Hot",
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/accessTier"
+                        },
+                        {
+                          "oldValue": "2017-05-24T13:28:53.4540398Z",
+                          "value": "2018-04-09T08:07:07.4348556Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-09T08:07:07.5286091Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-09T08:07:07.5286091Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/encryption"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "bypass": "AzureServices",
+                            "defaultAction": "Allow",
+                            "ipRules": [],
+                            "virtualNetworkRules": []
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/networkAcls"
+                        },
+                        {
+                          "oldValue": "https://sto1125.blob.core.windows.net/",
+                          "value": "https://weiwebtest.blob.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryEndpoints/blob"
+                        },
+                        {
+                          "oldValue": "https://sto1125.dfs.core.windows.net/",
+                          "value": "https://weiwebtest.dfs.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryEndpoints/dfs"
+                        },
+                        {
+                          "oldValue": "https://sto1125.file.core.windows.net/",
+                          "value": "https://weiwebtest.file.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryEndpoints/file"
+                        },
+                        {
+                          "oldValue": "https://sto1125.queue.core.windows.net/",
+                          "value": "https://weiwebtest.queue.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryEndpoints/queue"
+                        },
+                        {
+                          "oldValue": "https://sto1125.table.core.windows.net/",
+                          "value": "https://weiwebtest.table.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryEndpoints/table"
+                        },
+                        {
+                          "oldValue": "https://sto1125.web.core.windows.net/",
+                          "value": "https://weiwebtest.web.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryEndpoints/web"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/primaryLocation"
+                        },
+                        {
+                          "oldValue": "centraluseuap",
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/secondaryLocation"
+                        },
+                        {
+                          "oldValue": "available",
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/properties/statusOfSecondary"
+                        },
+                        {
+                          "oldValue": "Standard_GRS",
+                          "value": "Standard_LRS",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/sku/name"
+                        },
+                        {
+                          "oldValue": "value1",
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/tags/key1"
+                        },
+                        {
+                          "oldValue": "value2",
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/0/tags/key2"
+                        },
+                        {
+                          "oldValue": "/subscriptions/{subscription-id}/resourceGroups/testcmk3/providers/Microsoft.Storage/storageAccounts/sto3699",
+                          "value": "/subscriptions/{subscription-id}/resourceGroups/res4940/providers/Microsoft.Storage/storageAccounts/sto7478",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/id"
+                        },
+                        {
+                          "oldValue": {
+                            "principalId": "356d057d-cba5-44dd-8a30-b2e547bc416b",
+                            "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                            "type": "SystemAssigned"
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/identity"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/location"
+                        },
+                        {
+                          "oldValue": "sto3699",
+                          "value": "sto7478",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/name"
+                        },
+                        {
+                          "oldValue": "2017-05-24T10:06:30.6093014Z",
+                          "value": "2018-03-23T09:43:18.5989502Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-03-23T09:43:18.6145793Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-03-23T09:43:18.6145793Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/encryption"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "bypass": "AzureServices",
+                            "defaultAction": "Allow",
+                            "ipRules": [],
+                            "virtualNetworkRules": []
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/networkAcls"
+                        },
+                        {
+                          "oldValue": "https://sto3699.blob.core.windows.net/",
+                          "value": "https://sto7478.blob.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/primaryEndpoints/blob"
+                        },
+                        {
+                          "oldValue": "https://sto3699.file.core.windows.net/",
+                          "value": "https://sto7478.file.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/primaryEndpoints/file"
+                        },
+                        {
+                          "oldValue": "https://sto3699.queue.core.windows.net/",
+                          "value": "https://sto7478.queue.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/primaryEndpoints/queue"
+                        },
+                        {
+                          "oldValue": "https://sto3699.table.core.windows.net/",
+                          "value": "https://sto7478.table.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/primaryEndpoints/table"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/primaryLocation"
+                        },
+                        {
+                          "oldValue": "centraluseuap",
+                          "value": "northcentralus(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountList/responses/200/body/value/1/properties/secondaryLocation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Storage/usages": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/UsageList/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "operationID": {
+                    "from": "Usage_List",
+                    "to": "Usages_List"
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "res6117",
+                          "value": "res4669",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/parameters/resourceGroupName"
+                        },
+                        {
+                          "oldValue": "/subscriptions/{subscription-id}/resourceGroups/res6117/providers/Microsoft.Storage/storageAccounts/sto4036",
+                          "value": "/subscriptions/{subscription-id}/resourceGroups/res4669/providers/Microsoft.Storage/storageAccounts/sto652",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/id"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/location"
+                        },
+                        {
+                          "oldValue": "sto4036",
+                          "value": "sto652",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/name"
+                        },
+                        {
+                          "oldValue": "2017-05-24T13:24:47.818801Z",
+                          "value": "2018-04-13T06:35:32.5866198Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:35:32.6334899Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:35:32.6334899Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/encryption"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "bypass": "AzureServices",
+                            "defaultAction": "Allow",
+                            "ipRules": [],
+                            "virtualNetworkRules": []
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/networkAcls"
+                        },
+                        {
+                          "oldValue": "https://sto4036.blob.core.windows.net/",
+                          "value": "https://sto652.blob.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryEndpoints/blob"
+                        },
+                        {
+                          "oldValue": "https://sto4036.dfs.core.windows.net/",
+                          "value": "https://sto652.dfs.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryEndpoints/dfs"
+                        },
+                        {
+                          "oldValue": "https://sto4036.file.core.windows.net/",
+                          "value": "https://sto652.file.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryEndpoints/file"
+                        },
+                        {
+                          "oldValue": "https://sto4036.queue.core.windows.net/",
+                          "value": "https://sto652.queue.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryEndpoints/queue"
+                        },
+                        {
+                          "oldValue": "https://sto4036.table.core.windows.net/",
+                          "value": "https://sto652.table.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryEndpoints/table"
+                        },
+                        {
+                          "oldValue": "https://sto4036.web.core.windows.net/",
+                          "value": "https://sto652.web.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryEndpoints/web"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/primaryLocation"
+                        },
+                        {
+                          "oldValue": "centraluseuap",
+                          "value": "northcentralus(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/0/properties/secondaryLocation"
+                        },
+                        {
+                          "oldValue": "/subscriptions/{subscription-id}/resourceGroups/res6117/providers/Microsoft.Storage/storageAccounts/sto4452",
+                          "value": "/subscriptions/{subscription-id}/resourceGroups/res4669/providers/Microsoft.Storage/storageAccounts/sto9937",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/id"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/location"
+                        },
+                        {
+                          "oldValue": "sto4452",
+                          "value": "sto9937",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/name"
+                        },
+                        {
+                          "oldValue": "2017-05-24T13:24:15.7068366Z",
+                          "value": "2018-04-13T06:35:13.6607394Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:35:13.7388977Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:35:13.7388977Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/encryption"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "bypass": "AzureServices",
+                            "defaultAction": "Allow",
+                            "ipRules": [],
+                            "virtualNetworkRules": []
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/networkAcls"
+                        },
+                        {
+                          "oldValue": "https://sto4452.blob.core.windows.net/",
+                          "value": "https://sto9937.blob.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/primaryEndpoints/blob"
+                        },
+                        {
+                          "oldValue": "https://sto4452.file.core.windows.net/",
+                          "value": "https://sto9937.file.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/primaryEndpoints/file"
+                        },
+                        {
+                          "oldValue": "https://sto4452.queue.core.windows.net/",
+                          "value": "https://sto9937.queue.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/primaryEndpoints/queue"
+                        },
+                        {
+                          "oldValue": "https://sto4452.table.core.windows.net/",
+                          "value": "https://sto9937.table.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/primaryEndpoints/table"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": "https://sto9937.web.core.windows.net/",
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/primaryEndpoints/web"
+                        },
+                        {
+                          "oldValue": "eastus2euap",
+                          "value": "eastus2(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/primaryLocation"
+                        },
+                        {
+                          "oldValue": "centraluseuap",
+                          "value": "northcentralus(stage)",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListByResourceGroup/responses/200/body/value/1/properties/secondaryLocation"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountDelete/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "sto8596",
+                          "value": "sto5800",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/parameters/accountName"
+                        },
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "res9407",
+                          "value": "res7902",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/parameters/resourceGroupName"
+                        },
+                        {
+                          "oldValue": "/subscriptions/{subscription-id}/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+                          "value": "/subscriptions/{subscription-id}/resourceGroups/res7902/providers/Microsoft.Storage/storageAccounts/sto5800",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/id"
+                        },
+                        {
+                          "oldValue": "Storage",
+                          "value": "StorageV2",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/kind"
+                        },
+                        {
+                          "oldValue": "sto8596",
+                          "value": "sto5800",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/name"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": "Hot",
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/accessTier"
+                        },
+                        {
+                          "oldValue": "2017-06-01T02:42:41.7633306Z",
+                          "value": "2018-04-13T06:40:37.9842922Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:40:38.0168941Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:40:38.0168941Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/encryption"
+                        },
+                        {
+                          "oldValue": "https://sto8596.blob.core.windows.net/",
+                          "value": "https://sto5800.blob.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/primaryEndpoints/blob"
+                        },
+                        {
+                          "oldValue": "https://sto8596.dfs.core.windows.net/",
+                          "value": "https://sto5800.dfs.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/primaryEndpoints/dfs"
+                        },
+                        {
+                          "oldValue": "https://sto8596.file.core.windows.net/",
+                          "value": "https://sto5800.file.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/primaryEndpoints/file"
+                        },
+                        {
+                          "oldValue": "https://sto8596.queue.core.windows.net/",
+                          "value": "https://sto5800.queue.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/primaryEndpoints/queue"
+                        },
+                        {
+                          "oldValue": "https://sto8596.table.core.windows.net/",
+                          "value": "https://sto5800.table.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/primaryEndpoints/table"
+                        },
+                        {
+                          "oldValue": "https://sto8596.web.core.windows.net/",
+                          "value": "https://sto5800.web.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/primaryEndpoints/web"
+                        },
+                        {
+                          "oldValue": false,
+                          "value": true,
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountGetProperties/responses/200/body/properties/supportsHttpsTrafficOnly"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          },
+                          "description": {
+                            "from": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
+                            "to": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "PATCH": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "sto8596",
+                          "value": "sto5800",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/parameters/accountName"
+                        },
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/parameters/api-version"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": "StorageV2",
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/parameters/parameters/kind"
+                        },
+                        {
+                          "oldValue": {
+                            "defaultAction": "Allow"
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/parameters/parameters/properties/networkAcls"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": true,
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/parameters/parameters/properties/supportsHttpsTrafficOnly"
+                        },
+                        {
+                          "oldValue": "res9407",
+                          "value": "res7902",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/parameters/resourceGroupName"
+                        },
+                        {
+                          "oldValue": "/subscriptions/{subscription-id}/resourceGroups/res9407/providers/Microsoft.Storage/storageAccounts/sto8596",
+                          "value": "/subscriptions/{subscription-id}/resourceGroups/res7902/providers/Microsoft.Storage/storageAccounts/sto5800",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/id"
+                        },
+                        {
+                          "oldValue": "Storage",
+                          "value": "StorageV2",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/kind"
+                        },
+                        {
+                          "oldValue": "sto8596",
+                          "value": "sto5800",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/name"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": "Hot",
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/accessTier"
+                        },
+                        {
+                          "oldValue": "2017-06-01T02:42:41.7633306Z",
+                          "value": "2018-04-13T06:40:37.9842922Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:40:38.0168941Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T06:40:38.0168941Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/encryption"
+                        },
+                        {
+                          "oldValue": "https://sto8596.blob.core.windows.net/",
+                          "value": "https://sto5800.blob.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/primaryEndpoints/blob"
+                        },
+                        {
+                          "oldValue": "https://sto8596.dfs.core.windows.net/",
+                          "value": "https://sto5800.dfs.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/primaryEndpoints/dfs"
+                        },
+                        {
+                          "oldValue": "https://sto8596.file.core.windows.net/",
+                          "value": "https://sto5800.file.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/primaryEndpoints/file"
+                        },
+                        {
+                          "oldValue": "https://sto8596.queue.core.windows.net/",
+                          "value": "https://sto5800.queue.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/primaryEndpoints/queue"
+                        },
+                        {
+                          "oldValue": "https://sto8596.table.core.windows.net/",
+                          "value": "https://sto5800.table.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/primaryEndpoints/table"
+                        },
+                        {
+                          "oldValue": "https://sto8596.web.core.windows.net/",
+                          "value": "https://sto5800.web.core.windows.net/",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/primaryEndpoints/web"
+                        },
+                        {
+                          "oldValue": false,
+                          "value": true,
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountUpdate/responses/200/body/properties/supportsHttpsTrafficOnly"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountCreate/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2017-05-24T13:25:33.4863236Z",
+                          "value": "2018-04-13T07:04:49.6145793Z",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountCreate/responses/200/body/properties/creationTime"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "keySource": "Microsoft.Storage",
+                            "services": {
+                              "blob": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T07:04:49.8562647Z"
+                              },
+                              "file": {
+                                "enabled": true,
+                                "lastEnabledTime": "2018-04-13T07:04:49.8562647Z"
+                              }
+                            }
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountCreate/responses/200/body/properties/encryption"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": {
+                            "bypass": "AzureServices",
+                            "defaultAction": "Allow",
+                            "ipRules": [],
+                            "virtualNetworkRules": []
+                          },
+                          "op": "add",
+                          "from": "",
+                          "path": "/StorageAccountCreate/responses/200/body/properties/networkAcls"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/ListAccountSas": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListAccountSAS/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          },
+                          "description": {
+                            "from": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
+                            "to": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/ListServiceSas": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListServiceSAS/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountListKeys/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/regenerateKey": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2018-02-01",
+                          "value": "2018-03-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/StorageAccountRegenerateKey/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "path": {
+                        "accountName": {
+                          "extensions": {
+                            "added": [
+                              "x-ms-parameter-location"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

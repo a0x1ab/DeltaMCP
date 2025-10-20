@@ -115,19 +115,53 @@ def create_version_pairs_training_data(specs_dir, data_dir, services, runner):
                         with open(pair_dir / "diff_output.json", 'w') as f:
                             json.dump(diff_result, f, indent=2)
                         
-                        create_final_training_file(pair_dir, version_a, version_b)
-                        training_pairs.append({'service': service, 'version_a': version_a, 'version_b': version_b, 'pair_dir': str(pair_dir)})
+                        training_file = create_final_training_file(pair_dir, version_a, version_b, service)
+                        if training_file:
+                            training_pairs.append({'service': service, 'version_a': version_a, 'version_b': version_b, 'pair_dir': str(pair_dir)})
                     except Exception as e:
                         print(f"Failed diff for {service} {version_a}->{version_b}: {e}")
             
             for pkl_file in pair_dir.glob("*.pkl"): pkl_file.unlink()
+        
+        service_training_dir = data_dir / service
+        if service_training_dir.exists():
+            training_files = reorganize_service_files(service_training_dir)
+            print(f"Service '{service}' completed: {len(training_files)} training samples created")
     
     return training_pairs
 
-def create_final_training_file(pair_dir, version_a, version_b):
+def cleanup_intermediate_files(pair_dir, training_file_path):
+    try:
+        for file_path in pair_dir.iterdir():
+            if file_path.is_file() and file_path != training_file_path:
+                file_path.unlink()
+    except Exception as e:
+        print(f"Failed to cleanup intermediate files in {pair_dir}: {e}")
+
+def reorganize_service_files(service_dir):
+    try:
+        training_files = []
+        
+        for subdir in service_dir.iterdir():
+            if subdir.is_dir():
+                for file_path in subdir.iterdir():
+                    if file_path.is_file() and file_path.name.startswith("training_sample_"):
+                        dest_path = service_dir / file_path.name
+                        shutil.move(str(file_path), str(dest_path))
+                        training_files.append(dest_path)
+                
+                shutil.rmtree(subdir, ignore_errors=True)
+        
+        return training_files
+        
+    except Exception as e:
+        print(f"Failed to reorganize service files in {service_dir}: {e}")
+        return []
+
+def create_final_training_file(pair_dir, version_a, version_b, service_name):
     try:
         diff_file = pair_dir / "diff_output.json"
-        if not diff_file.exists(): return
+        if not diff_file.exists(): return None
             
         with open(diff_file, 'r') as f:
             oas_diff = json.load(f)
@@ -135,7 +169,7 @@ def create_final_training_file(pair_dir, version_a, version_b):
         ast_a_files = [f for f in pair_dir.glob(f"*_{version_a}.json") if not f.name.startswith("spec_")]
         ast_b_files = [f for f in pair_dir.glob(f"*_{version_b}.json") if not f.name.startswith("spec_")]
         
-        if not ast_a_files or not ast_b_files: return
+        if not ast_a_files or not ast_b_files: return None
             
         with open(ast_a_files[0], 'r') as f:
             stub_ast_a = json.load(f)
@@ -147,11 +181,19 @@ def create_final_training_file(pair_dir, version_a, version_b):
             "output": {"stub_ast_b": stub_ast_b}
         }
         
-        with open(pair_dir / "training_sample.json", 'w') as f:
+        training_filename = f"training_sample_{service_name}_{version_a}_{version_b}.json"
+        training_file_path = pair_dir / training_filename
+        
+        with open(training_file_path, 'w') as f:
             json.dump(training_data, f, indent=2)
+        
+        cleanup_intermediate_files(pair_dir, training_file_path)
+        
+        return training_file_path
         
     except Exception as e:
         print(f"Failed training file for {pair_dir}: {e}")
+        return None
 
 def create_training_dataset(
     specs_dir_path="/Users/adi/Documents/Uni/incremental-mcp/azure-rest-api-specs/specification",

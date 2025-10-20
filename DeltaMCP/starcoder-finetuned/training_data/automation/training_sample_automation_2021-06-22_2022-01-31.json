@@ -1,0 +1,2761 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": {
+                "allOf": [
+                  {
+                    "allOf": [
+                      {
+                        "description": "The core properties of ARM resources",
+                        "properties": {
+                          "id": {
+                            "description": "Fully qualified resource Id for the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The type of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "The resource model definition for a ARM tracked top level resource",
+                    "properties": {
+                      "location": {
+                        "description": "The Azure Region where the resource lives",
+                        "type": "string",
+                        "x-ms-mutability": [
+                          "read",
+                          "create"
+                        ]
+                      },
+                      "tags": {
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "description": "Resource tags.",
+                        "type": "object",
+                        "x-ms-mutability": [
+                          "read",
+                          "create",
+                          "update"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  }
+                ],
+                "description": "Definition of the automation account type.",
+                "properties": {
+                  "etag": {
+                    "description": "Gets or sets the etag of the resource.",
+                    "type": "string"
+                  },
+                  "identity": {
+                    "description": "Identity for the resource.",
+                    "properties": {
+                      "principalId": {
+                        "description": "The principal ID of resource identity.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "tenantId": {
+                        "description": "The tenant ID of resource.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "The identity type.",
+                        "enum": [
+                          "SystemAssigned",
+                          "UserAssigned",
+                          "SystemAssigned, UserAssigned",
+                          "None"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "ResourceIdentityType"
+                        }
+                      },
+                      "userAssignedIdentities": {
+                        "additionalProperties": {
+                          "properties": {
+                            "clientId": {
+                              "description": "The client id of user assigned identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "principalId": {
+                              "description": "The principal id of user assigned identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "properties": {
+                    "description": "Definition of the account property.",
+                    "properties": {
+                      "automationHybridServiceUrl": {
+                        "description": "URL of automation hybrid service which is used for hybrid worker on-boarding.",
+                        "type": "string"
+                      },
+                      "creationTime": {
+                        "description": "Gets the creation time.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string",
+                        "x-nullable": false
+                      },
+                      "description": {
+                        "description": "Gets or sets the description.",
+                        "type": "string"
+                      },
+                      "disableLocalAuth": {
+                        "description": "Indicates whether requests using non-AAD authentication are blocked",
+                        "type": "boolean"
+                      },
+                      "encryption": {
+                        "description": "The encryption settings for automation account",
+                        "properties": {
+                          "identity": {
+                            "description": "User identity used for CMK.",
+                            "properties": {
+                              "userAssignedIdentity": {
+                                "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                                "type": "object"
+                              }
+                            }
+                          },
+                          "keySource": {
+                            "description": "Encryption Key Source",
+                            "enum": [
+                              "Microsoft.Automation",
+                              "Microsoft.Keyvault"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "EncryptionKeySourceType"
+                            }
+                          },
+                          "keyVaultProperties": {
+                            "description": "Settings concerning key vault encryption for a configuration store.",
+                            "properties": {
+                              "keyName": {
+                                "description": "The name of key used to encrypt data.",
+                                "type": "string"
+                              },
+                              "keyVersion": {
+                                "description": "The key version of the key used to encrypt data.",
+                                "type": "string"
+                              },
+                              "keyvaultUri": {
+                                "description": "The URI of the key vault key used to encrypt data.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "lastModifiedBy": {
+                        "description": "Gets or sets the last modified by.",
+                        "type": "string"
+                      },
+                      "lastModifiedTime": {
+                        "description": "Gets the last modified time.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string",
+                        "x-nullable": false
+                      },
+                      "privateEndpointConnections": {
+                        "description": "List of Automation operations supported by the Automation resource provider.",
+                        "items": {
+                          "allOf": [
+                            {
+                              "allOf": [
+                                {
+                                  "description": "The core properties of ARM resources",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Fully qualified resource Id for the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "description": "The name of the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "description": "The type of the resource.",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object",
+                                  "x-ms-azure-resource": true
+                                }
+                              ],
+                              "description": "ARM proxy resource.",
+                              "properties": {},
+                              "type": "object"
+                            }
+                          ],
+                          "description": "A private endpoint connection",
+                          "properties": {
+                            "properties": {
+                              "description": "Properties of a private endpoint connection.",
+                              "properties": {
+                                "groupIds": {
+                                  "description": "Gets the groupIds.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "privateEndpoint": {
+                                  "description": "Private endpoint which the connection belongs to.",
+                                  "properties": {
+                                    "id": {
+                                      "description": "Resource id of the private endpoint.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "privateLinkServiceConnectionState": {
+                                  "description": "Connection State of the Private Endpoint Connection.",
+                                  "properties": {
+                                    "actionsRequired": {
+                                      "description": "Any action that is required beyond basic workflow (approve/ reject/ disconnect)",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "description": {
+                                      "description": "The private link service connection description.",
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "description": "The private link service connection status.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "publicNetworkAccess": {
+                        "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                        "type": "boolean"
+                      },
+                      "sku": {
+                        "description": "The account SKU.",
+                        "properties": {
+                          "capacity": {
+                            "description": "Gets or sets the SKU capacity.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "family": {
+                            "description": "Gets or sets the SKU family.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Gets or sets the SKU name of the account.",
+                            "enum": [
+                              "Free",
+                              "Basic"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "SkuNameEnum"
+                            }
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ]
+                      },
+                      "state": {
+                        "description": "Gets status of account.",
+                        "enum": [
+                          "Ok",
+                          "Unavailable",
+                          "Suspended"
+                        ],
+                        "readOnly": true,
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "AutomationAccountState"
+                        }
+                      }
+                    }
+                  },
+                  "systemData": {
+                    "description": "Metadata pertaining to creation and last modification of the resource.",
+                    "properties": {
+                      "createdAt": {
+                        "description": "The timestamp of resource creation (UTC).",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "description": "The identity that created the resource.",
+                        "type": "string"
+                      },
+                      "createdByType": {
+                        "description": "The type of identity that created the resource.",
+                        "enum": [
+                          "User",
+                          "Application",
+                          "ManagedIdentity",
+                          "Key"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "createdByType"
+                        }
+                      },
+                      "lastModifiedAt": {
+                        "description": "The timestamp of resource last modification (UTC)",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "lastModifiedBy": {
+                        "description": "The identity that last modified the resource.",
+                        "type": "string"
+                      },
+                      "lastModifiedByType": {
+                        "description": "The type of identity that last modified the resource.",
+                        "enum": [
+                          "User",
+                          "Application",
+                          "ManagedIdentity",
+                          "Key"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "createdByType"
+                        }
+                      }
+                    },
+                    "readOnly": true,
+                    "type": "object"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccount"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters supplied to the create or update automation account operation.",
+                "properties": {
+                  "identity": {
+                    "description": "Identity for the resource.",
+                    "properties": {
+                      "principalId": {
+                        "description": "The principal ID of resource identity.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "tenantId": {
+                        "description": "The tenant ID of resource.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "The identity type.",
+                        "enum": [
+                          "SystemAssigned",
+                          "UserAssigned",
+                          "SystemAssigned, UserAssigned",
+                          "None"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "ResourceIdentityType"
+                        }
+                      },
+                      "userAssignedIdentities": {
+                        "additionalProperties": {
+                          "properties": {
+                            "clientId": {
+                              "description": "The client id of user assigned identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "principalId": {
+                              "description": "The principal id of user assigned identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "location": {
+                    "description": "Gets or sets the location of the resource.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Gets or sets name of the resource.",
+                    "type": "string"
+                  },
+                  "properties": {
+                    "description": "The parameters supplied to the create or update account properties.",
+                    "properties": {
+                      "disableLocalAuth": {
+                        "description": "Indicates whether requests using non-AAD authentication are blocked",
+                        "type": "boolean"
+                      },
+                      "encryption": {
+                        "description": "The encryption settings for automation account",
+                        "properties": {
+                          "identity": {
+                            "description": "User identity used for CMK.",
+                            "properties": {
+                              "userAssignedIdentity": {
+                                "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                                "type": "object"
+                              }
+                            }
+                          },
+                          "keySource": {
+                            "description": "Encryption Key Source",
+                            "enum": [
+                              "Microsoft.Automation",
+                              "Microsoft.Keyvault"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "EncryptionKeySourceType"
+                            }
+                          },
+                          "keyVaultProperties": {
+                            "description": "Settings concerning key vault encryption for a configuration store.",
+                            "properties": {
+                              "keyName": {
+                                "description": "The name of key used to encrypt data.",
+                                "type": "string"
+                              },
+                              "keyVersion": {
+                                "description": "The key version of the key used to encrypt data.",
+                                "type": "string"
+                              },
+                              "keyvaultUri": {
+                                "description": "The URI of the key vault key used to encrypt data.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "publicNetworkAccess": {
+                        "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                        "type": "boolean"
+                      },
+                      "sku": {
+                        "description": "The account SKU.",
+                        "properties": {
+                          "capacity": {
+                            "description": "Gets or sets the SKU capacity.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "family": {
+                            "description": "Gets or sets the SKU family.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Gets or sets the SKU name of the account.",
+                            "enum": [
+                              "Free",
+                              "Basic"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "SkuNameEnum"
+                            }
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ]
+                      }
+                    }
+                  },
+                  "tags": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Gets or sets the tags attached to the resource.",
+                    "type": "object"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccountCreateOrUpdateParameters"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters supplied to the create or update account properties.",
+                "properties": {
+                  "disableLocalAuth": {
+                    "description": "Indicates whether requests using non-AAD authentication are blocked",
+                    "type": "boolean"
+                  },
+                  "encryption": {
+                    "description": "The encryption settings for automation account",
+                    "properties": {
+                      "identity": {
+                        "description": "User identity used for CMK.",
+                        "properties": {
+                          "userAssignedIdentity": {
+                            "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "keySource": {
+                        "description": "Encryption Key Source",
+                        "enum": [
+                          "Microsoft.Automation",
+                          "Microsoft.Keyvault"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "EncryptionKeySourceType"
+                        }
+                      },
+                      "keyVaultProperties": {
+                        "description": "Settings concerning key vault encryption for a configuration store.",
+                        "properties": {
+                          "keyName": {
+                            "description": "The name of key used to encrypt data.",
+                            "type": "string"
+                          },
+                          "keyVersion": {
+                            "description": "The key version of the key used to encrypt data.",
+                            "type": "string"
+                          },
+                          "keyvaultUri": {
+                            "description": "The URI of the key vault key used to encrypt data.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "publicNetworkAccess": {
+                    "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                    "type": "boolean"
+                  },
+                  "sku": {
+                    "description": "The account SKU.",
+                    "properties": {
+                      "capacity": {
+                        "description": "Gets or sets the SKU capacity.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "family": {
+                        "description": "Gets or sets the SKU family.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Gets or sets the SKU name of the account.",
+                        "enum": [
+                          "Free",
+                          "Basic"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "SkuNameEnum"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccountCreateOrUpdateProperties"
+            },
+            {
+              "oldValue": {
+                "description": "The response model for the list account operation.",
+                "properties": {
+                  "nextLink": {
+                    "description": "Gets or sets the next link.",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "Gets or sets list of accounts.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "allOf": [
+                            {
+                              "description": "The core properties of ARM resources",
+                              "properties": {
+                                "id": {
+                                  "description": "Fully qualified resource Id for the resource",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "The name of the resource",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "The type of the resource.",
+                                  "readOnly": true,
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object",
+                              "x-ms-azure-resource": true
+                            }
+                          ],
+                          "description": "The resource model definition for a ARM tracked top level resource",
+                          "properties": {
+                            "location": {
+                              "description": "The Azure Region where the resource lives",
+                              "type": "string",
+                              "x-ms-mutability": [
+                                "read",
+                                "create"
+                              ]
+                            },
+                            "tags": {
+                              "additionalProperties": {
+                                "type": "string"
+                              },
+                              "description": "Resource tags.",
+                              "type": "object",
+                              "x-ms-mutability": [
+                                "read",
+                                "create",
+                                "update"
+                              ]
+                            }
+                          },
+                          "type": "object"
+                        }
+                      ],
+                      "description": "Definition of the automation account type.",
+                      "properties": {
+                        "etag": {
+                          "description": "Gets or sets the etag of the resource.",
+                          "type": "string"
+                        },
+                        "identity": {
+                          "description": "Identity for the resource.",
+                          "properties": {
+                            "principalId": {
+                              "description": "The principal ID of resource identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "tenantId": {
+                              "description": "The tenant ID of resource.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "The identity type.",
+                              "enum": [
+                                "SystemAssigned",
+                                "UserAssigned",
+                                "SystemAssigned, UserAssigned",
+                                "None"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ResourceIdentityType"
+                              }
+                            },
+                            "userAssignedIdentities": {
+                              "additionalProperties": {
+                                "properties": {
+                                  "clientId": {
+                                    "description": "The client id of user assigned identity.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  },
+                                  "principalId": {
+                                    "description": "The principal id of user assigned identity.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                              "type": "object"
+                            }
+                          }
+                        },
+                        "properties": {
+                          "description": "Definition of the account property.",
+                          "properties": {
+                            "automationHybridServiceUrl": {
+                              "description": "URL of automation hybrid service which is used for hybrid worker on-boarding.",
+                              "type": "string"
+                            },
+                            "creationTime": {
+                              "description": "Gets the creation time.",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "type": "string",
+                              "x-nullable": false
+                            },
+                            "description": {
+                              "description": "Gets or sets the description.",
+                              "type": "string"
+                            },
+                            "disableLocalAuth": {
+                              "description": "Indicates whether requests using non-AAD authentication are blocked",
+                              "type": "boolean"
+                            },
+                            "encryption": {
+                              "description": "The encryption settings for automation account",
+                              "properties": {
+                                "identity": {
+                                  "description": "User identity used for CMK.",
+                                  "properties": {
+                                    "userAssignedIdentity": {
+                                      "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                                      "type": "object"
+                                    }
+                                  }
+                                },
+                                "keySource": {
+                                  "description": "Encryption Key Source",
+                                  "enum": [
+                                    "Microsoft.Automation",
+                                    "Microsoft.Keyvault"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": false,
+                                    "name": "EncryptionKeySourceType"
+                                  }
+                                },
+                                "keyVaultProperties": {
+                                  "description": "Settings concerning key vault encryption for a configuration store.",
+                                  "properties": {
+                                    "keyName": {
+                                      "description": "The name of key used to encrypt data.",
+                                      "type": "string"
+                                    },
+                                    "keyVersion": {
+                                      "description": "The key version of the key used to encrypt data.",
+                                      "type": "string"
+                                    },
+                                    "keyvaultUri": {
+                                      "description": "The URI of the key vault key used to encrypt data.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                }
+                              }
+                            },
+                            "lastModifiedBy": {
+                              "description": "Gets or sets the last modified by.",
+                              "type": "string"
+                            },
+                            "lastModifiedTime": {
+                              "description": "Gets the last modified time.",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "type": "string",
+                              "x-nullable": false
+                            },
+                            "privateEndpointConnections": {
+                              "description": "List of Automation operations supported by the Automation resource provider.",
+                              "items": {
+                                "allOf": [
+                                  {
+                                    "allOf": [
+                                      {
+                                        "description": "The core properties of ARM resources",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Fully qualified resource Id for the resource",
+                                            "readOnly": true,
+                                            "type": "string"
+                                          },
+                                          "name": {
+                                            "description": "The name of the resource",
+                                            "readOnly": true,
+                                            "type": "string"
+                                          },
+                                          "type": {
+                                            "description": "The type of the resource.",
+                                            "readOnly": true,
+                                            "type": "string"
+                                          }
+                                        },
+                                        "type": "object",
+                                        "x-ms-azure-resource": true
+                                      }
+                                    ],
+                                    "description": "ARM proxy resource.",
+                                    "properties": {},
+                                    "type": "object"
+                                  }
+                                ],
+                                "description": "A private endpoint connection",
+                                "properties": {
+                                  "properties": {
+                                    "description": "Properties of a private endpoint connection.",
+                                    "properties": {
+                                      "groupIds": {
+                                        "description": "Gets the groupIds.",
+                                        "items": {
+                                          "type": "string"
+                                        },
+                                        "type": "array"
+                                      },
+                                      "privateEndpoint": {
+                                        "description": "Private endpoint which the connection belongs to.",
+                                        "properties": {
+                                          "id": {
+                                            "description": "Resource id of the private endpoint.",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "type": "object"
+                                      },
+                                      "privateLinkServiceConnectionState": {
+                                        "description": "Connection State of the Private Endpoint Connection.",
+                                        "properties": {
+                                          "actionsRequired": {
+                                            "description": "Any action that is required beyond basic workflow (approve/ reject/ disconnect)",
+                                            "readOnly": true,
+                                            "type": "string"
+                                          },
+                                          "description": {
+                                            "description": "The private link service connection description.",
+                                            "type": "string"
+                                          },
+                                          "status": {
+                                            "description": "The private link service connection status.",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "type": "object"
+                                      }
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "publicNetworkAccess": {
+                              "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                              "type": "boolean"
+                            },
+                            "sku": {
+                              "description": "The account SKU.",
+                              "properties": {
+                                "capacity": {
+                                  "description": "Gets or sets the SKU capacity.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "family": {
+                                  "description": "Gets or sets the SKU family.",
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "Gets or sets the SKU name of the account.",
+                                  "enum": [
+                                    "Free",
+                                    "Basic"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "SkuNameEnum"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "name"
+                              ]
+                            },
+                            "state": {
+                              "description": "Gets status of account.",
+                              "enum": [
+                                "Ok",
+                                "Unavailable",
+                                "Suspended"
+                              ],
+                              "readOnly": true,
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "AutomationAccountState"
+                              }
+                            }
+                          }
+                        },
+                        "systemData": {
+                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                          "properties": {
+                            "createdAt": {
+                              "description": "The timestamp of resource creation (UTC).",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "createdBy": {
+                              "description": "The identity that created the resource.",
+                              "type": "string"
+                            },
+                            "createdByType": {
+                              "description": "The type of identity that created the resource.",
+                              "enum": [
+                                "User",
+                                "Application",
+                                "ManagedIdentity",
+                                "Key"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "createdByType"
+                              }
+                            },
+                            "lastModifiedAt": {
+                              "description": "The timestamp of resource last modification (UTC)",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "lastModifiedBy": {
+                              "description": "The identity that last modified the resource.",
+                              "type": "string"
+                            },
+                            "lastModifiedByType": {
+                              "description": "The type of identity that last modified the resource.",
+                              "enum": [
+                                "User",
+                                "Application",
+                                "ManagedIdentity",
+                                "Key"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "createdByType"
+                              }
+                            }
+                          },
+                          "readOnly": true,
+                          "type": "object"
+                        }
+                      }
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccountListResult"
+            },
+            {
+              "oldValue": {
+                "description": "Definition of the account property.",
+                "properties": {
+                  "automationHybridServiceUrl": {
+                    "description": "URL of automation hybrid service which is used for hybrid worker on-boarding.",
+                    "type": "string"
+                  },
+                  "creationTime": {
+                    "description": "Gets the creation time.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-nullable": false
+                  },
+                  "description": {
+                    "description": "Gets or sets the description.",
+                    "type": "string"
+                  },
+                  "disableLocalAuth": {
+                    "description": "Indicates whether requests using non-AAD authentication are blocked",
+                    "type": "boolean"
+                  },
+                  "encryption": {
+                    "description": "The encryption settings for automation account",
+                    "properties": {
+                      "identity": {
+                        "description": "User identity used for CMK.",
+                        "properties": {
+                          "userAssignedIdentity": {
+                            "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "keySource": {
+                        "description": "Encryption Key Source",
+                        "enum": [
+                          "Microsoft.Automation",
+                          "Microsoft.Keyvault"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "EncryptionKeySourceType"
+                        }
+                      },
+                      "keyVaultProperties": {
+                        "description": "Settings concerning key vault encryption for a configuration store.",
+                        "properties": {
+                          "keyName": {
+                            "description": "The name of key used to encrypt data.",
+                            "type": "string"
+                          },
+                          "keyVersion": {
+                            "description": "The key version of the key used to encrypt data.",
+                            "type": "string"
+                          },
+                          "keyvaultUri": {
+                            "description": "The URI of the key vault key used to encrypt data.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "lastModifiedBy": {
+                    "description": "Gets or sets the last modified by.",
+                    "type": "string"
+                  },
+                  "lastModifiedTime": {
+                    "description": "Gets the last modified time.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-nullable": false
+                  },
+                  "privateEndpointConnections": {
+                    "description": "List of Automation operations supported by the Automation resource provider.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "allOf": [
+                            {
+                              "description": "The core properties of ARM resources",
+                              "properties": {
+                                "id": {
+                                  "description": "Fully qualified resource Id for the resource",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "The name of the resource",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "The type of the resource.",
+                                  "readOnly": true,
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object",
+                              "x-ms-azure-resource": true
+                            }
+                          ],
+                          "description": "ARM proxy resource.",
+                          "properties": {},
+                          "type": "object"
+                        }
+                      ],
+                      "description": "A private endpoint connection",
+                      "properties": {
+                        "properties": {
+                          "description": "Properties of a private endpoint connection.",
+                          "properties": {
+                            "groupIds": {
+                              "description": "Gets the groupIds.",
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "privateEndpoint": {
+                              "description": "Private endpoint which the connection belongs to.",
+                              "properties": {
+                                "id": {
+                                  "description": "Resource id of the private endpoint.",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "privateLinkServiceConnectionState": {
+                              "description": "Connection State of the Private Endpoint Connection.",
+                              "properties": {
+                                "actionsRequired": {
+                                  "description": "Any action that is required beyond basic workflow (approve/ reject/ disconnect)",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "description": "The private link service connection description.",
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "description": "The private link service connection status.",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "type": "object"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "publicNetworkAccess": {
+                    "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                    "type": "boolean"
+                  },
+                  "sku": {
+                    "description": "The account SKU.",
+                    "properties": {
+                      "capacity": {
+                        "description": "Gets or sets the SKU capacity.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "family": {
+                        "description": "Gets or sets the SKU family.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Gets or sets the SKU name of the account.",
+                        "enum": [
+                          "Free",
+                          "Basic"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "SkuNameEnum"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "state": {
+                    "description": "Gets status of account.",
+                    "enum": [
+                      "Ok",
+                      "Unavailable",
+                      "Suspended"
+                    ],
+                    "readOnly": true,
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "AutomationAccountState"
+                    }
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccountProperties"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters supplied to the update automation account operation.",
+                "properties": {
+                  "identity": {
+                    "description": "Identity for the resource.",
+                    "properties": {
+                      "principalId": {
+                        "description": "The principal ID of resource identity.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "tenantId": {
+                        "description": "The tenant ID of resource.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "The identity type.",
+                        "enum": [
+                          "SystemAssigned",
+                          "UserAssigned",
+                          "SystemAssigned, UserAssigned",
+                          "None"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "ResourceIdentityType"
+                        }
+                      },
+                      "userAssignedIdentities": {
+                        "additionalProperties": {
+                          "properties": {
+                            "clientId": {
+                              "description": "The client id of user assigned identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "principalId": {
+                              "description": "The principal id of user assigned identity.",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "location": {
+                    "description": "Gets or sets the location of the resource.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Gets or sets the name of the resource.",
+                    "type": "string"
+                  },
+                  "properties": {
+                    "description": "The parameters supplied to the update account properties.",
+                    "properties": {
+                      "disableLocalAuth": {
+                        "description": "Indicates whether requests using non-AAD authentication are blocked",
+                        "type": "boolean"
+                      },
+                      "encryption": {
+                        "description": "The encryption settings for automation account",
+                        "properties": {
+                          "identity": {
+                            "description": "User identity used for CMK.",
+                            "properties": {
+                              "userAssignedIdentity": {
+                                "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                                "type": "object"
+                              }
+                            }
+                          },
+                          "keySource": {
+                            "description": "Encryption Key Source",
+                            "enum": [
+                              "Microsoft.Automation",
+                              "Microsoft.Keyvault"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "EncryptionKeySourceType"
+                            }
+                          },
+                          "keyVaultProperties": {
+                            "description": "Settings concerning key vault encryption for a configuration store.",
+                            "properties": {
+                              "keyName": {
+                                "description": "The name of key used to encrypt data.",
+                                "type": "string"
+                              },
+                              "keyVersion": {
+                                "description": "The key version of the key used to encrypt data.",
+                                "type": "string"
+                              },
+                              "keyvaultUri": {
+                                "description": "The URI of the key vault key used to encrypt data.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "publicNetworkAccess": {
+                        "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                        "type": "boolean"
+                      },
+                      "sku": {
+                        "description": "The account SKU.",
+                        "properties": {
+                          "capacity": {
+                            "description": "Gets or sets the SKU capacity.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "family": {
+                            "description": "Gets or sets the SKU family.",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Gets or sets the SKU name of the account.",
+                            "enum": [
+                              "Free",
+                              "Basic"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "SkuNameEnum"
+                            }
+                          }
+                        },
+                        "required": [
+                          "name"
+                        ]
+                      }
+                    }
+                  },
+                  "tags": {
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Gets or sets the tags attached to the resource.",
+                    "type": "object"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccountUpdateParameters"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters supplied to the update account properties.",
+                "properties": {
+                  "disableLocalAuth": {
+                    "description": "Indicates whether requests using non-AAD authentication are blocked",
+                    "type": "boolean"
+                  },
+                  "encryption": {
+                    "description": "The encryption settings for automation account",
+                    "properties": {
+                      "identity": {
+                        "description": "User identity used for CMK.",
+                        "properties": {
+                          "userAssignedIdentity": {
+                            "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                            "type": "object"
+                          }
+                        }
+                      },
+                      "keySource": {
+                        "description": "Encryption Key Source",
+                        "enum": [
+                          "Microsoft.Automation",
+                          "Microsoft.Keyvault"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "EncryptionKeySourceType"
+                        }
+                      },
+                      "keyVaultProperties": {
+                        "description": "Settings concerning key vault encryption for a configuration store.",
+                        "properties": {
+                          "keyName": {
+                            "description": "The name of key used to encrypt data.",
+                            "type": "string"
+                          },
+                          "keyVersion": {
+                            "description": "The key version of the key used to encrypt data.",
+                            "type": "string"
+                          },
+                          "keyvaultUri": {
+                            "description": "The URI of the key vault key used to encrypt data.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "publicNetworkAccess": {
+                    "description": "Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet",
+                    "type": "boolean"
+                  },
+                  "sku": {
+                    "description": "The account SKU.",
+                    "properties": {
+                      "capacity": {
+                        "description": "Gets or sets the SKU capacity.",
+                        "format": "int32",
+                        "type": "integer"
+                      },
+                      "family": {
+                        "description": "Gets or sets the SKU family.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Gets or sets the SKU name of the account.",
+                        "enum": [
+                          "Free",
+                          "Basic"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "SkuNameEnum"
+                        }
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AutomationAccountUpdateProperties"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Definition of the deleted automation account type.",
+                "properties": {
+                  "id": {
+                    "description": "The resource id.",
+                    "type": "string"
+                  },
+                  "location": {
+                    "description": "Gets or sets the location of the resource.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Gets or sets name of the resource.",
+                    "type": "string"
+                  },
+                  "properties": {
+                    "description": "Definition of the deleted automation account properties.",
+                    "properties": {
+                      "automationAccountId": {
+                        "description": "Gets or sets the Automation Account Id.",
+                        "type": "string"
+                      },
+                      "automationAccountResourceId": {
+                        "description": "Gets or sets the Automation Account Resource Id.",
+                        "type": "string"
+                      },
+                      "deletionTime": {
+                        "description": "Gets the deletion time.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string",
+                        "x-nullable": false
+                      },
+                      "location": {
+                        "description": "Gets or sets the location of the resource.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "The resource type.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/DeletedAutomationAccount"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The response model for the list deleted automation account.",
+                "properties": {
+                  "value": {
+                    "description": "Gets or sets the list of deleted automation accounts.",
+                    "items": {
+                      "description": "Definition of the deleted automation account type.",
+                      "properties": {
+                        "id": {
+                          "description": "The resource id.",
+                          "type": "string"
+                        },
+                        "location": {
+                          "description": "Gets or sets the location of the resource.",
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Gets or sets name of the resource.",
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Definition of the deleted automation account properties.",
+                          "properties": {
+                            "automationAccountId": {
+                              "description": "Gets or sets the Automation Account Id.",
+                              "type": "string"
+                            },
+                            "automationAccountResourceId": {
+                              "description": "Gets or sets the Automation Account Resource Id.",
+                              "type": "string"
+                            },
+                            "deletionTime": {
+                              "description": "Gets the deletion time.",
+                              "format": "date-time",
+                              "readOnly": true,
+                              "type": "string",
+                              "x-nullable": false
+                            },
+                            "location": {
+                              "description": "Gets or sets the location of the resource.",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": {
+                          "description": "The resource type.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/DeletedAutomationAccountListResult"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Definition of the deleted automation account properties.",
+                "properties": {
+                  "automationAccountId": {
+                    "description": "Gets or sets the Automation Account Id.",
+                    "type": "string"
+                  },
+                  "automationAccountResourceId": {
+                    "description": "Gets or sets the Automation Account Resource Id.",
+                    "type": "string"
+                  },
+                  "deletionTime": {
+                    "description": "Gets the deletion time.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-nullable": false
+                  },
+                  "location": {
+                    "description": "Gets or sets the location of the resource.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/DeletedAutomationAccountProperties"
+            },
+            {
+              "oldValue": {
+                "description": "The encryption settings for automation account",
+                "properties": {
+                  "identity": {
+                    "description": "User identity used for CMK.",
+                    "properties": {
+                      "userAssignedIdentity": {
+                        "description": "The user identity used for CMK. It will be an ARM resource id in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "keySource": {
+                    "description": "Encryption Key Source",
+                    "enum": [
+                      "Microsoft.Automation",
+                      "Microsoft.Keyvault"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": false,
+                      "name": "EncryptionKeySourceType"
+                    }
+                  },
+                  "keyVaultProperties": {
+                    "description": "Settings concerning key vault encryption for a configuration store.",
+                    "properties": {
+                      "keyName": {
+                        "description": "The name of key used to encrypt data.",
+                        "type": "string"
+                      },
+                      "keyVersion": {
+                        "description": "The key version of the key used to encrypt data.",
+                        "type": "string"
+                      },
+                      "keyvaultUri": {
+                        "description": "The URI of the key vault key used to encrypt data.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/EncryptionProperties"
+            },
+            {
+              "oldValue": {
+                "description": "Identity for the resource.",
+                "properties": {
+                  "principalId": {
+                    "description": "The principal ID of resource identity.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "description": "The tenant ID of resource.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "The identity type.",
+                    "enum": [
+                      "SystemAssigned",
+                      "UserAssigned",
+                      "SystemAssigned, UserAssigned",
+                      "None"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": false,
+                      "name": "ResourceIdentityType"
+                    }
+                  },
+                  "userAssignedIdentities": {
+                    "additionalProperties": {
+                      "properties": {
+                        "clientId": {
+                          "description": "The client id of user assigned identity.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "principalId": {
+                          "description": "The principal id of user assigned identity.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "description": "The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                    "type": "object"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/Identity"
+            },
+            {
+              "oldValue": {
+                "description": "Automation key which is used to register a DSC Node",
+                "properties": {
+                  "KeyName": {
+                    "description": "Automation key name.",
+                    "enum": [
+                      "Primary",
+                      "Secondary"
+                    ],
+                    "readOnly": true,
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "AutomationKeyName"
+                    }
+                  },
+                  "Permissions": {
+                    "description": "Automation key permissions.",
+                    "enum": [
+                      "Read",
+                      "Full"
+                    ],
+                    "readOnly": true,
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "AutomationKeyPermissions"
+                    }
+                  },
+                  "Value": {
+                    "description": "Value of the Automation Key used for registration.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/Key"
+            },
+            {
+              "oldValue": {
+                "properties": {
+                  "keys": {
+                    "description": "Lists the automation keys.",
+                    "items": {
+                      "description": "Automation key which is used to register a DSC Node",
+                      "properties": {
+                        "KeyName": {
+                          "description": "Automation key name.",
+                          "enum": [
+                            "Primary",
+                            "Secondary"
+                          ],
+                          "readOnly": true,
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "AutomationKeyName"
+                          }
+                        },
+                        "Permissions": {
+                          "description": "Automation key permissions.",
+                          "enum": [
+                            "Read",
+                            "Full"
+                          ],
+                          "readOnly": true,
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "AutomationKeyPermissions"
+                          }
+                        },
+                        "Value": {
+                          "description": "Value of the Automation Key used for registration.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "type": "array",
+                    "x-ms-identifiers": [
+                      "KeyName"
+                    ]
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/KeyListResult"
+            },
+            {
+              "oldValue": {
+                "description": "Settings concerning key vault encryption for a configuration store.",
+                "properties": {
+                  "keyName": {
+                    "description": "The name of key used to encrypt data.",
+                    "type": "string"
+                  },
+                  "keyVersion": {
+                    "description": "The key version of the key used to encrypt data.",
+                    "type": "string"
+                  },
+                  "keyvaultUri": {
+                    "description": "The URI of the key vault key used to encrypt data.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/KeyVaultProperties"
+            },
+            {
+              "oldValue": {
+                "description": "The account SKU.",
+                "properties": {
+                  "capacity": {
+                    "description": "Gets or sets the SKU capacity.",
+                    "format": "int32",
+                    "type": "integer"
+                  },
+                  "family": {
+                    "description": "Gets or sets the SKU family.",
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Gets or sets the SKU name of the account.",
+                    "enum": [
+                      "Free",
+                      "Basic"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "SkuNameEnum"
+                    }
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/Sku"
+            },
+            {
+              "oldValue": {
+                "description": "Definition of the statistic.",
+                "properties": {
+                  "counterProperty": {
+                    "description": "Gets the property value of the statistic.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "counterValue": {
+                    "description": "Gets the value of the statistic.",
+                    "format": "int64",
+                    "readOnly": true,
+                    "type": "integer"
+                  },
+                  "endTime": {
+                    "description": "Gets the endTime of the statistic.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-nullable": true
+                  },
+                  "id": {
+                    "description": "Gets the id.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "startTime": {
+                    "description": "Gets the startTime of the statistic.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string",
+                    "x-nullable": false
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/Statistics"
+            },
+            {
+              "oldValue": {
+                "description": "The response model for the list statistics operation.",
+                "properties": {
+                  "value": {
+                    "description": "Gets or sets a list of statistics.",
+                    "items": {
+                      "description": "Definition of the statistic.",
+                      "properties": {
+                        "counterProperty": {
+                          "description": "Gets the property value of the statistic.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "counterValue": {
+                          "description": "Gets the value of the statistic.",
+                          "format": "int64",
+                          "readOnly": true,
+                          "type": "integer"
+                        },
+                        "endTime": {
+                          "description": "Gets the endTime of the statistic.",
+                          "format": "date-time",
+                          "readOnly": true,
+                          "type": "string",
+                          "x-nullable": true
+                        },
+                        "id": {
+                          "description": "Gets the id.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "startTime": {
+                          "description": "Gets the startTime of the statistic.",
+                          "format": "date-time",
+                          "readOnly": true,
+                          "type": "string",
+                          "x-nullable": false
+                        }
+                      }
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/StatisticsListResult"
+            },
+            {
+              "oldValue": {
+                "description": "Definition of Usage.",
+                "properties": {
+                  "currentValue": {
+                    "description": "Gets or sets the current usage value.",
+                    "format": "double",
+                    "type": "number"
+                  },
+                  "id": {
+                    "description": "Gets or sets the id of the resource.",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "description": "Gets or sets max limit. -1 for unlimited",
+                    "format": "int64",
+                    "type": "integer"
+                  },
+                  "name": {
+                    "description": "Definition of usage counter name.",
+                    "properties": {
+                      "localizedValue": {
+                        "description": "Gets or sets the localized usage counter name.",
+                        "type": "string"
+                      },
+                      "value": {
+                        "description": "Gets or sets the usage counter name.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "throttleStatus": {
+                    "description": "Gets or sets the throttle status.",
+                    "type": "string"
+                  },
+                  "unit": {
+                    "description": "Gets or sets the usage unit name.",
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/Usage"
+            },
+            {
+              "oldValue": {
+                "description": "Definition of usage counter name.",
+                "properties": {
+                  "localizedValue": {
+                    "description": "Gets or sets the localized usage counter name.",
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "Gets or sets the usage counter name.",
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/UsageCounterName"
+            },
+            {
+              "oldValue": {
+                "description": "The response model for the get usage operation.",
+                "properties": {
+                  "value": {
+                    "description": "Gets or sets usage.",
+                    "items": {
+                      "description": "Definition of Usage.",
+                      "properties": {
+                        "currentValue": {
+                          "description": "Gets or sets the current usage value.",
+                          "format": "double",
+                          "type": "number"
+                        },
+                        "id": {
+                          "description": "Gets or sets the id of the resource.",
+                          "type": "string"
+                        },
+                        "limit": {
+                          "description": "Gets or sets max limit. -1 for unlimited",
+                          "format": "int64",
+                          "type": "integer"
+                        },
+                        "name": {
+                          "description": "Definition of usage counter name.",
+                          "properties": {
+                            "localizedValue": {
+                              "description": "Gets or sets the localized usage counter name.",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "Gets or sets the usage counter name.",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "throttleStatus": {
+                          "description": "Gets or sets the throttle status.",
+                          "type": "string"
+                        },
+                        "unit": {
+                          "description": "Gets or sets the usage unit name.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/UsageListResult"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2021-06-22",
+          "to": "2022-01-31"
+        }
+      },
+      "paths": {
+        "added": [
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Automation/deletedAutomationAccounts"
+        ],
+        "deleted": [
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/listKeys",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/statistics",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/usages",
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Automation/automationAccounts",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}"
+        ]
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

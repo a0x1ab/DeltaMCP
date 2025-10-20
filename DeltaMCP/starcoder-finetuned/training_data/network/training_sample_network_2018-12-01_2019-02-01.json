@@ -1,0 +1,782 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Access to be allowed or denied.",
+                "enum": [
+                  "Allow",
+                  "Deny"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "Access"
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/Access"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "VPN client authentication method.",
+                "enum": [
+                  "EAPTLS",
+                  "EAPMSCHAPv2"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "AuthenticationMethod"
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/AuthenticationMethod"
+            },
+            {
+              "oldValue": null,
+              "value": "Common error representation.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error code.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/code/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error details.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/details/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Common error details representation.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/details/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error code.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/details/items/properties/code/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error message.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/details/items/properties/message/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error target.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/details/items/properties/target/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Inner error message.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/innerError/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error message.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/message/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error target.",
+              "op": "add",
+              "from": "",
+              "path": "/AzureAsyncOperationResult/properties/error/properties/target/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Common error representation.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error code.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/code/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error details.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/details/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Common error details representation.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/details/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error code.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/details/items/properties/code/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error message.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/details/items/properties/message/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error target.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/details/items/properties/target/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Inner error message.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/innerError/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error message.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/message/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error target.",
+              "op": "add",
+              "from": "",
+              "path": "/Error/properties/target/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Common error details representation.",
+              "op": "add",
+              "from": "",
+              "path": "/ErrorDetails/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error code.",
+              "op": "add",
+              "from": "",
+              "path": "/ErrorDetails/properties/code/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error message.",
+              "op": "add",
+              "from": "",
+              "path": "/ErrorDetails/properties/message/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Error target.",
+              "op": "add",
+              "from": "",
+              "path": "/ErrorDetails/properties/target/description"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "IP address allocation method.",
+                "enum": [
+                  "Static",
+                  "Dynamic"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "IPAllocationMethod"
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/IPAllocationMethod"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "IP address version.",
+                "enum": [
+                  "IPv4",
+                  "IPv6"
+                ],
+                "type": "string",
+                "x-ms-enum": {
+                  "modelAsString": true,
+                  "name": "IPVersion"
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/IPVersion"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2018-12-01",
+          "to": "2019-02-01"
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "json",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "typing",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Optional",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Union",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Any",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "ImportFrom",
+          "module": "fastmcp",
+          "names": [
+            {
+              "type": "alias",
+              "name": "FastMCP",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[MCP SERVER] FastMCP server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Assign",
+              "targets": [
+                {
+                  "type": "Name",
+                  "id": "mcp",
+                  "ctx": {
+                    "type": "Store"
+                  }
+                }
+              ],
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Name",
+                  "id": "FastMCP",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": "my-server",
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              },
+              "type_comment": null
+            },
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "mcp",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "transport",
+                    "value": {
+                      "type": "Constant",
+                      "value": "stdio",
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

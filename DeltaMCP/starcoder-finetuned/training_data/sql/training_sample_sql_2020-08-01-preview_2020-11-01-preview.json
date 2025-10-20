@@ -1,0 +1,3314 @@
+{
+  "input": {
+    "oas_diff": {
+      "info": {
+        "version": {
+          "from": "2020-08-01-preview",
+          "to": "2020-11-01-preview"
+        }
+      },
+      "paths": {
+        "modified": {
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/managedInstances/{managedInstanceName}/databases/{databaseName}/securityEvents": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2020-08-01-preview",
+                          "value": "2020-11-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get the managed database's security events with maximal parameters/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2020-08-01-preview",
+                          "value": "2020-11-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get the managed database's security events with minimal parameters/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "json",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "typing",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Optional",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Union",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Any",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "ImportFrom",
+          "module": "fastmcp",
+          "names": [
+            {
+              "type": "alias",
+              "name": "FastMCP",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[MCP SERVER] FastMCP server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Assign",
+              "targets": [
+                {
+                  "type": "Name",
+                  "id": "mcp",
+                  "ctx": {
+                    "type": "Store"
+                  }
+                }
+              ],
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Name",
+                  "id": "FastMCP",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": "my-server",
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              },
+              "type_comment": null
+            },
+            {
+              "type": "FunctionDef",
+              "name": "ManagedDatabaseSecurityEvents_ListByDatabase",
+              "args": {
+                "type": "arguments",
+                "posonlyargs": [],
+                "args": [
+                  {
+                    "type": "arg",
+                    "arg": "managedInstanceName",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "databaseName",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "subscriptionId",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "resourceGroupName",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_filter",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_skip",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_top",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_skiptoken",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  }
+                ],
+                "vararg": null,
+                "kwonlyargs": [],
+                "kw_defaults": [],
+                "kwarg": null,
+                "defaults": [
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  },
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  },
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  },
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  }
+                ]
+              },
+              "body": [
+                {
+                  "type": "Expr",
+                  "value": {
+                    "type": "Constant",
+                    "value": "Gets a list of security events.",
+                    "kind": null
+                  }
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "base_url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": "https://management.azure.com",
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "JoinedStr",
+                    "values": [
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "base_url",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/subscriptions/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "subscriptionId",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/resourceGroups/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "resourceGroupName",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/providers/Microsoft.Sql/managedInstances/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "managedInstanceName",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/databases/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "databaseName",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/securityEvents",
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "params",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "cookies",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "extra_headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Call",
+                    "func": {
+                      "type": "Attribute",
+                      "value": {
+                        "type": "Name",
+                        "id": "os",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "attr": "getenv",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "args": [
+                      {
+                        "type": "Constant",
+                        "value": "EXTRA_HEADERS",
+                        "kind": null
+                      }
+                    ],
+                    "keywords": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Name",
+                    "id": "extra_headers",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "For",
+                          "target": {
+                            "type": "Tuple",
+                            "elts": [
+                              {
+                                "type": "Name",
+                                "id": "k",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              },
+                              {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "ctx": {
+                              "type": "Store"
+                            }
+                          },
+                          "iter": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "json",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "loads",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Name",
+                                    "id": "extra_headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "attr": "items",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          },
+                          "body": [
+                            {
+                              "type": "Assign",
+                              "targets": [
+                                {
+                                  "type": "Subscript",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "slice": {
+                                    "type": "Name",
+                                    "id": "k",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "ctx": {
+                                    "type": "Store"
+                                  }
+                                }
+                              ],
+                              "value": {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "type_comment": null
+                            }
+                          ],
+                          "orelse": [],
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "print",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Failed to parse EXTRA_HEADERS:",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "Name",
+                                    "id": "e",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "managedInstanceName",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: managedInstanceName",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "databaseName",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: databaseName",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "subscriptionId",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: subscriptionId",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "resourceGroupName",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: resourceGroupName",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_filter",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$filter",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_filter",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_skip",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$skip",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_skip",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_top",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$top",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_top",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_skiptoken",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$skiptoken",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_skiptoken",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Try",
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Name",
+                          "id": "resp",
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "get",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Name",
+                            "id": "url",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          }
+                        ],
+                        "keywords": [
+                          {
+                            "type": "keyword",
+                            "arg": "params",
+                            "value": {
+                              "type": "Name",
+                              "id": "params",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "headers",
+                            "value": {
+                              "type": "Name",
+                              "id": "headers",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "cookies",
+                            "value": {
+                              "type": "Name",
+                              "id": "cookies",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "type_comment": null
+                    },
+                    {
+                      "type": "Expr",
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "resp",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "raise_for_status",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [],
+                        "keywords": []
+                      }
+                    },
+                    {
+                      "type": "If",
+                      "test": {
+                        "type": "Compare",
+                        "left": {
+                          "type": "Constant",
+                          "value": "application/json",
+                          "kind": null
+                        },
+                        "ops": [
+                          {
+                            "type": "In"
+                          }
+                        ],
+                        "comparators": [
+                          {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "get",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "Content-Type",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          }
+                        ]
+                      },
+                      "body": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "resp",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "json",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          }
+                        }
+                      ],
+                      "orelse": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Dict",
+                            "keys": [
+                              {
+                                "type": "Constant",
+                                "value": "raw",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "status_code",
+                                "kind": null
+                              }
+                            ],
+                            "values": [
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "text",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "status_code",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "handlers": [
+                    {
+                      "type": {
+                        "type": "Attribute",
+                        "value": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "exceptions",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "attr": "RequestException",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "HTTP request failed: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "type": "Name",
+                        "id": "Exception",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Unexpected error: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    }
+                  ],
+                  "orelse": [],
+                  "finalbody": []
+                }
+              ],
+              "decorator_list": [
+                {
+                  "type": "Call",
+                  "func": {
+                    "type": "Attribute",
+                    "value": {
+                      "type": "Name",
+                      "id": "mcp",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "attr": "tool",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "args": [],
+                  "keywords": [
+                    {
+                      "type": "keyword",
+                      "arg": "name",
+                      "value": {
+                        "type": "Constant",
+                        "value": "ManagedDatabaseSecurityEvents_ListByDatabase",
+                        "kind": null
+                      }
+                    },
+                    {
+                      "type": "keyword",
+                      "arg": "description",
+                      "value": {
+                        "type": "Constant",
+                        "value": "Gets a list of security events.",
+                        "kind": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "returns": null,
+              "type_comment": null,
+              "type_params": []
+            },
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "mcp",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "transport",
+                    "value": {
+                      "type": "Constant",
+                      "value": "stdio",
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "json",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "typing",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Optional",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Union",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Any",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "ImportFrom",
+          "module": "fastmcp",
+          "names": [
+            {
+              "type": "alias",
+              "name": "FastMCP",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[MCP SERVER] FastMCP server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Assign",
+              "targets": [
+                {
+                  "type": "Name",
+                  "id": "mcp",
+                  "ctx": {
+                    "type": "Store"
+                  }
+                }
+              ],
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Name",
+                  "id": "FastMCP",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": "my-server",
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              },
+              "type_comment": null
+            },
+            {
+              "type": "FunctionDef",
+              "name": "ManagedDatabaseSecurityEvents_ListByDatabase",
+              "args": {
+                "type": "arguments",
+                "posonlyargs": [],
+                "args": [
+                  {
+                    "type": "arg",
+                    "arg": "managedInstanceName",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "databaseName",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "subscriptionId",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "resourceGroupName",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_filter",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_skip",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_top",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "_skiptoken",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  }
+                ],
+                "vararg": null,
+                "kwonlyargs": [],
+                "kw_defaults": [],
+                "kwarg": null,
+                "defaults": [
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  },
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  },
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  },
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  }
+                ]
+              },
+              "body": [
+                {
+                  "type": "Expr",
+                  "value": {
+                    "type": "Constant",
+                    "value": "Gets a list of security events.",
+                    "kind": null
+                  }
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "base_url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": "https://management.azure.com",
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "JoinedStr",
+                    "values": [
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "base_url",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/subscriptions/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "subscriptionId",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/resourceGroups/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "resourceGroupName",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/providers/Microsoft.Sql/managedInstances/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "managedInstanceName",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/databases/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "databaseName",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/securityEvents",
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "params",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "cookies",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "extra_headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Call",
+                    "func": {
+                      "type": "Attribute",
+                      "value": {
+                        "type": "Name",
+                        "id": "os",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "attr": "getenv",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "args": [
+                      {
+                        "type": "Constant",
+                        "value": "EXTRA_HEADERS",
+                        "kind": null
+                      }
+                    ],
+                    "keywords": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Name",
+                    "id": "extra_headers",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "For",
+                          "target": {
+                            "type": "Tuple",
+                            "elts": [
+                              {
+                                "type": "Name",
+                                "id": "k",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              },
+                              {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "ctx": {
+                              "type": "Store"
+                            }
+                          },
+                          "iter": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "json",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "loads",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Name",
+                                    "id": "extra_headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "attr": "items",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          },
+                          "body": [
+                            {
+                              "type": "Assign",
+                              "targets": [
+                                {
+                                  "type": "Subscript",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "slice": {
+                                    "type": "Name",
+                                    "id": "k",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "ctx": {
+                                    "type": "Store"
+                                  }
+                                }
+                              ],
+                              "value": {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "type_comment": null
+                            }
+                          ],
+                          "orelse": [],
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "print",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Failed to parse EXTRA_HEADERS:",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "Name",
+                                    "id": "e",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "managedInstanceName",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: managedInstanceName",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "databaseName",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: databaseName",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "subscriptionId",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: subscriptionId",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "resourceGroupName",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: resourceGroupName",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_filter",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$filter",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_filter",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_skip",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$skip",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_skip",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_top",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$top",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_top",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "_skiptoken",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "$skiptoken",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "_skiptoken",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Try",
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Name",
+                          "id": "resp",
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "get",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Name",
+                            "id": "url",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          }
+                        ],
+                        "keywords": [
+                          {
+                            "type": "keyword",
+                            "arg": "params",
+                            "value": {
+                              "type": "Name",
+                              "id": "params",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "headers",
+                            "value": {
+                              "type": "Name",
+                              "id": "headers",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "cookies",
+                            "value": {
+                              "type": "Name",
+                              "id": "cookies",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "type_comment": null
+                    },
+                    {
+                      "type": "Expr",
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "resp",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "raise_for_status",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [],
+                        "keywords": []
+                      }
+                    },
+                    {
+                      "type": "If",
+                      "test": {
+                        "type": "Compare",
+                        "left": {
+                          "type": "Constant",
+                          "value": "application/json",
+                          "kind": null
+                        },
+                        "ops": [
+                          {
+                            "type": "In"
+                          }
+                        ],
+                        "comparators": [
+                          {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "get",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "Content-Type",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          }
+                        ]
+                      },
+                      "body": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "resp",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "json",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          }
+                        }
+                      ],
+                      "orelse": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Dict",
+                            "keys": [
+                              {
+                                "type": "Constant",
+                                "value": "raw",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "status_code",
+                                "kind": null
+                              }
+                            ],
+                            "values": [
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "text",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "status_code",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "handlers": [
+                    {
+                      "type": {
+                        "type": "Attribute",
+                        "value": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "exceptions",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "attr": "RequestException",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "HTTP request failed: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "type": "Name",
+                        "id": "Exception",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Unexpected error: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    }
+                  ],
+                  "orelse": [],
+                  "finalbody": []
+                }
+              ],
+              "decorator_list": [
+                {
+                  "type": "Call",
+                  "func": {
+                    "type": "Attribute",
+                    "value": {
+                      "type": "Name",
+                      "id": "mcp",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "attr": "tool",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "args": [],
+                  "keywords": [
+                    {
+                      "type": "keyword",
+                      "arg": "name",
+                      "value": {
+                        "type": "Constant",
+                        "value": "ManagedDatabaseSecurityEvents_ListByDatabase",
+                        "kind": null
+                      }
+                    },
+                    {
+                      "type": "keyword",
+                      "arg": "description",
+                      "value": {
+                        "type": "Constant",
+                        "value": "Gets a list of security events.",
+                        "kind": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "returns": null,
+              "type_comment": null,
+              "type_params": []
+            },
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "mcp",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "transport",
+                    "value": {
+                      "type": "Constant",
+                      "value": "stdio",
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

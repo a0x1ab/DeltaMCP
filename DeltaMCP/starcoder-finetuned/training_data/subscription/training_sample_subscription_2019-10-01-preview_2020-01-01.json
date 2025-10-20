@@ -1,0 +1,1313 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": {
+                "description": "Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.",
+                "properties": {
+                  "error": {
+                    "description": "Describes the format of Error response.",
+                    "properties": {
+                      "code": {
+                        "description": "Error code",
+                        "type": "string"
+                      },
+                      "message": {
+                        "description": "Error message indicating why the operation failed.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ErrorResponseBody"
+            },
+            {
+              "oldValue": {
+                "additionalProperties": {
+                  "type": "object"
+                },
+                "description": "Additional, untyped parameters to support custom subscription creation scenarios.",
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ModernSubscriptionCreationParameters/properties/additionalParameters"
+            },
+            {
+              "oldValue": [
+                "displayName",
+                "skuId"
+              ],
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ModernSubscriptionCreationParameters/required"
+            },
+            {
+              "oldValue": {
+                "description": "The list of aliases.",
+                "properties": {
+                  "nextLink": {
+                    "description": "The link (url) to the next page of results.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "description": "The list of alias.",
+                    "items": {
+                      "description": "Subscription Information with the alias.",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified ID for the alias resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "Alias ID.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "properties": {
+                          "description": "Put subscription creation result properties.",
+                          "properties": {
+                            "provisioningState": {
+                              "description": "The provisioning state of the resource.",
+                              "enum": [
+                                "Accepted",
+                                "Succeeded",
+                                "Failed"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ProvisioningState"
+                              }
+                            },
+                            "subscriptionId": {
+                              "description": "Newly created subscription Id.",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "type": {
+                          "description": "Resource type, Microsoft.Subscription/aliases.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "x-ms-azure-resource": true
+                    },
+                    "readOnly": true,
+                    "type": "array"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/PutAliasListResult"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters required to create a new subscription.",
+                "properties": {
+                  "properties": {
+                    "description": "Put subscription properties.",
+                    "properties": {
+                      "billingScope": {
+                        "description": "Determines whether subscription is fieldLed, partnerLed or LegacyEA",
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "description": "The friendly name of the subscription.",
+                        "type": "string"
+                      },
+                      "subscriptionId": {
+                        "description": "This parameter can be used to create alias for existing subscription Id",
+                        "type": "string"
+                      },
+                      "workload": {
+                        "description": "The workload type of the subscription. It can be either Production or DevTest.",
+                        "enum": [
+                          "Production",
+                          "DevTest"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "workload"
+                        }
+                      }
+                    },
+                    "required": [
+                      "displayName",
+                      "workload",
+                      "billingScope"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/PutAliasRequest"
+            },
+            {
+              "oldValue": {
+                "description": "Put subscription properties.",
+                "properties": {
+                  "billingScope": {
+                    "description": "Determines whether subscription is fieldLed, partnerLed or LegacyEA",
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "description": "The friendly name of the subscription.",
+                    "type": "string"
+                  },
+                  "subscriptionId": {
+                    "description": "This parameter can be used to create alias for existing subscription Id",
+                    "type": "string"
+                  },
+                  "workload": {
+                    "description": "The workload type of the subscription. It can be either Production or DevTest.",
+                    "enum": [
+                      "Production",
+                      "DevTest"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "workload"
+                    }
+                  }
+                },
+                "required": [
+                  "displayName",
+                  "workload",
+                  "billingScope"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/PutAliasRequestProperties"
+            },
+            {
+              "oldValue": {
+                "description": "Subscription Information with the alias.",
+                "properties": {
+                  "id": {
+                    "description": "Fully qualified ID for the alias resource.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Alias ID.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "properties": {
+                    "description": "Put subscription creation result properties.",
+                    "properties": {
+                      "provisioningState": {
+                        "description": "The provisioning state of the resource.",
+                        "enum": [
+                          "Accepted",
+                          "Succeeded",
+                          "Failed"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "ProvisioningState"
+                        }
+                      },
+                      "subscriptionId": {
+                        "description": "Newly created subscription Id.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": {
+                    "description": "Resource type, Microsoft.Subscription/aliases.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "x-ms-azure-resource": true
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/PutAliasResponse"
+            },
+            {
+              "oldValue": {
+                "description": "Put subscription creation result properties.",
+                "properties": {
+                  "provisioningState": {
+                    "description": "The provisioning state of the resource.",
+                    "enum": [
+                      "Accepted",
+                      "Succeeded",
+                      "Failed"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "ProvisioningState"
+                    }
+                  },
+                  "subscriptionId": {
+                    "description": "Newly created subscription Id.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/PutAliasResponseProperties"
+            },
+            {
+              "oldValue": {
+                "additionalProperties": {
+                  "type": "object"
+                },
+                "description": "Additional, untyped parameters to support custom subscription creation scenarios.",
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SubscriptionCreationParameters/properties/additionalParameters"
+            }
+          ],
+          "parameters": [
+            {
+              "oldValue": {
+                "description": "Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn\u2019t have any other lifecycle need beyond the request for subscription creation.",
+                "in": "path",
+                "name": "aliasName",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/aliasNameParameter"
+            },
+            {
+              "oldValue": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+              "value": "Version of the API to be used with the client request. Current version is 2020-01-01",
+              "op": "replace",
+              "from": "",
+              "path": "/apiVersionParameter/description"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2019-10-01-preview",
+          "to": "2020-01-01"
+        }
+      },
+      "paths": {
+        "deleted": [
+          "/providers/Microsoft.Subscription/aliases/{aliasName}",
+          "/providers/Microsoft.Subscription/aliases"
+        ],
+        "modified": {
+          "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Subscription/createSubscription": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/createSubscription/parameters/api-version"
+                        },
+                        {
+                          "oldValue": {
+                            "customData": {
+                              "key1": "value1",
+                              "key2": true
+                            }
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/createSubscription/parameters/body/additionalParameters"
+                        },
+                        {
+                          "oldValue": "https://management.azure.com/providers/Microsoft.Subscription/subscriptionOperations/ODdmYTU0MDktODc5YS00ZTEzLTg2MWItNTQ4ZjYxNzBlOTQw?api-version=2019-10-01-preview",
+                          "value": "https://management.azure.com/providers/Microsoft.Subscription/subscriptionOperations/ODdmYTU0MDktODc5YS00ZTEzLTg2MWItNTQ4ZjYxNzBlOTQw?api-version=2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/createSubscription/responses/202/headers/Location"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "body": {
+                        "body": {
+                          "schema": {
+                            "required": {
+                              "deleted": [
+                                "displayName",
+                                "skuId"
+                              ]
+                            },
+                            "properties": {
+                              "deleted": [
+                                "additionalParameters"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/providers/Microsoft.Subscription/createSubscription": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/createSubscription/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountName}/providers/Microsoft.Subscription/createSubscription": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/createSubscription/parameters/api-version"
+                        },
+                        {
+                          "oldValue": {
+                            "customData": {
+                              "key1": "value1",
+                              "key2": true
+                            }
+                          },
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/createSubscription/parameters/body/additionalParameters"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "body": {
+                        "body": {
+                          "schema": {
+                            "properties": {
+                              "deleted": [
+                                "additionalParameters"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/providers/Microsoft.Subscription/operations": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/getOperations/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/providers/Microsoft.Subscription/subscriptionOperations/{operationId}": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/getPendingSubscriptionOperations/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "/providers/Microsoft.Subscription/subscriptionOperations/e4b8d068-f574-462a-a76f-6fa0afc613c9?api-version=2019-10-01-preview",
+                          "value": "/providers/Microsoft.Subscription/subscriptionOperations/e4b8d068-f574-462a-a76f-6fa0afc613c9?api-version=2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/getPendingSubscriptionOperations/responses/202/headers/Location"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/cancel": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/cancelSubscription/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/enable": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/enableSubscription/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/rename": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2019-10-01-preview",
+                          "value": "2020-01-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/renameSubscription/parameters/api-version"
+                        },
+                        {
+                          "oldValue": null,
+                          "value": "Test Sub",
+                          "op": "add",
+                          "from": "",
+                          "path": "/renameSubscription/parameters/body/SubscriptionName"
+                        },
+                        {
+                          "oldValue": "Test Sub",
+                          "value": null,
+                          "op": "remove",
+                          "from": "",
+                          "path": "/renameSubscription/parameters/body/subscriptionName"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "description": {
+                            "from": "Version of the API to be used with the client request. Current version is 2019-10-01-preview",
+                            "to": "Version of the API to be used with the client request. Current version is 2020-01-01"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

@@ -1,0 +1,4645 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": {
+                "description": "Active Directory Principal who\u2019ll get owner access on the new subscription.",
+                "properties": {
+                  "objectId": {
+                    "description": "Object id of the Principal",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "objectId"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/AdPrincipal"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The ID of the canceled subscription",
+                "properties": {
+                  "subscriptionId": {
+                    "description": "The ID of the canceled subscription",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/CanceledSubscriptionId"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The ID of the subscriptions that is being enabled",
+                "properties": {
+                  "subscriptionId": {
+                    "description": "The ID of the subscriptions that is being enabled",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/EnabledSubscriptionId"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message.",
+                "properties": {
+                  "code": {
+                    "description": "Error code",
+                    "type": "string"
+                  },
+                  "error": {
+                    "description": "Describes the format of Error response.",
+                    "properties": {
+                      "code": {
+                        "description": "Error code",
+                        "type": "string"
+                      },
+                      "message": {
+                        "description": "Error message indicating why the operation failed.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "message": {
+                    "description": "Error message indicating why the operation failed.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ErrorResponseBody"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters required to create a new CSP subscription.",
+                "properties": {
+                  "displayName": {
+                    "description": "The friendly name of the subscription.",
+                    "type": "string"
+                  },
+                  "resellerId": {
+                    "description": "Reseller ID, basically MPN Id.",
+                    "type": "string"
+                  },
+                  "serviceProviderId": {
+                    "description": "Service provider ID, basically MPN Id.",
+                    "type": "string"
+                  },
+                  "skuId": {
+                    "description": "The SKU ID of the Azure plan. Azure plan determines the pricing and service-level agreement of the subscription.  Use 001 for Microsoft Azure Plan and 002 for Microsoft Azure Plan for DevTest.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "displayName",
+                  "skuId"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ModernCspSubscriptionCreationParameters"
+            },
+            {
+              "oldValue": {
+                "description": "The parameters required to create a new subscription.",
+                "properties": {
+                  "additionalParameters": {
+                    "additionalProperties": {
+                      "type": "object"
+                    },
+                    "description": "Additional, untyped parameters to support custom subscription creation scenarios.",
+                    "type": "object"
+                  },
+                  "billingProfileId": {
+                    "description": "The ARM ID of the billing profile for which you want to create the subscription.",
+                    "type": "string"
+                  },
+                  "costCenter": {
+                    "description": "If set, the cost center will show up on the Azure usage and charges file.",
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "description": "The friendly name of the subscription.",
+                    "type": "string"
+                  },
+                  "managementGroupId": {
+                    "description": "The identifier of the management group to which this subscription will be associated.",
+                    "type": "string"
+                  },
+                  "owner": {
+                    "description": "Active Directory Principal who\u2019ll get owner access on the new subscription.",
+                    "properties": {
+                      "objectId": {
+                        "description": "Object id of the Principal",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "objectId"
+                    ]
+                  },
+                  "skuId": {
+                    "description": "The SKU ID of the Azure plan. Azure plan determines the pricing and service-level agreement of the subscription.  Use 001 for Microsoft Azure Plan and 002 for Microsoft Azure Plan for DevTest.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "displayName",
+                  "billingProfileId",
+                  "skuId"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ModernSubscriptionCreationParameters"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The ID of the subscriptions that is being renamed",
+                "properties": {
+                  "subscriptionId": {
+                    "description": "The ID of the subscriptions that is being renamed",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/RenamedSubscriptionId"
+            },
+            {
+              "oldValue": {
+                "description": "The created subscription object.",
+                "properties": {
+                  "subscriptionLink": {
+                    "description": "The link to the new subscription. Use this link to check the status of subscription creation operation.",
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SubscriptionCreationResult"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "The new name of the subscription.",
+                "properties": {
+                  "subscriptionName": {
+                    "description": "New subscription name",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/SubscriptionName"
+            },
+            {
+              "oldValue": {
+                "description": "status of the subscription POST operation.",
+                "properties": {
+                  "id": {
+                    "description": "The operation Id.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Status of the pending subscription",
+                    "type": "string"
+                  },
+                  "statusDetail": {
+                    "description": "Status Detail of the pending subscription",
+                    "type": "string"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SubscriptionOperation"
+            },
+            {
+              "oldValue": {
+                "description": "A list of pending subscription operations.",
+                "properties": {
+                  "value": {
+                    "description": "A list of pending SubscriptionOperations",
+                    "items": {
+                      "description": "status of the subscription POST operation.",
+                      "properties": {
+                        "id": {
+                          "description": "The operation Id.",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "status": {
+                          "description": "Status of the pending subscription",
+                          "type": "string"
+                        },
+                        "statusDetail": {
+                          "description": "Status Detail of the pending subscription",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "type": "array"
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SubscriptionOperationListResult"
+            }
+          ],
+          "parameters": [
+            {
+              "oldValue": "Version of the API to be used with the client request. Current version is 2018-11-01-preview",
+              "value": "Version of the API to be used with the client request. Current version is 2019-03-01-preview",
+              "op": "replace",
+              "from": "",
+              "path": "/apiVersionParameter/description"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Subscription Id.",
+                "in": "path",
+                "name": "subscriptionId",
+                "required": true,
+                "type": "string",
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/subscriptionIdParameter"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Subscription Name",
+                "in": "body",
+                "name": "body",
+                "required": true,
+                "schema": {
+                  "description": "The new name of the subscription.",
+                  "properties": {
+                    "subscriptionName": {
+                      "description": "New subscription name",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "x-ms-parameter-location": "method"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/subscriptionNameParameter"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2018-11-01-preview",
+          "to": "2019-03-01-preview"
+        }
+      },
+      "paths": {
+        "added": [
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/enable",
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/rename",
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Subscription/cancel"
+        ],
+        "deleted": [
+          "/providers/Microsoft.Subscription/subscriptionOperations/{operationId}",
+          "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Subscription/createSubscription",
+          "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/providers/Microsoft.Subscription/createSubscription"
+        ]
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "json",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "typing",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Optional",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Union",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "Any",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "ImportFrom",
+          "module": "fastmcp",
+          "names": [
+            {
+              "type": "alias",
+              "name": "FastMCP",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[MCP SERVER] FastMCP server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Assign",
+              "targets": [
+                {
+                  "type": "Name",
+                  "id": "mcp",
+                  "ctx": {
+                    "type": "Store"
+                  }
+                }
+              ],
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Name",
+                  "id": "FastMCP",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": "my-server",
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              },
+              "type_comment": null
+            },
+            {
+              "type": "FunctionDef",
+              "name": "Subscriptions_Cancel",
+              "args": {
+                "type": "arguments",
+                "posonlyargs": [],
+                "args": [
+                  {
+                    "type": "arg",
+                    "arg": "subscriptionId",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "api_version",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  }
+                ],
+                "vararg": null,
+                "kwonlyargs": [],
+                "kw_defaults": [],
+                "kwarg": null,
+                "defaults": [
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  }
+                ]
+              },
+              "body": [
+                {
+                  "type": "Expr",
+                  "value": {
+                    "type": "Constant",
+                    "value": "The operation to cancel a subscription",
+                    "kind": null
+                  }
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "base_url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": "https://management.azure.com",
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "JoinedStr",
+                    "values": [
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "base_url",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/subscriptions/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "subscriptionId",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/providers/Microsoft.Subscription/cancel",
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "params",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "cookies",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "extra_headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Call",
+                    "func": {
+                      "type": "Attribute",
+                      "value": {
+                        "type": "Name",
+                        "id": "os",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "attr": "getenv",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "args": [
+                      {
+                        "type": "Constant",
+                        "value": "EXTRA_HEADERS",
+                        "kind": null
+                      }
+                    ],
+                    "keywords": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Name",
+                    "id": "extra_headers",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "For",
+                          "target": {
+                            "type": "Tuple",
+                            "elts": [
+                              {
+                                "type": "Name",
+                                "id": "k",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              },
+                              {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "ctx": {
+                              "type": "Store"
+                            }
+                          },
+                          "iter": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "json",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "loads",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Name",
+                                    "id": "extra_headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "attr": "items",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          },
+                          "body": [
+                            {
+                              "type": "Assign",
+                              "targets": [
+                                {
+                                  "type": "Subscript",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "slice": {
+                                    "type": "Name",
+                                    "id": "k",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "ctx": {
+                                    "type": "Store"
+                                  }
+                                }
+                              ],
+                              "value": {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "type_comment": null
+                            }
+                          ],
+                          "orelse": [],
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "print",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Failed to parse EXTRA_HEADERS:",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "Name",
+                                    "id": "e",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": false,
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "auth_error_msgs",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "List",
+                    "elts": [],
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "UnaryOp",
+                    "op": {
+                      "type": "Not"
+                    },
+                    "operand": {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Name",
+                              "id": "access_token",
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "os",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "getenv",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "type_comment": null
+                        },
+                        {
+                          "type": "If",
+                          "test": {
+                            "type": "UnaryOp",
+                            "op": {
+                              "type": "Not"
+                            },
+                            "operand": {
+                              "type": "Name",
+                              "id": "access_token",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          "body": [
+                            {
+                              "type": "Raise",
+                              "exc": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "ValueError",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN",
+                                    "kind": null
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "cause": null
+                            }
+                          ],
+                          "orelse": []
+                        },
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Subscript",
+                              "value": {
+                                "type": "Name",
+                                "id": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "slice": {
+                                "type": "Constant",
+                                "value": "Authorization",
+                                "kind": null
+                              },
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "JoinedStr",
+                            "values": [
+                              {
+                                "type": "Constant",
+                                "value": "Bearer ",
+                                "kind": null
+                              },
+                              {
+                                "type": "FormattedValue",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "access_token",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "conversion": -1,
+                                "format_spec": null
+                              }
+                            ]
+                          },
+                          "type_comment": null
+                        },
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Name",
+                              "id": "auth_satisfied",
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "Constant",
+                            "value": true,
+                            "kind": null
+                          },
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "auth_error_msgs",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "append",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Call",
+                                    "func": {
+                                      "type": "Name",
+                                      "id": "str",
+                                      "ctx": {
+                                        "type": "Load"
+                                      }
+                                    },
+                                    "args": [
+                                      {
+                                        "type": "Name",
+                                        "id": "e",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      }
+                                    ],
+                                    "keywords": []
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "UnaryOp",
+                    "op": {
+                      "type": "Not"
+                    },
+                    "operand": {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "BinOp",
+                            "left": {
+                              "type": "Constant",
+                              "value": "No valid authentication found. Details: ",
+                              "kind": null
+                            },
+                            "op": {
+                              "type": "Add"
+                            },
+                            "right": {
+                              "type": "Call",
+                              "func": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Constant",
+                                  "value": "; ",
+                                  "kind": null
+                                },
+                                "attr": "join",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "args": [
+                                {
+                                  "type": "Name",
+                                  "id": "auth_error_msgs",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                }
+                              ],
+                              "keywords": []
+                            }
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "subscriptionId",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: subscriptionId",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "api_version",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "api-version",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "api_version",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Try",
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Name",
+                          "id": "resp",
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "post",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Name",
+                            "id": "url",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          }
+                        ],
+                        "keywords": [
+                          {
+                            "type": "keyword",
+                            "arg": "params",
+                            "value": {
+                              "type": "Name",
+                              "id": "params",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "headers",
+                            "value": {
+                              "type": "Name",
+                              "id": "headers",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "cookies",
+                            "value": {
+                              "type": "Name",
+                              "id": "cookies",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "type_comment": null
+                    },
+                    {
+                      "type": "Expr",
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "resp",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "raise_for_status",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [],
+                        "keywords": []
+                      }
+                    },
+                    {
+                      "type": "If",
+                      "test": {
+                        "type": "Compare",
+                        "left": {
+                          "type": "Constant",
+                          "value": "application/json",
+                          "kind": null
+                        },
+                        "ops": [
+                          {
+                            "type": "In"
+                          }
+                        ],
+                        "comparators": [
+                          {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "get",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "Content-Type",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          }
+                        ]
+                      },
+                      "body": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "resp",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "json",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          }
+                        }
+                      ],
+                      "orelse": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Dict",
+                            "keys": [
+                              {
+                                "type": "Constant",
+                                "value": "raw",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "status_code",
+                                "kind": null
+                              }
+                            ],
+                            "values": [
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "text",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "status_code",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "handlers": [
+                    {
+                      "type": {
+                        "type": "Attribute",
+                        "value": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "exceptions",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "attr": "RequestException",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "HTTP request failed: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "type": "Name",
+                        "id": "Exception",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Unexpected error: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    }
+                  ],
+                  "orelse": [],
+                  "finalbody": []
+                }
+              ],
+              "decorator_list": [
+                {
+                  "type": "Call",
+                  "func": {
+                    "type": "Attribute",
+                    "value": {
+                      "type": "Name",
+                      "id": "mcp",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "attr": "tool",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "args": [],
+                  "keywords": [
+                    {
+                      "type": "keyword",
+                      "arg": "name",
+                      "value": {
+                        "type": "Constant",
+                        "value": "Subscriptions_Cancel",
+                        "kind": null
+                      }
+                    },
+                    {
+                      "type": "keyword",
+                      "arg": "description",
+                      "value": {
+                        "type": "Constant",
+                        "value": "The operation to cancel a subscription",
+                        "kind": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "returns": null,
+              "type_comment": null,
+              "type_params": []
+            },
+            {
+              "type": "FunctionDef",
+              "name": "Subscriptions_Rename",
+              "args": {
+                "type": "arguments",
+                "posonlyargs": [],
+                "args": [
+                  {
+                    "type": "arg",
+                    "arg": "subscriptionId",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "api_version",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  }
+                ],
+                "vararg": null,
+                "kwonlyargs": [],
+                "kw_defaults": [],
+                "kwarg": null,
+                "defaults": [
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  }
+                ]
+              },
+              "body": [
+                {
+                  "type": "Expr",
+                  "value": {
+                    "type": "Constant",
+                    "value": "The operation to rename a subscription",
+                    "kind": null
+                  }
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "base_url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": "https://management.azure.com",
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "JoinedStr",
+                    "values": [
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "base_url",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/subscriptions/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "subscriptionId",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/providers/Microsoft.Subscription/rename",
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "params",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "cookies",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "extra_headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Call",
+                    "func": {
+                      "type": "Attribute",
+                      "value": {
+                        "type": "Name",
+                        "id": "os",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "attr": "getenv",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "args": [
+                      {
+                        "type": "Constant",
+                        "value": "EXTRA_HEADERS",
+                        "kind": null
+                      }
+                    ],
+                    "keywords": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Name",
+                    "id": "extra_headers",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "For",
+                          "target": {
+                            "type": "Tuple",
+                            "elts": [
+                              {
+                                "type": "Name",
+                                "id": "k",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              },
+                              {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "ctx": {
+                              "type": "Store"
+                            }
+                          },
+                          "iter": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "json",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "loads",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Name",
+                                    "id": "extra_headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "attr": "items",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          },
+                          "body": [
+                            {
+                              "type": "Assign",
+                              "targets": [
+                                {
+                                  "type": "Subscript",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "slice": {
+                                    "type": "Name",
+                                    "id": "k",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "ctx": {
+                                    "type": "Store"
+                                  }
+                                }
+                              ],
+                              "value": {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "type_comment": null
+                            }
+                          ],
+                          "orelse": [],
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "print",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Failed to parse EXTRA_HEADERS:",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "Name",
+                                    "id": "e",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": false,
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "auth_error_msgs",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "List",
+                    "elts": [],
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "UnaryOp",
+                    "op": {
+                      "type": "Not"
+                    },
+                    "operand": {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Name",
+                              "id": "access_token",
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "os",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "getenv",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "type_comment": null
+                        },
+                        {
+                          "type": "If",
+                          "test": {
+                            "type": "UnaryOp",
+                            "op": {
+                              "type": "Not"
+                            },
+                            "operand": {
+                              "type": "Name",
+                              "id": "access_token",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          "body": [
+                            {
+                              "type": "Raise",
+                              "exc": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "ValueError",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN",
+                                    "kind": null
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "cause": null
+                            }
+                          ],
+                          "orelse": []
+                        },
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Subscript",
+                              "value": {
+                                "type": "Name",
+                                "id": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "slice": {
+                                "type": "Constant",
+                                "value": "Authorization",
+                                "kind": null
+                              },
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "JoinedStr",
+                            "values": [
+                              {
+                                "type": "Constant",
+                                "value": "Bearer ",
+                                "kind": null
+                              },
+                              {
+                                "type": "FormattedValue",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "access_token",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "conversion": -1,
+                                "format_spec": null
+                              }
+                            ]
+                          },
+                          "type_comment": null
+                        },
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Name",
+                              "id": "auth_satisfied",
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "Constant",
+                            "value": true,
+                            "kind": null
+                          },
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "auth_error_msgs",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "append",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Call",
+                                    "func": {
+                                      "type": "Name",
+                                      "id": "str",
+                                      "ctx": {
+                                        "type": "Load"
+                                      }
+                                    },
+                                    "args": [
+                                      {
+                                        "type": "Name",
+                                        "id": "e",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      }
+                                    ],
+                                    "keywords": []
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "UnaryOp",
+                    "op": {
+                      "type": "Not"
+                    },
+                    "operand": {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "BinOp",
+                            "left": {
+                              "type": "Constant",
+                              "value": "No valid authentication found. Details: ",
+                              "kind": null
+                            },
+                            "op": {
+                              "type": "Add"
+                            },
+                            "right": {
+                              "type": "Call",
+                              "func": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Constant",
+                                  "value": "; ",
+                                  "kind": null
+                                },
+                                "attr": "join",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "args": [
+                                {
+                                  "type": "Name",
+                                  "id": "auth_error_msgs",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                }
+                              ],
+                              "keywords": []
+                            }
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "subscriptionId",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: subscriptionId",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "api_version",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "api-version",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "api_version",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Try",
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Name",
+                          "id": "resp",
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "post",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Name",
+                            "id": "url",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          }
+                        ],
+                        "keywords": [
+                          {
+                            "type": "keyword",
+                            "arg": "params",
+                            "value": {
+                              "type": "Name",
+                              "id": "params",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "headers",
+                            "value": {
+                              "type": "Name",
+                              "id": "headers",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "cookies",
+                            "value": {
+                              "type": "Name",
+                              "id": "cookies",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "type_comment": null
+                    },
+                    {
+                      "type": "Expr",
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "resp",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "raise_for_status",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [],
+                        "keywords": []
+                      }
+                    },
+                    {
+                      "type": "If",
+                      "test": {
+                        "type": "Compare",
+                        "left": {
+                          "type": "Constant",
+                          "value": "application/json",
+                          "kind": null
+                        },
+                        "ops": [
+                          {
+                            "type": "In"
+                          }
+                        ],
+                        "comparators": [
+                          {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "get",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "Content-Type",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          }
+                        ]
+                      },
+                      "body": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "resp",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "json",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          }
+                        }
+                      ],
+                      "orelse": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Dict",
+                            "keys": [
+                              {
+                                "type": "Constant",
+                                "value": "raw",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "status_code",
+                                "kind": null
+                              }
+                            ],
+                            "values": [
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "text",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "status_code",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "handlers": [
+                    {
+                      "type": {
+                        "type": "Attribute",
+                        "value": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "exceptions",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "attr": "RequestException",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "HTTP request failed: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "type": "Name",
+                        "id": "Exception",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Unexpected error: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    }
+                  ],
+                  "orelse": [],
+                  "finalbody": []
+                }
+              ],
+              "decorator_list": [
+                {
+                  "type": "Call",
+                  "func": {
+                    "type": "Attribute",
+                    "value": {
+                      "type": "Name",
+                      "id": "mcp",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "attr": "tool",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "args": [],
+                  "keywords": [
+                    {
+                      "type": "keyword",
+                      "arg": "name",
+                      "value": {
+                        "type": "Constant",
+                        "value": "Subscriptions_Rename",
+                        "kind": null
+                      }
+                    },
+                    {
+                      "type": "keyword",
+                      "arg": "description",
+                      "value": {
+                        "type": "Constant",
+                        "value": "The operation to rename a subscription",
+                        "kind": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "returns": null,
+              "type_comment": null,
+              "type_params": []
+            },
+            {
+              "type": "FunctionDef",
+              "name": "Subscriptions_Enable",
+              "args": {
+                "type": "arguments",
+                "posonlyargs": [],
+                "args": [
+                  {
+                    "type": "arg",
+                    "arg": "subscriptionId",
+                    "annotation": {
+                      "type": "Name",
+                      "id": "str",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  },
+                  {
+                    "type": "arg",
+                    "arg": "api_version",
+                    "annotation": {
+                      "type": "Subscript",
+                      "value": {
+                        "type": "Name",
+                        "id": "Optional",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "slice": {
+                        "type": "Name",
+                        "id": "str",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "type_comment": null
+                  }
+                ],
+                "vararg": null,
+                "kwonlyargs": [],
+                "kw_defaults": [],
+                "kwarg": null,
+                "defaults": [
+                  {
+                    "type": "Constant",
+                    "value": null,
+                    "kind": null
+                  }
+                ]
+              },
+              "body": [
+                {
+                  "type": "Expr",
+                  "value": {
+                    "type": "Constant",
+                    "value": "The operation to enable a subscription",
+                    "kind": null
+                  }
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "base_url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": "https://management.azure.com",
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "url",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "JoinedStr",
+                    "values": [
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "base_url",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/subscriptions/",
+                        "kind": null
+                      },
+                      {
+                        "type": "FormattedValue",
+                        "value": {
+                          "type": "Name",
+                          "id": "subscriptionId",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "conversion": -1,
+                        "format_spec": null
+                      },
+                      {
+                        "type": "Constant",
+                        "value": "/providers/Microsoft.Subscription/enable",
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "params",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "cookies",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Dict",
+                    "keys": [],
+                    "values": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "extra_headers",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Call",
+                    "func": {
+                      "type": "Attribute",
+                      "value": {
+                        "type": "Name",
+                        "id": "os",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "attr": "getenv",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "args": [
+                      {
+                        "type": "Constant",
+                        "value": "EXTRA_HEADERS",
+                        "kind": null
+                      }
+                    ],
+                    "keywords": []
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Name",
+                    "id": "extra_headers",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "For",
+                          "target": {
+                            "type": "Tuple",
+                            "elts": [
+                              {
+                                "type": "Name",
+                                "id": "k",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              },
+                              {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "ctx": {
+                              "type": "Store"
+                            }
+                          },
+                          "iter": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "json",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "loads",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Name",
+                                    "id": "extra_headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "attr": "items",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          },
+                          "body": [
+                            {
+                              "type": "Assign",
+                              "targets": [
+                                {
+                                  "type": "Subscript",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "headers",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "slice": {
+                                    "type": "Name",
+                                    "id": "k",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "ctx": {
+                                    "type": "Store"
+                                  }
+                                }
+                              ],
+                              "value": {
+                                "type": "Name",
+                                "id": "v",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "type_comment": null
+                            }
+                          ],
+                          "orelse": [],
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "print",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Failed to parse EXTRA_HEADERS:",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "Name",
+                                    "id": "e",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "Constant",
+                    "value": false,
+                    "kind": null
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "Assign",
+                  "targets": [
+                    {
+                      "type": "Name",
+                      "id": "auth_error_msgs",
+                      "ctx": {
+                        "type": "Store"
+                      }
+                    }
+                  ],
+                  "value": {
+                    "type": "List",
+                    "elts": [],
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "type_comment": null
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "UnaryOp",
+                    "op": {
+                      "type": "Not"
+                    },
+                    "operand": {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Try",
+                      "body": [
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Name",
+                              "id": "access_token",
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "os",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "getenv",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "type_comment": null
+                        },
+                        {
+                          "type": "If",
+                          "test": {
+                            "type": "UnaryOp",
+                            "op": {
+                              "type": "Not"
+                            },
+                            "operand": {
+                              "type": "Name",
+                              "id": "access_token",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          "body": [
+                            {
+                              "type": "Raise",
+                              "exc": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Name",
+                                  "id": "ValueError",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN",
+                                    "kind": null
+                                  }
+                                ],
+                                "keywords": []
+                              },
+                              "cause": null
+                            }
+                          ],
+                          "orelse": []
+                        },
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Subscript",
+                              "value": {
+                                "type": "Name",
+                                "id": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "slice": {
+                                "type": "Constant",
+                                "value": "Authorization",
+                                "kind": null
+                              },
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "JoinedStr",
+                            "values": [
+                              {
+                                "type": "Constant",
+                                "value": "Bearer ",
+                                "kind": null
+                              },
+                              {
+                                "type": "FormattedValue",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "access_token",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "conversion": -1,
+                                "format_spec": null
+                              }
+                            ]
+                          },
+                          "type_comment": null
+                        },
+                        {
+                          "type": "Assign",
+                          "targets": [
+                            {
+                              "type": "Name",
+                              "id": "auth_satisfied",
+                              "ctx": {
+                                "type": "Store"
+                              }
+                            }
+                          ],
+                          "value": {
+                            "type": "Constant",
+                            "value": true,
+                            "kind": null
+                          },
+                          "type_comment": null
+                        }
+                      ],
+                      "handlers": [
+                        {
+                          "type": {
+                            "type": "Name",
+                            "id": "Exception",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "name": "e",
+                          "body": [
+                            {
+                              "type": "Expr",
+                              "value": {
+                                "type": "Call",
+                                "func": {
+                                  "type": "Attribute",
+                                  "value": {
+                                    "type": "Name",
+                                    "id": "auth_error_msgs",
+                                    "ctx": {
+                                      "type": "Load"
+                                    }
+                                  },
+                                  "attr": "append",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "args": [
+                                  {
+                                    "type": "Call",
+                                    "func": {
+                                      "type": "Name",
+                                      "id": "str",
+                                      "ctx": {
+                                        "type": "Load"
+                                      }
+                                    },
+                                    "args": [
+                                      {
+                                        "type": "Name",
+                                        "id": "e",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      }
+                                    ],
+                                    "keywords": []
+                                  }
+                                ],
+                                "keywords": []
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "orelse": [],
+                      "finalbody": []
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "UnaryOp",
+                    "op": {
+                      "type": "Not"
+                    },
+                    "operand": {
+                      "type": "Name",
+                      "id": "auth_satisfied",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "BinOp",
+                            "left": {
+                              "type": "Constant",
+                              "value": "No valid authentication found. Details: ",
+                              "kind": null
+                            },
+                            "op": {
+                              "type": "Add"
+                            },
+                            "right": {
+                              "type": "Call",
+                              "func": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Constant",
+                                  "value": "; ",
+                                  "kind": null
+                                },
+                                "attr": "join",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "args": [
+                                {
+                                  "type": "Name",
+                                  "id": "auth_error_msgs",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                }
+                              ],
+                              "keywords": []
+                            }
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "subscriptionId",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "Is"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Raise",
+                      "exc": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Name",
+                          "id": "ValueError",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Constant",
+                            "value": "Missing required path parameter: subscriptionId",
+                            "kind": null
+                          }
+                        ],
+                        "keywords": []
+                      },
+                      "cause": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "If",
+                  "test": {
+                    "type": "Compare",
+                    "left": {
+                      "type": "Name",
+                      "id": "api_version",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "ops": [
+                      {
+                        "type": "IsNot"
+                      }
+                    ],
+                    "comparators": [
+                      {
+                        "type": "Constant",
+                        "value": null,
+                        "kind": null
+                      }
+                    ]
+                  },
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Subscript",
+                          "value": {
+                            "type": "Name",
+                            "id": "params",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "slice": {
+                            "type": "Constant",
+                            "value": "api-version",
+                            "kind": null
+                          },
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Name",
+                        "id": "api_version",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "type_comment": null
+                    }
+                  ],
+                  "orelse": []
+                },
+                {
+                  "type": "Try",
+                  "body": [
+                    {
+                      "type": "Assign",
+                      "targets": [
+                        {
+                          "type": "Name",
+                          "id": "resp",
+                          "ctx": {
+                            "type": "Store"
+                          }
+                        }
+                      ],
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "post",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [
+                          {
+                            "type": "Name",
+                            "id": "url",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          }
+                        ],
+                        "keywords": [
+                          {
+                            "type": "keyword",
+                            "arg": "params",
+                            "value": {
+                              "type": "Name",
+                              "id": "params",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "headers",
+                            "value": {
+                              "type": "Name",
+                              "id": "headers",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          },
+                          {
+                            "type": "keyword",
+                            "arg": "cookies",
+                            "value": {
+                              "type": "Name",
+                              "id": "cookies",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "type_comment": null
+                    },
+                    {
+                      "type": "Expr",
+                      "value": {
+                        "type": "Call",
+                        "func": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "resp",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "raise_for_status",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "args": [],
+                        "keywords": []
+                      }
+                    },
+                    {
+                      "type": "If",
+                      "test": {
+                        "type": "Compare",
+                        "left": {
+                          "type": "Constant",
+                          "value": "application/json",
+                          "kind": null
+                        },
+                        "ops": [
+                          {
+                            "type": "In"
+                          }
+                        ],
+                        "comparators": [
+                          {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "headers",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "get",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "Constant",
+                                "value": "Content-Type",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "",
+                                "kind": null
+                              }
+                            ],
+                            "keywords": []
+                          }
+                        ]
+                      },
+                      "body": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Attribute",
+                              "value": {
+                                "type": "Name",
+                                "id": "resp",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              "attr": "json",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [],
+                            "keywords": []
+                          }
+                        }
+                      ],
+                      "orelse": [
+                        {
+                          "type": "Return",
+                          "value": {
+                            "type": "Dict",
+                            "keys": [
+                              {
+                                "type": "Constant",
+                                "value": "raw",
+                                "kind": null
+                              },
+                              {
+                                "type": "Constant",
+                                "value": "status_code",
+                                "kind": null
+                              }
+                            ],
+                            "values": [
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "text",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              },
+                              {
+                                "type": "Attribute",
+                                "value": {
+                                  "type": "Name",
+                                  "id": "resp",
+                                  "ctx": {
+                                    "type": "Load"
+                                  }
+                                },
+                                "attr": "status_code",
+                                "ctx": {
+                                  "type": "Load"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "handlers": [
+                    {
+                      "type": {
+                        "type": "Attribute",
+                        "value": {
+                          "type": "Attribute",
+                          "value": {
+                            "type": "Name",
+                            "id": "requests",
+                            "ctx": {
+                              "type": "Load"
+                            }
+                          },
+                          "attr": "exceptions",
+                          "ctx": {
+                            "type": "Load"
+                          }
+                        },
+                        "attr": "RequestException",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "HTTP request failed: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "type": "Name",
+                        "id": "Exception",
+                        "ctx": {
+                          "type": "Load"
+                        }
+                      },
+                      "name": "e",
+                      "body": [
+                        {
+                          "type": "Raise",
+                          "exc": {
+                            "type": "Call",
+                            "func": {
+                              "type": "Name",
+                              "id": "ValueError",
+                              "ctx": {
+                                "type": "Load"
+                              }
+                            },
+                            "args": [
+                              {
+                                "type": "JoinedStr",
+                                "values": [
+                                  {
+                                    "type": "Constant",
+                                    "value": "Unexpected error: ",
+                                    "kind": null
+                                  },
+                                  {
+                                    "type": "FormattedValue",
+                                    "value": {
+                                      "type": "Call",
+                                      "func": {
+                                        "type": "Name",
+                                        "id": "str",
+                                        "ctx": {
+                                          "type": "Load"
+                                        }
+                                      },
+                                      "args": [
+                                        {
+                                          "type": "Name",
+                                          "id": "e",
+                                          "ctx": {
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "keywords": []
+                                    },
+                                    "conversion": -1,
+                                    "format_spec": null
+                                  }
+                                ]
+                              }
+                            ],
+                            "keywords": []
+                          },
+                          "cause": null
+                        }
+                      ]
+                    }
+                  ],
+                  "orelse": [],
+                  "finalbody": []
+                }
+              ],
+              "decorator_list": [
+                {
+                  "type": "Call",
+                  "func": {
+                    "type": "Attribute",
+                    "value": {
+                      "type": "Name",
+                      "id": "mcp",
+                      "ctx": {
+                        "type": "Load"
+                      }
+                    },
+                    "attr": "tool",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "args": [],
+                  "keywords": [
+                    {
+                      "type": "keyword",
+                      "arg": "name",
+                      "value": {
+                        "type": "Constant",
+                        "value": "Subscriptions_Enable",
+                        "kind": null
+                      }
+                    },
+                    {
+                      "type": "keyword",
+                      "arg": "description",
+                      "value": {
+                        "type": "Constant",
+                        "value": "The operation to enable a subscription",
+                        "kind": null
+                      }
+                    }
+                  ]
+                }
+              ],
+              "returns": null,
+              "type_comment": null,
+              "type_params": []
+            },
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "mcp",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "transport",
+                    "value": {
+                      "type": "Constant",
+                      "value": "stdio",
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

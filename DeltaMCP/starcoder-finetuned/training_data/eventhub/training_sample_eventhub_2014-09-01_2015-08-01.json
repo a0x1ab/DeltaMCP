@@ -1,0 +1,1291 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Parameters supplied to the Regenerate Authorization Rule keys operation.",
+                "properties": {
+                  "policykey": {
+                    "description": "Key that needs to be regenerated.",
+                    "enum": [
+                      "PrimaryKey",
+                      "SecondaryKey"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": false,
+                      "name": "Policykey"
+                    }
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/RegenerateKeysParameters"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Namespace/EventHub Connection String",
+                "properties": {
+                  "keyName": {
+                    "description": "A string that describes the AuthorizationRule.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "primaryConnectionString": {
+                    "description": "Primary connection string of the created Namespace AuthorizationRule.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "primaryKey": {
+                    "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "secondaryConnectionString": {
+                    "description": "Secondary connection string of the created Namespace AuthorizationRule.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "secondaryKey": {
+                    "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "op": "add",
+              "from": "",
+              "path": "/ResourceListKeys"
+            },
+            {
+              "oldValue": {
+                "description": "AuthorizationRule properties.",
+                "properties": {
+                  "claimType": {
+                    "description": "A string that describes Claim Type for authorization rule.",
+                    "type": "string"
+                  },
+                  "claimValue": {
+                    "description": "A string that describes Claim Value of authorization rule.",
+                    "type": "string"
+                  },
+                  "createdTime": {
+                    "description": "The time the namespace was created.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "keyName": {
+                    "description": "A string that describes the Key Name of authorization rule.",
+                    "type": "string"
+                  },
+                  "modifiedTime": {
+                    "description": "The time the namespace was updated.",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "primaryKey": {
+                    "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                    "type": "string"
+                  },
+                  "rights": {
+                    "description": "The rights associated with the rule.",
+                    "items": {
+                      "enum": [
+                        "Manage",
+                        "Send",
+                        "Listen"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "AccessRights"
+                      }
+                    },
+                    "type": "array"
+                  },
+                  "secondaryKey": {
+                    "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "rights"
+                ]
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SharedAccessAuthorizationRulePostProperties"
+            },
+            {
+              "oldValue": {
+                "allOf": [
+                  {
+                    "description": "The Resource definition",
+                    "properties": {
+                      "id": {
+                        "description": "Resource Id",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "location": {
+                        "description": "Resource location",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Resource name",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "Resource type",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "x-ms-azure-resource": true
+                  }
+                ],
+                "description": "Single item in a List or Get AuthorizationRule operation",
+                "properties": {
+                  "properties": {
+                    "description": "AuthorizationRule properties.",
+                    "properties": {
+                      "claimType": {
+                        "description": "A string that describes Claim Type for authorization rule.",
+                        "type": "string"
+                      },
+                      "claimValue": {
+                        "description": "A string that describes Claim Value of authorization rule.",
+                        "type": "string"
+                      },
+                      "createdTime": {
+                        "description": "The time the namespace was created.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "keyName": {
+                        "description": "A string that describes the Key Name of authorization rule.",
+                        "type": "string"
+                      },
+                      "modifiedTime": {
+                        "description": "The time the namespace was updated.",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "primaryKey": {
+                        "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                        "type": "string"
+                      },
+                      "rights": {
+                        "description": "The rights associated with the rule.",
+                        "items": {
+                          "enum": [
+                            "Manage",
+                            "Send",
+                            "Listen"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": false,
+                            "name": "AccessRights"
+                          }
+                        },
+                        "type": "array"
+                      },
+                      "secondaryKey": {
+                        "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "rights"
+                    ]
+                  }
+                }
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SharedAccessAuthorizationRulePostResource"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2014-09-01",
+          "to": "2015-08-01"
+        }
+      },
+      "paths": {
+        "added": [
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/listKeys",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}/ListKeys",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}/regenerateKeys",
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/regenerateKeys"
+        ],
+        "deleted": [
+          "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/CheckNamespaceAvailability"
+        ],
+        "modified": {
+          "/providers/Microsoft.EventHub/operations": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Operations_List",
+            "line_range": [
+              15,
+              54
+            ]
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/CheckNameAvailability": {
+            "operations": {
+              "modified": {
+                "POST": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Namespaces_CheckNameAvailability",
+            "line_range": [
+              57,
+              98
+            ]
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/namespaces": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Namespaces_ListBySubscription",
+            "line_range": [
+              145,
+              186
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Namespaces_ListByResourceGroup",
+            "line_range": [
+              189,
+              232
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "PATCH": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Namespaces_CreateOrUpdate",
+            "line_range": [
+              235,
+              280
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules": {
+            "operations": {
+              "deleted": [
+                "POST"
+              ],
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Namespaces_ListAuthorizationRules",
+            "line_range": [
+              427,
+              472
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}": {
+            "operations": {
+              "deleted": [
+                "POST"
+              ],
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "Namespaces_CreateOrUpdateAuthorizationRule",
+            "line_range": [
+              523,
+              570
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "EventHubs_ListAll",
+            "line_range": [
+              723,
+              768
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "EventHubs_CreateOrUpdate",
+            "line_range": [
+              771,
+              818
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "EventHubs_ListAuthorizationRules",
+            "line_range": [
+              921,
+              968
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "POST": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "AuthorizationRule properties.",
+                                "value": "Properties supplied to create or update SharedAccessAuthorizationRule",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/properties/description"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "A string that describes Claim Type for authorization rule.",
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/claimType"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "A string that describes Claim Value of authorization rule.",
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/claimValue"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "The time the namespace was created.",
+                                  "format": "date-time",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/createdTime"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "A string that describes the Key Name of authorization rule.",
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/keyName"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "The time the namespace was updated.",
+                                  "format": "date-time",
+                                  "readOnly": true,
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/modifiedTime"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/primaryKey"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "A base64-encoded 256-bit primary key for signing and validating the SAS token.",
+                                  "type": "string"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/properties/properties/secondaryKey"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "EventHubs_CreateOrUpdateAuthorizationRule",
+            "line_range": [
+              971,
+              1020
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumergroups": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "ConsumerGroups_CreateOrUpdate",
+            "line_range": [
+              1179,
+              1228
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumergroups/{consumerGroupName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "added": [
+                      "x-ms-examples"
+                    ]
+                  }
+                }
+              }
+            },
+            "function_name": "ConsumerGroups_CreateOrUpdate",
+            "line_range": [
+              1179,
+              1228
+            ]
+          }
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

@@ -1,0 +1,1373 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": "Compliance standard that can be associated with a workspace.",
+              "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+              "op": "replace",
+              "from": "",
+              "path": "/ComplianceSecurityProfileDefinition/properties/complianceStandards/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "CYBER_ESSENTIAL_PLUS",
+              "op": "add",
+              "from": "",
+              "path": "/ComplianceSecurityProfileDefinition/properties/complianceStandards/items/enum/-"
+            },
+            {
+              "oldValue": "Compliance standard that can be associated with a workspace.",
+              "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+              "op": "replace",
+              "from": "",
+              "path": "/ComplianceStandardDefinition/description"
+            },
+            {
+              "oldValue": null,
+              "value": "CYBER_ESSENTIAL_PLUS",
+              "op": "add",
+              "from": "",
+              "path": "/ComplianceStandardDefinition/enum/-"
+            },
+            {
+              "oldValue": "Compliance standard that can be associated with a workspace.",
+              "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+              "op": "replace",
+              "from": "",
+              "path": "/EnhancedSecurityComplianceDefinition/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "CYBER_ESSENTIAL_PLUS",
+              "op": "add",
+              "from": "",
+              "path": "/EnhancedSecurityComplianceDefinition/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+            },
+            {
+              "oldValue": "Compliance standard that can be associated with a workspace.",
+              "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+              "op": "replace",
+              "from": "",
+              "path": "/Workspace/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "CYBER_ESSENTIAL_PLUS",
+              "op": "add",
+              "from": "",
+              "path": "/Workspace/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+            },
+            {
+              "oldValue": "Compliance standard that can be associated with a workspace.",
+              "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+              "op": "replace",
+              "from": "",
+              "path": "/WorkspaceListResult/properties/value/items/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "CYBER_ESSENTIAL_PLUS",
+              "op": "add",
+              "from": "",
+              "path": "/WorkspaceListResult/properties/value/items/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+            },
+            {
+              "oldValue": "Compliance standard that can be associated with a workspace.",
+              "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+              "op": "replace",
+              "from": "",
+              "path": "/WorkspaceProperties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+            },
+            {
+              "oldValue": null,
+              "value": "CYBER_ESSENTIAL_PLUS",
+              "op": "add",
+              "from": "",
+              "path": "/WorkspaceProperties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2024-05-01",
+          "to": "2024-09-01-preview"
+        }
+      },
+      "paths": {
+        "modified": {
+          "/providers/Microsoft.Databricks/operations": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Operations/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "Operations_List",
+            "line_range": [
+              287,
+              324
+            ]
+          },
+          "/subscriptions/{subscriptionId}/providers/Microsoft.Databricks/workspaces": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Lists workspaces/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "Compliance standard that can be associated with a workspace.",
+                                "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "CYBER_ESSENTIAL_PLUS",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/value/items/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "Workspaces_ListBySubscription",
+            "line_range": [
+              245,
+              284
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Lists workspaces/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "Compliance standard that can be associated with a workspace.",
+                                "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "CYBER_ESSENTIAL_PLUS",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/value/items/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "Workspaces_Get",
+            "line_range": [
+              15,
+              58
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete a workspace/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationStatus/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationStatus/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete a workspace/responses/202/headers/Azure-AsyncOperation"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete a workspace/responses/202/headers/Location"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete a workspace with forceDeletion parameter/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationStatus/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationStatus/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete a workspace with forceDeletion parameter/responses/202/headers/Azure-AsyncOperation"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete a workspace with forceDeletion parameter/responses/202/headers/Location"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get a workspace/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get a workspace with Customer-Managed Key (CMK) encryption for Managed Disks/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get a workspace with Enhanced Security & Compliance Add-On/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get a workspace with custom parameters/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "Compliance standard that can be associated with a workspace.",
+                                "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "CYBER_ESSENTIAL_PLUS",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "PATCH": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Update a workspace's tags./parameters/api-version"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationStatus/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationStatus/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Update a workspace's tags./responses/202/headers/Azure-AsyncOperation"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/workspaces/swaggerExample/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Update a workspace's tags./responses/202/headers/Location"
+                        }
+                      ]
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "Compliance standard that can be associated with a workspace.",
+                                "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "CYBER_ESSENTIAL_PLUS",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create a workspace which is ready for Customer-Managed Key (CMK) encryption/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create a workspace with Customer-Managed Key (CMK) encryption for Managed Disks/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create or update a workspace with Enhanced Security & Compliance Add-On/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create or update workspace/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create or update workspace with custom parameters/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Update a workspace with Customer-Managed Key (CMK) encryption for Managed Disks/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "body": {
+                        "parameters": {
+                          "schema": {
+                            "properties": {
+                              "modified": {
+                                "properties": {
+                                  "properties": {
+                                    "modified": {
+                                      "enhancedSecurityCompliance": {
+                                        "properties": {
+                                          "modified": {
+                                            "complianceSecurityProfile": {
+                                              "properties": {
+                                                "modified": {
+                                                  "complianceStandards": {
+                                                    "items": {
+                                                      "description": {
+                                                        "from": "Compliance standard that can be associated with a workspace.",
+                                                        "to": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces"
+                                                      },
+                                                      "enum": {
+                                                        "added": [
+                                                          "CYBER_ESSENTIAL_PLUS"
+                                                        ]
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "Compliance standard that can be associated with a workspace.",
+                                "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "CYBER_ESSENTIAL_PLUS",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "201": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "Compliance standard that can be associated with a workspace.",
+                                "value": "Compliance standard that can be associated with a workspace. CYBER_ESSENTIAL_PLUS is only available for UK region workspaces",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "CYBER_ESSENTIAL_PLUS",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/properties/properties/enhancedSecurityCompliance/properties/complianceSecurityProfile/properties/complianceStandards/items/enum/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "Workspaces_Get",
+            "line_range": [
+              15,
+              58
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/outboundNetworkDependenciesEndpoints": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List OutboundNetworkDependenciesEndpoints by Workspace/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "OutboundNetworkDependenciesEndpoints_List",
+            "line_range": [
+              611,
+              654
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/privateEndpointConnections": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List private endpoint connections/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "PrivateEndpointConnections_List",
+            "line_range": [
+              421,
+              464
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Remove a private endpoint connection/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/locations/exampleLocation/operationStatuses/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/locations/exampleLocation/operationStatuses/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Remove a private endpoint connection/responses/202/headers/Azure-AsyncOperation"
+                        },
+                        {
+                          "oldValue": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/locations/exampleLocation/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-05-01",
+                          "value": "/subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/HelloWorld/providers/Microsoft.Databricks/locations/exampleLocation/operationResults/YWUzNDFkMzQtZmM5OS00MmUyLWEzNDMtZGJkMDIxZjlmZjgzOzdmYzBiMzhmLTc2NmItNDM5NS05OWQ1LTVmOGEzNzg4MWQzNA==?api-version=2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Remove a private endpoint connection/responses/202/headers/Location"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get a private endpoint connection/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Update a private endpoint connection/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "PrivateEndpointConnections_Get",
+            "line_range": [
+              467,
+              512
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/privateLinkResources": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List private link resources/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "PrivateLinkResources_List",
+            "line_range": [
+              327,
+              370
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Databricks/workspaces/{workspaceName}/privateLinkResources/{groupId}": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2024-05-01",
+                          "value": "2024-09-01-preview",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get a private link resource/parameters/api-version"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "PrivateLinkResources_Get",
+            "line_range": [
+              373,
+              418
+            ]
+          }
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}

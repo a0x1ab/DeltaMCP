@@ -1,0 +1,2133 @@
+{
+  "input": {
+    "oas_diff": {
+      "extensions": {
+        "modified": {
+          "definitions": [
+            {
+              "oldValue": {
+                "allOf": [
+                  {
+                    "description": "The Resource model definition.",
+                    "properties": {
+                      "id": {
+                        "description": "Resource Id",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Resource name",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "systemData": {
+                        "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                        "properties": {
+                          "createdAt": {
+                            "description": "The timestamp of resource creation (UTC)",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "createdBy": {
+                            "description": "A string identifier for the identity that created the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "createdByType": {
+                            "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "lastModifiedAt": {
+                            "description": "The timestamp of resource last modification (UTC)",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "lastModifiedBy": {
+                            "description": "A string identifier for the identity that last modified the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "lastModifiedByType": {
+                            "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": {
+                        "description": "Resource type",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                  }
+                ],
+                "description": "ARM proxy resource.",
+                "properties": {},
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ProxyResource"
+            },
+            {
+              "oldValue": {
+                "description": "The Resource model definition.",
+                "properties": {
+                  "id": {
+                    "description": "Resource Id",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Resource name",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "systemData": {
+                    "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                    "properties": {
+                      "createdAt": {
+                        "description": "The timestamp of resource creation (UTC)",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "description": "A string identifier for the identity that created the resource",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "createdByType": {
+                        "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "lastModifiedAt": {
+                        "description": "The timestamp of resource last modification (UTC)",
+                        "format": "date-time",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "lastModifiedBy": {
+                        "description": "A string identifier for the identity that last modified the resource",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "lastModifiedByType": {
+                        "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": {
+                    "description": "Resource type",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "x-ms-azure-resource": true
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/Resource"
+            },
+            {
+              "oldValue": "The Resource model definition.",
+              "value": "Common fields that are returned in the response for all Azure Resource Manager resources",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/allOf/0/description"
+            },
+            {
+              "oldValue": "Resource Id",
+              "value": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/allOf/0/properties/id/description"
+            },
+            {
+              "oldValue": "Resource name",
+              "value": "The name of the resource",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/allOf/0/properties/name/description"
+            },
+            {
+              "oldValue": {
+                "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                "properties": {
+                  "createdAt": {
+                    "description": "The timestamp of resource creation (UTC)",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "createdBy": {
+                    "description": "A string identifier for the identity that created the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "createdByType": {
+                    "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedAt": {
+                    "description": "The timestamp of resource last modification (UTC)",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedBy": {
+                    "description": "A string identifier for the identity that last modified the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedByType": {
+                    "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/allOf/0/properties/systemData"
+            },
+            {
+              "oldValue": "Resource type",
+              "value": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/allOf/0/properties/type/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Resource",
+              "op": "add",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/allOf/0/title"
+            },
+            {
+              "oldValue": "ARM proxy resource.",
+              "value": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/description"
+            },
+            {
+              "oldValue": {},
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/properties"
+            },
+            {
+              "oldValue": null,
+              "value": "Proxy Resource",
+              "op": "add",
+              "from": "",
+              "path": "/SourceControlConfiguration/allOf/0/title"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Metadata pertaining to creation and last modification of the resource.",
+                "properties": {
+                  "createdAt": {
+                    "description": "The timestamp of resource creation (UTC).",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "createdBy": {
+                    "description": "The identity that created the resource.",
+                    "type": "string"
+                  },
+                  "createdByType": {
+                    "description": "The type of identity that created the resource.",
+                    "enum": [
+                      "User",
+                      "Application",
+                      "ManagedIdentity",
+                      "Key"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "createdByType"
+                    }
+                  },
+                  "lastModifiedAt": {
+                    "description": "The timestamp of resource last modification (UTC)",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastModifiedBy": {
+                    "description": "The identity that last modified the resource.",
+                    "type": "string"
+                  },
+                  "lastModifiedByType": {
+                    "description": "The type of identity that last modified the resource.",
+                    "enum": [
+                      "User",
+                      "Application",
+                      "ManagedIdentity",
+                      "Key"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "createdByType"
+                    }
+                  }
+                },
+                "readOnly": true,
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/SourceControlConfiguration/properties/systemData"
+            },
+            {
+              "oldValue": "The Resource model definition.",
+              "value": "Common fields that are returned in the response for all Azure Resource Manager resources",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/allOf/0/description"
+            },
+            {
+              "oldValue": "Resource Id",
+              "value": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/allOf/0/properties/id/description"
+            },
+            {
+              "oldValue": "Resource name",
+              "value": "The name of the resource",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/allOf/0/properties/name/description"
+            },
+            {
+              "oldValue": {
+                "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                "properties": {
+                  "createdAt": {
+                    "description": "The timestamp of resource creation (UTC)",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "createdBy": {
+                    "description": "A string identifier for the identity that created the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "createdByType": {
+                    "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedAt": {
+                    "description": "The timestamp of resource last modification (UTC)",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedBy": {
+                    "description": "A string identifier for the identity that last modified the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedByType": {
+                    "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/allOf/0/properties/systemData"
+            },
+            {
+              "oldValue": "Resource type",
+              "value": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/allOf/0/properties/type/description"
+            },
+            {
+              "oldValue": null,
+              "value": "Resource",
+              "op": "add",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/allOf/0/title"
+            },
+            {
+              "oldValue": "ARM proxy resource.",
+              "value": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+              "op": "replace",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/description"
+            },
+            {
+              "oldValue": {},
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/properties"
+            },
+            {
+              "oldValue": null,
+              "value": "Proxy Resource",
+              "op": "add",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/allOf/0/title"
+            },
+            {
+              "oldValue": null,
+              "value": {
+                "description": "Metadata pertaining to creation and last modification of the resource.",
+                "properties": {
+                  "createdAt": {
+                    "description": "The timestamp of resource creation (UTC).",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "createdBy": {
+                    "description": "The identity that created the resource.",
+                    "type": "string"
+                  },
+                  "createdByType": {
+                    "description": "The type of identity that created the resource.",
+                    "enum": [
+                      "User",
+                      "Application",
+                      "ManagedIdentity",
+                      "Key"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "createdByType"
+                    }
+                  },
+                  "lastModifiedAt": {
+                    "description": "The timestamp of resource last modification (UTC)",
+                    "format": "date-time",
+                    "type": "string"
+                  },
+                  "lastModifiedBy": {
+                    "description": "The identity that last modified the resource.",
+                    "type": "string"
+                  },
+                  "lastModifiedByType": {
+                    "description": "The type of identity that last modified the resource.",
+                    "enum": [
+                      "User",
+                      "Application",
+                      "ManagedIdentity",
+                      "Key"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "createdByType"
+                    }
+                  }
+                },
+                "readOnly": true,
+                "type": "object"
+              },
+              "op": "add",
+              "from": "",
+              "path": "/SourceControlConfigurationList/properties/value/items/properties/systemData"
+            },
+            {
+              "oldValue": {
+                "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                "properties": {
+                  "createdAt": {
+                    "description": "The timestamp of resource creation (UTC)",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "createdBy": {
+                    "description": "A string identifier for the identity that created the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "createdByType": {
+                    "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedAt": {
+                    "description": "The timestamp of resource last modification (UTC)",
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedBy": {
+                    "description": "A string identifier for the identity that last modified the resource",
+                    "readOnly": true,
+                    "type": "string"
+                  },
+                  "lastModifiedByType": {
+                    "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                    "readOnly": true,
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/SystemData"
+            }
+          ],
+          "parameters": [
+            {
+              "oldValue": {
+                "description": "The API version to be used with the HTTP request.",
+                "in": "query",
+                "name": "api-version",
+                "required": true,
+                "type": "string"
+              },
+              "value": null,
+              "op": "remove",
+              "from": "",
+              "path": "/ApiVersionParameter"
+            }
+          ]
+        }
+      },
+      "info": {
+        "version": {
+          "from": "2020-10-01-preview",
+          "to": "2021-03-01"
+        }
+      },
+      "paths": {
+        "modified": {
+          "/providers/Microsoft.KubernetesConfiguration/operations": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2020-10-01-preview",
+                          "value": "2021-03-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/BatchAccountDelete/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "extensions": {
+                            "added": [
+                              "minLength"
+                            ]
+                          },
+                          "description": {
+                            "from": "The API version to be used with the HTTP request.",
+                            "to": "The API version to use for this operation."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "Operations_List",
+            "line_range": [
+              229,
+              268
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations": {
+            "operations": {
+              "modified": {
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2020-10-01-preview",
+                          "value": "2021-03-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List Source Control Configuration/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List Source Control Configuration/responses/200/body/value/0/systemData/createdByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List Source Control Configuration/responses/200/body/value/0/systemData/lastModifiedByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List Source Control Configuration/responses/200/body/value/1/systemData/createdByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/List Source Control Configuration/responses/200/body/value/1/systemData/lastModifiedByType"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "extensions": {
+                            "added": [
+                              "minLength"
+                            ]
+                          },
+                          "description": {
+                            "from": "The API version to be used with the HTTP request.",
+                            "to": "The API version to use for this operation."
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "The Resource model definition.",
+                                "value": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/allOf/0/description"
+                              },
+                              {
+                                "oldValue": "Resource Id",
+                                "value": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/allOf/0/properties/id/description"
+                              },
+                              {
+                                "oldValue": "Resource name",
+                                "value": "The name of the resource",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/allOf/0/properties/name/description"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "A string identifier for the identity that created the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "A string identifier for the identity that last modified the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/allOf/0/properties/systemData"
+                              },
+                              {
+                                "oldValue": "Resource type",
+                                "value": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/allOf/0/properties/type/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/allOf/0/title"
+                              },
+                              {
+                                "oldValue": "ARM proxy resource.",
+                                "value": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/description"
+                              },
+                              {
+                                "oldValue": {},
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/properties"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Proxy Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/value/items/allOf/0/title"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": {
+                                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC).",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "The identity that created the resource.",
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "The identity that last modified the resource.",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    }
+                                  },
+                                  "readOnly": true,
+                                  "type": "object"
+                                },
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/value/items/properties/systemData"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "SourceControlConfigurations_Get",
+            "line_range": [
+              15,
+              66
+            ]
+          },
+          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{clusterRp}/{clusterResourceName}/{clusterName}/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/{sourceControlConfigurationName}": {
+            "operations": {
+              "modified": {
+                "DELETE": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2020-10-01-preview",
+                          "value": "2021-03-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Delete Source Control Configuration/parameters/api-version"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "extensions": {
+                            "added": [
+                              "minLength"
+                            ]
+                          },
+                          "description": {
+                            "from": "The API version to be used with the HTTP request.",
+                            "to": "The API version to use for this operation."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "GET": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2020-10-01-preview",
+                          "value": "2021-03-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get Source Control Configuration/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get Source Control Configuration/responses/200/body/systemData/createdByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Get Source Control Configuration/responses/200/body/systemData/lastModifiedByType"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "query": {
+                        "api-version": {
+                          "extensions": {
+                            "added": [
+                              "minLength"
+                            ]
+                          },
+                          "description": {
+                            "from": "The API version to be used with the HTTP request.",
+                            "to": "The API version to use for this operation."
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "The Resource model definition.",
+                                "value": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/description"
+                              },
+                              {
+                                "oldValue": "Resource Id",
+                                "value": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/id/description"
+                              },
+                              {
+                                "oldValue": "Resource name",
+                                "value": "The name of the resource",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/name/description"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "A string identifier for the identity that created the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "A string identifier for the identity that last modified the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/systemData"
+                              },
+                              {
+                                "oldValue": "Resource type",
+                                "value": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/type/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/title"
+                              },
+                              {
+                                "oldValue": "ARM proxy resource.",
+                                "value": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/description"
+                              },
+                              {
+                                "oldValue": {},
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/allOf/0/properties"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Proxy Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/allOf/0/title"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": {
+                                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC).",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "The identity that created the resource.",
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "The identity that last modified the resource.",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    }
+                                  },
+                                  "readOnly": true,
+                                  "type": "object"
+                                },
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/systemData"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "PUT": {
+                  "extensions": {
+                    "modified": {
+                      "x-ms-examples": [
+                        {
+                          "oldValue": "2020-10-01-preview",
+                          "value": "2021-03-01",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create Source Control Configuration/parameters/api-version"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create Source Control Configuration/responses/200/body/systemData/createdByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create Source Control Configuration/responses/200/body/systemData/lastModifiedByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create Source Control Configuration/responses/201/body/systemData/createdByType"
+                        },
+                        {
+                          "oldValue": "application",
+                          "value": "Application",
+                          "op": "replace",
+                          "from": "",
+                          "path": "/Create Source Control Configuration/responses/201/body/systemData/lastModifiedByType"
+                        }
+                      ]
+                    }
+                  },
+                  "parameters": {
+                    "modified": {
+                      "body": {
+                        "sourceControlConfiguration": {
+                          "schema": {
+                            "allOf": {
+                              "added": [
+                                {
+                                  "index": 0,
+                                  "title": "Proxy Resource"
+                                }
+                              ],
+                              "deleted": [
+                                {
+                                  "index": 0
+                                }
+                              ]
+                            },
+                            "properties": {
+                              "added": [
+                                "systemData"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "query": {
+                        "api-version": {
+                          "extensions": {
+                            "added": [
+                              "minLength"
+                            ]
+                          },
+                          "description": {
+                            "from": "The API version to be used with the HTTP request.",
+                            "to": "The API version to use for this operation."
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "responses": {
+                    "modified": {
+                      "200": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "The Resource model definition.",
+                                "value": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/description"
+                              },
+                              {
+                                "oldValue": "Resource Id",
+                                "value": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/id/description"
+                              },
+                              {
+                                "oldValue": "Resource name",
+                                "value": "The name of the resource",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/name/description"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "A string identifier for the identity that created the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "A string identifier for the identity that last modified the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/systemData"
+                              },
+                              {
+                                "oldValue": "Resource type",
+                                "value": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/type/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/title"
+                              },
+                              {
+                                "oldValue": "ARM proxy resource.",
+                                "value": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/description"
+                              },
+                              {
+                                "oldValue": {},
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/allOf/0/properties"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Proxy Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/allOf/0/title"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": {
+                                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC).",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "The identity that created the resource.",
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "The identity that last modified the resource.",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    }
+                                  },
+                                  "readOnly": true,
+                                  "type": "object"
+                                },
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/systemData"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "201": {
+                        "extensions": {
+                          "modified": {
+                            "schema": [
+                              {
+                                "oldValue": "The Resource model definition.",
+                                "value": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/description"
+                              },
+                              {
+                                "oldValue": "Resource Id",
+                                "value": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/id/description"
+                              },
+                              {
+                                "oldValue": "Resource name",
+                                "value": "The name of the resource",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/name/description"
+                              },
+                              {
+                                "oldValue": {
+                                  "description": "Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "A string identifier for the identity that created the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "A string identifier for the identity that last modified the resource",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource: user, application, managedIdentity, key",
+                                      "readOnly": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/systemData"
+                              },
+                              {
+                                "oldValue": "Resource type",
+                                "value": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/properties/type/description"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/allOf/0/allOf/0/title"
+                              },
+                              {
+                                "oldValue": "ARM proxy resource.",
+                                "value": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+                                "op": "replace",
+                                "from": "",
+                                "path": "/allOf/0/description"
+                              },
+                              {
+                                "oldValue": {},
+                                "value": null,
+                                "op": "remove",
+                                "from": "",
+                                "path": "/allOf/0/properties"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": "Proxy Resource",
+                                "op": "add",
+                                "from": "",
+                                "path": "/allOf/0/title"
+                              },
+                              {
+                                "oldValue": null,
+                                "value": {
+                                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                                  "properties": {
+                                    "createdAt": {
+                                      "description": "The timestamp of resource creation (UTC).",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "createdBy": {
+                                      "description": "The identity that created the resource.",
+                                      "type": "string"
+                                    },
+                                    "createdByType": {
+                                      "description": "The type of identity that created the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    },
+                                    "lastModifiedAt": {
+                                      "description": "The timestamp of resource last modification (UTC)",
+                                      "format": "date-time",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedBy": {
+                                      "description": "The identity that last modified the resource.",
+                                      "type": "string"
+                                    },
+                                    "lastModifiedByType": {
+                                      "description": "The type of identity that last modified the resource.",
+                                      "enum": [
+                                        "User",
+                                        "Application",
+                                        "ManagedIdentity",
+                                        "Key"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "createdByType"
+                                      }
+                                    }
+                                  },
+                                  "readOnly": true,
+                                  "type": "object"
+                                },
+                                "op": "add",
+                                "from": "",
+                                "path": "/properties/systemData"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "function_name": "SourceControlConfigurations_Get",
+            "line_range": [
+              15,
+              66
+            ]
+          }
+        }
+      }
+    },
+    "stub_ast_a": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  },
+  "output": {
+    "stub_ast_b": {
+      "type": "Module",
+      "body": [
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "os",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "requests",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "ImportFrom",
+          "module": "flask",
+          "names": [
+            {
+              "type": "alias",
+              "name": "Flask",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "request",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "redirect",
+              "asname": null
+            },
+            {
+              "type": "alias",
+              "name": "session",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "ImportFrom",
+          "module": "dotenv",
+          "names": [
+            {
+              "type": "alias",
+              "name": "load_dotenv",
+              "asname": null
+            }
+          ],
+          "level": 0
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "secrets",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "hashlib",
+              "asname": null
+            }
+          ]
+        },
+        {
+          "type": "Import",
+          "names": [
+            {
+              "type": "alias",
+              "name": "base64",
+              "asname": "b64"
+            }
+          ]
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "load_dotenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [],
+            "keywords": []
+          }
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Name",
+              "id": "app",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "Flask",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Name",
+                "id": "__name__",
+                "ctx": {
+                  "type": "Load"
+                }
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Assign",
+          "targets": [
+            {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "app",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "secret_key",
+              "ctx": {
+                "type": "Store"
+              }
+            }
+          ],
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Attribute",
+              "value": {
+                "type": "Name",
+                "id": "os",
+                "ctx": {
+                  "type": "Load"
+                }
+              },
+              "attr": "getenv",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "OAUTH2_SECRET_KEY",
+                "kind": null
+              },
+              {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "secrets",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "token_hex",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [
+                  {
+                    "type": "Constant",
+                    "value": 16,
+                    "kind": null
+                  }
+                ],
+                "keywords": []
+              }
+            ],
+            "keywords": []
+          },
+          "type_comment": null
+        },
+        {
+          "type": "Expr",
+          "value": {
+            "type": "Call",
+            "func": {
+              "type": "Name",
+              "id": "print",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "args": [
+              {
+                "type": "Constant",
+                "value": "[OAUTH LOGIN SERVER] Flask OAuth2 login server running.",
+                "kind": null
+              }
+            ],
+            "keywords": []
+          }
+        },
+        {
+          "type": "If",
+          "test": {
+            "type": "Compare",
+            "left": {
+              "type": "Name",
+              "id": "__name__",
+              "ctx": {
+                "type": "Load"
+              }
+            },
+            "ops": [
+              {
+                "type": "Eq"
+              }
+            ],
+            "comparators": [
+              {
+                "type": "Constant",
+                "value": "__main__",
+                "kind": null
+              }
+            ]
+          },
+          "body": [
+            {
+              "type": "Expr",
+              "value": {
+                "type": "Call",
+                "func": {
+                  "type": "Attribute",
+                  "value": {
+                    "type": "Name",
+                    "id": "app",
+                    "ctx": {
+                      "type": "Load"
+                    }
+                  },
+                  "attr": "run",
+                  "ctx": {
+                    "type": "Load"
+                  }
+                },
+                "args": [],
+                "keywords": [
+                  {
+                    "type": "keyword",
+                    "arg": "debug",
+                    "value": {
+                      "type": "Constant",
+                      "value": true,
+                      "kind": null
+                    }
+                  },
+                  {
+                    "type": "keyword",
+                    "arg": "port",
+                    "value": {
+                      "type": "Constant",
+                      "value": 8888,
+                      "kind": null
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "orelse": []
+        }
+      ],
+      "type_ignores": []
+    }
+  }
+}
