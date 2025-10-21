@@ -1,220 +1,318 @@
-import shutil, sys, os, json, ast, subprocess, importlib.util
-from pathlib import Path
-from tqdm import tqdm
+import os
+import sys
+import ray
+import json
+import subprocess
+import shutil
+import ast
+import textwrap
+import logging
+import traceback
 from datetime import datetime
-
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from helpers import convert_to_ast, generate_diff
-
-def get_services(specs_dir):
-    return [f.name for f in specs_dir.iterdir() if f.is_dir()]
-
-def get_versions(service_dir):
-    versions = []
-    for provider_path in service_dir.iterdir():
-        if not provider_path.is_dir(): continue
-        for stability_path in provider_path.iterdir():
-            if not stability_path.is_dir() or stability_path.name.endswith(('.md', '.yaml')): continue
-            if stability_path.name in ['stable', 'preview']:
-                for version_path in stability_path.iterdir():
-                    if version_path.is_dir() and not version_path.name.endswith('.md'):
-                        versions.append(version_path)
-    
-    def parse_date(path):
-        try:
-            name = path.name.replace('-preview', '')
-            return datetime.strptime(name, '%Y-%m-%d')
-        except: return datetime.min
-    
-    return sorted(versions, key=parse_date)
+from pathlib import Path
+script_dir = Path(__file__).resolve().parent
+sys.path.insert(0, str(script_dir.parent))
+try:
+    import helpers
+except ImportError:
+    sys.path.append(str(script_dir.parent))
 
 def load_automcp_runner(script_path):
+    import importlib.util
     spec = importlib.util.spec_from_file_location("run_automcp", script_path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    return module.AutoMCPRunner(workspace_root=str(Path(script_path).parent.parent))
+    workspace_root = str(Path(script_path).parent.parent.resolve())
+    return module.AutoMCPRunner(workspace_root=workspace_root)
 
-def ast_to_dict(node):
-    if not isinstance(node, ast.AST): return node
-    result = {'type': node.__class__.__name__}
-    for field, value in ast.iter_fields(node):
-        result[field] = [ast_to_dict(item) for item in value] if isinstance(value, list) else ast_to_dict(value)
-    return result
-
-def generate_code_and_ast(runner, json_file_path, output_dir, version_suffix):
-    try:
-        temp_dir_name = f"AutoMCP/generated/temp_{version_suffix}"
-        cmd = ["docker", "run", "--rm", "-v", f"{runner.root}:/workspace", "-e", "WINEDEBUG=-all", 
-               "automcp-wine", "wine", "AutoMCP/automcp.exe", 
-               "--input", str(json_file_path.relative_to(runner.root)), "--output", temp_dir_name]
-        
-        result = subprocess.run(cmd, cwd=runner.root, capture_output=True, text=True, timeout=300)
-        
-        if result.returncode == 0:
-            temp_dir = runner.root / temp_dir_name
-            if temp_dir.exists():
-                for file in temp_dir.iterdir():
-                    if file.is_file() and file.suffix == '.py':
-                        dest_file = output_dir / f"{file.stem}_{version_suffix}.py"
-                        shutil.copy(file, dest_file)
-                        
-                        temp_pkl = output_dir / "temp_ast.pkl"
-                        ast_tree = convert_to_ast(str(dest_file), str(temp_pkl))
-                        
-                        ast_file = output_dir / f"{file.stem}_{version_suffix}.json"
-                        with open(ast_file, 'w') as f:
-                            json.dump(ast_to_dict(ast_tree), f, indent=2)
-                        
-                        if temp_pkl.exists(): temp_pkl.unlink()
-                
-                shutil.rmtree(temp_dir, ignore_errors=True)
-                return True
-    except: pass
-    return False
-
-def create_version_pairs_training_data(specs_dir, data_dir, services, runner):
-    training_pairs = []
+def generate_stub(runner, spec_file, out_dir, version_name, service_name):
+    stub_name = f"{service_name}_{version_name}_stub"
+    tmp_stub = out_dir / stub_name
     
-    for service in tqdm(services, desc="Creating version pairs"):
-        service_dir = specs_dir / service / "resource-manager"
-        if not service_dir.exists(): continue
-            
-        versions = get_versions(service_dir)
-        if len(versions) < 2: continue
-        
-        for i in range(len(versions) - 1):
-            version_a_path, version_b_path = versions[i], versions[i + 1]
-            version_a, version_b = version_a_path.name, version_b_path.name
-            
-            pair_dir = data_dir / service / f"{version_a}_{version_b}"
-            pair_dir.mkdir(parents=True, exist_ok=True)
-            
-            spec_a = version_a_path / f"{service}.json"
-            spec_b = version_b_path / f"{service}.json"
-            
-            if not spec_a.exists():
-                json_files = list(version_a_path.glob("*.json"))
-                spec_a = json_files[0] if json_files else None
-            
-            if not spec_b.exists():
-                json_files = list(version_b_path.glob("*.json"))
-                spec_b = json_files[0] if json_files else None
-            
-            if not spec_a or not spec_b: continue
-                
-            shutil.copy(spec_a, pair_dir / f"spec_{version_a}.json")
-            shutil.copy(spec_b, pair_dir / f"spec_{version_b}.json")
-            
-            if generate_code_and_ast(runner, spec_a, pair_dir, version_a) and \
-               generate_code_and_ast(runner, spec_b, pair_dir, version_b):
-                
-                code_a_files = list(pair_dir.glob(f"*_{version_a}.py"))
-                if code_a_files:
-                    try:
-                        diff_result = generate_diff(str(spec_a), str(spec_b), str(code_a_files[0]))
-                        with open(pair_dir / "diff_output.json", 'w') as f:
-                            json.dump(diff_result, f, indent=2)
-                        
-                        training_file = create_final_training_file(pair_dir, version_a, version_b, service)
-                        if training_file:
-                            training_pairs.append({'service': service, 'version_a': version_a, 'version_b': version_b, 'pair_dir': str(pair_dir)})
-                    except Exception as e:
-                        print(f"Failed diff for {service} {version_a}->{version_b}: {e}")
-            
-            for pkl_file in pair_dir.glob("*.pkl"): pkl_file.unlink()
-        
-        service_training_dir = data_dir / service
-        if service_training_dir.exists():
-            training_files = reorganize_service_files(service_training_dir)
-            print(f"Service '{service}' completed: {len(training_files)} training samples created")
+    spec_file_path = Path(spec_file)
+    try:
+        relative_spec_file = spec_file_path.relative_to(runner.root)
+    except ValueError:
+        return None
     
-    return training_pairs
-
-def cleanup_intermediate_files(pair_dir, training_file_path):
+    cmd = [
+        "docker", "run", "--rm",
+        "-v", f"{runner.root}:/workspace",
+        "-e", "WINEDEBUG=-all",
+        "automcp-wine", "wine",
+        "AutoMCP/automcp.exe",
+        "--input", str(relative_spec_file),
+        "--output", str(tmp_stub.relative_to(runner.root))
+    ]
+    
     try:
-        for file_path in pair_dir.iterdir():
-            if file_path.is_file() and file_path != training_file_path:
-                file_path.unlink()
-    except Exception as e:
-        print(f"Failed to cleanup intermediate files in {pair_dir}: {e}")
-
-def reorganize_service_files(service_dir):
-    try:
-        training_files = []
-        
-        for subdir in service_dir.iterdir():
-            if subdir.is_dir():
-                for file_path in subdir.iterdir():
-                    if file_path.is_file() and file_path.name.startswith("training_sample_"):
-                        dest_path = service_dir / file_path.name
-                        shutil.move(str(file_path), str(dest_path))
-                        training_files.append(dest_path)
-                
-                shutil.rmtree(subdir, ignore_errors=True)
-        
-        return training_files
-        
-    except Exception as e:
-        print(f"Failed to reorganize service files in {service_dir}: {e}")
-        return []
-
-def create_final_training_file(pair_dir, version_a, version_b, service_name):
-    try:
-        diff_file = pair_dir / "diff_output.json"
-        if not diff_file.exists(): return None
-            
-        with open(diff_file, 'r') as f:
-            oas_diff = json.load(f)
-        
-        ast_a_files = [f for f in pair_dir.glob(f"*_{version_a}.json") if not f.name.startswith("spec_")]
-        ast_b_files = [f for f in pair_dir.glob(f"*_{version_b}.json") if not f.name.startswith("spec_")]
-        
-        if not ast_a_files or not ast_b_files: return None
-            
-        with open(ast_a_files[0], 'r') as f:
-            stub_ast_a = json.load(f)
-        with open(ast_b_files[0], 'r') as f:
-            stub_ast_b = json.load(f)
-        
-        training_data = {
-            "input": {"oas_diff": oas_diff, "stub_ast_a": stub_ast_a},
-            "output": {"stub_ast_b": stub_ast_b}
-        }
-        
-        training_filename = f"training_sample_{service_name}_{version_a}_{version_b}.json"
-        training_file_path = pair_dir / training_filename
-        
-        with open(training_file_path, 'w') as f:
-            json.dump(training_data, f, indent=2)
-        
-        cleanup_intermediate_files(pair_dir, training_file_path)
-        
-        return training_file_path
-        
-    except Exception as e:
-        print(f"Failed training file for {pair_dir}: {e}")
+        result = subprocess.run(cmd, cwd=runner.root, capture_output=True, text=True, timeout=300, check=True)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
         return None
 
-def create_training_dataset(
-    specs_dir_path="/Users/adi/Documents/Uni/incremental-mcp/azure-rest-api-specs/specification",
-    data_dir_path="training_data",
-    automcp_script_path="/Users/adi/Documents/Uni/incremental-mcp/AutoMCP/run_automcp.py",
-    services=None
-):
-    data_dir, specs_dir = Path(data_dir_path), Path(specs_dir_path)
+    server_stub_file = tmp_stub / "server_stub.py"
+    if not server_stub_file.exists():
+        return None
+    
+    return server_stub_file
+
+def extract_changed_tool_functions(stub_file, changed_paths):
+    if not stub_file or not stub_file.exists():
+        return {}
+        
+    with open(stub_file, 'r') as f:
+        source_code = f.read()
+        source_lines = source_code.split('\n')
+        
+    try:
+        tree = ast.parse(source_code)
+    except Exception:
+        return {}
+    
+    extracted_functions = {}
+    
+    for node in ast.walk(tree):
+        if isinstance(node, ast.FunctionDef):
+            tool_name = None
+            has_tool_decorator = False
+            
+            if node.decorator_list:
+                for decorator in node.decorator_list:
+                    if (isinstance(decorator, ast.Call) and 
+                        isinstance(decorator.func, ast.Attribute) and
+                        decorator.func.attr == 'tool'):
+                        
+                        has_tool_decorator = True
+                        for keyword in decorator.keywords:
+                            if keyword.arg == 'name':
+                                if isinstance(keyword.value, ast.Constant):
+                                    tool_name = keyword.value.value
+                        
+                        if not tool_name:
+                            tool_name = node.name
+                        break
+            
+            if has_tool_decorator and tool_name:
+                if is_tool_affected_by_changes(tool_name, changed_paths):
+                    if hasattr(node, 'lineno') and hasattr(node, 'end_lineno'):
+                        start_line = node.lineno - 1  # Convert to 0-based indexing
+                        end_line = node.end_lineno if node.end_lineno else start_line + 1
+                        
+                        decorator_start = start_line
+                        for dec in node.decorator_list:
+                            if hasattr(dec, 'lineno'):
+                                decorator_start = min(decorator_start, dec.lineno - 1)
+                        
+                        func_source = '\n'.join(source_lines[decorator_start:end_line])
+                        func_source = textwrap.dedent(func_source)
+                        extracted_functions[tool_name] = func_source.strip()
+    return extracted_functions
+
+def is_tool_affected_by_changes(tool_name, changed_paths):
+    if not changed_paths:
+        return True
+    
+    tool_name_lower = tool_name.lower()
+    if isinstance(changed_paths, dict):
+        paths_to_check = []
+        if 'paths' in changed_paths:
+            for path, changes in changed_paths['paths'].items():
+                paths_to_check.append(path)
+        else:
+            for key, value in changed_paths.items():
+                if isinstance(value, (str, list)):
+                    paths_to_check.extend([key] + (value if isinstance(value, list) else [value]))
+    elif isinstance(changed_paths, list):
+        paths_to_check = changed_paths
+    else:
+        paths_to_check = [str(changed_paths)]
+    
+    for path in paths_to_check:
+        path_str = str(path).lower()
+        path_parts = path_str.replace('/', ' ').replace('-', ' ').replace('_', ' ').split()
+        
+        for part in path_parts:
+            if len(part) > 2 and part in tool_name_lower:
+                return True
+    return False
+
+def convert_function_to_ast(func_source):
+    try:
+        tree = ast.parse(func_source)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.FunctionDef):
+                return ast.dump(node, indent=2)
+        return None
+    except Exception:
+        return None
+
+@ray.remote
+def process_version_pair(args):
+    import sys
+    import logging
+    import traceback
+    from datetime import datetime
+    from pathlib import Path
+    
+    script_dir = Path(__file__).resolve().parent
+    log_file = script_dir / "training_data" / "processing_errors.log"
+    
+    logging.basicConfig(
+        filename=str(log_file),
+        level=logging.ERROR,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        filemode='a'
+    )
+    
+    sys.path.insert(0, str(script_dir.parent))
+    import helpers
+    
+    service, version_a, version_b = args
+    
+    workspace_root = Path(__file__).resolve().parent.parent.parent
+    specs_dir = workspace_root / "azure-rest-api-specs" / "specification"
+    data_dir = workspace_root / "DeltaMCP" / "starcoder-finetuned" / "training_data"
     data_dir.mkdir(exist_ok=True)
+    automcp_script_path = workspace_root / "AutoMCP" / "run_automcp.py"
     
-    if services is None: services = get_services(specs_dir)
+    runner = load_automcp_runner(str(automcp_script_path))
+    stub_a = None
+    stub_b = None
     
-    runner = load_automcp_runner(automcp_script_path)
-    training_pairs = create_version_pairs_training_data(specs_dir, data_dir, services, runner)
+    service_dir = specs_dir / service / "resource-manager"
+    provider_dirs = [p for p in service_dir.iterdir() if p.is_dir() and not p.name.startswith('.')]
+    if not provider_dirs:
+        return
     
-    with open(data_dir / "training_summary.json", 'w') as f:
-        json.dump(training_pairs, f, indent=2)
+    provider_dir = provider_dirs[0]
+    stable_dir = provider_dir / "stable"
     
-    return training_pairs
+    version_a_dir = stable_dir / version_a
+    version_b_dir = stable_dir / version_b
+    
+    spec_a_files = list(version_a_dir.glob("*.json"))
+    spec_b_files = list(version_b_dir.glob("*.json"))
+    
+    if not spec_a_files or not spec_b_files:
+        return
+    
+    try:
+        diff = helpers.compare_specs(str(spec_a_files[0]), str(spec_b_files[0]))
+        
+        # Skip if oasdiff failed
+        if isinstance(diff, dict) and 'error' in diff:
+            logging.warning(f"Skipping {service} {version_a}->{version_b}: oasdiff error - {diff['error'][:100]}...")
+            return
+        
+        stub_a = generate_stub(runner, str(spec_a_files[0]), data_dir, version_a, service)
+        stub_b = generate_stub(runner, str(spec_b_files[0]), data_dir, version_b, service)
+        
+        if not stub_a or not stub_b:
+            return
+        
+        changed_paths = []
+        if isinstance(diff, dict) and 'paths' in diff:
+            for change_type, paths_data in diff['paths'].items():
+                if isinstance(paths_data, dict):
+                    changed_paths.extend(paths_data.keys())
+        
+        functions_a = extract_changed_tool_functions(stub_a, changed_paths)
+        functions_b = extract_changed_tool_functions(stub_b, changed_paths)
+        
+        ast_functions_a = {}
+        ast_functions_b = {}
+        
+        for tool_name, func_source in functions_a.items():
+            ast_dump = convert_function_to_ast(func_source)
+            if ast_dump:
+                ast_functions_a[tool_name] = ast_dump
+        
+        for tool_name, func_source in functions_b.items():
+            ast_dump = convert_function_to_ast(func_source)
+            if ast_dump:
+                ast_functions_b[tool_name] = ast_dump
+        
+        training_sample = {
+            "oasdiff": diff,
+            "tools_a": ast_functions_a,
+            "tools_b": ast_functions_b
+        }
+        
+        logging.info(f"Generated {service} {version_a}->{version_b}: {len(ast_functions_a)} tools A, {len(ast_functions_b)} tools B")
+        
+        output_file = data_dir / f"{service}_{version_a}_{version_b}.json"
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(training_sample, f, indent=2, ensure_ascii=False)
+            
+    except Exception as e:
+        error_msg = f"Failed processing {service} {version_a}->{version_b}: {str(e)}"
+        logging.error(error_msg)
+        logging.error(traceback.format_exc())
+    finally:
+        if stub_a and stub_a.parent.exists():
+            shutil.rmtree(stub_a.parent, ignore_errors=True)
+        if stub_b and stub_b.parent.exists():
+            shutil.rmtree(stub_b.parent, ignore_errors=True)
+
+def main():
+    workspace_root = Path(__file__).resolve().parent.parent.parent
+    specs_dir = workspace_root / "azure-rest-api-specs" / "specification"
+    
+    log_dir = Path(__file__).resolve().parent / "training_data"
+    log_dir.mkdir(exist_ok=True)
+    log_file = log_dir / "processing_errors.log"
+    
+    if log_file.exists():
+        log_file.unlink()
+    
+    logging.basicConfig(
+        filename=str(log_file),
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        filemode='w'
+    )
+    
+    logging.info(f"Starting training data generation at {datetime.now()}")
+    
+    ray.init(ignore_reinit_error=True)
+    
+    version_pairs = []
+    
+    for service_dir in specs_dir.iterdir():
+        if not service_dir.is_dir() or service_dir.name.startswith('.'):
+            continue
+        
+        service_name = service_dir.name
+        resource_manager_dir = service_dir / "resource-manager"
+        
+        if not resource_manager_dir.exists():
+            continue
+        
+        provider_dirs = [p for p in resource_manager_dir.iterdir() if p.is_dir() and not p.name.startswith('.')]
+        if not provider_dirs:
+            continue
+        
+        provider_dir = provider_dirs[0]
+        stable_dir = provider_dir / "stable"
+        
+        if not stable_dir.exists():
+            continue
+        
+        versions = sorted([v for v in stable_dir.iterdir() if v.is_dir()], key=lambda x: x.name)
+        
+        for i in range(len(versions) - 1):
+            version_pairs.append((service_name, versions[i].name, versions[i + 1].name))
+    
+    if version_pairs:
+        logging.info(f"Processing {len(version_pairs)} version pairs in parallel")
+        futures = [process_version_pair.remote(pair) for pair in version_pairs]
+        ray.get(futures)
+        logging.info("Processing completed")
+    else:
+        logging.warning("No version pairs found to process")
+    
+    ray.shutdown()
+    logging.info(f"Training data generation finished at {datetime.now()}")
 
 if __name__ == "__main__":
-    specs_dir = Path("/Users/adi/Documents/Uni/incremental-mcp/azure-rest-api-specs/specification")
-    training_pairs = create_training_dataset()
-    print(f"Created {len(training_pairs)} training pairs")
+    main()

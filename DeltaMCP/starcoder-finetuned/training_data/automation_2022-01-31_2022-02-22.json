@@ -1,0 +1,525 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": {
+              "description": "Definition of the deleted automation account type.",
+              "properties": {
+                "id": {
+                  "description": "The resource id.",
+                  "type": "string"
+                },
+                "location": {
+                  "description": "Gets or sets the location of the resource.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Gets or sets name of the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Definition of the deleted automation account properties.",
+                  "properties": {
+                    "automationAccountId": {
+                      "description": "Gets or sets the Automation Account Id.",
+                      "type": "string"
+                    },
+                    "automationAccountResourceId": {
+                      "description": "Gets or sets the Automation Account Resource Id.",
+                      "type": "string"
+                    },
+                    "deletionTime": {
+                      "description": "Gets the deletion time.",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "type": "string",
+                      "x-nullable": false
+                    },
+                    "location": {
+                      "description": "Gets or sets the location of the resource.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "description": "The resource type.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/DeletedAutomationAccount"
+          },
+          {
+            "oldValue": {
+              "description": "The response model for the list deleted automation account.",
+              "properties": {
+                "value": {
+                  "description": "Gets or sets the list of deleted automation accounts.",
+                  "items": {
+                    "description": "Definition of the deleted automation account type.",
+                    "properties": {
+                      "id": {
+                        "description": "The resource id.",
+                        "type": "string"
+                      },
+                      "location": {
+                        "description": "Gets or sets the location of the resource.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Gets or sets name of the resource.",
+                        "type": "string"
+                      },
+                      "properties": {
+                        "description": "Definition of the deleted automation account properties.",
+                        "properties": {
+                          "automationAccountId": {
+                            "description": "Gets or sets the Automation Account Id.",
+                            "type": "string"
+                          },
+                          "automationAccountResourceId": {
+                            "description": "Gets or sets the Automation Account Resource Id.",
+                            "type": "string"
+                          },
+                          "deletionTime": {
+                            "description": "Gets the deletion time.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": false
+                          },
+                          "location": {
+                            "description": "Gets or sets the location of the resource.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": {
+                        "description": "The resource type.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/DeletedAutomationAccountListResult"
+          },
+          {
+            "oldValue": {
+              "description": "Definition of the deleted automation account properties.",
+              "properties": {
+                "automationAccountId": {
+                  "description": "Gets or sets the Automation Account Id.",
+                  "type": "string"
+                },
+                "automationAccountResourceId": {
+                  "description": "Gets or sets the Automation Account Resource Id.",
+                  "type": "string"
+                },
+                "deletionTime": {
+                  "description": "Gets the deletion time.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "type": "string",
+                  "x-nullable": false
+                },
+                "location": {
+                  "description": "Gets or sets the location of the resource.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/DeletedAutomationAccountProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "description": "The core properties of ARM resources",
+                  "properties": {
+                    "id": {
+                      "description": "Fully qualified resource Id for the resource",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the resource",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of the resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Definition of hybrid runbook worker group.",
+              "properties": {
+                "properties": {
+                  "description": "Definition of hybrid runbook worker group property.",
+                  "properties": {
+                    "credential": {
+                      "description": "Definition of RunAs credential to use for hybrid worker.",
+                      "properties": {
+                        "name": {
+                          "description": "Gets or sets the name of the credential.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "groupType": {
+                      "description": "Type of the HybridWorkerGroup.",
+                      "enum": [
+                        "User",
+                        "System"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "GroupTypeEnum"
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "systemData": {
+                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                  "properties": {
+                    "createdAt": {
+                      "description": "The timestamp of resource creation (UTC).",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "createdBy": {
+                      "description": "The identity that created the resource.",
+                      "type": "string"
+                    },
+                    "createdByType": {
+                      "description": "The type of identity that created the resource.",
+                      "enum": [
+                        "User",
+                        "Application",
+                        "ManagedIdentity",
+                        "Key"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "createdByType"
+                      }
+                    },
+                    "lastModifiedAt": {
+                      "description": "The timestamp of resource last modification (UTC)",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "lastModifiedBy": {
+                      "description": "The identity that last modified the resource.",
+                      "type": "string"
+                    },
+                    "lastModifiedByType": {
+                      "description": "The type of identity that last modified the resource.",
+                      "enum": [
+                        "User",
+                        "Application",
+                        "ManagedIdentity",
+                        "Key"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "createdByType"
+                      }
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroup"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The parameters supplied to the create hybrid runbook worker group operation.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "The hybrid runbook worker group properties.",
+                  "properties": {
+                    "credential": {
+                      "description": "Definition of RunAs credential to use for hybrid worker.",
+                      "properties": {
+                        "name": {
+                          "description": "Gets or sets the name of the credential.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupCreateOrUpdateParameters"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The hybrid runbook worker group properties.",
+              "properties": {
+                "credential": {
+                  "description": "Definition of RunAs credential to use for hybrid worker.",
+                  "properties": {
+                    "name": {
+                      "description": "Gets or sets the name of the credential.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupCreateOrUpdateProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of hybrid runbook worker group property.",
+              "properties": {
+                "credential": {
+                  "description": "Definition of RunAs credential to use for hybrid worker.",
+                  "properties": {
+                    "name": {
+                      "description": "Gets or sets the name of the credential.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "groupType": {
+                  "description": "Type of the HybridWorkerGroup.",
+                  "enum": [
+                    "User",
+                    "System"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "GroupTypeEnum"
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The response model for the list hybrid runbook worker groups.",
+              "properties": {
+                "nextLink": {
+                  "description": "Gets or sets the next link.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Gets or sets a list of hybrid runbook worker groups.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The core properties of ARM resources",
+                        "properties": {
+                          "id": {
+                            "description": "Fully qualified resource Id for the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The type of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Definition of hybrid runbook worker group.",
+                    "properties": {
+                      "properties": {
+                        "description": "Definition of hybrid runbook worker group property.",
+                        "properties": {
+                          "credential": {
+                            "description": "Definition of RunAs credential to use for hybrid worker.",
+                            "properties": {
+                              "name": {
+                                "description": "Gets or sets the name of the credential.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "groupType": {
+                            "description": "Type of the HybridWorkerGroup.",
+                            "enum": [
+                              "User",
+                              "System"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "GroupTypeEnum"
+                            }
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "systemData": {
+                        "description": "Metadata pertaining to creation and last modification of the resource.",
+                        "properties": {
+                          "createdAt": {
+                            "description": "The timestamp of resource creation (UTC).",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdBy": {
+                            "description": "The identity that created the resource.",
+                            "type": "string"
+                          },
+                          "createdByType": {
+                            "description": "The type of identity that created the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          },
+                          "lastModifiedAt": {
+                            "description": "The timestamp of resource last modification (UTC)",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastModifiedBy": {
+                            "description": "The identity that last modified the resource.",
+                            "type": "string"
+                          },
+                          "lastModifiedByType": {
+                            "description": "The type of identity that last modified the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          }
+                        },
+                        "readOnly": true,
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupsListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of RunAs credential to use for hybrid worker.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the credential.",
+                  "type": "string"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/RunAsCredentialAssociationProperty"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2022-01-31",
+        "to": "2022-02-22"
+      }
+    },
+    "paths": {
+      "added": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups"
+      ],
+      "deleted": [
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Automation/deletedAutomationAccounts"
+      ]
+    }
+  },
+  "tools_a": {
+    "deletedAutomationAccounts_ListBySubscription": "FunctionDef(\n  name='deletedAutomationAccounts_ListBySubscription',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Retrieve deleted automation account.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/deletedAutomationAccounts')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='deletedAutomationAccounts_ListBySubscription')),\n        keyword(\n          arg='description',\n          value=Constant(value='Retrieve deleted automation account.'))])],\n  type_params=[])"
+  },
+  "tools_b": {
+    "HybridRunbookWorkerGroup_Delete": "FunctionDef(\n  name='HybridRunbookWorkerGroup_Delete',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='hybridRunbookWorkerGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Delete a hybrid runbook worker group.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/hybridRunbookWorkerGroups/'),\n          FormattedValue(\n            value=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: hybridRunbookWorkerGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='delete',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='HybridRunbookWorkerGroup_Delete')),\n        keyword(\n          arg='description',\n          value=Constant(value='Delete a hybrid runbook worker group.'))])],\n  type_params=[])",
+    "HybridRunbookWorkerGroup_Get": "FunctionDef(\n  name='HybridRunbookWorkerGroup_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='hybridRunbookWorkerGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Retrieve a hybrid runbook worker group.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/hybridRunbookWorkerGroups/'),\n          FormattedValue(\n            value=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: hybridRunbookWorkerGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='HybridRunbookWorkerGroup_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Retrieve a hybrid runbook worker group.'))])],\n  type_params=[])",
+    "HybridRunbookWorkerGroup_Create": "FunctionDef(\n  name='HybridRunbookWorkerGroup_Create',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='hybridRunbookWorkerGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Create a hybrid runbook worker group.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/hybridRunbookWorkerGroups/'),\n          FormattedValue(\n            value=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: hybridRunbookWorkerGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='put',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='HybridRunbookWorkerGroup_Create')),\n        keyword(\n          arg='description',\n          value=Constant(value='Create a hybrid runbook worker group.'))])],\n  type_params=[])",
+    "HybridRunbookWorkerGroup_Update": "FunctionDef(\n  name='HybridRunbookWorkerGroup_Update',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='hybridRunbookWorkerGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Update a hybrid runbook worker group.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/hybridRunbookWorkerGroups/'),\n          FormattedValue(\n            value=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='hybridRunbookWorkerGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: hybridRunbookWorkerGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='patch',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='HybridRunbookWorkerGroup_Update')),\n        keyword(\n          arg='description',\n          value=Constant(value='Update a hybrid runbook worker group.'))])],\n  type_params=[])",
+    "HybridRunbookWorkerGroup_ListByAutomationAccount": "FunctionDef(\n  name='HybridRunbookWorkerGroup_ListByAutomationAccount',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='_filter',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Retrieve a list of hybrid runbook worker groups.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/hybridRunbookWorkerGroups')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='_filter', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='$filter'),\n              ctx=Store())],\n          value=Name(id='_filter', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='HybridRunbookWorkerGroup_ListByAutomationAccount')),\n        keyword(\n          arg='description',\n          value=Constant(value='Retrieve a list of hybrid runbook worker groups.'))])],\n  type_params=[])"
+  }
+}

@@ -1,0 +1,1799 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "description": "The Resource model definition.",
+                  "properties": {
+                    "eTag": {
+                      "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Resource Id.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "A budget resource.",
+              "properties": {
+                "properties": {
+                  "description": "The properties of the budget.",
+                  "properties": {
+                    "amount": {
+                      "description": "The total amount of cost to track with the budget",
+                      "format": "decimal",
+                      "type": "number"
+                    },
+                    "category": {
+                      "description": "The category of the budget, whether the budget tracks cost or usage.",
+                      "enum": [
+                        "Cost",
+                        "Usage"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "CategoryType"
+                      }
+                    },
+                    "currentSpend": {
+                      "description": "The current amount of cost which is being tracked for a budget.",
+                      "properties": {
+                        "amount": {
+                          "description": "The total amount of cost which is being tracked by the budget.",
+                          "format": "decimal",
+                          "readOnly": true,
+                          "type": "number"
+                        },
+                        "unit": {
+                          "description": "The unit of measure for the budget amount.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "filters": {
+                      "description": "May be used to filter budgets by resource group, resource, or meter.",
+                      "properties": {
+                        "meters": {
+                          "description": "The list of filters on meters, mandatory for budgets of usage category. ",
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 10,
+                          "minItems": 0,
+                          "type": "array"
+                        },
+                        "resourceGroups": {
+                          "description": "The list of filters on resource groups, allowed at subscription level only.",
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 10,
+                          "minItems": 0,
+                          "type": "array"
+                        },
+                        "resources": {
+                          "description": "The list of filters on resources.",
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 10,
+                          "minItems": 0,
+                          "type": "array"
+                        }
+                      }
+                    },
+                    "notifications": {
+                      "additionalProperties": {
+                        "description": "The notification associated with a budget.",
+                        "properties": {
+                          "contactEmails": {
+                            "description": "Email addresses to send the budget notification to when the threshold is exceeded.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "maxItems": 50,
+                            "minItems": 1,
+                            "type": "array"
+                          },
+                          "contactGroups": {
+                            "description": "Action groups to send the budget notification to when the threshold is exceeded.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                          },
+                          "contactRoles": {
+                            "description": "Contact roles to send the budget notification to when the threshold is exceeded.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "enabled": {
+                            "description": "The notification is enabled or not.",
+                            "type": "boolean"
+                          },
+                          "operator": {
+                            "description": "The comparison operator.",
+                            "enum": [
+                              "EqualTo",
+                              "GreaterThan",
+                              "GreaterThanOrEqualTo"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "OperatorType"
+                            }
+                          },
+                          "threshold": {
+                            "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.",
+                            "format": "decimal",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "enabled",
+                          "operator",
+                          "threshold",
+                          "contactEmails"
+                        ]
+                      },
+                      "description": "Dictionary of notifications associated with the budget. Budget can have up to five notifications.",
+                      "maxItems": 5,
+                      "type": "object"
+                    },
+                    "timeGrain": {
+                      "description": "The time covered by a budget. Tracking of the amount will be reset based on the time grain.",
+                      "enum": [
+                        "Monthly",
+                        "Quarterly",
+                        "Annually"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "TimeGrainType"
+                      }
+                    },
+                    "timePeriod": {
+                      "description": "The start and end date for a budget.",
+                      "properties": {
+                        "endDate": {
+                          "description": "The end date for the budget. If not provided, we default this to 10 years from the start date.",
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "startDate": {
+                          "description": "The start date for the budget.",
+                          "format": "date-time",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "startDate"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "category",
+                    "amount",
+                    "timeGrain",
+                    "timePeriod"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Budget"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The properties of the budget.",
+              "properties": {
+                "amount": {
+                  "description": "The total amount of cost to track with the budget",
+                  "format": "decimal",
+                  "type": "number"
+                },
+                "category": {
+                  "description": "The category of the budget, whether the budget tracks cost or usage.",
+                  "enum": [
+                    "Cost",
+                    "Usage"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "CategoryType"
+                  }
+                },
+                "currentSpend": {
+                  "description": "The current amount of cost which is being tracked for a budget.",
+                  "properties": {
+                    "amount": {
+                      "description": "The total amount of cost which is being tracked by the budget.",
+                      "format": "decimal",
+                      "readOnly": true,
+                      "type": "number"
+                    },
+                    "unit": {
+                      "description": "The unit of measure for the budget amount.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  }
+                },
+                "filters": {
+                  "description": "May be used to filter budgets by resource group, resource, or meter.",
+                  "properties": {
+                    "meters": {
+                      "description": "The list of filters on meters, mandatory for budgets of usage category. ",
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 10,
+                      "minItems": 0,
+                      "type": "array"
+                    },
+                    "resourceGroups": {
+                      "description": "The list of filters on resource groups, allowed at subscription level only.",
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 10,
+                      "minItems": 0,
+                      "type": "array"
+                    },
+                    "resources": {
+                      "description": "The list of filters on resources.",
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 10,
+                      "minItems": 0,
+                      "type": "array"
+                    }
+                  }
+                },
+                "notifications": {
+                  "additionalProperties": {
+                    "description": "The notification associated with a budget.",
+                    "properties": {
+                      "contactEmails": {
+                        "description": "Email addresses to send the budget notification to when the threshold is exceeded.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "maxItems": 50,
+                        "minItems": 1,
+                        "type": "array"
+                      },
+                      "contactGroups": {
+                        "description": "Action groups to send the budget notification to when the threshold is exceeded.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "maxItems": 50,
+                        "minItems": 0,
+                        "type": "array"
+                      },
+                      "contactRoles": {
+                        "description": "Contact roles to send the budget notification to when the threshold is exceeded.",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "enabled": {
+                        "description": "The notification is enabled or not.",
+                        "type": "boolean"
+                      },
+                      "operator": {
+                        "description": "The comparison operator.",
+                        "enum": [
+                          "EqualTo",
+                          "GreaterThan",
+                          "GreaterThanOrEqualTo"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": true,
+                          "name": "OperatorType"
+                        }
+                      },
+                      "threshold": {
+                        "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.",
+                        "format": "decimal",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "enabled",
+                      "operator",
+                      "threshold",
+                      "contactEmails"
+                    ]
+                  },
+                  "description": "Dictionary of notifications associated with the budget. Budget can have up to five notifications.",
+                  "maxItems": 5,
+                  "type": "object"
+                },
+                "timeGrain": {
+                  "description": "The time covered by a budget. Tracking of the amount will be reset based on the time grain.",
+                  "enum": [
+                    "Monthly",
+                    "Quarterly",
+                    "Annually"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "TimeGrainType"
+                  }
+                },
+                "timePeriod": {
+                  "description": "The start and end date for a budget.",
+                  "properties": {
+                    "endDate": {
+                      "description": "The end date for the budget. If not provided, we default this to 10 years from the start date.",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "startDate": {
+                      "description": "The start date for the budget.",
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "startDate"
+                  ]
+                }
+              },
+              "required": [
+                "category",
+                "amount",
+                "timeGrain",
+                "timePeriod"
+              ]
+            },
+            "op": "add",
+            "from": "",
+            "path": "/BudgetProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The start and end date for a budget.",
+              "properties": {
+                "endDate": {
+                  "description": "The end date for the budget. If not provided, we default this to 10 years from the start date.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "startDate": {
+                  "description": "The start date for the budget.",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "startDate"
+              ]
+            },
+            "op": "add",
+            "from": "",
+            "path": "/BudgetTimePeriod"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Result of listing budgets. It contains a list of available budgets in the scope provided.",
+              "properties": {
+                "nextLink": {
+                  "description": "The link (url) to the next page of results.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The list of budgets.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource model definition.",
+                        "properties": {
+                          "eTag": {
+                            "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "A budget resource.",
+                    "properties": {
+                      "properties": {
+                        "description": "The properties of the budget.",
+                        "properties": {
+                          "amount": {
+                            "description": "The total amount of cost to track with the budget",
+                            "format": "decimal",
+                            "type": "number"
+                          },
+                          "category": {
+                            "description": "The category of the budget, whether the budget tracks cost or usage.",
+                            "enum": [
+                              "Cost",
+                              "Usage"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "CategoryType"
+                            }
+                          },
+                          "currentSpend": {
+                            "description": "The current amount of cost which is being tracked for a budget.",
+                            "properties": {
+                              "amount": {
+                                "description": "The total amount of cost which is being tracked by the budget.",
+                                "format": "decimal",
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "unit": {
+                                "description": "The unit of measure for the budget amount.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "filters": {
+                            "description": "May be used to filter budgets by resource group, resource, or meter.",
+                            "properties": {
+                              "meters": {
+                                "description": "The list of filters on meters, mandatory for budgets of usage category. ",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "maxItems": 10,
+                                "minItems": 0,
+                                "type": "array"
+                              },
+                              "resourceGroups": {
+                                "description": "The list of filters on resource groups, allowed at subscription level only.",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "maxItems": 10,
+                                "minItems": 0,
+                                "type": "array"
+                              },
+                              "resources": {
+                                "description": "The list of filters on resources.",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "maxItems": 10,
+                                "minItems": 0,
+                                "type": "array"
+                              }
+                            }
+                          },
+                          "notifications": {
+                            "additionalProperties": {
+                              "description": "The notification associated with a budget.",
+                              "properties": {
+                                "contactEmails": {
+                                  "description": "Email addresses to send the budget notification to when the threshold is exceeded.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "maxItems": 50,
+                                  "minItems": 1,
+                                  "type": "array"
+                                },
+                                "contactGroups": {
+                                  "description": "Action groups to send the budget notification to when the threshold is exceeded.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "maxItems": 50,
+                                  "minItems": 0,
+                                  "type": "array"
+                                },
+                                "contactRoles": {
+                                  "description": "Contact roles to send the budget notification to when the threshold is exceeded.",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                },
+                                "enabled": {
+                                  "description": "The notification is enabled or not.",
+                                  "type": "boolean"
+                                },
+                                "operator": {
+                                  "description": "The comparison operator.",
+                                  "enum": [
+                                    "EqualTo",
+                                    "GreaterThan",
+                                    "GreaterThanOrEqualTo"
+                                  ],
+                                  "type": "string",
+                                  "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "OperatorType"
+                                  }
+                                },
+                                "threshold": {
+                                  "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.",
+                                  "format": "decimal",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "enabled",
+                                "operator",
+                                "threshold",
+                                "contactEmails"
+                              ]
+                            },
+                            "description": "Dictionary of notifications associated with the budget. Budget can have up to five notifications.",
+                            "maxItems": 5,
+                            "type": "object"
+                          },
+                          "timeGrain": {
+                            "description": "The time covered by a budget. Tracking of the amount will be reset based on the time grain.",
+                            "enum": [
+                              "Monthly",
+                              "Quarterly",
+                              "Annually"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "TimeGrainType"
+                            }
+                          },
+                          "timePeriod": {
+                            "description": "The start and end date for a budget.",
+                            "properties": {
+                              "endDate": {
+                                "description": "The end date for the budget. If not provided, we default this to 10 years from the start date.",
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "startDate": {
+                                "description": "The start date for the budget.",
+                                "format": "date-time",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "startDate"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "category",
+                          "amount",
+                          "timeGrain",
+                          "timePeriod"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/BudgetsListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The current amount of cost which is being tracked for a budget.",
+              "properties": {
+                "amount": {
+                  "description": "The total amount of cost which is being tracked by the budget.",
+                  "format": "decimal",
+                  "readOnly": true,
+                  "type": "number"
+                },
+                "unit": {
+                  "description": "The unit of measure for the budget amount.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/CurrentSpend"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "May be used to filter budgets by resource group, resource, or meter.",
+              "properties": {
+                "meters": {
+                  "description": "The list of filters on meters, mandatory for budgets of usage category. ",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 10,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "resourceGroups": {
+                  "description": "The list of filters on resource groups, allowed at subscription level only.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 10,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "resources": {
+                  "description": "The list of filters on resources.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 10,
+                  "minItems": 0,
+                  "type": "array"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Filters"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "description": "The Resource model definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource Id.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Resource tags.",
+                      "readOnly": true,
+                      "type": "object"
+                    },
+                    "type": {
+                      "description": "Resource type.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "An marketplace resource.",
+              "properties": {
+                "properties": {
+                  "description": "The properties of the marketplace usage detail.",
+                  "properties": {
+                    "accountName": {
+                      "description": "Account name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "additionalProperties": {
+                      "description": "Additional details of this usage item. By default this is not populated, unless it's specified in $expand.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "billingPeriodId": {
+                      "description": "The id of the billing period resource that the usage belongs to.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "consumedQuantity": {
+                      "description": "The quantity of usage.",
+                      "format": "decimal",
+                      "readOnly": true,
+                      "type": "number"
+                    },
+                    "consumedService": {
+                      "description": "Consumed service name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "costCenter": {
+                      "description": "The cost center of this department if it is a department and a costcenter exists",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "currency": {
+                      "description": "The ISO currency in which the meter is charged, for example, USD.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "departmentName": {
+                      "description": "Department name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "instanceId": {
+                      "description": "The uri of the resource instance that the usage is about.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "instanceName": {
+                      "description": "The name of the resource instance that the usage is about.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "isEstimated": {
+                      "description": "The estimated usage is subject to change.",
+                      "readOnly": true,
+                      "type": "boolean"
+                    },
+                    "meterId": {
+                      "description": "The meter id.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "offerName": {
+                      "description": "The type of offer.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "orderNumber": {
+                      "description": "The order number.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "planName": {
+                      "description": "The name of plan.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "pretaxCost": {
+                      "description": "The amount of cost before tax.",
+                      "format": "decimal",
+                      "readOnly": true,
+                      "type": "number"
+                    },
+                    "publisherName": {
+                      "description": "The name of publisher.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "resourceGroup": {
+                      "description": "The name of resource group.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "resourceRate": {
+                      "description": "The marketplace resource rate.",
+                      "format": "decimal",
+                      "readOnly": true,
+                      "type": "number"
+                    },
+                    "subscriptionGuid": {
+                      "description": "Subscription guid.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "subscriptionName": {
+                      "description": "Subscription name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "unitOfMeasure": {
+                      "description": "The unit of measure.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "usageEnd": {
+                      "description": "The end of the date time range covered by the usage detail.",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "usageStart": {
+                      "description": "The start of the date time range covered by the usage detail.",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Marketplace"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The properties of the marketplace usage detail.",
+              "properties": {
+                "accountName": {
+                  "description": "Account name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "additionalProperties": {
+                  "description": "Additional details of this usage item. By default this is not populated, unless it's specified in $expand.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "billingPeriodId": {
+                  "description": "The id of the billing period resource that the usage belongs to.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "consumedQuantity": {
+                  "description": "The quantity of usage.",
+                  "format": "decimal",
+                  "readOnly": true,
+                  "type": "number"
+                },
+                "consumedService": {
+                  "description": "Consumed service name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "costCenter": {
+                  "description": "The cost center of this department if it is a department and a costcenter exists",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "currency": {
+                  "description": "The ISO currency in which the meter is charged, for example, USD.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "departmentName": {
+                  "description": "Department name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "instanceId": {
+                  "description": "The uri of the resource instance that the usage is about.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "instanceName": {
+                  "description": "The name of the resource instance that the usage is about.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "isEstimated": {
+                  "description": "The estimated usage is subject to change.",
+                  "readOnly": true,
+                  "type": "boolean"
+                },
+                "meterId": {
+                  "description": "The meter id.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "offerName": {
+                  "description": "The type of offer.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "orderNumber": {
+                  "description": "The order number.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "planName": {
+                  "description": "The name of plan.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "pretaxCost": {
+                  "description": "The amount of cost before tax.",
+                  "format": "decimal",
+                  "readOnly": true,
+                  "type": "number"
+                },
+                "publisherName": {
+                  "description": "The name of publisher.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "resourceGroup": {
+                  "description": "The name of resource group.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "resourceRate": {
+                  "description": "The marketplace resource rate.",
+                  "format": "decimal",
+                  "readOnly": true,
+                  "type": "number"
+                },
+                "subscriptionGuid": {
+                  "description": "Subscription guid.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "subscriptionName": {
+                  "description": "Subscription name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "unitOfMeasure": {
+                  "description": "The unit of measure.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "usageEnd": {
+                  "description": "The end of the date time range covered by the usage detail.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "usageStart": {
+                  "description": "The start of the date time range covered by the usage detail.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/MarketplaceProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Result of listing marketplaces. It contains a list of available marketplaces in reverse chronological order by billing period.",
+              "properties": {
+                "nextLink": {
+                  "description": "The link (url) to the next page of results.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The list of marketplaces.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource model definition.",
+                        "properties": {
+                          "id": {
+                            "description": "Resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "tags": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Resource tags.",
+                            "readOnly": true,
+                            "type": "object"
+                          },
+                          "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "An marketplace resource.",
+                    "properties": {
+                      "properties": {
+                        "description": "The properties of the marketplace usage detail.",
+                        "properties": {
+                          "accountName": {
+                            "description": "Account name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "additionalProperties": {
+                            "description": "Additional details of this usage item. By default this is not populated, unless it's specified in $expand.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "billingPeriodId": {
+                            "description": "The id of the billing period resource that the usage belongs to.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "consumedQuantity": {
+                            "description": "The quantity of usage.",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "consumedService": {
+                            "description": "Consumed service name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "costCenter": {
+                            "description": "The cost center of this department if it is a department and a costcenter exists",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "currency": {
+                            "description": "The ISO currency in which the meter is charged, for example, USD.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "departmentName": {
+                            "description": "Department name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "instanceId": {
+                            "description": "The uri of the resource instance that the usage is about.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "instanceName": {
+                            "description": "The name of the resource instance that the usage is about.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "isEstimated": {
+                            "description": "The estimated usage is subject to change.",
+                            "readOnly": true,
+                            "type": "boolean"
+                          },
+                          "meterId": {
+                            "description": "The meter id.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "offerName": {
+                            "description": "The type of offer.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "orderNumber": {
+                            "description": "The order number.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "planName": {
+                            "description": "The name of plan.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "pretaxCost": {
+                            "description": "The amount of cost before tax.",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "publisherName": {
+                            "description": "The name of publisher.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "resourceGroup": {
+                            "description": "The name of resource group.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "resourceRate": {
+                            "description": "The marketplace resource rate.",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "subscriptionGuid": {
+                            "description": "Subscription guid.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "subscriptionName": {
+                            "description": "Subscription name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "unitOfMeasure": {
+                            "description": "The unit of measure.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "usageEnd": {
+                            "description": "The end of the date time range covered by the usage detail.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "usageStart": {
+                            "description": "The start of the date time range covered by the usage detail.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/MarketplacesListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The notification associated with a budget.",
+              "properties": {
+                "contactEmails": {
+                  "description": "Email addresses to send the budget notification to when the threshold is exceeded.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50,
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "contactGroups": {
+                  "description": "Action groups to send the budget notification to when the threshold is exceeded.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "maxItems": 50,
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "contactRoles": {
+                  "description": "Contact roles to send the budget notification to when the threshold is exceeded.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "enabled": {
+                  "description": "The notification is enabled or not.",
+                  "type": "boolean"
+                },
+                "operator": {
+                  "description": "The comparison operator.",
+                  "enum": [
+                    "EqualTo",
+                    "GreaterThan",
+                    "GreaterThanOrEqualTo"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "OperatorType"
+                  }
+                },
+                "threshold": {
+                  "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.",
+                  "format": "decimal",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "enabled",
+                "operator",
+                "threshold",
+                "contactEmails"
+              ]
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Notification"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "price sheet result. It contains the pricesheet associated with billing period",
+              "properties": {
+                "nextLink": {
+                  "description": "The link (url) to the next page of results.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "pricesheets": {
+                  "description": "Price sheet",
+                  "items": {
+                    "description": "The properties of the price sheet.",
+                    "properties": {
+                      "billingPeriodId": {
+                        "description": "The id of the billing period resource that the usage belongs to.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "currencyCode": {
+                        "description": "Currency Code",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "includedQuantity": {
+                        "description": "Included quality for an offer",
+                        "format": "decimal",
+                        "readOnly": true,
+                        "type": "number"
+                      },
+                      "meterDetails": {
+                        "description": "The properties of the meter detail.",
+                        "properties": {
+                          "meterCategory": {
+                            "description": "The category of the meter, for example, 'Cloud services', 'Networking', etc..",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "meterLocation": {
+                            "description": "The location in which the Azure service is available.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "meterName": {
+                            "description": "The name of the meter, within the given meter category",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "meterSubCategory": {
+                            "description": "The subcategory of the meter, for example, 'A6 Cloud services', 'ExpressRoute (IXP)', etc..",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "pretaxStandardRate": {
+                            "description": "The pretax listing price.",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "totalIncludedQuantity": {
+                            "description": "The total included quantity associated with the offer.",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "unit": {
+                            "description": "The unit in which the meter consumption is charged, for example, 'Hours', 'GB', etc.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "meterId": {
+                        "description": "The meter id",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "partNumber": {
+                        "description": "Part Number",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "unitOfMeasure": {
+                        "description": "Unit of measure",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "unitPrice": {
+                        "description": "Unit Price",
+                        "format": "decimal",
+                        "readOnly": true,
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PriceSheetModel"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The properties of the price sheet.",
+              "properties": {
+                "billingPeriodId": {
+                  "description": "The id of the billing period resource that the usage belongs to.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "currencyCode": {
+                  "description": "Currency Code",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "includedQuantity": {
+                  "description": "Included quality for an offer",
+                  "format": "decimal",
+                  "readOnly": true,
+                  "type": "number"
+                },
+                "meterDetails": {
+                  "description": "The properties of the meter detail.",
+                  "properties": {
+                    "meterCategory": {
+                      "description": "The category of the meter, for example, 'Cloud services', 'Networking', etc..",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "meterLocation": {
+                      "description": "The location in which the Azure service is available.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "meterName": {
+                      "description": "The name of the meter, within the given meter category",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "meterSubCategory": {
+                      "description": "The subcategory of the meter, for example, 'A6 Cloud services', 'ExpressRoute (IXP)', etc..",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "pretaxStandardRate": {
+                      "description": "The pretax listing price.",
+                      "format": "decimal",
+                      "readOnly": true,
+                      "type": "number"
+                    },
+                    "totalIncludedQuantity": {
+                      "description": "The total included quantity associated with the offer.",
+                      "format": "decimal",
+                      "readOnly": true,
+                      "type": "number"
+                    },
+                    "unit": {
+                      "description": "The unit in which the meter consumption is charged, for example, 'Hours', 'GB', etc.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  }
+                },
+                "meterId": {
+                  "description": "The meter id",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "partNumber": {
+                  "description": "Part Number",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "unitOfMeasure": {
+                  "description": "Unit of measure",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "unitPrice": {
+                  "description": "Unit Price",
+                  "format": "decimal",
+                  "readOnly": true,
+                  "type": "number"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PriceSheetProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "description": "The Resource model definition.",
+                  "properties": {
+                    "id": {
+                      "description": "Resource Id.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Resource tags.",
+                      "readOnly": true,
+                      "type": "object"
+                    },
+                    "type": {
+                      "description": "Resource type.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "An pricesheet resource.",
+              "properties": {
+                "properties": {
+                  "description": "price sheet result. It contains the pricesheet associated with billing period",
+                  "properties": {
+                    "nextLink": {
+                      "description": "The link (url) to the next page of results.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "pricesheets": {
+                      "description": "Price sheet",
+                      "items": {
+                        "description": "The properties of the price sheet.",
+                        "properties": {
+                          "billingPeriodId": {
+                            "description": "The id of the billing period resource that the usage belongs to.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "currencyCode": {
+                            "description": "Currency Code",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "includedQuantity": {
+                            "description": "Included quality for an offer",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          },
+                          "meterDetails": {
+                            "description": "The properties of the meter detail.",
+                            "properties": {
+                              "meterCategory": {
+                                "description": "The category of the meter, for example, 'Cloud services', 'Networking', etc..",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "meterLocation": {
+                                "description": "The location in which the Azure service is available.",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "meterName": {
+                                "description": "The name of the meter, within the given meter category",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "meterSubCategory": {
+                                "description": "The subcategory of the meter, for example, 'A6 Cloud services', 'ExpressRoute (IXP)', etc..",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "pretaxStandardRate": {
+                                "description": "The pretax listing price.",
+                                "format": "decimal",
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "totalIncludedQuantity": {
+                                "description": "The total included quantity associated with the offer.",
+                                "format": "decimal",
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "unit": {
+                                "description": "The unit in which the meter consumption is charged, for example, 'Hours', 'GB', etc.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "meterId": {
+                            "description": "The meter id",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "partNumber": {
+                            "description": "Part Number",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "unitOfMeasure": {
+                            "description": "Unit of measure",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "unitPrice": {
+                            "description": "Unit Price",
+                            "format": "decimal",
+                            "readOnly": true,
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "readOnly": true,
+                      "type": "array"
+                    }
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PriceSheetResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The Resource model definition.",
+              "properties": {
+                "eTag": {
+                  "description": "eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "Resource Id.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "x-ms-azure-resource": true
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ProxyResource"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The link (url) to the next page of results.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ReservationDetailsListResult/properties/nextLink"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The link (url) to the next page of results.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ReservationSummariesListResult/properties/nextLink"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": "Version of the API to be used with the client request. The current version is 2017-11-30.",
+            "value": "Version of the API to be used with the client request. The current version is 2018-01-31.",
+            "op": "replace",
+            "from": "",
+            "path": "/apiVersionParameter/description"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Billing Period Name.",
+              "in": "path",
+              "name": "billingPeriodName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/billingPeriodNameParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Budget Name.",
+              "in": "path",
+              "name": "budgetName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/budgetNameParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Id of the reservation",
+              "in": "path",
+              "name": "reservationId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/reservationIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Order Id of the reservation",
+              "in": "path",
+              "name": "reservationOrderId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/reservationOrderIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Azure Resource Group Name.",
+              "in": "path",
+              "name": "resourceGroupName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/resourceGroupNameParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2017-11-30",
+        "to": "2018-01-31"
+      }
+    },
+    "paths": {
+      "added": [
+        "/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/reservations/{reservationId}/providers/Microsoft.Consumption/reservationDetails",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Consumption/budgets/{budgetName}",
+        "/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/reservations/{reservationId}/providers/Microsoft.Consumption/reservationSummaries",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/usageDetails",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Consumption/budgets",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/marketplaces",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/usageDetails",
+        "/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/providers/Microsoft.Consumption/reservationDetails",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/marketplaces",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default",
+        "/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/providers/Microsoft.Consumption/reservationSummaries",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}"
+      ],
+      "deleted": [
+        "/{scope}/providers/Microsoft.Consumption/reservationSummaries",
+        "/{scope}/providers/Microsoft.Consumption/usageDetails",
+        "/{scope}/providers/Microsoft.Consumption/reservationDetails"
+      ],
+      "modified": {
+        "/providers/Microsoft.Consumption/operations": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "description": {
+                          "from": "Version of the API to be used with the client request. The current version is 2017-11-30.",
+                          "to": "Version of the API to be used with the client request. The current version is 2018-01-31."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tags": {
+      "deleted": [
+        "UsageDetails"
+      ]
+    }
+  },
+  "tools_a": {
+    "Operations_List": "FunctionDef(\n  name='Operations_List',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Lists all of the available consumption REST API operations.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Consumption/operations')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Operations_List')),\n        keyword(\n          arg='description',\n          value=Constant(value='Lists all of the available consumption REST API operations.'))])],\n  type_params=[])"
+  },
+  "tools_b": {
+    "Operations_List": "FunctionDef(\n  name='Operations_List',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Lists all of the available consumption REST API operations.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Consumption/operations')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Operations_List')),\n        keyword(\n          arg='description',\n          value=Constant(value='Lists all of the available consumption REST API operations.'))])],\n  type_params=[])"
+  }
+}

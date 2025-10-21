@@ -205,6 +205,3 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-
-# Model files - only ignore the original large file that we split
-DeltaMCP/starcoder-finetuned/models/phi-2/model-00001-of-00002.safetensors

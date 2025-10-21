@@ -1,0 +1,669 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": "object",
+            "op": "add",
+            "from": "",
+            "path": "/SubResource/type"
+          },
+          {
+            "oldValue": null,
+            "value": "object",
+            "op": "add",
+            "from": "",
+            "path": "/Transformation/allOf/0/type"
+          },
+          {
+            "oldValue": null,
+            "value": 3,
+            "op": "add",
+            "from": "",
+            "path": "/Transformation/properties/properties/properties/streamingUnits/default"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Specifies the valid streaming units a streaming job can scale to.",
+              "items": {
+                "description": "Specifies the number of streaming units that the streaming job can use.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Transformation/properties/properties/properties/validStreamingUnits"
+          },
+          {
+            "oldValue": null,
+            "value": "object",
+            "op": "add",
+            "from": "",
+            "path": "/Transformation/properties/properties/type"
+          },
+          {
+            "oldValue": null,
+            "value": "object",
+            "op": "add",
+            "from": "",
+            "path": "/Transformation/type"
+          },
+          {
+            "oldValue": null,
+            "value": 3,
+            "op": "add",
+            "from": "",
+            "path": "/TransformationProperties/properties/streamingUnits/default"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Specifies the valid streaming units a streaming job can scale to.",
+              "items": {
+                "description": "Specifies the number of streaming units that the streaming job can use.",
+                "format": "int32",
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TransformationProperties/properties/validStreamingUnits"
+          },
+          {
+            "oldValue": null,
+            "value": "object",
+            "op": "add",
+            "from": "",
+            "path": "/TransformationProperties/type"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": {
+              "description": "Client Api Version.",
+              "in": "query",
+              "name": "api-version",
+              "required": true,
+              "type": "string"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ApiVersionParameter"
+          },
+          {
+            "oldValue": {
+              "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+              "in": "path",
+              "name": "resourceGroupName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ResourceGroupNameParameter"
+          },
+          {
+            "oldValue": {
+              "description": "The name of the streaming job.",
+              "in": "path",
+              "name": "jobName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/StreamingJobNameParameter"
+          },
+          {
+            "oldValue": {
+              "description": "GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+              "in": "path",
+              "name": "subscriptionId",
+              "required": true,
+              "type": "string"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/SubscriptionIdParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2016-03-01",
+        "to": "2020-03-01"
+      }
+    },
+    "paths": {
+      "modified": {
+        "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobName}/transformations/{transformationName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2016-03-01",
+                        "value": "2020-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a transformation/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "path": {
+                      "resourceGroupName": {
+                        "extensions": {
+                          "added": [
+                            "pattern",
+                            "maxLength",
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+                          "to": "The name of the resource group. The name is case insensitive."
+                        }
+                      },
+                      "subscriptionId": {
+                        "extensions": {
+                          "added": [
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+                          "to": "The ID of the target subscription."
+                        }
+                      }
+                    },
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "added": [
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "Client Api Version.",
+                          "to": "The API version to use for this operation."
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf/0/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 3,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/streamingUnits/default"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies the valid streaming units a streaming job can scale to.",
+                                "items": {
+                                  "description": "Specifies the number of streaming units that the streaming job can use.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/validStreamingUnits"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/type"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2016-03-01",
+                        "value": "2020-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Update a transformation/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "transformation": {
+                        "schema": {
+                          "allOf": {
+                            "modified": [
+                              {
+                                "base": {
+                                  "index": 0
+                                },
+                                "revision": {
+                                  "index": 0
+                                },
+                                "diff": {
+                                  "type": {
+                                    "added": [
+                                      "object"
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "type": {
+                            "added": [
+                              "object"
+                            ]
+                          },
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "type": {
+                                  "added": [
+                                    "object"
+                                  ]
+                                },
+                                "properties": {
+                                  "added": [
+                                    "validStreamingUnits"
+                                  ],
+                                  "modified": {
+                                    "streamingUnits": {
+                                      "default": {
+                                        "from": null,
+                                        "to": 3
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "resourceGroupName": {
+                        "extensions": {
+                          "added": [
+                            "maxLength",
+                            "pattern",
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+                          "to": "The name of the resource group. The name is case insensitive."
+                        }
+                      },
+                      "subscriptionId": {
+                        "extensions": {
+                          "added": [
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+                          "to": "The ID of the target subscription."
+                        }
+                      }
+                    },
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "added": [
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "Client Api Version.",
+                          "to": "The API version to use for this operation."
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf/0/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 3,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/streamingUnits/default"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies the valid streaming units a streaming job can scale to.",
+                                "items": {
+                                  "description": "Specifies the number of streaming units that the streaming job can use.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/validStreamingUnits"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/type"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2016-03-01",
+                        "value": "2020-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create a transformation/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "transformation": {
+                        "schema": {
+                          "allOf": {
+                            "modified": [
+                              {
+                                "base": {
+                                  "index": 0
+                                },
+                                "revision": {
+                                  "index": 0
+                                },
+                                "diff": {
+                                  "type": {
+                                    "added": [
+                                      "object"
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "type": {
+                            "added": [
+                              "object"
+                            ]
+                          },
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "type": {
+                                  "added": [
+                                    "object"
+                                  ]
+                                },
+                                "properties": {
+                                  "added": [
+                                    "validStreamingUnits"
+                                  ],
+                                  "modified": {
+                                    "streamingUnits": {
+                                      "default": {
+                                        "from": null,
+                                        "to": 3
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "resourceGroupName": {
+                        "extensions": {
+                          "added": [
+                            "pattern",
+                            "maxLength",
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+                          "to": "The name of the resource group. The name is case insensitive."
+                        }
+                      },
+                      "subscriptionId": {
+                        "extensions": {
+                          "added": [
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "GUID which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+                          "to": "The ID of the target subscription."
+                        }
+                      }
+                    },
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "added": [
+                            "minLength"
+                          ]
+                        },
+                        "description": {
+                          "from": "Client Api Version.",
+                          "to": "The API version to use for this operation."
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf/0/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 3,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/streamingUnits/default"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies the valid streaming units a streaming job can scale to.",
+                                "items": {
+                                  "description": "Specifies the number of streaming units that the streaming job can use.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/validStreamingUnits"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/type"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf/0/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 3,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/streamingUnits/default"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies the valid streaming units a streaming job can scale to.",
+                                "items": {
+                                  "description": "Specifies the number of streaming units that the streaming job can use.",
+                                  "format": "int32",
+                                  "type": "integer"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/validStreamingUnits"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/type"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "object",
+                              "op": "add",
+                              "from": "",
+                              "path": "/type"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {
+    "Transformations_CreateOrReplace": "FunctionDef(\n  name='Transformations_CreateOrReplace',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='jobName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='transformationName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='If_Match',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='If_None_Match',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None),\n      Constant(value=None),\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Creates a transformation or replaces an already existing transformation under an existing streaming job.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourcegroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.StreamAnalytics/streamingjobs/'),\n          FormattedValue(\n            value=Name(id='jobName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/transformations/'),\n          FormattedValue(\n            value=Name(id='transformationName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='jobName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: jobName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='transformationName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: transformationName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='header_value', ctx=Store())],\n      value=IfExp(\n        test=Compare(\n          left=Name(id='If_Match', ctx=Load()),\n          ops=[\n            IsNot()],\n          comparators=[\n            Constant(value=None)]),\n        body=Name(id='If_Match', ctx=Load()),\n        orelse=Call(\n          func=Attribute(\n            value=Name(id='os', ctx=Load()),\n            attr='getenv',\n            ctx=Load()),\n          args=[\n            Constant(value='IF_MATCH')],\n          keywords=[]))),\n    If(\n      test=Compare(\n        left=Name(id='header_value', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='headers', ctx=Load()),\n              slice=Constant(value='If-Match'),\n              ctx=Store())],\n          value=Name(id='header_value', ctx=Load()))],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='header_value', ctx=Store())],\n      value=IfExp(\n        test=Compare(\n          left=Name(id='If_None_Match', ctx=Load()),\n          ops=[\n            IsNot()],\n          comparators=[\n            Constant(value=None)]),\n        body=Name(id='If_None_Match', ctx=Load()),\n        orelse=Call(\n          func=Attribute(\n            value=Name(id='os', ctx=Load()),\n            attr='getenv',\n            ctx=Load()),\n          args=[\n            Constant(value='IF_NONE_MATCH')],\n          keywords=[]))),\n    If(\n      test=Compare(\n        left=Name(id='header_value', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='headers', ctx=Load()),\n              slice=Constant(value='If-None-Match'),\n              ctx=Store())],\n          value=Name(id='header_value', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='put',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Transformations_CreateOrReplace')),\n        keyword(\n          arg='description',\n          value=Constant(value='Creates a transformation or replaces an already existing transformation under an existing streaming job.'))])],\n  type_params=[])",
+    "Transformations_Update": "FunctionDef(\n  name='Transformations_Update',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='jobName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='transformationName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='If_Match',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None),\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourcegroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.StreamAnalytics/streamingjobs/'),\n          FormattedValue(\n            value=Name(id='jobName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/transformations/'),\n          FormattedValue(\n            value=Name(id='transformationName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='jobName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: jobName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='transformationName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: transformationName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='header_value', ctx=Store())],\n      value=IfExp(\n        test=Compare(\n          left=Name(id='If_Match', ctx=Load()),\n          ops=[\n            IsNot()],\n          comparators=[\n            Constant(value=None)]),\n        body=Name(id='If_Match', ctx=Load()),\n        orelse=Call(\n          func=Attribute(\n            value=Name(id='os', ctx=Load()),\n            attr='getenv',\n            ctx=Load()),\n          args=[\n            Constant(value='IF_MATCH')],\n          keywords=[]))),\n    If(\n      test=Compare(\n        left=Name(id='header_value', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='headers', ctx=Load()),\n              slice=Constant(value='If-Match'),\n              ctx=Store())],\n          value=Name(id='header_value', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='patch',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Transformations_Update')),\n        keyword(\n          arg='description',\n          value=Constant(value='Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition.'))])],\n  type_params=[])",
+    "Transformations_Get": "FunctionDef(\n  name='Transformations_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='jobName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='transformationName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Gets details about the specified transformation.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourcegroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.StreamAnalytics/streamingjobs/'),\n          FormattedValue(\n            value=Name(id='jobName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/transformations/'),\n          FormattedValue(\n            value=Name(id='transformationName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='jobName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: jobName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='transformationName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: transformationName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Transformations_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Gets details about the specified transformation.'))])],\n  type_params=[])"
+  },
+  "tools_b": {
+    "Transformations_CreateOrReplace": "FunctionDef(\n  name='Transformations_CreateOrReplace',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='transformationName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='jobName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='If_Match',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='If_None_Match',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None),\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Creates a transformation or replaces an already existing transformation under an existing streaming job.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourcegroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.StreamAnalytics/streamingjobs/'),\n          FormattedValue(\n            value=Name(id='jobName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/transformations/'),\n          FormattedValue(\n            value=Name(id='transformationName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='transformationName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: transformationName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='jobName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: jobName')],\n            keywords=[]))],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='header_value', ctx=Store())],\n      value=IfExp(\n        test=Compare(\n          left=Name(id='If_Match', ctx=Load()),\n          ops=[\n            IsNot()],\n          comparators=[\n            Constant(value=None)]),\n        body=Name(id='If_Match', ctx=Load()),\n        orelse=Call(\n          func=Attribute(\n            value=Name(id='os', ctx=Load()),\n            attr='getenv',\n            ctx=Load()),\n          args=[\n            Constant(value='IF_MATCH')],\n          keywords=[]))),\n    If(\n      test=Compare(\n        left=Name(id='header_value', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='headers', ctx=Load()),\n              slice=Constant(value='If-Match'),\n              ctx=Store())],\n          value=Name(id='header_value', ctx=Load()))],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='header_value', ctx=Store())],\n      value=IfExp(\n        test=Compare(\n          left=Name(id='If_None_Match', ctx=Load()),\n          ops=[\n            IsNot()],\n          comparators=[\n            Constant(value=None)]),\n        body=Name(id='If_None_Match', ctx=Load()),\n        orelse=Call(\n          func=Attribute(\n            value=Name(id='os', ctx=Load()),\n            attr='getenv',\n            ctx=Load()),\n          args=[\n            Constant(value='IF_NONE_MATCH')],\n          keywords=[]))),\n    If(\n      test=Compare(\n        left=Name(id='header_value', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='headers', ctx=Load()),\n              slice=Constant(value='If-None-Match'),\n              ctx=Store())],\n          value=Name(id='header_value', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='put',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Transformations_CreateOrReplace')),\n        keyword(\n          arg='description',\n          value=Constant(value='Creates a transformation or replaces an already existing transformation under an existing streaming job.'))])],\n  type_params=[])",
+    "Transformations_Update": "FunctionDef(\n  name='Transformations_Update',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='transformationName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='jobName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='If_Match',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourcegroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.StreamAnalytics/streamingjobs/'),\n          FormattedValue(\n            value=Name(id='jobName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/transformations/'),\n          FormattedValue(\n            value=Name(id='transformationName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='transformationName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: transformationName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='jobName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: jobName')],\n            keywords=[]))],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='header_value', ctx=Store())],\n      value=IfExp(\n        test=Compare(\n          left=Name(id='If_Match', ctx=Load()),\n          ops=[\n            IsNot()],\n          comparators=[\n            Constant(value=None)]),\n        body=Name(id='If_Match', ctx=Load()),\n        orelse=Call(\n          func=Attribute(\n            value=Name(id='os', ctx=Load()),\n            attr='getenv',\n            ctx=Load()),\n          args=[\n            Constant(value='IF_MATCH')],\n          keywords=[]))),\n    If(\n      test=Compare(\n        left=Name(id='header_value', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='headers', ctx=Load()),\n              slice=Constant(value='If-Match'),\n              ctx=Store())],\n          value=Name(id='header_value', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='patch',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Transformations_Update')),\n        keyword(\n          arg='description',\n          value=Constant(value='Updates an existing transformation under an existing streaming job. This can be used to partially update (ie. update one or two properties) a transformation without affecting the rest the job or transformation definition.'))])],\n  type_params=[])",
+    "Transformations_Get": "FunctionDef(\n  name='Transformations_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='transformationName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='jobName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Gets details about the specified transformation.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourcegroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.StreamAnalytics/streamingjobs/'),\n          FormattedValue(\n            value=Name(id='jobName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/transformations/'),\n          FormattedValue(\n            value=Name(id='transformationName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='transformationName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: transformationName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='jobName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: jobName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Transformations_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Gets details about the specified transformation.'))])],\n  type_params=[])"
+  }
+}

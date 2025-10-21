@@ -5,3 +5,4 @@ psutil
 fastmcp
 uvicorn
 prance
+ray

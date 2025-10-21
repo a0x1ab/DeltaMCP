@@ -1,0 +1,1322 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": {
+              "description": "The response to a live token query.",
+              "properties": {
+                "liveToken": {
+                  "description": "JWT token for accessing live metrics stream data.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/LiveTokenResponse"
+          },
+          {
+            "oldValue": {
+              "description": "Information about an operation",
+              "properties": {
+                "description": {
+                  "description": "Description of the operation",
+                  "type": "string"
+                },
+                "operation": {
+                  "description": "Name of the operation",
+                  "type": "string"
+                },
+                "provider": {
+                  "description": "Name of the provider",
+                  "type": "string"
+                },
+                "resource": {
+                  "description": "Name of the resource type",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/OperationInfo"
+          },
+          {
+            "oldValue": {
+              "description": "Represents an operation returned by the GetOperations request",
+              "properties": {
+                "display": {
+                  "description": "Information about an operation",
+                  "properties": {
+                    "description": {
+                      "description": "Description of the operation",
+                      "type": "string"
+                    },
+                    "operation": {
+                      "description": "Name of the operation",
+                      "type": "string"
+                    },
+                    "provider": {
+                      "description": "Name of the provider",
+                      "type": "string"
+                    },
+                    "resource": {
+                      "description": "Name of the resource type",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "isDataAction": {
+                  "description": "Indicates whether the operation is a data action",
+                  "type": "boolean"
+                },
+                "name": {
+                  "description": "Name of the operation",
+                  "type": "string"
+                },
+                "origin": {
+                  "description": "Origin of the operation",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Properties of the operation",
+                  "type": "object",
+                  "x-ms-client-flatten": true
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/OperationLive"
+          },
+          {
+            "oldValue": {
+              "description": "Result of the List Operations operation",
+              "properties": {
+                "nextLink": {
+                  "description": "URL to get the next set of operation list results if there are any.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "A collection of operations",
+                  "items": {
+                    "description": "Represents an operation returned by the GetOperations request",
+                    "properties": {
+                      "display": {
+                        "description": "Information about an operation",
+                        "properties": {
+                          "description": {
+                            "description": "Description of the operation",
+                            "type": "string"
+                          },
+                          "operation": {
+                            "description": "Name of the operation",
+                            "type": "string"
+                          },
+                          "provider": {
+                            "description": "Name of the provider",
+                            "type": "string"
+                          },
+                          "resource": {
+                            "description": "Name of the resource type",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "isDataAction": {
+                        "description": "Indicates whether the operation is a data action",
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "description": "Name of the operation",
+                        "type": "string"
+                      },
+                      "origin": {
+                        "description": "Origin of the operation",
+                        "type": "string"
+                      },
+                      "properties": {
+                        "description": "Properties of the operation",
+                        "type": "object",
+                        "x-ms-client-flatten": true
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": [
+                    "name"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/OperationsListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "allOf": [
+                        {
+                          "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                          "properties": {
+                            "id": {
+                              "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "The name of the resource",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                              "readOnly": true,
+                              "type": "string"
+                            }
+                          },
+                          "title": "Resource",
+                          "type": "object",
+                          "x-ms-azure-resource": true
+                        }
+                      ],
+                      "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                      "properties": {
+                        "location": {
+                          "description": "The geo-location where the resource lives",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "read",
+                            "create"
+                          ]
+                        },
+                        "tags": {
+                          "additionalProperties": {
+                            "type": "string"
+                          },
+                          "description": "Resource tags.",
+                          "type": "object",
+                          "x-ms-mutability": [
+                            "read",
+                            "create",
+                            "update"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "location"
+                      ],
+                      "title": "Tracked Resource",
+                      "type": "object"
+                    }
+                  ],
+                  "description": "An azure resource object",
+                  "properties": {
+                    "etag": {
+                      "description": "Resource etag",
+                      "type": "string"
+                    },
+                    "identity": {
+                      "allOf": [
+                        {
+                          "description": "Managed service identity (system assigned and/or user assigned identities)",
+                          "properties": {
+                            "principalId": {
+                              "description": "The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.",
+                              "format": "uuid",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "tenantId": {
+                              "description": "The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.",
+                              "format": "uuid",
+                              "readOnly": true,
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
+                              "enum": [
+                                "None",
+                                "SystemAssigned",
+                                "UserAssigned",
+                                "SystemAssigned,UserAssigned"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "ManagedServiceIdentityType"
+                              }
+                            },
+                            "userAssignedIdentities": {
+                              "additionalProperties": {
+                                "description": "User assigned identity properties",
+                                "properties": {
+                                  "clientId": {
+                                    "description": "The client ID of the assigned identity.",
+                                    "format": "uuid",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  },
+                                  "principalId": {
+                                    "description": "The principal ID of the assigned identity.",
+                                    "format": "uuid",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
+                              "title": "User-Assigned Identities",
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "type"
+                          ],
+                          "type": "object"
+                        }
+                      ],
+                      "description": "Identity used for BYOS"
+                    },
+                    "kind": {
+                      "description": "The kind of workbook. Only valid value is shared.",
+                      "enum": [
+                        "shared"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "WorkbookSharedTypeKind"
+                      }
+                    }
+                  },
+                  "type": "object",
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "A workbook definition.",
+              "properties": {
+                "properties": {
+                  "description": "Properties that contain a workbook.",
+                  "properties": {
+                    "category": {
+                      "description": "Workbook category, as defined by the user at creation time.",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the workbook.",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "displayName": {
+                      "description": "The user-defined name (display name) of the workbook.",
+                      "type": "string"
+                    },
+                    "revision": {
+                      "description": "The unique revision id for this workbook definition",
+                      "readOnly": true,
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "serializedData": {
+                      "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "sourceId": {
+                      "description": "ResourceId for a source resource.",
+                      "type": "string"
+                    },
+                    "storageUri": {
+                      "description": "The resourceId to the storage account when bring your own storage is used",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "tags": {
+                      "description": "Being deprecated, please use the other tags field",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "timeModified": {
+                      "description": "Date and time in UTC of the last modification that was made to this workbook definition.",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "userId": {
+                      "description": "Unique user id of the specific user that owns this workbook.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "displayName",
+                    "category",
+                    "serializedData"
+                  ],
+                  "type": "object"
+                },
+                "systemData": {
+                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                  "properties": {
+                    "createdAt": {
+                      "description": "The timestamp of resource creation (UTC).",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "createdBy": {
+                      "description": "The identity that created the resource.",
+                      "type": "string"
+                    },
+                    "createdByType": {
+                      "description": "The type of identity that created the resource.",
+                      "enum": [
+                        "User",
+                        "Application",
+                        "ManagedIdentity",
+                        "Key"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "createdByType"
+                      }
+                    },
+                    "lastModifiedAt": {
+                      "description": "The timestamp of resource last modification (UTC)",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "lastModifiedBy": {
+                      "description": "The identity that last modified the resource.",
+                      "type": "string"
+                    },
+                    "lastModifiedByType": {
+                      "description": "The type of identity that last modified the resource.",
+                      "enum": [
+                        "User",
+                        "Application",
+                        "ManagedIdentity",
+                        "Key"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "createdByType"
+                      }
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Workbook"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Error response.",
+              "properties": {
+                "error": {
+                  "description": "Error definition.",
+                  "properties": {
+                    "code": {
+                      "description": "Service specific error code which serves as the substatus for the HTTP error code.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "innererror": {
+                      "description": "Error details",
+                      "properties": {
+                        "trace": {
+                          "description": "detailed error trace",
+                          "items": {
+                            "type": "string"
+                          },
+                          "readOnly": true,
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "message": {
+                      "description": "Description of the error.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookError"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Error definition.",
+              "properties": {
+                "code": {
+                  "description": "Service specific error code which serves as the substatus for the HTTP error code.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "innererror": {
+                  "description": "Error details",
+                  "properties": {
+                    "trace": {
+                      "description": "detailed error trace",
+                      "items": {
+                        "type": "string"
+                      },
+                      "readOnly": true,
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "message": {
+                  "description": "Description of the error.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookErrorDefinition"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Error details",
+              "properties": {
+                "trace": {
+                  "description": "detailed error trace",
+                  "items": {
+                    "type": "string"
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookInnerErrorTrace"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Properties that contain a workbook.",
+              "properties": {
+                "category": {
+                  "description": "Workbook category, as defined by the user at creation time.",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the workbook.",
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "displayName": {
+                  "description": "The user-defined name (display name) of the workbook.",
+                  "type": "string"
+                },
+                "revision": {
+                  "description": "The unique revision id for this workbook definition",
+                  "readOnly": true,
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "serializedData": {
+                  "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "sourceId": {
+                  "description": "ResourceId for a source resource.",
+                  "type": "string"
+                },
+                "storageUri": {
+                  "description": "The resourceId to the storage account when bring your own storage is used",
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "tags": {
+                  "description": "Being deprecated, please use the other tags field",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "timeModified": {
+                  "description": "Date and time in UTC of the last modification that was made to this workbook definition.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "userId": {
+                  "description": "Unique user id of the specific user that owns this workbook.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "version": {
+                  "description": "Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "displayName",
+                "category",
+                "serializedData"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Properties that contain a workbook for PATCH operation.",
+              "properties": {
+                "category": {
+                  "description": "Workbook category, as defined by the user at creation time.",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "The description of the workbook.",
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "displayName": {
+                  "description": "The user-defined name (display name) of the workbook.",
+                  "type": "string"
+                },
+                "revision": {
+                  "description": "The unique revision id for this workbook definition",
+                  "type": "string",
+                  "x-nullable": true
+                },
+                "serializedData": {
+                  "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                  "type": "string"
+                },
+                "tags": {
+                  "description": "A list of 0 or more tags that are associated with this workbook definition",
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookPropertiesUpdateParameters"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "title": "Resource",
+                      "type": "object",
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                  "properties": {
+                    "location": {
+                      "description": "The geo-location where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "location"
+                  ],
+                  "title": "Tracked Resource",
+                  "type": "object"
+                }
+              ],
+              "description": "An azure resource object",
+              "properties": {
+                "etag": {
+                  "description": "Resource etag",
+                  "type": "string"
+                },
+                "identity": {
+                  "allOf": [
+                    {
+                      "description": "Managed service identity (system assigned and/or user assigned identities)",
+                      "properties": {
+                        "principalId": {
+                          "description": "The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.",
+                          "format": "uuid",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "tenantId": {
+                          "description": "The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.",
+                          "format": "uuid",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
+                          "enum": [
+                            "None",
+                            "SystemAssigned",
+                            "UserAssigned",
+                            "SystemAssigned,UserAssigned"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "ManagedServiceIdentityType"
+                          }
+                        },
+                        "userAssignedIdentities": {
+                          "additionalProperties": {
+                            "description": "User assigned identity properties",
+                            "properties": {
+                              "clientId": {
+                                "description": "The client ID of the assigned identity.",
+                                "format": "uuid",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "principalId": {
+                                "description": "The principal ID of the assigned identity.",
+                                "format": "uuid",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
+                          "title": "User-Assigned Identities",
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ],
+                      "type": "object"
+                    }
+                  ],
+                  "description": "Identity used for BYOS"
+                },
+                "kind": {
+                  "description": "The kind of workbook. Only valid value is shared.",
+                  "enum": [
+                    "shared"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "WorkbookSharedTypeKind"
+                  }
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookResource"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The parameters that can be provided when updating workbook properties properties.",
+              "properties": {
+                "kind": {
+                  "description": "The kind of workbook. Only valid value is shared.",
+                  "enum": [
+                    "shared"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "WorkbookUpdateSharedTypeKind"
+                  }
+                },
+                "properties": {
+                  "description": "Properties that contain a workbook for PATCH operation.",
+                  "properties": {
+                    "category": {
+                      "description": "Workbook category, as defined by the user at creation time.",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "The description of the workbook.",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "displayName": {
+                      "description": "The user-defined name (display name) of the workbook.",
+                      "type": "string"
+                    },
+                    "revision": {
+                      "description": "The unique revision id for this workbook definition",
+                      "type": "string",
+                      "x-nullable": true
+                    },
+                    "serializedData": {
+                      "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                      "type": "string"
+                    },
+                    "tags": {
+                      "description": "A list of 0 or more tags that are associated with this workbook definition",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "tags": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Resource tags.",
+                  "type": "object",
+                  "x-ms-mutability": [
+                    "read",
+                    "create",
+                    "update"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookUpdateParameters"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Workbook list result.",
+              "properties": {
+                "nextLink": {
+                  "type": "string"
+                },
+                "value": {
+                  "description": "An array of workbooks.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "allOf": [
+                              {
+                                "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                "properties": {
+                                  "id": {
+                                    "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "description": "The name of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  }
+                                },
+                                "title": "Resource",
+                                "type": "object",
+                                "x-ms-azure-resource": true
+                              }
+                            ],
+                            "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                            "properties": {
+                              "location": {
+                                "description": "The geo-location where the resource lives",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "read",
+                                  "create"
+                                ]
+                              },
+                              "tags": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Resource tags.",
+                                "type": "object",
+                                "x-ms-mutability": [
+                                  "read",
+                                  "create",
+                                  "update"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "location"
+                            ],
+                            "title": "Tracked Resource",
+                            "type": "object"
+                          }
+                        ],
+                        "description": "An azure resource object",
+                        "properties": {
+                          "etag": {
+                            "description": "Resource etag",
+                            "type": "string"
+                          },
+                          "identity": {
+                            "allOf": [
+                              {
+                                "description": "Managed service identity (system assigned and/or user assigned identities)",
+                                "properties": {
+                                  "principalId": {
+                                    "description": "The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.",
+                                    "format": "uuid",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  },
+                                  "tenantId": {
+                                    "description": "The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.",
+                                    "format": "uuid",
+                                    "readOnly": true,
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "description": "Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).",
+                                    "enum": [
+                                      "None",
+                                      "SystemAssigned",
+                                      "UserAssigned",
+                                      "SystemAssigned,UserAssigned"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "ManagedServiceIdentityType"
+                                    }
+                                  },
+                                  "userAssignedIdentities": {
+                                    "additionalProperties": {
+                                      "description": "User assigned identity properties",
+                                      "properties": {
+                                        "clientId": {
+                                          "description": "The client ID of the assigned identity.",
+                                          "format": "uuid",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "principalId": {
+                                          "description": "The principal ID of the assigned identity.",
+                                          "format": "uuid",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "type": "object"
+                                    },
+                                    "description": "The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.",
+                                    "title": "User-Assigned Identities",
+                                    "type": "object"
+                                  }
+                                },
+                                "required": [
+                                  "type"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "Identity used for BYOS"
+                          },
+                          "kind": {
+                            "description": "The kind of workbook. Only valid value is shared.",
+                            "enum": [
+                              "shared"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "WorkbookSharedTypeKind"
+                            }
+                          }
+                        },
+                        "type": "object",
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "A workbook definition.",
+                    "properties": {
+                      "properties": {
+                        "description": "Properties that contain a workbook.",
+                        "properties": {
+                          "category": {
+                            "description": "Workbook category, as defined by the user at creation time.",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "The description of the workbook.",
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "displayName": {
+                            "description": "The user-defined name (display name) of the workbook.",
+                            "type": "string"
+                          },
+                          "revision": {
+                            "description": "The unique revision id for this workbook definition",
+                            "readOnly": true,
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "serializedData": {
+                            "description": "Configuration of this particular workbook. Configuration data is a string containing valid JSON",
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "sourceId": {
+                            "description": "ResourceId for a source resource.",
+                            "type": "string"
+                          },
+                          "storageUri": {
+                            "description": "The resourceId to the storage account when bring your own storage is used",
+                            "type": "string",
+                            "x-nullable": true
+                          },
+                          "tags": {
+                            "description": "Being deprecated, please use the other tags field",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "timeModified": {
+                            "description": "Date and time in UTC of the last modification that was made to this workbook definition.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "userId": {
+                            "description": "Unique user id of the specific user that owns this workbook.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "version": {
+                            "description": "Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "displayName",
+                          "category",
+                          "serializedData"
+                        ],
+                        "type": "object"
+                      },
+                      "systemData": {
+                        "description": "Metadata pertaining to creation and last modification of the resource.",
+                        "properties": {
+                          "createdAt": {
+                            "description": "The timestamp of resource creation (UTC).",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdBy": {
+                            "description": "The identity that created the resource.",
+                            "type": "string"
+                          },
+                          "createdByType": {
+                            "description": "The type of identity that created the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          },
+                          "lastModifiedAt": {
+                            "description": "The timestamp of resource last modification (UTC)",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastModifiedBy": {
+                            "description": "The identity that last modified the resource.",
+                            "type": "string"
+                          },
+                          "lastModifiedByType": {
+                            "description": "The type of identity that last modified the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          }
+                        },
+                        "readOnly": true,
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbooksListResult"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.",
+              "in": "query",
+              "name": "canFetchContent",
+              "required": false,
+              "type": "boolean",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/CanFetchWorkbookContentParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Category of workbook to return.",
+              "enum": [
+                "workbook",
+                "TSG",
+                "performance",
+                "retention"
+              ],
+              "in": "query",
+              "name": "category",
+              "required": true,
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "CategoryType"
+              },
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/CategoryParameter"
+          },
+          {
+            "oldValue": {
+              "description": "The identifier of the resource.",
+              "in": "path",
+              "name": "resourceUri",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method",
+              "x-ms-skip-url-encoding": true
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ResourceUriParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Azure Resource Id that will fetch all linked workbooks.",
+              "in": "query",
+              "name": "sourceId",
+              "required": false,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/SourceIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "collectionFormat": "csv",
+              "description": "Tags presents on each workbook returned.",
+              "in": "query",
+              "items": {
+                "type": "string"
+              },
+              "name": "tags",
+              "required": false,
+              "type": "array",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TagsParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The name of the resource.",
+              "in": "path",
+              "name": "resourceName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookResourceNamePropertyParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The id of the workbook's revision.",
+              "in": "path",
+              "name": "revisionId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkbookRevisionIdParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "extensions": {
+        "deleted": [
+          "x-ms-code-generation-settings"
+        ]
+      },
+      "description": {
+        "from": "",
+        "to": "Azure workbook resource type."
+      },
+      "version": {
+        "from": "2021-10-14",
+        "to": "2022-04-01"
+      }
+    },
+    "paths": {
+      "added": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}/revisions",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}/revisions/{revisionId}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/workbooks",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks"
+      ],
+      "deleted": [
+        "/{resourceUri}/providers/Microsoft.Insights/generatelivetoken"
+      ]
+    }
+  },
+  "tools_a": {
+    "LiveToken_Get": "FunctionDef(\n  name='LiveToken_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceUri',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='**Gets an access token for live metrics stream data.**')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/'),\n          FormattedValue(\n            value=Name(id='resourceUri', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/generatelivetoken')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceUri', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceUri')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='post',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='LiveToken_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='**Gets an access token for live metrics stream data.**'))])],\n  type_params=[])"
+  },
+  "tools_b": {
+    "Workbooks_ListBySubscription": "FunctionDef(\n  name='Workbooks_ListBySubscription',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='category',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='tags',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='canFetchContent',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None),\n      Constant(value=None),\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Get all Workbooks defined within a specified subscription and category.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='category', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='category'),\n              ctx=Store())],\n          value=Name(id='category', ctx=Load()))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='tags', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='tags'),\n              ctx=Store())],\n          value=Name(id='tags', ctx=Load()))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='canFetchContent', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='canFetchContent'),\n              ctx=Store())],\n          value=Name(id='canFetchContent', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_ListBySubscription')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get all Workbooks defined within a specified subscription and category.'))])],\n  type_params=[])",
+    "Workbooks_ListByResourceGroup": "FunctionDef(\n  name='Workbooks_ListByResourceGroup',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='category',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='tags',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='sourceId',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load())),\n      arg(\n        arg='canFetchContent',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None),\n      Constant(value=None),\n      Constant(value=None),\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Get all Workbooks defined within a specified resource group and category.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='category', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='category'),\n              ctx=Store())],\n          value=Name(id='category', ctx=Load()))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='tags', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='tags'),\n              ctx=Store())],\n          value=Name(id='tags', ctx=Load()))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='sourceId', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='sourceId'),\n              ctx=Store())],\n          value=Name(id='sourceId', ctx=Load()))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='canFetchContent', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='canFetchContent'),\n              ctx=Store())],\n          value=Name(id='canFetchContent', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_ListByResourceGroup')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get all Workbooks defined within a specified resource group and category.'))])],\n  type_params=[])",
+    "Workbooks_Get": "FunctionDef(\n  name='Workbooks_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='canFetchContent',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Get a single workbook by its resourceName.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks/'),\n          FormattedValue(\n            value=Name(id='resourceName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='canFetchContent', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='canFetchContent'),\n              ctx=Store())],\n          value=Name(id='canFetchContent', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get a single workbook by its resourceName.'))])],\n  type_params=[])",
+    "Workbooks_Delete": "FunctionDef(\n  name='Workbooks_Delete',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Delete a workbook.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks/'),\n          FormattedValue(\n            value=Name(id='resourceName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='delete',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_Delete')),\n        keyword(\n          arg='description',\n          value=Constant(value='Delete a workbook.'))])],\n  type_params=[])",
+    "Workbooks_CreateOrUpdate": "FunctionDef(\n  name='Workbooks_CreateOrUpdate',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='sourceId',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Create a new workbook.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks/'),\n          FormattedValue(\n            value=Name(id='resourceName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='sourceId', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='sourceId'),\n              ctx=Store())],\n          value=Name(id='sourceId', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='put',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_CreateOrUpdate')),\n        keyword(\n          arg='description',\n          value=Constant(value='Create a new workbook.'))])],\n  type_params=[])",
+    "Workbooks_Update": "FunctionDef(\n  name='Workbooks_Update',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='sourceId',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Updates a workbook that has already been added.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks/'),\n          FormattedValue(\n            value=Name(id='resourceName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='sourceId', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='sourceId'),\n              ctx=Store())],\n          value=Name(id='sourceId', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='patch',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_Update')),\n        keyword(\n          arg='description',\n          value=Constant(value='Updates a workbook that has already been added.'))])],\n  type_params=[])",
+    "Workbooks_RevisionsList": "FunctionDef(\n  name='Workbooks_RevisionsList',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Get the revisions for the workbook defined by its resourceName.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks/'),\n          FormattedValue(\n            value=Name(id='resourceName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/revisions')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_RevisionsList')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get the revisions for the workbook defined by its resourceName.'))])],\n  type_params=[])",
+    "Workbooks_RevisionGet": "FunctionDef(\n  name='Workbooks_RevisionGet',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='revisionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Get a single workbook revision defined by its revisionId.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/workbooks/'),\n          FormattedValue(\n            value=Name(id='resourceName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/revisions/'),\n          FormattedValue(\n            value=Name(id='revisionId', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='revisionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: revisionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Workbooks_RevisionGet')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get a single workbook revision defined by its revisionId.'))])],\n  type_params=[])"
+  }
+}

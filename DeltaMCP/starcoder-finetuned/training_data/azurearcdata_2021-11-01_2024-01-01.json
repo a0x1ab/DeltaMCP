@@ -1,0 +1,2129 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "added": [
+        "securityDefinitions"
+      ],
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "DNS server details",
+              "properties": {
+                "domainName": {
+                  "description": "DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.",
+                  "type": "string"
+                },
+                "nameserverIPAddresses": {
+                  "description": "List of Active Directory DNS server IP addresses.",
+                  "items": {
+                    "minimum": 1,
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "preferK8sDnsForPtrLookups": {
+                  "default": true,
+                  "description": "Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.",
+                  "type": "boolean"
+                },
+                "replicas": {
+                  "default": 1,
+                  "description": "Replica count for DNS proxy service. Default value is 1.",
+                  "format": "int64",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "nameserverIPAddresses"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorDNSDetails"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Active Directory domain details",
+              "properties": {
+                "domainControllers": {
+                  "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
+                  "properties": {
+                    "primaryDomainController": {
+                      "description": "Information about a domain controller in the AD domain.",
+                      "properties": {
+                        "hostname": {
+                          "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "hostname"
+                      ],
+                      "type": "object"
+                    },
+                    "secondaryDomainControllers": {
+                      "description": "Information about the secondary domain controllers in the AD domain.",
+                      "items": {
+                        "description": "Information about a domain controller in the AD domain.",
+                        "properties": {
+                          "hostname": {
+                            "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "hostname"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array",
+                      "x-ms-identifiers": [
+                        "hostname"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "netbiosDomainName": {
+                  "description": "NETBIOS name of the Active Directory domain.",
+                  "type": "string"
+                },
+                "ouDistinguishedName": {
+                  "description": "The distinguished name of the Active Directory Organizational Unit.",
+                  "type": "string"
+                },
+                "realm": {
+                  "description": "Name (uppercase) of the Active Directory domain that this AD connector will be associated with.",
+                  "type": "string"
+                },
+                "serviceAccountProvisioning": {
+                  "default": "manual",
+                  "description": "The service account provisioning mode for this Active Directory connector.",
+                  "enum": [
+                    "automatic",
+                    "manual"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "accountProvisioningMode"
+                  }
+                }
+              },
+              "required": [
+                "realm"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorDomainDetails"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "A list of active directory connectors",
+              "properties": {
+                "nextLink": {
+                  "description": "Link to retrieve next page of results.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Array of results.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "systemData": {
+                                "description": "Metadata pertaining to creation and last modification of the resource.",
+                                "properties": {
+                                  "createdAt": {
+                                    "description": "The timestamp of resource creation (UTC).",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "createdBy": {
+                                    "description": "The identity that created the resource.",
+                                    "type": "string"
+                                  },
+                                  "createdByType": {
+                                    "description": "The type of identity that created the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  },
+                                  "lastModifiedAt": {
+                                    "description": "The timestamp of resource last modification (UTC)",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedBy": {
+                                    "description": "The identity that last modified the resource.",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedByType": {
+                                    "description": "The type of identity that last modified the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  }
+                                },
+                                "readOnly": true,
+                                "type": "object"
+                              },
+                              "type": {
+                                "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "title": "Resource",
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+                        "title": "Proxy Resource",
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Active directory connector resource",
+                    "properties": {
+                      "properties": {
+                        "description": "The properties of an Active Directory connector resource",
+                        "properties": {
+                          "domainServiceAccountLoginInformation": {
+                            "description": "Username and password for basic login authentication.",
+                            "properties": {
+                              "password": {
+                                "description": "Login password.",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "create",
+                                  "update"
+                                ],
+                                "x-ms-secret": true
+                              },
+                              "username": {
+                                "description": "Login username.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "provisioningState": {
+                            "description": "The provisioning state of the Active Directory connector resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "spec": {
+                            "description": "The specifications of the AD Kubernetes resource.",
+                            "properties": {
+                              "activeDirectory": {
+                                "description": "Active Directory domain details",
+                                "properties": {
+                                  "domainControllers": {
+                                    "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
+                                    "properties": {
+                                      "primaryDomainController": {
+                                        "description": "Information about a domain controller in the AD domain.",
+                                        "properties": {
+                                          "hostname": {
+                                            "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "hostname"
+                                        ],
+                                        "type": "object"
+                                      },
+                                      "secondaryDomainControllers": {
+                                        "description": "Information about the secondary domain controllers in the AD domain.",
+                                        "items": {
+                                          "description": "Information about a domain controller in the AD domain.",
+                                          "properties": {
+                                            "hostname": {
+                                              "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "hostname"
+                                          ],
+                                          "type": "object"
+                                        },
+                                        "type": "array",
+                                        "x-ms-identifiers": [
+                                          "hostname"
+                                        ]
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "netbiosDomainName": {
+                                    "description": "NETBIOS name of the Active Directory domain.",
+                                    "type": "string"
+                                  },
+                                  "ouDistinguishedName": {
+                                    "description": "The distinguished name of the Active Directory Organizational Unit.",
+                                    "type": "string"
+                                  },
+                                  "realm": {
+                                    "description": "Name (uppercase) of the Active Directory domain that this AD connector will be associated with.",
+                                    "type": "string"
+                                  },
+                                  "serviceAccountProvisioning": {
+                                    "default": "manual",
+                                    "description": "The service account provisioning mode for this Active Directory connector.",
+                                    "enum": [
+                                      "automatic",
+                                      "manual"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "accountProvisioningMode"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "realm"
+                                ],
+                                "type": "object"
+                              },
+                              "dns": {
+                                "description": "DNS server details",
+                                "properties": {
+                                  "domainName": {
+                                    "description": "DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.",
+                                    "type": "string"
+                                  },
+                                  "nameserverIPAddresses": {
+                                    "description": "List of Active Directory DNS server IP addresses.",
+                                    "items": {
+                                      "minimum": 1,
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  },
+                                  "preferK8sDnsForPtrLookups": {
+                                    "default": true,
+                                    "description": "Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.",
+                                    "type": "boolean"
+                                  },
+                                  "replicas": {
+                                    "default": 1,
+                                    "description": "Replica count for DNS proxy service. Default value is 1.",
+                                    "format": "int64",
+                                    "type": "integer"
+                                  }
+                                },
+                                "required": [
+                                  "nameserverIPAddresses"
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            "required": [
+                              "activeDirectory",
+                              "dns"
+                            ],
+                            "type": "object"
+                          },
+                          "status": {
+                            "additionalProperties": {},
+                            "description": "The status of the Kubernetes custom resource.",
+                            "properties": {
+                              "lastUpdateTime": {
+                                "description": "The time that the custom resource was last updated.",
+                                "type": "string"
+                              },
+                              "observedGeneration": {
+                                "description": "The version of the replicaSet associated with the AD connector custom resource.",
+                                "format": "int64",
+                                "type": "integer"
+                              },
+                              "state": {
+                                "description": "The state of the AD connector custom resource.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "spec"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "properties"
+                    ],
+                    "type": "object"
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The properties of an Active Directory connector resource",
+              "properties": {
+                "domainServiceAccountLoginInformation": {
+                  "description": "Username and password for basic login authentication.",
+                  "properties": {
+                    "password": {
+                      "description": "Login password.",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "create",
+                        "update"
+                      ],
+                      "x-ms-secret": true
+                    },
+                    "username": {
+                      "description": "Login username.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "provisioningState": {
+                  "description": "The provisioning state of the Active Directory connector resource.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "spec": {
+                  "description": "The specifications of the AD Kubernetes resource.",
+                  "properties": {
+                    "activeDirectory": {
+                      "description": "Active Directory domain details",
+                      "properties": {
+                        "domainControllers": {
+                          "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
+                          "properties": {
+                            "primaryDomainController": {
+                              "description": "Information about a domain controller in the AD domain.",
+                              "properties": {
+                                "hostname": {
+                                  "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "hostname"
+                              ],
+                              "type": "object"
+                            },
+                            "secondaryDomainControllers": {
+                              "description": "Information about the secondary domain controllers in the AD domain.",
+                              "items": {
+                                "description": "Information about a domain controller in the AD domain.",
+                                "properties": {
+                                  "hostname": {
+                                    "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "hostname"
+                                ],
+                                "type": "object"
+                              },
+                              "type": "array",
+                              "x-ms-identifiers": [
+                                "hostname"
+                              ]
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "netbiosDomainName": {
+                          "description": "NETBIOS name of the Active Directory domain.",
+                          "type": "string"
+                        },
+                        "ouDistinguishedName": {
+                          "description": "The distinguished name of the Active Directory Organizational Unit.",
+                          "type": "string"
+                        },
+                        "realm": {
+                          "description": "Name (uppercase) of the Active Directory domain that this AD connector will be associated with.",
+                          "type": "string"
+                        },
+                        "serviceAccountProvisioning": {
+                          "default": "manual",
+                          "description": "The service account provisioning mode for this Active Directory connector.",
+                          "enum": [
+                            "automatic",
+                            "manual"
+                          ],
+                          "type": "string",
+                          "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "accountProvisioningMode"
+                          }
+                        }
+                      },
+                      "required": [
+                        "realm"
+                      ],
+                      "type": "object"
+                    },
+                    "dns": {
+                      "description": "DNS server details",
+                      "properties": {
+                        "domainName": {
+                          "description": "DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.",
+                          "type": "string"
+                        },
+                        "nameserverIPAddresses": {
+                          "description": "List of Active Directory DNS server IP addresses.",
+                          "items": {
+                            "minimum": 1,
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "preferK8sDnsForPtrLookups": {
+                          "default": true,
+                          "description": "Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.",
+                          "type": "boolean"
+                        },
+                        "replicas": {
+                          "default": 1,
+                          "description": "Replica count for DNS proxy service. Default value is 1.",
+                          "format": "int64",
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "nameserverIPAddresses"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "activeDirectory",
+                    "dns"
+                  ],
+                  "type": "object"
+                },
+                "status": {
+                  "additionalProperties": {},
+                  "description": "The status of the Kubernetes custom resource.",
+                  "properties": {
+                    "lastUpdateTime": {
+                      "description": "The time that the custom resource was last updated.",
+                      "type": "string"
+                    },
+                    "observedGeneration": {
+                      "description": "The version of the replicaSet associated with the AD connector custom resource.",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "state": {
+                      "description": "The state of the AD connector custom resource.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "spec"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "systemData": {
+                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                          "properties": {
+                            "createdAt": {
+                              "description": "The timestamp of resource creation (UTC).",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "createdBy": {
+                              "description": "The identity that created the resource.",
+                              "type": "string"
+                            },
+                            "createdByType": {
+                              "description": "The type of identity that created the resource.",
+                              "enum": [
+                                "User",
+                                "Application",
+                                "ManagedIdentity",
+                                "Key"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "createdByType"
+                              }
+                            },
+                            "lastModifiedAt": {
+                              "description": "The timestamp of resource last modification (UTC)",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "lastModifiedBy": {
+                              "description": "The identity that last modified the resource.",
+                              "type": "string"
+                            },
+                            "lastModifiedByType": {
+                              "description": "The type of identity that last modified the resource.",
+                              "enum": [
+                                "User",
+                                "Application",
+                                "ManagedIdentity",
+                                "Key"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "createdByType"
+                              }
+                            }
+                          },
+                          "readOnly": true,
+                          "type": "object"
+                        },
+                        "type": {
+                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "title": "Resource",
+                      "type": "object",
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a Azure Resource Manager proxy resource. It will not have tags and a location",
+                  "title": "Proxy Resource",
+                  "type": "object"
+                }
+              ],
+              "description": "Active directory connector resource",
+              "properties": {
+                "properties": {
+                  "description": "The properties of an Active Directory connector resource",
+                  "properties": {
+                    "domainServiceAccountLoginInformation": {
+                      "description": "Username and password for basic login authentication.",
+                      "properties": {
+                        "password": {
+                          "description": "Login password.",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "create",
+                            "update"
+                          ],
+                          "x-ms-secret": true
+                        },
+                        "username": {
+                          "description": "Login username.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "provisioningState": {
+                      "description": "The provisioning state of the Active Directory connector resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "spec": {
+                      "description": "The specifications of the AD Kubernetes resource.",
+                      "properties": {
+                        "activeDirectory": {
+                          "description": "Active Directory domain details",
+                          "properties": {
+                            "domainControllers": {
+                              "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
+                              "properties": {
+                                "primaryDomainController": {
+                                  "description": "Information about a domain controller in the AD domain.",
+                                  "properties": {
+                                    "hostname": {
+                                      "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "hostname"
+                                  ],
+                                  "type": "object"
+                                },
+                                "secondaryDomainControllers": {
+                                  "description": "Information about the secondary domain controllers in the AD domain.",
+                                  "items": {
+                                    "description": "Information about a domain controller in the AD domain.",
+                                    "properties": {
+                                      "hostname": {
+                                        "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "hostname"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "type": "array",
+                                  "x-ms-identifiers": [
+                                    "hostname"
+                                  ]
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "netbiosDomainName": {
+                              "description": "NETBIOS name of the Active Directory domain.",
+                              "type": "string"
+                            },
+                            "ouDistinguishedName": {
+                              "description": "The distinguished name of the Active Directory Organizational Unit.",
+                              "type": "string"
+                            },
+                            "realm": {
+                              "description": "Name (uppercase) of the Active Directory domain that this AD connector will be associated with.",
+                              "type": "string"
+                            },
+                            "serviceAccountProvisioning": {
+                              "default": "manual",
+                              "description": "The service account provisioning mode for this Active Directory connector.",
+                              "enum": [
+                                "automatic",
+                                "manual"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "accountProvisioningMode"
+                              }
+                            }
+                          },
+                          "required": [
+                            "realm"
+                          ],
+                          "type": "object"
+                        },
+                        "dns": {
+                          "description": "DNS server details",
+                          "properties": {
+                            "domainName": {
+                              "description": "DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.",
+                              "type": "string"
+                            },
+                            "nameserverIPAddresses": {
+                              "description": "List of Active Directory DNS server IP addresses.",
+                              "items": {
+                                "minimum": 1,
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            "preferK8sDnsForPtrLookups": {
+                              "default": true,
+                              "description": "Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.",
+                              "type": "boolean"
+                            },
+                            "replicas": {
+                              "default": 1,
+                              "description": "Replica count for DNS proxy service. Default value is 1.",
+                              "format": "int64",
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "nameserverIPAddresses"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "activeDirectory",
+                        "dns"
+                      ],
+                      "type": "object"
+                    },
+                    "status": {
+                      "additionalProperties": {},
+                      "description": "The status of the Kubernetes custom resource.",
+                      "properties": {
+                        "lastUpdateTime": {
+                          "description": "The time that the custom resource was last updated.",
+                          "type": "string"
+                        },
+                        "observedGeneration": {
+                          "description": "The version of the replicaSet associated with the AD connector custom resource.",
+                          "format": "int64",
+                          "type": "integer"
+                        },
+                        "state": {
+                          "description": "The state of the AD connector custom resource.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "spec"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "properties"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorResource"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The specifications of the AD Kubernetes resource.",
+              "properties": {
+                "activeDirectory": {
+                  "description": "Active Directory domain details",
+                  "properties": {
+                    "domainControllers": {
+                      "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
+                      "properties": {
+                        "primaryDomainController": {
+                          "description": "Information about a domain controller in the AD domain.",
+                          "properties": {
+                            "hostname": {
+                              "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "hostname"
+                          ],
+                          "type": "object"
+                        },
+                        "secondaryDomainControllers": {
+                          "description": "Information about the secondary domain controllers in the AD domain.",
+                          "items": {
+                            "description": "Information about a domain controller in the AD domain.",
+                            "properties": {
+                              "hostname": {
+                                "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "hostname"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array",
+                          "x-ms-identifiers": [
+                            "hostname"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "netbiosDomainName": {
+                      "description": "NETBIOS name of the Active Directory domain.",
+                      "type": "string"
+                    },
+                    "ouDistinguishedName": {
+                      "description": "The distinguished name of the Active Directory Organizational Unit.",
+                      "type": "string"
+                    },
+                    "realm": {
+                      "description": "Name (uppercase) of the Active Directory domain that this AD connector will be associated with.",
+                      "type": "string"
+                    },
+                    "serviceAccountProvisioning": {
+                      "default": "manual",
+                      "description": "The service account provisioning mode for this Active Directory connector.",
+                      "enum": [
+                        "automatic",
+                        "manual"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "accountProvisioningMode"
+                      }
+                    }
+                  },
+                  "required": [
+                    "realm"
+                  ],
+                  "type": "object"
+                },
+                "dns": {
+                  "description": "DNS server details",
+                  "properties": {
+                    "domainName": {
+                      "description": "DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.",
+                      "type": "string"
+                    },
+                    "nameserverIPAddresses": {
+                      "description": "List of Active Directory DNS server IP addresses.",
+                      "items": {
+                        "minimum": 1,
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "preferK8sDnsForPtrLookups": {
+                      "default": true,
+                      "description": "Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.",
+                      "type": "boolean"
+                    },
+                    "replicas": {
+                      "default": 1,
+                      "description": "Replica count for DNS proxy service. Default value is 1.",
+                      "format": "int64",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "nameserverIPAddresses"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "activeDirectory",
+                "dns"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorSpec"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "additionalProperties": {},
+              "description": "The status of the Kubernetes custom resource.",
+              "properties": {
+                "lastUpdateTime": {
+                  "description": "The time that the custom resource was last updated.",
+                  "type": "string"
+                },
+                "observedGeneration": {
+                  "description": "The version of the replicaSet associated with the AD connector custom resource.",
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "state": {
+                  "description": "The state of the AD connector custom resource.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryConnectorStatus"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Information about a domain controller in the AD domain.",
+              "properties": {
+                "hostname": {
+                  "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hostname"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryDomainController"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Details about the Active Directory domain controllers associated with this AD connector instance",
+              "properties": {
+                "primaryDomainController": {
+                  "description": "Information about a domain controller in the AD domain.",
+                  "properties": {
+                    "hostname": {
+                      "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "hostname"
+                  ],
+                  "type": "object"
+                },
+                "secondaryDomainControllers": {
+                  "description": "Information about the secondary domain controllers in the AD domain.",
+                  "items": {
+                    "description": "Information about a domain controller in the AD domain.",
+                    "properties": {
+                      "hostname": {
+                        "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "hostname"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": [
+                    "hostname"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectoryDomainControllers"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Information about the secondary domain controllers in the AD domain.",
+              "items": {
+                "description": "Information about a domain controller in the AD domain.",
+                "properties": {
+                  "hostname": {
+                    "description": "Fully-qualified domain name of a domain controller in the AD domain.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "hostname"
+                ],
+                "type": "object"
+              },
+              "type": "array",
+              "x-ms-identifiers": [
+                "hostname"
+              ]
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActiveDirectorySecondaryDomainControllers"
+          },
+          {
+            "oldValue": {
+              "description": "The data controller properties.",
+              "properties": {
+                "basicLoginInformation": {
+                  "description": "Username and password for basic login authentication.",
+                  "properties": {
+                    "password": {
+                      "description": "Login password.",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "create",
+                        "update"
+                      ],
+                      "x-ms-secret": true
+                    },
+                    "username": {
+                      "description": "Login username.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "clusterId": {
+                  "description": "If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.",
+                  "type": "string"
+                },
+                "extensionId": {
+                  "description": "If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.",
+                  "type": "string"
+                },
+                "infrastructure": {
+                  "default": "other",
+                  "description": "The infrastructure the data controller is running on.",
+                  "enum": [
+                    "azure",
+                    "gcp",
+                    "aws",
+                    "alibaba",
+                    "onpremises",
+                    "other"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": false,
+                    "name": "infrastructure"
+                  }
+                },
+                "k8sRaw": {
+                  "description": "The raw kubernetes information",
+                  "type": "object"
+                },
+                "lastUploadedDate": {
+                  "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "logAnalyticsWorkspaceConfig": {
+                  "description": "Log analytics workspace id and primary key",
+                  "properties": {
+                    "primaryKey": {
+                      "description": "Primary key of the workspace",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "create",
+                        "update"
+                      ],
+                      "x-ms-secret": true
+                    },
+                    "workspaceId": {
+                      "description": "Azure Log Analytics workspace ID",
+                      "format": "uuid",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "logsDashboardCredential": {
+                  "description": "Username and password for basic login authentication.",
+                  "properties": {
+                    "password": {
+                      "description": "Login password.",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "create",
+                        "update"
+                      ],
+                      "x-ms-secret": true
+                    },
+                    "username": {
+                      "description": "Login username.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "metricsDashboardCredential": {
+                  "description": "Username and password for basic login authentication.",
+                  "properties": {
+                    "password": {
+                      "description": "Login password.",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "create",
+                        "update"
+                      ],
+                      "x-ms-secret": true
+                    },
+                    "username": {
+                      "description": "Login username.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "onPremiseProperty": {
+                  "description": "Properties from the Kubernetes data controller",
+                  "properties": {
+                    "id": {
+                      "description": "A globally unique ID identifying the associated Kubernetes cluster",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "publicSigningKey": {
+                      "description": "Certificate that contains the Kubernetes cluster public key used to verify signing",
+                      "type": "string"
+                    },
+                    "signingCertificateThumbprint": {
+                      "description": "Unique thumbprint returned to customer to verify the certificate being uploaded",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "publicSigningKey"
+                  ],
+                  "type": "object"
+                },
+                "provisioningState": {
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "uploadServicePrincipal": {
+                  "description": "Service principal for uploading billing, metrics and logs.",
+                  "properties": {
+                    "authority": {
+                      "description": "Authority for the service principal. Example: https://login.microsoftonline.com/",
+                      "type": "string"
+                    },
+                    "clientId": {
+                      "description": "Client ID of the service principal for uploading data.",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "clientSecret": {
+                      "description": "Secret of the service principal",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "create",
+                        "update"
+                      ],
+                      "x-ms-secret": true
+                    },
+                    "tenantId": {
+                      "description": "Tenant ID of the service principal.",
+                      "format": "uuid",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "uploadWatermark": {
+                  "description": "Properties on upload watermark.  Mostly timestamp for each upload data type",
+                  "properties": {
+                    "logs": {
+                      "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "metrics": {
+                      "description": "Last uploaded date for metrics from kubernetes cluster. Defaults to current date time",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "usages": {
+                      "description": "Last uploaded date for usages from kubernetes cluster. Defaults to current date time",
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/DataControllerProperties"
+          },
+          {
+            "oldValue": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "systemData": {
+                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                          "properties": {
+                            "createdAt": {
+                              "description": "The timestamp of resource creation (UTC).",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "createdBy": {
+                              "description": "The identity that created the resource.",
+                              "type": "string"
+                            },
+                            "createdByType": {
+                              "description": "The type of identity that created the resource.",
+                              "enum": [
+                                "User",
+                                "Application",
+                                "ManagedIdentity",
+                                "Key"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "createdByType"
+                              }
+                            },
+                            "lastModifiedAt": {
+                              "description": "The timestamp of resource last modification (UTC)",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "lastModifiedBy": {
+                              "description": "The identity that last modified the resource.",
+                              "type": "string"
+                            },
+                            "lastModifiedByType": {
+                              "description": "The type of identity that last modified the resource.",
+                              "enum": [
+                                "User",
+                                "Application",
+                                "ManagedIdentity",
+                                "Key"
+                              ],
+                              "type": "string",
+                              "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "createdByType"
+                              }
+                            }
+                          },
+                          "readOnly": true,
+                          "type": "object"
+                        },
+                        "type": {
+                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "title": "Resource",
+                      "type": "object",
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                  "properties": {
+                    "location": {
+                      "description": "The geo-location where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "location"
+                  ],
+                  "title": "Tracked Resource",
+                  "type": "object"
+                }
+              ],
+              "description": "Data controller resource",
+              "properties": {
+                "extendedLocation": {
+                  "description": "The complex type of the extended location.",
+                  "properties": {
+                    "name": {
+                      "description": "The name of the extended location.",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of extendedLocation.",
+                      "enum": [
+                        "CustomLocation"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "ExtendedLocationTypes"
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "properties": {
+                  "description": "The data controller properties.",
+                  "properties": {
+                    "basicLoginInformation": {
+                      "description": "Username and password for basic login authentication.",
+                      "properties": {
+                        "password": {
+                          "description": "Login password.",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "create",
+                            "update"
+                          ],
+                          "x-ms-secret": true
+                        },
+                        "username": {
+                          "description": "Login username.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "clusterId": {
+                      "description": "If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.",
+                      "type": "string"
+                    },
+                    "extensionId": {
+                      "description": "If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.",
+                      "type": "string"
+                    },
+                    "infrastructure": {
+                      "default": "other",
+                      "description": "The infrastructure the data controller is running on.",
+                      "enum": [
+                        "azure",
+                        "gcp",
+                        "aws",
+                        "alibaba",
+                        "onpremises",
+                        "other"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "infrastructure"
+                      }
+                    },
+                    "k8sRaw": {
+                      "description": "The raw kubernetes information",
+                      "type": "object"
+                    },
+                    "lastUploadedDate": {
+                      "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "logAnalyticsWorkspaceConfig": {
+                      "description": "Log analytics workspace id and primary key",
+                      "properties": {
+                        "primaryKey": {
+                          "description": "Primary key of the workspace",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "create",
+                            "update"
+                          ],
+                          "x-ms-secret": true
+                        },
+                        "workspaceId": {
+                          "description": "Azure Log Analytics workspace ID",
+                          "format": "uuid",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "logsDashboardCredential": {
+                      "description": "Username and password for basic login authentication.",
+                      "properties": {
+                        "password": {
+                          "description": "Login password.",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "create",
+                            "update"
+                          ],
+                          "x-ms-secret": true
+                        },
+                        "username": {
+                          "description": "Login username.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "metricsDashboardCredential": {
+                      "description": "Username and password for basic login authentication.",
+                      "properties": {
+                        "password": {
+                          "description": "Login password.",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "create",
+                            "update"
+                          ],
+                          "x-ms-secret": true
+                        },
+                        "username": {
+                          "description": "Login username.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "onPremiseProperty": {
+                      "description": "Properties from the Kubernetes data controller",
+                      "properties": {
+                        "id": {
+                          "description": "A globally unique ID identifying the associated Kubernetes cluster",
+                          "format": "uuid",
+                          "type": "string"
+                        },
+                        "publicSigningKey": {
+                          "description": "Certificate that contains the Kubernetes cluster public key used to verify signing",
+                          "type": "string"
+                        },
+                        "signingCertificateThumbprint": {
+                          "description": "Unique thumbprint returned to customer to verify the certificate being uploaded",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "publicSigningKey"
+                      ],
+                      "type": "object"
+                    },
+                    "provisioningState": {
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "uploadServicePrincipal": {
+                      "description": "Service principal for uploading billing, metrics and logs.",
+                      "properties": {
+                        "authority": {
+                          "description": "Authority for the service principal. Example: https://login.microsoftonline.com/",
+                          "type": "string"
+                        },
+                        "clientId": {
+                          "description": "Client ID of the service principal for uploading data.",
+                          "format": "uuid",
+                          "type": "string"
+                        },
+                        "clientSecret": {
+                          "description": "Secret of the service principal",
+                          "type": "string",
+                          "x-ms-mutability": [
+                            "create",
+                            "update"
+                          ],
+                          "x-ms-secret": true
+                        },
+                        "tenantId": {
+                          "description": "Tenant ID of the service principal.",
+                          "format": "uuid",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "uploadWatermark": {
+                      "description": "Properties on upload watermark.  Mostly timestamp for each upload data type",
+                      "properties": {
+                        "logs": {
+                          "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "metrics": {
+                          "description": "Last uploaded date for metrics from kubernetes cluster. Defaults to current date time",
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "usages": {
+                          "description": "Last uploaded date for usages from kubernetes cluster. Defaults to current date time",
+                          "format": "date-time",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "properties"
+              ],
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/DataControllerResource"
+          },
+          {
+            "oldValue": {
+              "description": "Used for updating a data controller resource.",
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Resource tags",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/DataControllerUpdate"
+          },
+          {
+            "oldValue": {
+              "description": "Log analytics workspace id and primary key",
+              "properties": {
+                "primaryKey": {
+                  "description": "Primary key of the workspace",
+                  "type": "string",
+                  "x-ms-mutability": [
+                    "create",
+                    "update"
+                  ],
+                  "x-ms-secret": true
+                },
+                "workspaceId": {
+                  "description": "Azure Log Analytics workspace ID",
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/LogAnalyticsWorkspaceConfig"
+          },
+          {
+            "oldValue": {
+              "description": "Properties from the Kubernetes data controller",
+              "properties": {
+                "id": {
+                  "description": "A globally unique ID identifying the associated Kubernetes cluster",
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "publicSigningKey": {
+                  "description": "Certificate that contains the Kubernetes cluster public key used to verify signing",
+                  "type": "string"
+                },
+                "signingCertificateThumbprint": {
+                  "description": "Unique thumbprint returned to customer to verify the certificate being uploaded",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "publicSigningKey"
+              ],
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/OnPremiseProperty"
+          },
+          {
+            "oldValue": {
+              "properties": {
+                "nextLink": {
+                  "description": "Link to retrieve next page of results.",
+                  "type": "string"
+                },
+                "value": {
+                  "items": {
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "systemData": {
+                                "description": "Metadata pertaining to creation and last modification of the resource.",
+                                "properties": {
+                                  "createdAt": {
+                                    "description": "The timestamp of resource creation (UTC).",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "createdBy": {
+                                    "description": "The identity that created the resource.",
+                                    "type": "string"
+                                  },
+                                  "createdByType": {
+                                    "description": "The type of identity that created the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  },
+                                  "lastModifiedAt": {
+                                    "description": "The timestamp of resource last modification (UTC)",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedBy": {
+                                    "description": "The identity that last modified the resource.",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedByType": {
+                                    "description": "The type of identity that last modified the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  }
+                                },
+                                "readOnly": true,
+                                "type": "object"
+                              },
+                              "type": {
+                                "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "title": "Resource",
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                        "properties": {
+                          "location": {
+                            "description": "The geo-location where the resource lives",
+                            "type": "string",
+                            "x-ms-mutability": [
+                              "read",
+                              "create"
+                            ]
+                          },
+                          "tags": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Resource tags.",
+                            "type": "object",
+                            "x-ms-mutability": [
+                              "read",
+                              "create",
+                              "update"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "location"
+                        ],
+                        "title": "Tracked Resource",
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Data controller resource",
+                    "properties": {
+                      "extendedLocation": {
+                        "description": "The complex type of the extended location.",
+                        "properties": {
+                          "name": {
+                            "description": "The name of the extended location.",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The type of extendedLocation.",
+                            "enum": [
+                              "CustomLocation"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "ExtendedLocationTypes"
+                            }
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "properties": {
+                        "description": "The data controller properties.",
+                        "properties": {
+                          "basicLoginInformation": {
+                            "description": "Username and password for basic login authentication.",
+                            "properties": {
+                              "password": {
+                                "description": "Login password.",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "create",
+                                  "update"
+                                ],
+                                "x-ms-secret": true
+                              },
+                              "username": {
+                                "description": "Login username.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "clusterId": {
+                            "description": "If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.",
+                            "type": "string"
+                          },
+                          "extensionId": {
+                            "description": "If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.",
+                            "type": "string"
+                          },
+                          "infrastructure": {
+                            "default": "other",
+                            "description": "The infrastructure the data controller is running on.",
+                            "enum": [
+                              "azure",
+                              "gcp",
+                              "aws",
+                              "alibaba",
+                              "onpremises",
+                              "other"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": false,
+                              "name": "infrastructure"
+                            }
+                          },
+                          "k8sRaw": {
+                            "description": "The raw kubernetes information",
+                            "type": "object"
+                          },
+                          "lastUploadedDate": {
+                            "description": "Last uploaded date from Kubernetes cluster. Defaults to current date time",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "logAnalyticsWorkspaceConfig": {
+                            "description": "Log analytics workspace id and primary key",
+                            "properties": {
+                              "primaryKey": {
+                                "description": "Primary key of the workspace",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "create",
+                                  "update"
+                                ],
+                                "x-ms-secret": true
+                              },
+                              "workspaceId": {
+                                "description": "Azure Log Analytics workspace ID",
+                                "format": "uuid",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "logsDashboardCredential": {
+                            "description": "Username and password for basic login authentication.",
+                            "properties": {
+                              "password": {
+                                "description": "Login password.",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "create",
+                                  "update"
+                                ],
+                                "x-ms-secret": true
+                              },
+                              "username": {
+                                "description": "Login username.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "metricsDashboardCredential": {
+                            "description": "Username and password for basic login authentication.",
+                            "properties": {
+                              "password": {
+                                "description": "Login password.",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "create",
+                                  "update"
+                                ],
+                                "x-ms-secret": true
+                              },
+                              "username": {
+                                "description": "Login username.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "onPremiseProperty": {
+                            "description": "Properties from the Kubernetes data controller",
+                            "properties": {
+                              "id": {
+                                "description": "A globally unique ID identifying the associated Kubernetes cluster",
+                                "format": "uuid",
+                                "type": "string"
+                              },
+                              "publicSigningKey": {
+                                "description": "Certificate that contains the Kubernetes cluster public key used to verify signing",
+                                "type": "string"
+                              },
+                              "signingCertificateThumbprint": {
+                                "description": "Unique thumbprint returned to customer to verify the certificate being uploaded",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "publicSigningKey"
+                            ],
+                            "type": "object"
+                          },
+                          "provisioningState": {
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "uploadServicePrincipal": {
+                            "description": "Service principal for uploading billing, metrics and logs.",
+                            "properties": {
+                              "authority": {
+                                "description": "Authority for the service principal. Example: https://login.microsoftonline.com/",
+                                "type": "string"
+                              },
+                              "clientId": {
+                                "description": "Client ID of the service principal for uploading data.",
+                                "format": "uuid",
+                                "type": "string"
+                              },
+                              "clientSecret": {
+                                "description": "Secret of the service principal",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "create",
+                                  "update"
+                                ],
+                                "x-ms-secret": true
+                              },
+                              "tenantId": {
+                                "description": "Tenant ID of the service principal.",
+                                "format": "uuid",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "uploadWatermark": {
+                            "description": "Properties on upload watermark.  Mostly timestamp for each upload data type",
+                            "properties": {
+                              "logs": {
+                                "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "metrics": {
+                                "description": "Last uploaded date for metrics from kubernetes cluster. Defaults to current date time",
+                                "format": "date-time",
+                                "type": "string"
+                              },
+                              "usages": {
+                                "description": "Last uploaded date for usages from kubernetes cluster. Defaults to current date time",
+                                "format": "date-time",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "properties"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/PageOfDataControllerResource"
+          },
+          {
+            "oldValue": {
+              "description": "Service principal for uploading billing, metrics and logs.",
+              "properties": {
+                "authority": {
+                  "description": "Authority for the service principal. Example: https://login.microsoftonline.com/",
+                  "type": "string"
+                },
+                "clientId": {
+                  "description": "Client ID of the service principal for uploading data.",
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "clientSecret": {
+                  "description": "Secret of the service principal",
+                  "type": "string",
+                  "x-ms-mutability": [
+                    "create",
+                    "update"
+                  ],
+                  "x-ms-secret": true
+                },
+                "tenantId": {
+                  "description": "Tenant ID of the service principal.",
+                  "format": "uuid",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/UploadServicePrincipal"
+          },
+          {
+            "oldValue": {
+              "description": "Properties on upload watermark.  Mostly timestamp for each upload data type",
+              "properties": {
+                "logs": {
+                  "description": "Last uploaded date for logs from kubernetes cluster. Defaults to current date time",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "metrics": {
+                  "description": "Last uploaded date for metrics from kubernetes cluster. Defaults to current date time",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "usages": {
+                  "description": "Last uploaded date for usages from kubernetes cluster. Defaults to current date time",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/UploadWatermark"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2021-11-01",
+        "to": "2024-01-01"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {}
+}

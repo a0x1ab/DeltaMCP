@@ -1,0 +1,1765 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the activity.",
+              "properties": {
+                "id": {
+                  "description": "Gets or sets the id of the resource.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Gets the name of the activity.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Properties of the activity.",
+                  "properties": {
+                    "creationTime": {
+                      "description": "Gets or sets the creation time.",
+                      "format": "date-time",
+                      "type": "string",
+                      "x-nullable": false
+                    },
+                    "definition": {
+                      "description": "Gets or sets the user name of the activity.",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Gets or sets the description.",
+                      "type": "string"
+                    },
+                    "lastModifiedTime": {
+                      "description": "Gets or sets the last modified time.",
+                      "format": "date-time",
+                      "type": "string",
+                      "x-nullable": false
+                    },
+                    "outputTypes": {
+                      "description": "Gets or sets the output types of the activity.",
+                      "items": {
+                        "description": "Definition of the activity output type.",
+                        "properties": {
+                          "name": {
+                            "description": "Gets or sets the name of the activity output type.",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Gets or sets the type of the activity output type.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array",
+                      "x-ms-identifiers": [
+                        "name"
+                      ]
+                    },
+                    "parameterSets": {
+                      "description": "Gets or sets the parameter sets of the activity.",
+                      "items": {
+                        "description": "Definition of the activity parameter set.",
+                        "properties": {
+                          "name": {
+                            "description": "Gets or sets the name of the activity parameter set.",
+                            "type": "string"
+                          },
+                          "parameters": {
+                            "description": "Gets or sets the parameters of the activity parameter set.",
+                            "items": {
+                              "description": "Definition of the activity parameter.",
+                              "properties": {
+                                "description": {
+                                  "description": "Gets or sets the description of the activity parameter.",
+                                  "type": "string"
+                                },
+                                "isDynamic": {
+                                  "description": "Gets or sets a Boolean value that indicates true if the parameter is dynamic.",
+                                  "type": "boolean"
+                                },
+                                "isMandatory": {
+                                  "description": "Gets or sets a Boolean value that indicates true if the parameter is required. If the value is false, the parameter is optional.",
+                                  "type": "boolean"
+                                },
+                                "name": {
+                                  "description": "Gets or sets the name of the activity parameter.",
+                                  "type": "string"
+                                },
+                                "position": {
+                                  "description": "Gets or sets the position of the activity parameter.",
+                                  "format": "int64",
+                                  "type": "integer"
+                                },
+                                "type": {
+                                  "description": "Gets or sets the type of the activity parameter.",
+                                  "type": "string"
+                                },
+                                "validationSet": {
+                                  "description": "Gets or sets the validation set of activity parameter.",
+                                  "items": {
+                                    "description": "Definition of the activity parameter validation set.",
+                                    "properties": {
+                                      "memberValue": {
+                                        "description": "Gets or sets the name of the activity parameter validation set member.",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "array",
+                                  "x-ms-identifiers": []
+                                },
+                                "valueFromPipeline": {
+                                  "description": "Gets or sets a Boolean value that indicates true if the parameter can take values from the incoming pipeline objects. This setting is used if the cmdlet must access the complete input object. false indicates that the parameter cannot take values from the complete input object.",
+                                  "type": "boolean"
+                                },
+                                "valueFromPipelineByPropertyName": {
+                                  "description": "Gets or sets a Boolean value that indicates true if the parameter can be filled from a property of the incoming pipeline object that has the same name as this parameter. false indicates that the parameter cannot be filled from the incoming pipeline object property with the same name. ",
+                                  "type": "boolean"
+                                },
+                                "valueFromRemainingArguments": {
+                                  "description": "Gets or sets a Boolean value that indicates true if the cmdlet parameter accepts all the remaining command-line arguments that are associated with this parameter in the form of an array. false if the cmdlet parameter does not accept all the remaining argument values.",
+                                  "type": "boolean"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-ms-identifiers": []
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array",
+                      "x-ms-identifiers": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Activity"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The response model for the list activity operation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Gets or sets the next link.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Gets or sets a list of activities.",
+                  "items": {
+                    "description": "Definition of the activity.",
+                    "properties": {
+                      "id": {
+                        "description": "Gets or sets the id of the resource.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Gets the name of the activity.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "properties": {
+                        "description": "Properties of the activity.",
+                        "properties": {
+                          "creationTime": {
+                            "description": "Gets or sets the creation time.",
+                            "format": "date-time",
+                            "type": "string",
+                            "x-nullable": false
+                          },
+                          "definition": {
+                            "description": "Gets or sets the user name of the activity.",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Gets or sets the description.",
+                            "type": "string"
+                          },
+                          "lastModifiedTime": {
+                            "description": "Gets or sets the last modified time.",
+                            "format": "date-time",
+                            "type": "string",
+                            "x-nullable": false
+                          },
+                          "outputTypes": {
+                            "description": "Gets or sets the output types of the activity.",
+                            "items": {
+                              "description": "Definition of the activity output type.",
+                              "properties": {
+                                "name": {
+                                  "description": "Gets or sets the name of the activity output type.",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "Gets or sets the type of the activity output type.",
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-ms-identifiers": [
+                              "name"
+                            ]
+                          },
+                          "parameterSets": {
+                            "description": "Gets or sets the parameter sets of the activity.",
+                            "items": {
+                              "description": "Definition of the activity parameter set.",
+                              "properties": {
+                                "name": {
+                                  "description": "Gets or sets the name of the activity parameter set.",
+                                  "type": "string"
+                                },
+                                "parameters": {
+                                  "description": "Gets or sets the parameters of the activity parameter set.",
+                                  "items": {
+                                    "description": "Definition of the activity parameter.",
+                                    "properties": {
+                                      "description": {
+                                        "description": "Gets or sets the description of the activity parameter.",
+                                        "type": "string"
+                                      },
+                                      "isDynamic": {
+                                        "description": "Gets or sets a Boolean value that indicates true if the parameter is dynamic.",
+                                        "type": "boolean"
+                                      },
+                                      "isMandatory": {
+                                        "description": "Gets or sets a Boolean value that indicates true if the parameter is required. If the value is false, the parameter is optional.",
+                                        "type": "boolean"
+                                      },
+                                      "name": {
+                                        "description": "Gets or sets the name of the activity parameter.",
+                                        "type": "string"
+                                      },
+                                      "position": {
+                                        "description": "Gets or sets the position of the activity parameter.",
+                                        "format": "int64",
+                                        "type": "integer"
+                                      },
+                                      "type": {
+                                        "description": "Gets or sets the type of the activity parameter.",
+                                        "type": "string"
+                                      },
+                                      "validationSet": {
+                                        "description": "Gets or sets the validation set of activity parameter.",
+                                        "items": {
+                                          "description": "Definition of the activity parameter validation set.",
+                                          "properties": {
+                                            "memberValue": {
+                                              "description": "Gets or sets the name of the activity parameter validation set member.",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "type": "object"
+                                        },
+                                        "type": "array",
+                                        "x-ms-identifiers": []
+                                      },
+                                      "valueFromPipeline": {
+                                        "description": "Gets or sets a Boolean value that indicates true if the parameter can take values from the incoming pipeline objects. This setting is used if the cmdlet must access the complete input object. false indicates that the parameter cannot take values from the complete input object.",
+                                        "type": "boolean"
+                                      },
+                                      "valueFromPipelineByPropertyName": {
+                                        "description": "Gets or sets a Boolean value that indicates true if the parameter can be filled from a property of the incoming pipeline object that has the same name as this parameter. false indicates that the parameter cannot be filled from the incoming pipeline object property with the same name. ",
+                                        "type": "boolean"
+                                      },
+                                      "valueFromRemainingArguments": {
+                                        "description": "Gets or sets a Boolean value that indicates true if the cmdlet parameter accepts all the remaining command-line arguments that are associated with this parameter in the form of an array. false if the cmdlet parameter does not accept all the remaining argument values.",
+                                        "type": "boolean"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "type": "array",
+                                  "x-ms-identifiers": []
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array",
+                            "x-ms-identifiers": [
+                              "name"
+                            ]
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActivityListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the activity output type.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the activity output type.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Gets or sets the type of the activity output type.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActivityOutputType"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the activity parameter.",
+              "properties": {
+                "description": {
+                  "description": "Gets or sets the description of the activity parameter.",
+                  "type": "string"
+                },
+                "isDynamic": {
+                  "description": "Gets or sets a Boolean value that indicates true if the parameter is dynamic.",
+                  "type": "boolean"
+                },
+                "isMandatory": {
+                  "description": "Gets or sets a Boolean value that indicates true if the parameter is required. If the value is false, the parameter is optional.",
+                  "type": "boolean"
+                },
+                "name": {
+                  "description": "Gets or sets the name of the activity parameter.",
+                  "type": "string"
+                },
+                "position": {
+                  "description": "Gets or sets the position of the activity parameter.",
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "type": {
+                  "description": "Gets or sets the type of the activity parameter.",
+                  "type": "string"
+                },
+                "validationSet": {
+                  "description": "Gets or sets the validation set of activity parameter.",
+                  "items": {
+                    "description": "Definition of the activity parameter validation set.",
+                    "properties": {
+                      "memberValue": {
+                        "description": "Gets or sets the name of the activity parameter validation set member.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": []
+                },
+                "valueFromPipeline": {
+                  "description": "Gets or sets a Boolean value that indicates true if the parameter can take values from the incoming pipeline objects. This setting is used if the cmdlet must access the complete input object. false indicates that the parameter cannot take values from the complete input object.",
+                  "type": "boolean"
+                },
+                "valueFromPipelineByPropertyName": {
+                  "description": "Gets or sets a Boolean value that indicates true if the parameter can be filled from a property of the incoming pipeline object that has the same name as this parameter. false indicates that the parameter cannot be filled from the incoming pipeline object property with the same name. ",
+                  "type": "boolean"
+                },
+                "valueFromRemainingArguments": {
+                  "description": "Gets or sets a Boolean value that indicates true if the cmdlet parameter accepts all the remaining command-line arguments that are associated with this parameter in the form of an array. false if the cmdlet parameter does not accept all the remaining argument values.",
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActivityParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the activity parameter set.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the activity parameter set.",
+                  "type": "string"
+                },
+                "parameters": {
+                  "description": "Gets or sets the parameters of the activity parameter set.",
+                  "items": {
+                    "description": "Definition of the activity parameter.",
+                    "properties": {
+                      "description": {
+                        "description": "Gets or sets the description of the activity parameter.",
+                        "type": "string"
+                      },
+                      "isDynamic": {
+                        "description": "Gets or sets a Boolean value that indicates true if the parameter is dynamic.",
+                        "type": "boolean"
+                      },
+                      "isMandatory": {
+                        "description": "Gets or sets a Boolean value that indicates true if the parameter is required. If the value is false, the parameter is optional.",
+                        "type": "boolean"
+                      },
+                      "name": {
+                        "description": "Gets or sets the name of the activity parameter.",
+                        "type": "string"
+                      },
+                      "position": {
+                        "description": "Gets or sets the position of the activity parameter.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "type": {
+                        "description": "Gets or sets the type of the activity parameter.",
+                        "type": "string"
+                      },
+                      "validationSet": {
+                        "description": "Gets or sets the validation set of activity parameter.",
+                        "items": {
+                          "description": "Definition of the activity parameter validation set.",
+                          "properties": {
+                            "memberValue": {
+                              "description": "Gets or sets the name of the activity parameter validation set member.",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array",
+                        "x-ms-identifiers": []
+                      },
+                      "valueFromPipeline": {
+                        "description": "Gets or sets a Boolean value that indicates true if the parameter can take values from the incoming pipeline objects. This setting is used if the cmdlet must access the complete input object. false indicates that the parameter cannot take values from the complete input object.",
+                        "type": "boolean"
+                      },
+                      "valueFromPipelineByPropertyName": {
+                        "description": "Gets or sets a Boolean value that indicates true if the parameter can be filled from a property of the incoming pipeline object that has the same name as this parameter. false indicates that the parameter cannot be filled from the incoming pipeline object property with the same name. ",
+                        "type": "boolean"
+                      },
+                      "valueFromRemainingArguments": {
+                        "description": "Gets or sets a Boolean value that indicates true if the cmdlet parameter accepts all the remaining command-line arguments that are associated with this parameter in the form of an array. false if the cmdlet parameter does not accept all the remaining argument values.",
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": []
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActivityParameterSet"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the activity parameter validation set.",
+              "properties": {
+                "memberValue": {
+                  "description": "Gets or sets the name of the activity parameter validation set member.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActivityParameterValidationSet"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Properties of the activity.",
+              "properties": {
+                "creationTime": {
+                  "description": "Gets or sets the creation time.",
+                  "format": "date-time",
+                  "type": "string",
+                  "x-nullable": false
+                },
+                "definition": {
+                  "description": "Gets or sets the user name of the activity.",
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Gets or sets the description.",
+                  "type": "string"
+                },
+                "lastModifiedTime": {
+                  "description": "Gets or sets the last modified time.",
+                  "format": "date-time",
+                  "type": "string",
+                  "x-nullable": false
+                },
+                "outputTypes": {
+                  "description": "Gets or sets the output types of the activity.",
+                  "items": {
+                    "description": "Definition of the activity output type.",
+                    "properties": {
+                      "name": {
+                        "description": "Gets or sets the name of the activity output type.",
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "Gets or sets the type of the activity output type.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": [
+                    "name"
+                  ]
+                },
+                "parameterSets": {
+                  "description": "Gets or sets the parameter sets of the activity.",
+                  "items": {
+                    "description": "Definition of the activity parameter set.",
+                    "properties": {
+                      "name": {
+                        "description": "Gets or sets the name of the activity parameter set.",
+                        "type": "string"
+                      },
+                      "parameters": {
+                        "description": "Gets or sets the parameters of the activity parameter set.",
+                        "items": {
+                          "description": "Definition of the activity parameter.",
+                          "properties": {
+                            "description": {
+                              "description": "Gets or sets the description of the activity parameter.",
+                              "type": "string"
+                            },
+                            "isDynamic": {
+                              "description": "Gets or sets a Boolean value that indicates true if the parameter is dynamic.",
+                              "type": "boolean"
+                            },
+                            "isMandatory": {
+                              "description": "Gets or sets a Boolean value that indicates true if the parameter is required. If the value is false, the parameter is optional.",
+                              "type": "boolean"
+                            },
+                            "name": {
+                              "description": "Gets or sets the name of the activity parameter.",
+                              "type": "string"
+                            },
+                            "position": {
+                              "description": "Gets or sets the position of the activity parameter.",
+                              "format": "int64",
+                              "type": "integer"
+                            },
+                            "type": {
+                              "description": "Gets or sets the type of the activity parameter.",
+                              "type": "string"
+                            },
+                            "validationSet": {
+                              "description": "Gets or sets the validation set of activity parameter.",
+                              "items": {
+                                "description": "Definition of the activity parameter validation set.",
+                                "properties": {
+                                  "memberValue": {
+                                    "description": "Gets or sets the name of the activity parameter validation set member.",
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array",
+                              "x-ms-identifiers": []
+                            },
+                            "valueFromPipeline": {
+                              "description": "Gets or sets a Boolean value that indicates true if the parameter can take values from the incoming pipeline objects. This setting is used if the cmdlet must access the complete input object. false indicates that the parameter cannot take values from the complete input object.",
+                              "type": "boolean"
+                            },
+                            "valueFromPipelineByPropertyName": {
+                              "description": "Gets or sets a Boolean value that indicates true if the parameter can be filled from a property of the incoming pipeline object that has the same name as this parameter. false indicates that the parameter cannot be filled from the incoming pipeline object property with the same name. ",
+                              "type": "boolean"
+                            },
+                            "valueFromRemainingArguments": {
+                              "description": "Gets or sets a Boolean value that indicates true if the cmdlet parameter accepts all the remaining command-line arguments that are associated with this parameter in the form of an array. false if the cmdlet parameter does not accept all the remaining argument values.",
+                              "type": "boolean"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array",
+                        "x-ms-identifiers": []
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": [
+                    "name"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ActivityProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the runbook property type.",
+              "properties": {
+                "algorithm": {
+                  "description": "Gets or sets the content hash algorithm used to hash the content.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Gets or sets expected hash value of the content.",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "algorithm",
+                "value"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ContentHash"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the content link.",
+              "properties": {
+                "contentHash": {
+                  "description": "Definition of the runbook property type.",
+                  "properties": {
+                    "algorithm": {
+                      "description": "Gets or sets the content hash algorithm used to hash the content.",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "Gets or sets expected hash value of the content.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "algorithm",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "uri": {
+                  "description": "Gets or sets the uri of the runbook content.",
+                  "type": "string"
+                },
+                "version": {
+                  "description": "Gets or sets the version of the content.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ContentLink"
+          },
+          {
+            "oldValue": {
+              "allOf": [
+                {
+                  "description": "The core properties of ARM resources",
+                  "properties": {
+                    "id": {
+                      "description": "Fully qualified resource Id for the resource",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the resource",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of the resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Definition of hybrid runbook worker group.",
+              "properties": {
+                "properties": {
+                  "description": "Definition of hybrid runbook worker group property.",
+                  "properties": {
+                    "credential": {
+                      "description": "Definition of RunAs credential to use for hybrid worker.",
+                      "properties": {
+                        "name": {
+                          "description": "Gets or sets the name of the credential.",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "groupType": {
+                      "description": "Type of the HybridWorkerGroup.",
+                      "enum": [
+                        "User",
+                        "System"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "GroupTypeEnum"
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "systemData": {
+                  "description": "Metadata pertaining to creation and last modification of the resource.",
+                  "properties": {
+                    "createdAt": {
+                      "description": "The timestamp of resource creation (UTC).",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "createdBy": {
+                      "description": "The identity that created the resource.",
+                      "type": "string"
+                    },
+                    "createdByType": {
+                      "description": "The type of identity that created the resource.",
+                      "enum": [
+                        "User",
+                        "Application",
+                        "ManagedIdentity",
+                        "Key"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "createdByType"
+                      }
+                    },
+                    "lastModifiedAt": {
+                      "description": "The timestamp of resource last modification (UTC)",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "lastModifiedBy": {
+                      "description": "The identity that last modified the resource.",
+                      "type": "string"
+                    },
+                    "lastModifiedByType": {
+                      "description": "The type of identity that last modified the resource.",
+                      "enum": [
+                        "User",
+                        "Application",
+                        "ManagedIdentity",
+                        "Key"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "createdByType"
+                      }
+                    }
+                  },
+                  "readOnly": true,
+                  "type": "object"
+                }
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroup"
+          },
+          {
+            "oldValue": {
+              "description": "The parameters supplied to the create hybrid runbook worker group operation.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "The hybrid runbook worker group properties.",
+                  "properties": {
+                    "credential": {
+                      "description": "Definition of RunAs credential to use for hybrid worker.",
+                      "properties": {
+                        "name": {
+                          "description": "Gets or sets the name of the credential.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupCreateOrUpdateParameters"
+          },
+          {
+            "oldValue": {
+              "description": "The hybrid runbook worker group properties.",
+              "properties": {
+                "credential": {
+                  "description": "Definition of RunAs credential to use for hybrid worker.",
+                  "properties": {
+                    "name": {
+                      "description": "Gets or sets the name of the credential.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupCreateOrUpdateProperties"
+          },
+          {
+            "oldValue": {
+              "description": "Definition of hybrid runbook worker group property.",
+              "properties": {
+                "credential": {
+                  "description": "Definition of RunAs credential to use for hybrid worker.",
+                  "properties": {
+                    "name": {
+                      "description": "Gets or sets the name of the credential.",
+                      "type": "string"
+                    }
+                  }
+                },
+                "groupType": {
+                  "description": "Type of the HybridWorkerGroup.",
+                  "enum": [
+                    "User",
+                    "System"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "GroupTypeEnum"
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupProperties"
+          },
+          {
+            "oldValue": {
+              "description": "The response model for the list hybrid runbook worker groups.",
+              "properties": {
+                "nextLink": {
+                  "description": "Gets or sets the next link.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Gets or sets a list of hybrid runbook worker groups.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The core properties of ARM resources",
+                        "properties": {
+                          "id": {
+                            "description": "Fully qualified resource Id for the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "The name of the resource",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The type of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Definition of hybrid runbook worker group.",
+                    "properties": {
+                      "properties": {
+                        "description": "Definition of hybrid runbook worker group property.",
+                        "properties": {
+                          "credential": {
+                            "description": "Definition of RunAs credential to use for hybrid worker.",
+                            "properties": {
+                              "name": {
+                                "description": "Gets or sets the name of the credential.",
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "groupType": {
+                            "description": "Type of the HybridWorkerGroup.",
+                            "enum": [
+                              "User",
+                              "System"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "GroupTypeEnum"
+                            }
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "systemData": {
+                        "description": "Metadata pertaining to creation and last modification of the resource.",
+                        "properties": {
+                          "createdAt": {
+                            "description": "The timestamp of resource creation (UTC).",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "createdBy": {
+                            "description": "The identity that created the resource.",
+                            "type": "string"
+                          },
+                          "createdByType": {
+                            "description": "The type of identity that created the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          },
+                          "lastModifiedAt": {
+                            "description": "The timestamp of resource last modification (UTC)",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "lastModifiedBy": {
+                            "description": "The identity that last modified the resource.",
+                            "type": "string"
+                          },
+                          "lastModifiedByType": {
+                            "description": "The type of identity that last modified the resource.",
+                            "enum": [
+                              "User",
+                              "Application",
+                              "ManagedIdentity",
+                              "Key"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "createdByType"
+                            }
+                          }
+                        },
+                        "readOnly": true,
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/HybridRunbookWorkerGroupsListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "allOf": [
+                    {
+                      "description": "The core properties of ARM resources",
+                      "properties": {
+                        "id": {
+                          "description": "Fully qualified resource Id for the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the resource",
+                          "readOnly": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The type of the resource.",
+                          "readOnly": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object",
+                      "x-ms-azure-resource": true
+                    }
+                  ],
+                  "description": "The resource model definition for a ARM tracked top level resource",
+                  "properties": {
+                    "location": {
+                      "description": "The Azure Region where the resource lives",
+                      "type": "string",
+                      "x-ms-mutability": [
+                        "read",
+                        "create"
+                      ]
+                    },
+                    "tags": {
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Resource tags.",
+                      "type": "object",
+                      "x-ms-mutability": [
+                        "read",
+                        "create",
+                        "update"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              ],
+              "description": "Definition of the module type.",
+              "properties": {
+                "etag": {
+                  "description": "Gets or sets the etag of the resource.",
+                  "type": "string"
+                },
+                "properties": {
+                  "description": "Definition of the module property type.",
+                  "properties": {
+                    "activityCount": {
+                      "description": "Gets or sets the activity count of the module.",
+                      "format": "int32",
+                      "type": "integer"
+                    },
+                    "contentLink": {
+                      "description": "Definition of the content link.",
+                      "properties": {
+                        "contentHash": {
+                          "description": "Definition of the runbook property type.",
+                          "properties": {
+                            "algorithm": {
+                              "description": "Gets or sets the content hash algorithm used to hash the content.",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "Gets or sets expected hash value of the content.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "algorithm",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "uri": {
+                          "description": "Gets or sets the uri of the runbook content.",
+                          "type": "string"
+                        },
+                        "version": {
+                          "description": "Gets or sets the version of the content.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "creationTime": {
+                      "description": "Gets or sets the creation time.",
+                      "format": "date-time",
+                      "type": "string",
+                      "x-nullable": false
+                    },
+                    "description": {
+                      "description": "Gets or sets the description.",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Definition of the module error info type.",
+                      "properties": {
+                        "code": {
+                          "description": "Gets or sets the error code.",
+                          "type": "string"
+                        },
+                        "message": {
+                          "description": "Gets or sets the error message.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "isComposite": {
+                      "description": "Gets or sets type of module, if its composite or not.",
+                      "type": "boolean"
+                    },
+                    "isGlobal": {
+                      "description": "Gets or sets the isGlobal flag of the module.",
+                      "type": "boolean"
+                    },
+                    "lastModifiedTime": {
+                      "description": "Gets or sets the last modified time.",
+                      "format": "date-time",
+                      "type": "string",
+                      "x-nullable": false
+                    },
+                    "provisioningState": {
+                      "description": "Gets or sets the provisioning state of the module.",
+                      "enum": [
+                        "Created",
+                        "Creating",
+                        "StartingImportModuleRunbook",
+                        "RunningImportModuleRunbook",
+                        "ContentRetrieved",
+                        "ContentDownloaded",
+                        "ContentValidated",
+                        "ConnectionTypeImported",
+                        "ContentStored",
+                        "ModuleDataStored",
+                        "ActivitiesStored",
+                        "ModuleImportRunbookComplete",
+                        "Succeeded",
+                        "Failed",
+                        "Cancelled",
+                        "Updating"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "ModuleProvisioningState"
+                      }
+                    },
+                    "sizeInBytes": {
+                      "description": "Gets or sets the size in bytes of the module.",
+                      "format": "int64",
+                      "type": "integer"
+                    },
+                    "version": {
+                      "description": "Gets or sets the version of the module.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Module"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the module error info type.",
+              "properties": {
+                "code": {
+                  "description": "Gets or sets the error code.",
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Gets or sets the error message.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ModuleErrorInfo"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The response model for the list module operation.",
+              "properties": {
+                "nextLink": {
+                  "description": "Gets or sets the next link.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "Gets or sets a list of modules.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "allOf": [
+                          {
+                            "description": "The core properties of ARM resources",
+                            "properties": {
+                              "id": {
+                                "description": "Fully qualified resource Id for the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the resource",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The type of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                              }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                          }
+                        ],
+                        "description": "The resource model definition for a ARM tracked top level resource",
+                        "properties": {
+                          "location": {
+                            "description": "The Azure Region where the resource lives",
+                            "type": "string",
+                            "x-ms-mutability": [
+                              "read",
+                              "create"
+                            ]
+                          },
+                          "tags": {
+                            "additionalProperties": {
+                              "type": "string"
+                            },
+                            "description": "Resource tags.",
+                            "type": "object",
+                            "x-ms-mutability": [
+                              "read",
+                              "create",
+                              "update"
+                            ]
+                          }
+                        },
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Definition of the module type.",
+                    "properties": {
+                      "etag": {
+                        "description": "Gets or sets the etag of the resource.",
+                        "type": "string"
+                      },
+                      "properties": {
+                        "description": "Definition of the module property type.",
+                        "properties": {
+                          "activityCount": {
+                            "description": "Gets or sets the activity count of the module.",
+                            "format": "int32",
+                            "type": "integer"
+                          },
+                          "contentLink": {
+                            "description": "Definition of the content link.",
+                            "properties": {
+                              "contentHash": {
+                                "description": "Definition of the runbook property type.",
+                                "properties": {
+                                  "algorithm": {
+                                    "description": "Gets or sets the content hash algorithm used to hash the content.",
+                                    "type": "string"
+                                  },
+                                  "value": {
+                                    "description": "Gets or sets expected hash value of the content.",
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "algorithm",
+                                  "value"
+                                ],
+                                "type": "object"
+                              },
+                              "uri": {
+                                "description": "Gets or sets the uri of the runbook content.",
+                                "type": "string"
+                              },
+                              "version": {
+                                "description": "Gets or sets the version of the content.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "creationTime": {
+                            "description": "Gets or sets the creation time.",
+                            "format": "date-time",
+                            "type": "string",
+                            "x-nullable": false
+                          },
+                          "description": {
+                            "description": "Gets or sets the description.",
+                            "type": "string"
+                          },
+                          "error": {
+                            "description": "Definition of the module error info type.",
+                            "properties": {
+                              "code": {
+                                "description": "Gets or sets the error code.",
+                                "type": "string"
+                              },
+                              "message": {
+                                "description": "Gets or sets the error message.",
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "isComposite": {
+                            "description": "Gets or sets type of module, if its composite or not.",
+                            "type": "boolean"
+                          },
+                          "isGlobal": {
+                            "description": "Gets or sets the isGlobal flag of the module.",
+                            "type": "boolean"
+                          },
+                          "lastModifiedTime": {
+                            "description": "Gets or sets the last modified time.",
+                            "format": "date-time",
+                            "type": "string",
+                            "x-nullable": false
+                          },
+                          "provisioningState": {
+                            "description": "Gets or sets the provisioning state of the module.",
+                            "enum": [
+                              "Created",
+                              "Creating",
+                              "StartingImportModuleRunbook",
+                              "RunningImportModuleRunbook",
+                              "ContentRetrieved",
+                              "ContentDownloaded",
+                              "ContentValidated",
+                              "ConnectionTypeImported",
+                              "ContentStored",
+                              "ModuleDataStored",
+                              "ActivitiesStored",
+                              "ModuleImportRunbookComplete",
+                              "Succeeded",
+                              "Failed",
+                              "Cancelled",
+                              "Updating"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "ModuleProvisioningState"
+                            }
+                          },
+                          "sizeInBytes": {
+                            "description": "Gets or sets the size in bytes of the module.",
+                            "format": "int64",
+                            "type": "integer"
+                          },
+                          "version": {
+                            "description": "Gets or sets the version of the module.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ModuleListResult"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Definition of the module property type.",
+              "properties": {
+                "activityCount": {
+                  "description": "Gets or sets the activity count of the module.",
+                  "format": "int32",
+                  "type": "integer"
+                },
+                "contentLink": {
+                  "description": "Definition of the content link.",
+                  "properties": {
+                    "contentHash": {
+                      "description": "Definition of the runbook property type.",
+                      "properties": {
+                        "algorithm": {
+                          "description": "Gets or sets the content hash algorithm used to hash the content.",
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "Gets or sets expected hash value of the content.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "algorithm",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "uri": {
+                      "description": "Gets or sets the uri of the runbook content.",
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Gets or sets the version of the content.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "creationTime": {
+                  "description": "Gets or sets the creation time.",
+                  "format": "date-time",
+                  "type": "string",
+                  "x-nullable": false
+                },
+                "description": {
+                  "description": "Gets or sets the description.",
+                  "type": "string"
+                },
+                "error": {
+                  "description": "Definition of the module error info type.",
+                  "properties": {
+                    "code": {
+                      "description": "Gets or sets the error code.",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Gets or sets the error message.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "isComposite": {
+                  "description": "Gets or sets type of module, if its composite or not.",
+                  "type": "boolean"
+                },
+                "isGlobal": {
+                  "description": "Gets or sets the isGlobal flag of the module.",
+                  "type": "boolean"
+                },
+                "lastModifiedTime": {
+                  "description": "Gets or sets the last modified time.",
+                  "format": "date-time",
+                  "type": "string",
+                  "x-nullable": false
+                },
+                "provisioningState": {
+                  "description": "Gets or sets the provisioning state of the module.",
+                  "enum": [
+                    "Created",
+                    "Creating",
+                    "StartingImportModuleRunbook",
+                    "RunningImportModuleRunbook",
+                    "ContentRetrieved",
+                    "ContentDownloaded",
+                    "ContentValidated",
+                    "ConnectionTypeImported",
+                    "ContentStored",
+                    "ModuleDataStored",
+                    "ActivitiesStored",
+                    "ModuleImportRunbookComplete",
+                    "Succeeded",
+                    "Failed",
+                    "Cancelled",
+                    "Updating"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "ModuleProvisioningState"
+                  }
+                },
+                "sizeInBytes": {
+                  "description": "Gets or sets the size in bytes of the module.",
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "version": {
+                  "description": "Gets or sets the version of the module.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ModuleProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The parameters supplied to the create or update module operation.",
+              "properties": {
+                "properties": {
+                  "description": "The parameters supplied to the create or update module properties.",
+                  "properties": {
+                    "contentLink": {
+                      "description": "Definition of the content link.",
+                      "properties": {
+                        "contentHash": {
+                          "description": "Definition of the runbook property type.",
+                          "properties": {
+                            "algorithm": {
+                              "description": "Gets or sets the content hash algorithm used to hash the content.",
+                              "type": "string"
+                            },
+                            "value": {
+                              "description": "Gets or sets expected hash value of the content.",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "algorithm",
+                            "value"
+                          ],
+                          "type": "object"
+                        },
+                        "uri": {
+                          "description": "Gets or sets the uri of the runbook content.",
+                          "type": "string"
+                        },
+                        "version": {
+                          "description": "Gets or sets the version of the content.",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "contentLink"
+                  ],
+                  "type": "object"
+                },
+                "tags": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Gets or sets the tags attached to the resource.",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "properties"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PythonPackageCreateParameters"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The parameters supplied to the create or update module properties.",
+              "properties": {
+                "contentLink": {
+                  "description": "Definition of the content link.",
+                  "properties": {
+                    "contentHash": {
+                      "description": "Definition of the runbook property type.",
+                      "properties": {
+                        "algorithm": {
+                          "description": "Gets or sets the content hash algorithm used to hash the content.",
+                          "type": "string"
+                        },
+                        "value": {
+                          "description": "Gets or sets expected hash value of the content.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "algorithm",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "uri": {
+                      "description": "Gets or sets the uri of the runbook content.",
+                      "type": "string"
+                    },
+                    "version": {
+                      "description": "Gets or sets the version of the content.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "contentLink"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PythonPackageCreateProperties"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The parameters supplied to the update module operation.",
+              "properties": {
+                "tags": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "description": "Gets or sets the tags attached to the resource.",
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PythonPackageUpdateParameters"
+          },
+          {
+            "oldValue": {
+              "description": "Definition of RunAs credential to use for hybrid worker.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the credential.",
+                  "type": "string"
+                }
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/RunAsCredentialAssociationProperty"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Information about a field of a type.",
+              "properties": {
+                "name": {
+                  "description": "Gets or sets the name of the field.",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Gets or sets the type of the field.",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TypeField"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The response model for the list fields operation.",
+              "properties": {
+                "value": {
+                  "description": "Gets or sets a list of fields.",
+                  "items": {
+                    "description": "Information about a field of a type.",
+                    "properties": {
+                      "name": {
+                        "description": "Gets or sets the name of the field.",
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "Gets or sets the type of the field.",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "x-ms-identifiers": []
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TypeFieldListResult"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2022-02-22",
+        "to": "2022-08-08"
+      }
+    },
+    "paths": {
+      "added": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{packageName}"
+      ],
+      "deleted": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/hybridRunbookWorkerGroups/{hybridRunbookWorkerGroupName}"
+      ]
+    }
+  },
+  "tools_a": {},
+  "tools_b": {
+    "Python2Package_Delete": "FunctionDef(\n  name='Python2Package_Delete',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='packageName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Delete the python 2 package by name.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/python2Packages/'),\n          FormattedValue(\n            value=Name(id='packageName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='packageName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: packageName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='delete',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Python2Package_Delete')),\n        keyword(\n          arg='description',\n          value=Constant(value='Delete the python 2 package by name.'))])],\n  type_params=[])",
+    "Python2Package_Get": "FunctionDef(\n  name='Python2Package_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='packageName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Retrieve the python 2 package identified by package name.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/python2Packages/'),\n          FormattedValue(\n            value=Name(id='packageName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='packageName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: packageName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Python2Package_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Retrieve the python 2 package identified by package name.'))])],\n  type_params=[])",
+    "Python2Package_CreateOrUpdate": "FunctionDef(\n  name='Python2Package_CreateOrUpdate',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='packageName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Create or Update the python 2 package identified by package name.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/python2Packages/'),\n          FormattedValue(\n            value=Name(id='packageName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='packageName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: packageName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='put',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Python2Package_CreateOrUpdate')),\n        keyword(\n          arg='description',\n          value=Constant(value='Create or Update the python 2 package identified by package name.'))])],\n  type_params=[])",
+    "Python2Package_Update": "FunctionDef(\n  name='Python2Package_Update',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='packageName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Update the python 2 package identified by package name.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/python2Packages/'),\n          FormattedValue(\n            value=Name(id='packageName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='packageName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: packageName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='patch',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Python2Package_Update')),\n        keyword(\n          arg='description',\n          value=Constant(value='Update the python 2 package identified by package name.'))])],\n  type_params=[])",
+    "Python2Package_ListByAutomationAccount": "FunctionDef(\n  name='Python2Package_ListByAutomationAccount',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='subscriptionId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='resourceGroupName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='automationAccountName',\n        annotation=Name(id='str', ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Retrieve a list of python 2 packages.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/subscriptions/'),\n          FormattedValue(\n            value=Name(id='subscriptionId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/resourceGroups/'),\n          FormattedValue(\n            value=Name(id='resourceGroupName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Automation/automationAccounts/'),\n          FormattedValue(\n            value=Name(id='automationAccountName', ctx=Load()),\n            conversion=-1),\n          Constant(value='/python2Packages')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='subscriptionId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: subscriptionId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceGroupName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceGroupName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='automationAccountName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: automationAccountName')],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Python2Package_ListByAutomationAccount')),\n        keyword(\n          arg='description',\n          value=Constant(value='Retrieve a list of python 2 packages.'))])],\n  type_params=[])"
+  }
+}

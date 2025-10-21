@@ -1,0 +1,103 @@
+{
+  "oasdiff": {
+    "info": {
+      "version": {
+        "from": "2018-06-30",
+        "to": "2019-06-01"
+      }
+    },
+    "paths": {
+      "modified": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2018-06-30",
+                        "value": "2019-06-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List python 2 packages by automation account/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/python2Packages/{packageName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2018-06-30",
+                        "value": "2019-06-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Delete a python 2 package/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2018-06-30",
+                        "value": "2019-06-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a python 2 package/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2018-06-30",
+                        "value": "2019-06-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Update a module/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2018-06-30",
+                        "value": "2019-06-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create or update a python 2 package/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {}
+}

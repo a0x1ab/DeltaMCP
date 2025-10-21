@@ -1,0 +1,3474 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/CdnPeeringPrefixListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTest/properties/properties/properties/path/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTest/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTestListResult/properties/value/items/properties/properties/properties/path/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTestListResult/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTestListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTestProperties/properties/path/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/ConnectionMonitorTestProperties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+              "properties": {
+                "azureRegion": {
+                  "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                  "type": "string",
+                  "x-ms-mutability": [
+                    "read",
+                    "create"
+                  ]
+                },
+                "endpoint": {
+                  "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                  "type": "string",
+                  "x-ms-mutability": [
+                    "read",
+                    "create"
+                  ]
+                },
+                "prefixesToAccesslist": {
+                  "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "readOnly": true,
+                  "type": "array",
+                  "x-ms-identifiers": []
+                },
+                "protocol": {
+                  "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                  "enum": [
+                    "None",
+                    "ICMP",
+                    "TCP"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "protocol"
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ConnectivityProbe"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/DirectConnection/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/DirectPeeringFacility/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/ExchangeConnection/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/LogAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/MetricSpecification/properties/supportedTimeGrainTypes/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/Operation/properties/properties/properties/serviceSpecification/properties/metricSpecifications/items/properties/supportedTimeGrainTypes/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/OperationListResult/properties/value/items/properties/properties/properties/serviceSpecification/properties/metricSpecifications/items/properties/supportedTimeGrainTypes/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/OperationProperties/properties/serviceSpecification/properties/metricSpecifications/items/properties/supportedTimeGrainTypes/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeerAsnListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The connectivity probes associated with the peering.",
+              "items": {
+                "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                "properties": {
+                  "azureRegion": {
+                    "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                      "read",
+                      "create"
+                    ]
+                  },
+                  "endpoint": {
+                    "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                      "read",
+                      "create"
+                    ]
+                  },
+                  "prefixesToAccesslist": {
+                    "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array",
+                    "x-ms-identifiers": []
+                  },
+                  "protocol": {
+                    "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                    "enum": [
+                      "None",
+                      "ICMP",
+                      "TCP"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "protocol"
+                    }
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array",
+              "x-ms-identifiers": []
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Peering/properties/properties/properties/connectivityProbes"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/Peering/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/Peering/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/Peering/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/Peering/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The connectivity probes associated with the peering.",
+              "items": {
+                "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                "properties": {
+                  "azureRegion": {
+                    "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                      "read",
+                      "create"
+                    ]
+                  },
+                  "endpoint": {
+                    "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                      "read",
+                      "create"
+                    ]
+                  },
+                  "prefixesToAccesslist": {
+                    "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array",
+                    "x-ms-identifiers": []
+                  },
+                  "protocol": {
+                    "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                    "enum": [
+                      "None",
+                      "ICMP",
+                      "TCP"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "protocol"
+                    }
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array",
+              "x-ms-identifiers": []
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PeeringListResult/properties/value/items/properties/properties/properties/connectivityProbes"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringListResult/properties/value/items/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringListResult/properties/value/items/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringListResult/properties/value/items/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringListResult/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringLocation/properties/properties/properties/direct/properties/peeringFacilities/items/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringLocationListResult/properties/value/items/properties/properties/properties/direct/properties/peeringFacilities/items/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringLocationListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringLocationProperties/properties/direct/properties/peeringFacilities/items/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringLocationPropertiesDirect/properties/peeringFacilities/items/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The connectivity probes associated with the peering.",
+              "items": {
+                "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                "properties": {
+                  "azureRegion": {
+                    "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                      "read",
+                      "create"
+                    ]
+                  },
+                  "endpoint": {
+                    "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                    "type": "string",
+                    "x-ms-mutability": [
+                      "read",
+                      "create"
+                    ]
+                  },
+                  "prefixesToAccesslist": {
+                    "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                    "items": {
+                      "type": "string"
+                    },
+                    "readOnly": true,
+                    "type": "array",
+                    "x-ms-identifiers": []
+                  },
+                  "protocol": {
+                    "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                    "enum": [
+                      "None",
+                      "ICMP",
+                      "TCP"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                      "modelAsString": true,
+                      "name": "protocol"
+                    }
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array",
+              "x-ms-identifiers": []
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PeeringProperties/properties/connectivityProbes"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringProperties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringProperties/properties/direct/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringProperties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringProperties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringPropertiesDirect/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "PeerProp",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringPropertiesDirect/properties/directPeeringType/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "ExternalBlocker",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringPropertiesExchange/properties/connections/items/properties/connectionState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredAsn/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredAsnListResult/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredAsnListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredAsnProperties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredPrefix/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredPrefixListResult/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredPrefixListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringRegisteredPrefixProperties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringService/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringService/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceCountryListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceListResult/properties/value/items/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceListResult/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceLocationListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServicePrefix/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServicePrefixListResult/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServicePrefixListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServicePrefixProperties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceProperties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": "Canceled",
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceProperties/properties/provisioningState/enum/-"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceProvider/properties/properties/properties/peeringLocations/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceProviderListResult/properties/value/items/properties/properties/properties/peeringLocations/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceProviderListResult/properties/value/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/PeeringServiceProviderProperties/properties/peeringLocations/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [],
+            "op": "add",
+            "from": "",
+            "path": "/ServiceSpecification/properties/metricSpecifications/items/properties/supportedTimeGrainTypes/x-ms-identifiers"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2022-10-01",
+        "to": "2025-05-01"
+      }
+    },
+    "paths": {
+      "modified": {
+        "/providers/Microsoft.Peering/operations": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peering operations/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/serviceSpecification/properties/metricSpecifications/items/properties/supportedTimeGrainTypes/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/cdnPeeringPrefixes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List all the cdn peering prefixes advertised at a particular peering location/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/checkServiceProviderAvailability": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Check if peering service provider is available in customer location/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/initializeConnectionMonitor": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Initialize Peering Service for Connection Monitor functionality/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/legacyPeerings": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List legacy peerings/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "prefixesToAccesslist": [
+                              "104.44.0.0/28"
+                            ],
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/List legacy peerings/responses/200/body/value/0/properties/connectivityProbes"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "directPeeringType": {
+                        "extensions": {
+                          "modified": {
+                            "enum": [
+                              {
+                                "oldValue": null,
+                                "value": "PeerProp",
+                                "op": "add",
+                                "from": "",
+                                "path": "/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/lookingGlass": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Call looking glass to execute a command/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerAsns": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peer ASNs in a subscription/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerAsns/{peerAsnName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Delete a peer ASN/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a peer ASN/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create a peer ASN/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "path": {
+                      "peerAsnName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peeringLocations": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List direct peering locations/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List exchange peering locations/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "directPeeringType": {
+                        "extensions": {
+                          "modified": {
+                            "enum": [
+                              {
+                                "oldValue": null,
+                                "value": "PeerProp",
+                                "op": "add",
+                                "from": "",
+                                "path": "/-"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/peeringFacilities/items/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peeringServiceCountries": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peering service countries/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peeringServiceLocations": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peering service locations/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peeringServiceProviders": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peering service providers/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/peeringLocations/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peeringServices": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peering services in a subscription/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Peering/peerings": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peerings in a subscription/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "prefixesToAccesslist": [
+                              "104.44.0.0/28"
+                            ],
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/List peerings in a subscription/responses/200/body/value/0/properties/connectivityProbes"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peering services in a resource group/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Delete a peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Update peering service tags/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create a  peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "peeringService": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "modified": {
+                                    "logAnalyticsWorkspaceProperties": {
+                                      "properties": {
+                                        "modified": {
+                                          "connectedAgents": {
+                                            "extensions": {
+                                              "added": [
+                                                "x-ms-identifiers"
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "provisioningState": {
+                                      "enum": {
+                                        "added": [
+                                          "Canceled"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "peeringServiceName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/logAnalyticsWorkspaceProperties/properties/connectedAgents/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/connectionMonitorTests": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List all Connection Monitor Tests associated with the peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/path/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/connectionMonitorTests/{connectionMonitorTestName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Delete Connection Monitor Test/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get Connection Monitor Test/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/path/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create or Update Connection Monitor Test/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "connectionMonitorTest": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "modified": {
+                                    "path": {
+                                      "extensions": {
+                                        "added": [
+                                          "x-ms-identifiers"
+                                        ]
+                                      }
+                                    },
+                                    "provisioningState": {
+                                      "enum": {
+                                        "added": [
+                                          "Canceled"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "connectionMonitorTestName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      },
+                      "peeringServiceName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/path/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/path/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/prefixes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List all the prefixes associated with the peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peeringServices/{peeringServiceName}/prefixes/{prefixName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Delete a prefix associated with the peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a prefix associated with the peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create or update a prefix for the peering service/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "peeringServicePrefix": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "modified": {
+                                    "provisioningState": {
+                                      "enum": {
+                                        "added": [
+                                          "Canceled"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "peeringServiceName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      },
+                      "prefixName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List peerings in a resource group/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "prefixesToAccesslist": [
+                              "104.44.0.0/28"
+                            ],
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/List peerings in a resource group/responses/200/body/value/0/properties/connectivityProbes"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Delete a peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a peering/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "prefixesToAccesslist": [
+                              "104.44.0.0/28"
+                            ],
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Get a peering/responses/200/body/properties/connectivityProbes"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Update peering tags/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "prefixesToAccesslist": [
+                              "104.44.0.0/28"
+                            ],
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Update peering tags/responses/200/body/properties/connectivityProbes"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create a direct peering/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create a direct peering/parameters/peering/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create a direct peering/responses/200/body/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create a direct peering/responses/201/body/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create a peering with exchange route server/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "TCP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create a peering with exchange route server/parameters/peering/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "TCP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create a peering with exchange route server/responses/200/body/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "TCP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create a peering with exchange route server/responses/201/body/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create an exchange peering/parameters/api-version"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create an exchange peering/parameters/peering/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create an exchange peering/responses/200/body/properties/connectivityProbes"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "azureRegion": "eastus",
+                            "endpoint": "192.168.0.1",
+                            "protocol": "ICMP"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Create an exchange peering/responses/201/body/properties/connectivityProbes"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "peering": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "added": [
+                                    "connectivityProbes"
+                                  ],
+                                  "modified": {
+                                    "direct": {
+                                      "properties": {
+                                        "modified": {
+                                          "connections": {
+                                            "items": {
+                                              "properties": {
+                                                "modified": {
+                                                  "connectionState": {
+                                                    "enum": {
+                                                      "added": [
+                                                        "ExternalBlocker"
+                                                      ]
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "directPeeringType": {
+                                            "enum": {
+                                              "added": [
+                                                "PeerProp"
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "exchange": {
+                                      "properties": {
+                                        "modified": {
+                                          "connections": {
+                                            "items": {
+                                              "properties": {
+                                                "modified": {
+                                                  "connectionState": {
+                                                    "enum": {
+                                                      "added": [
+                                                        "ExternalBlocker"
+                                                      ]
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "provisioningState": {
+                                      "enum": {
+                                        "added": [
+                                          "Canceled"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "peeringName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The connectivity probes associated with the peering.",
+                                "items": {
+                                  "description": "Represents a connectivity probe, a configuration peers can add to direct and exchange peerings to create ping tests. These ping\r\ntests will allow us to generate availability, jitter, and latency data for traffic (using ICMP or TCP) from Azure to an endpoint\r\nIP address given by the customer. This data will be emitted such that the peer can view these metrics in the Azure portal in the\r\nConnectivity probe blade of their peering.",
+                                  "properties": {
+                                    "azureRegion": {
+                                      "description": "The Azure region where traffic will originate from for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "endpoint": {
+                                      "description": "The endpoint IP address where traffic will be sent to from Azure for the connectivity probe.",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "prefixesToAccesslist": {
+                                      "description": "Set to contain the prefixes that agents in Azure will send traffic from. For peers to allow into their\r\nnetwork the connectivity probe traffic can reach their endpoint for the connectivity probe.",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "readOnly": true,
+                                      "type": "array",
+                                      "x-ms-identifiers": []
+                                    },
+                                    "protocol": {
+                                      "description": "The protocol of the traffic that will be sent for the connectivity probe.",
+                                      "enum": [
+                                        "None",
+                                        "ICMP",
+                                        "TCP"
+                                      ],
+                                      "type": "string",
+                                      "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "protocol"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                "type": "array",
+                                "x-ms-identifiers": []
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/connectivityProbes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "PeerProp",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/direct/properties/directPeeringType/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "ExternalBlocker",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exchange/properties/connections/items/properties/connectionState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/receivedRoutes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Lists the prefixes received over the specified peering under the given subscription and resource group./parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/registeredAsns": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List all the registered ASNs associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/registeredAsns/{registeredAsnName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Deletes a registered ASN associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a registered ASN associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create or update a registered ASN for the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "registeredAsn": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "modified": {
+                                    "provisioningState": {
+                                      "enum": {
+                                        "added": [
+                                          "Canceled"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "peeringName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/registeredPrefixes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List all the registered prefixes associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/provisioningState/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/x-ms-identifiers"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/registeredPrefixes/{registeredPrefixName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Deletes a registered prefix associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Get a registered prefix associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Create or update a registered prefix for the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "registeredPrefix": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "modified": {
+                                    "provisioningState": {
+                                      "enum": {
+                                        "added": [
+                                          "Canceled"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "path": {
+                      "peeringName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      },
+                      "registeredPrefixName": {
+                        "extensions": {
+                          "added": [
+                            "pattern"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/registeredPrefixes/{registeredPrefixName}/validate": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Validate a registered prefix associated with the peering/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": "Canceled",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/provisioningState/enum/-"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Peering/peerings/{peeringName}/rpUnbilledPrefixes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-10-01",
+                        "value": "2025-05-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/List all the RP unbilled prefixes advertised at a particular peering location/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {}
+}

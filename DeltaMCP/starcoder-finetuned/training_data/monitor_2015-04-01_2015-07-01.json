@@ -1,0 +1,533 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "deleted": [
+        "parameters"
+      ],
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": "object",
+            "op": "add",
+            "from": "",
+            "path": "/LocalizableString/type"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "A set of metric values in a time range.",
+              "properties": {
+                "data": {
+                  "description": "Array of data points representing the metric values.",
+                  "items": {
+                    "description": "Represents a metric value.",
+                    "properties": {
+                      "average": {
+                        "description": "the average value in the time range.",
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "count": {
+                        "description": "the number of samples in the time range. Can be used to determine the number of values that contributed to the average value.",
+                        "format": "int64",
+                        "type": "integer"
+                      },
+                      "maximum": {
+                        "description": "the greatest value in the time range.",
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "minimum": {
+                        "description": "the least value in the time range.",
+                        "format": "double",
+                        "type": "number"
+                      },
+                      "timeStamp": {
+                        "description": "the timestamp for the metric value in ISO 8601 format.",
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "total": {
+                        "description": "the sum of all of the values in the time range.",
+                        "format": "double",
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "timeStamp"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "id": {
+                  "description": "the id, resourceId, of the metric.",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The localizable string class.",
+                  "properties": {
+                    "localizedValue": {
+                      "description": "the locale specific value.",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "the invariant value.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": {
+                  "description": "the resource type of the metric resource.",
+                  "type": "string"
+                },
+                "unit": {
+                  "description": "Number representing the unit of the metric. 0=Count, 1=Bytes, 2=Seconds, 3=CountPerSecond, 4=BytesPerSecond, 5=Percent, 6=MilliSeconds, 7=ByteSeconds",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "unit",
+                "data"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Metric"
+          },
+          {
+            "oldValue": {
+              "description": "Metric availability specifies the time grain (aggregation interval or frequency) and the retention period for that time grain.",
+              "properties": {
+                "retention": {
+                  "description": "the retention period for the metric at the specified timegrain.  Expressed as a duration 'PT1M', 'P1D', etc.",
+                  "format": "duration",
+                  "type": "string"
+                },
+                "timeGrain": {
+                  "description": "the time grain specifies the aggregation interval for the metric. Expressed as a duration 'PT1M', 'P1D', etc.",
+                  "format": "duration",
+                  "type": "string"
+                }
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/MetricAvailability"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The collection of metric value sets.",
+              "properties": {
+                "value": {
+                  "description": "the value of the collection.",
+                  "items": {
+                    "description": "A set of metric values in a time range.",
+                    "properties": {
+                      "data": {
+                        "description": "Array of data points representing the metric values.",
+                        "items": {
+                          "description": "Represents a metric value.",
+                          "properties": {
+                            "average": {
+                              "description": "the average value in the time range.",
+                              "format": "double",
+                              "type": "number"
+                            },
+                            "count": {
+                              "description": "the number of samples in the time range. Can be used to determine the number of values that contributed to the average value.",
+                              "format": "int64",
+                              "type": "integer"
+                            },
+                            "maximum": {
+                              "description": "the greatest value in the time range.",
+                              "format": "double",
+                              "type": "number"
+                            },
+                            "minimum": {
+                              "description": "the least value in the time range.",
+                              "format": "double",
+                              "type": "number"
+                            },
+                            "timeStamp": {
+                              "description": "the timestamp for the metric value in ISO 8601 format.",
+                              "format": "date-time",
+                              "type": "string"
+                            },
+                            "total": {
+                              "description": "the sum of all of the values in the time range.",
+                              "format": "double",
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "timeStamp"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "id": {
+                        "description": "the id, resourceId, of the metric.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The localizable string class.",
+                        "properties": {
+                          "localizedValue": {
+                            "description": "the locale specific value.",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "the invariant value.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "value"
+                        ],
+                        "type": "object"
+                      },
+                      "type": {
+                        "description": "the resource type of the metric resource.",
+                        "type": "string"
+                      },
+                      "unit": {
+                        "description": "Number representing the unit of the metric. 0=Count, 1=Bytes, 2=Seconds, 3=CountPerSecond, 4=BytesPerSecond, 5=Percent, 6=MilliSeconds, 7=ByteSeconds",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "unit",
+                      "data"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/MetricCollection"
+          },
+          {
+            "oldValue": {
+              "description": "Metric definition class specifies the metadata for a metric.",
+              "properties": {
+                "id": {
+                  "description": "the resource identifier of the metric definition.",
+                  "type": "string"
+                },
+                "metricAvailabilities": {
+                  "description": "the collection of what aggregation intervals are available to be queried.",
+                  "items": {
+                    "description": "Metric availability specifies the time grain (aggregation interval or frequency) and the retention period for that time grain.",
+                    "properties": {
+                      "retention": {
+                        "description": "the retention period for the metric at the specified timegrain.  Expressed as a duration 'PT1M', 'P1D', etc.",
+                        "format": "duration",
+                        "type": "string"
+                      },
+                      "timeGrain": {
+                        "description": "the time grain specifies the aggregation interval for the metric. Expressed as a duration 'PT1M', 'P1D', etc.",
+                        "format": "duration",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "type": "array"
+                },
+                "name": {
+                  "description": "The localizable string class.",
+                  "properties": {
+                    "localizedValue": {
+                      "description": "the locale specific value.",
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "the invariant value.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value"
+                  ]
+                },
+                "primaryAggregationType": {
+                  "description": "the primary aggregation type value defining how to use the values for display.",
+                  "enum": [
+                    "None",
+                    "Average",
+                    "Count",
+                    "Minimum",
+                    "Maximum",
+                    "Total"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": false,
+                    "name": "AggregationType"
+                  }
+                },
+                "resourceId": {
+                  "description": "the resource identifier of the resource that emitted the metric.",
+                  "type": "string"
+                },
+                "unit": {
+                  "description": "The unit of the metric.",
+                  "enum": [
+                    "Count",
+                    "Bytes",
+                    "Seconds",
+                    "CountPerSecond",
+                    "BytesPerSecond",
+                    "Percent",
+                    "MilliSeconds",
+                    "ByteSeconds",
+                    "Unspecified",
+                    "Cores",
+                    "MilliCores",
+                    "NanoCores",
+                    "BitsPerSecond"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": false,
+                    "name": "Unit"
+                  }
+                }
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/MetricDefinition"
+          },
+          {
+            "oldValue": {
+              "description": "Represents collection of metric definitions.",
+              "properties": {
+                "value": {
+                  "description": "the values for the metric definitions.",
+                  "items": {
+                    "description": "Metric definition class specifies the metadata for a metric.",
+                    "properties": {
+                      "id": {
+                        "description": "the resource identifier of the metric definition.",
+                        "type": "string"
+                      },
+                      "metricAvailabilities": {
+                        "description": "the collection of what aggregation intervals are available to be queried.",
+                        "items": {
+                          "description": "Metric availability specifies the time grain (aggregation interval or frequency) and the retention period for that time grain.",
+                          "properties": {
+                            "retention": {
+                              "description": "the retention period for the metric at the specified timegrain.  Expressed as a duration 'PT1M', 'P1D', etc.",
+                              "format": "duration",
+                              "type": "string"
+                            },
+                            "timeGrain": {
+                              "description": "the time grain specifies the aggregation interval for the metric. Expressed as a duration 'PT1M', 'P1D', etc.",
+                              "format": "duration",
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "type": "array"
+                      },
+                      "name": {
+                        "description": "The localizable string class.",
+                        "properties": {
+                          "localizedValue": {
+                            "description": "the locale specific value.",
+                            "type": "string"
+                          },
+                          "value": {
+                            "description": "the invariant value.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "value"
+                        ]
+                      },
+                      "primaryAggregationType": {
+                        "description": "the primary aggregation type value defining how to use the values for display.",
+                        "enum": [
+                          "None",
+                          "Average",
+                          "Count",
+                          "Minimum",
+                          "Maximum",
+                          "Total"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "AggregationType"
+                        }
+                      },
+                      "resourceId": {
+                        "description": "the resource identifier of the resource that emitted the metric.",
+                        "type": "string"
+                      },
+                      "unit": {
+                        "description": "The unit of the metric.",
+                        "enum": [
+                          "Count",
+                          "Bytes",
+                          "Seconds",
+                          "CountPerSecond",
+                          "BytesPerSecond",
+                          "Percent",
+                          "MilliSeconds",
+                          "ByteSeconds",
+                          "Unspecified",
+                          "Cores",
+                          "MilliCores",
+                          "NanoCores",
+                          "BitsPerSecond"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                          "modelAsString": false,
+                          "name": "Unit"
+                        }
+                      }
+                    }
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/MetricDefinitionCollection"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Represents a metric value.",
+              "properties": {
+                "average": {
+                  "description": "the average value in the time range.",
+                  "format": "double",
+                  "type": "number"
+                },
+                "count": {
+                  "description": "the number of samples in the time range. Can be used to determine the number of values that contributed to the average value.",
+                  "format": "int64",
+                  "type": "integer"
+                },
+                "maximum": {
+                  "description": "the greatest value in the time range.",
+                  "format": "double",
+                  "type": "number"
+                },
+                "minimum": {
+                  "description": "the least value in the time range.",
+                  "format": "double",
+                  "type": "number"
+                },
+                "timeStamp": {
+                  "description": "the timestamp for the metric value in ISO 8601 format.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "total": {
+                  "description": "the sum of all of the values in the time range.",
+                  "format": "double",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "timeStamp"
+              ],
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/MetricValue"
+          },
+          {
+            "oldValue": "The unit of the metric.",
+            "value": "Number representing the unit of the metric. 0=Count, 1=Bytes, 2=Seconds, 3=CountPerSecond, 4=BytesPerSecond, 5=Percent, 6=MilliSeconds, 7=ByteSeconds",
+            "op": "replace",
+            "from": "",
+            "path": "/Unit/description"
+          },
+          {
+            "oldValue": [
+              "Count",
+              "Bytes",
+              "Seconds",
+              "CountPerSecond",
+              "BytesPerSecond",
+              "Percent",
+              "MilliSeconds",
+              "ByteSeconds",
+              "Unspecified",
+              "Cores",
+              "MilliCores",
+              "NanoCores",
+              "BitsPerSecond"
+            ],
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/Unit/enum"
+          },
+          {
+            "oldValue": {
+              "modelAsString": false,
+              "name": "Unit"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/Unit/x-ms-enum"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2016-03-01",
+        "to": "2016-06-01"
+      }
+    },
+    "paths": {
+      "added": [
+        "/{resourceUri}/providers/Microsoft.Insights/metrics"
+      ],
+      "deleted": [
+        "/{resourceUri}/providers/microsoft.insights/metricDefinitions"
+      ]
+    }
+  },
+  "tools_a": {
+    "EventCategories_List": "FunctionDef(\n  name='EventCategories_List',\n  args=arguments(\n    posonlyargs=[],\n    args=[],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[]),\n  body=[\n    Expr(\n      value=Constant(value='Get the list of available event categories supported in the Activity Logs Service.<br>The current list includes the following: Administrative, Security, ServiceHealth, Alert, Recommendation, Policy.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/eventcategories')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='EventCategories_List')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get the list of available event categories supported in the Activity Logs Service.<br>The current list includes the following: Administrative, Security, ServiceHealth, Alert, Recommendation, Policy.'))])],\n  type_params=[])"
+  },
+  "tools_b": {
+    "MetricDefinitions_List": "FunctionDef(\n  name='MetricDefinitions_List',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='resourceUri',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='_filter',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Lists the metric definitions for the resource.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/'),\n          FormattedValue(\n            value=Name(id='resourceUri', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Insights/metricDefinitions')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='resourceUri', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: resourceUri')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='_filter', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='$filter'),\n              ctx=Store())],\n          value=Name(id='_filter', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='MetricDefinitions_List')),\n        keyword(\n          arg='description',\n          value=Constant(value='Lists the metric definitions for the resource.'))])],\n  type_params=[])"
+  }
+}
