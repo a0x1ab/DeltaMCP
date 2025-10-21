@@ -1,0 +1,1723 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": {
+              "description": "Method to use for allocating cost. FixedProportion indicates that cost will be split based on specified percentage values.",
+              "enum": [
+                "FixedProportion"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "CostAllocationPolicyType"
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationPolicyType"
+          },
+          {
+            "oldValue": {
+              "description": "Target resources and allocation",
+              "properties": {
+                "name": {
+                  "description": "Target resource for cost allocation",
+                  "type": "string"
+                },
+                "percentage": {
+                  "description": "Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.",
+                  "type": "number"
+                }
+              },
+              "required": [
+                "percentage",
+                "name"
+              ],
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationProportion"
+          },
+          {
+            "oldValue": {
+              "description": "Common values for resources for cost allocation",
+              "properties": {
+                "name": {
+                  "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                  "type": "string"
+                },
+                "resourceType": {
+                  "description": "Category of resource to use for allocation.",
+                  "enum": [
+                    "Dimension",
+                    "Tag"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "CostAllocationResourceType",
+                    "values": [
+                      {
+                        "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                        "name": "Dimension",
+                        "value": "Dimension"
+                      },
+                      {
+                        "description": "Allocates cost based on Azure Tag key value pairs.",
+                        "name": "Tag",
+                        "value": "Tag"
+                      }
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "resourceType",
+                "name"
+              ],
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationResource"
+          },
+          {
+            "oldValue": {
+              "description": "Category of resource to use for allocation.",
+              "enum": [
+                "Dimension",
+                "Tag"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "CostAllocationResourceType",
+                "values": [
+                  {
+                    "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                    "name": "Dimension",
+                    "value": "Dimension"
+                  },
+                  {
+                    "description": "Allocates cost based on Azure Tag key value pairs.",
+                    "name": "Tag",
+                    "value": "Tag"
+                  }
+                ]
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationResourceType"
+          },
+          {
+            "oldValue": {
+              "description": "The cost allocation rule check name availability request",
+              "properties": {
+                "name": {
+                  "description": "Rule name",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type. This is expected to be Microsoft.CostManagement/costAllocationRules",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationRuleCheckNameAvailabilityRequest"
+          },
+          {
+            "oldValue": {
+              "description": "The cost allocation rule check name availability response",
+              "properties": {
+                "message": {
+                  "description": "Error message if the name is not available",
+                  "type": "string"
+                },
+                "nameAvailable": {
+                  "description": "Whether this rule name is available",
+                  "type": "boolean"
+                },
+                "reason": {
+                  "description": "The reason this name is not available.",
+                  "enum": [
+                    "Invalid",
+                    "AlreadyExists",
+                    "Valid"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "Reason"
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationRuleCheckNameAvailabilityResponse"
+          },
+          {
+            "oldValue": {
+              "description": "The cost allocation rule model definition",
+              "properties": {
+                "id": {
+                  "description": "Azure Resource Manager Id for the rule. This is a read ony value.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Name of the rule. This is a read only value.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "properties": {
+                  "additionalProperties": false,
+                  "description": "The properties of a cost allocation rule",
+                  "properties": {
+                    "createdDate": {
+                      "description": "Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Description of a cost allocation rule.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "Resource details of the cost allocation rule",
+                      "properties": {
+                        "sourceResources": {
+                          "description": "Source resources for cost allocation. At this time, this list can contain no more than one element.",
+                          "items": {
+                            "allOf": [
+                              {
+                                "description": "Common values for resources for cost allocation",
+                                "properties": {
+                                  "name": {
+                                    "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                                    "type": "string"
+                                  },
+                                  "resourceType": {
+                                    "description": "Category of resource to use for allocation.",
+                                    "enum": [
+                                      "Dimension",
+                                      "Tag"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "CostAllocationResourceType",
+                                      "values": [
+                                        {
+                                          "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                          "name": "Dimension",
+                                          "value": "Dimension"
+                                        },
+                                        {
+                                          "description": "Allocates cost based on Azure Tag key value pairs.",
+                                          "name": "Tag",
+                                          "value": "Tag"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "resourceType",
+                                  "name"
+                                ],
+                                "type": "object"
+                              },
+                              {
+                                "properties": {
+                                  "values": {
+                                    "description": "Source Resources for cost allocation. This list cannot contain more than 25 values.",
+                                    "items": {
+                                      "description": "Source resource for cost allocation",
+                                      "type": "string"
+                                    },
+                                    "type": "array"
+                                  }
+                                },
+                                "required": [
+                                  "values"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "Source resources for cost allocation"
+                          },
+                          "type": "array"
+                        },
+                        "targetResources": {
+                          "description": "Target resources for cost allocation. At this time, this list can contain no more than one element.",
+                          "items": {
+                            "allOf": [
+                              {
+                                "description": "Common values for resources for cost allocation",
+                                "properties": {
+                                  "name": {
+                                    "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                                    "type": "string"
+                                  },
+                                  "resourceType": {
+                                    "description": "Category of resource to use for allocation.",
+                                    "enum": [
+                                      "Dimension",
+                                      "Tag"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "CostAllocationResourceType",
+                                      "values": [
+                                        {
+                                          "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                          "name": "Dimension",
+                                          "value": "Dimension"
+                                        },
+                                        {
+                                          "description": "Allocates cost based on Azure Tag key value pairs.",
+                                          "name": "Tag",
+                                          "value": "Tag"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "resourceType",
+                                  "name"
+                                ],
+                                "type": "object"
+                              },
+                              {
+                                "properties": {
+                                  "policyType": {
+                                    "description": "Method to use for allocating cost. FixedProportion indicates that cost will be split based on specified percentage values.",
+                                    "enum": [
+                                      "FixedProportion"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "CostAllocationPolicyType"
+                                    }
+                                  },
+                                  "values": {
+                                    "description": "Target resources for cost allocation. This list cannot contain more than 25 values.",
+                                    "items": {
+                                      "description": "Target resources and allocation",
+                                      "properties": {
+                                        "name": {
+                                          "description": "Target resource for cost allocation",
+                                          "type": "string"
+                                        },
+                                        "percentage": {
+                                          "description": "Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.",
+                                          "type": "number"
+                                        }
+                                      },
+                                      "required": [
+                                        "percentage",
+                                        "name"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  }
+                                },
+                                "required": [
+                                  "values",
+                                  "policyType"
+                                ],
+                                "type": "object"
+                              }
+                            ],
+                            "description": "Target resources for cost allocation."
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "status": {
+                      "description": "Current status of the rule.",
+                      "enum": [
+                        "NotActive",
+                        "Active",
+                        "Processing"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "RuleStatus",
+                        "values": [
+                          {
+                            "description": "Rule is saved but not used to allocate costs.",
+                            "name": "NotActive",
+                            "value": "NotActive"
+                          },
+                          {
+                            "description": "Rule is saved and impacting cost allocation.",
+                            "name": "Active",
+                            "value": "Active"
+                          },
+                          {
+                            "description": "Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.",
+                            "name": "Processing",
+                            "value": "Processing"
+                          }
+                        ]
+                      }
+                    },
+                    "updatedDate": {
+                      "description": "Time at which the rule was last updated.",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "details",
+                    "status"
+                  ],
+                  "type": "object"
+                },
+                "type": {
+                  "description": "Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationRuleDefinition"
+          },
+          {
+            "oldValue": {
+              "description": "Resource details of the cost allocation rule",
+              "properties": {
+                "sourceResources": {
+                  "description": "Source resources for cost allocation. At this time, this list can contain no more than one element.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "Common values for resources for cost allocation",
+                        "properties": {
+                          "name": {
+                            "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                            "type": "string"
+                          },
+                          "resourceType": {
+                            "description": "Category of resource to use for allocation.",
+                            "enum": [
+                              "Dimension",
+                              "Tag"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "CostAllocationResourceType",
+                              "values": [
+                                {
+                                  "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                  "name": "Dimension",
+                                  "value": "Dimension"
+                                },
+                                {
+                                  "description": "Allocates cost based on Azure Tag key value pairs.",
+                                  "name": "Tag",
+                                  "value": "Tag"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "resourceType",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "properties": {
+                          "values": {
+                            "description": "Source Resources for cost allocation. This list cannot contain more than 25 values.",
+                            "items": {
+                              "description": "Source resource for cost allocation",
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "values"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Source resources for cost allocation"
+                  },
+                  "type": "array"
+                },
+                "targetResources": {
+                  "description": "Target resources for cost allocation. At this time, this list can contain no more than one element.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "Common values for resources for cost allocation",
+                        "properties": {
+                          "name": {
+                            "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                            "type": "string"
+                          },
+                          "resourceType": {
+                            "description": "Category of resource to use for allocation.",
+                            "enum": [
+                              "Dimension",
+                              "Tag"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "CostAllocationResourceType",
+                              "values": [
+                                {
+                                  "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                  "name": "Dimension",
+                                  "value": "Dimension"
+                                },
+                                {
+                                  "description": "Allocates cost based on Azure Tag key value pairs.",
+                                  "name": "Tag",
+                                  "value": "Tag"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "resourceType",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "properties": {
+                          "policyType": {
+                            "description": "Method to use for allocating cost. FixedProportion indicates that cost will be split based on specified percentage values.",
+                            "enum": [
+                              "FixedProportion"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "CostAllocationPolicyType"
+                            }
+                          },
+                          "values": {
+                            "description": "Target resources for cost allocation. This list cannot contain more than 25 values.",
+                            "items": {
+                              "description": "Target resources and allocation",
+                              "properties": {
+                                "name": {
+                                  "description": "Target resource for cost allocation",
+                                  "type": "string"
+                                },
+                                "percentage": {
+                                  "description": "Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.",
+                                  "type": "number"
+                                }
+                              },
+                              "required": [
+                                "percentage",
+                                "name"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "values",
+                          "policyType"
+                        ],
+                        "type": "object"
+                      }
+                    ],
+                    "description": "Target resources for cost allocation."
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationRuleDetails"
+          },
+          {
+            "oldValue": {
+              "description": "Result of listing cost allocation rules. It contains a list of available rules in the billing account or enterprise enrollment provided.",
+              "properties": {
+                "nextLink": {
+                  "description": "URL to get the next set of rule list results if there are any.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The list of cost allocation rules.",
+                  "items": {
+                    "description": "The cost allocation rule model definition",
+                    "properties": {
+                      "id": {
+                        "description": "Azure Resource Manager Id for the rule. This is a read ony value.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the rule. This is a read only value.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "properties": {
+                        "additionalProperties": false,
+                        "description": "The properties of a cost allocation rule",
+                        "properties": {
+                          "createdDate": {
+                            "description": "Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Description of a cost allocation rule.",
+                            "type": "string"
+                          },
+                          "details": {
+                            "description": "Resource details of the cost allocation rule",
+                            "properties": {
+                              "sourceResources": {
+                                "description": "Source resources for cost allocation. At this time, this list can contain no more than one element.",
+                                "items": {
+                                  "allOf": [
+                                    {
+                                      "description": "Common values for resources for cost allocation",
+                                      "properties": {
+                                        "name": {
+                                          "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                                          "type": "string"
+                                        },
+                                        "resourceType": {
+                                          "description": "Category of resource to use for allocation.",
+                                          "enum": [
+                                            "Dimension",
+                                            "Tag"
+                                          ],
+                                          "type": "string",
+                                          "x-ms-enum": {
+                                            "modelAsString": true,
+                                            "name": "CostAllocationResourceType",
+                                            "values": [
+                                              {
+                                                "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                                "name": "Dimension",
+                                                "value": "Dimension"
+                                              },
+                                              {
+                                                "description": "Allocates cost based on Azure Tag key value pairs.",
+                                                "name": "Tag",
+                                                "value": "Tag"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "resourceType",
+                                        "name"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    {
+                                      "properties": {
+                                        "values": {
+                                          "description": "Source Resources for cost allocation. This list cannot contain more than 25 values.",
+                                          "items": {
+                                            "description": "Source resource for cost allocation",
+                                            "type": "string"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "required": [
+                                        "values"
+                                      ],
+                                      "type": "object"
+                                    }
+                                  ],
+                                  "description": "Source resources for cost allocation"
+                                },
+                                "type": "array"
+                              },
+                              "targetResources": {
+                                "description": "Target resources for cost allocation. At this time, this list can contain no more than one element.",
+                                "items": {
+                                  "allOf": [
+                                    {
+                                      "description": "Common values for resources for cost allocation",
+                                      "properties": {
+                                        "name": {
+                                          "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                                          "type": "string"
+                                        },
+                                        "resourceType": {
+                                          "description": "Category of resource to use for allocation.",
+                                          "enum": [
+                                            "Dimension",
+                                            "Tag"
+                                          ],
+                                          "type": "string",
+                                          "x-ms-enum": {
+                                            "modelAsString": true,
+                                            "name": "CostAllocationResourceType",
+                                            "values": [
+                                              {
+                                                "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                                "name": "Dimension",
+                                                "value": "Dimension"
+                                              },
+                                              {
+                                                "description": "Allocates cost based on Azure Tag key value pairs.",
+                                                "name": "Tag",
+                                                "value": "Tag"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "resourceType",
+                                        "name"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    {
+                                      "properties": {
+                                        "policyType": {
+                                          "description": "Method to use for allocating cost. FixedProportion indicates that cost will be split based on specified percentage values.",
+                                          "enum": [
+                                            "FixedProportion"
+                                          ],
+                                          "type": "string",
+                                          "x-ms-enum": {
+                                            "modelAsString": true,
+                                            "name": "CostAllocationPolicyType"
+                                          }
+                                        },
+                                        "values": {
+                                          "description": "Target resources for cost allocation. This list cannot contain more than 25 values.",
+                                          "items": {
+                                            "description": "Target resources and allocation",
+                                            "properties": {
+                                              "name": {
+                                                "description": "Target resource for cost allocation",
+                                                "type": "string"
+                                              },
+                                              "percentage": {
+                                                "description": "Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.",
+                                                "type": "number"
+                                              }
+                                            },
+                                            "required": [
+                                              "percentage",
+                                              "name"
+                                            ],
+                                            "type": "object"
+                                          },
+                                          "type": "array"
+                                        }
+                                      },
+                                      "required": [
+                                        "values",
+                                        "policyType"
+                                      ],
+                                      "type": "object"
+                                    }
+                                  ],
+                                  "description": "Target resources for cost allocation."
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "status": {
+                            "description": "Current status of the rule.",
+                            "enum": [
+                              "NotActive",
+                              "Active",
+                              "Processing"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                              "modelAsString": true,
+                              "name": "RuleStatus",
+                              "values": [
+                                {
+                                  "description": "Rule is saved but not used to allocate costs.",
+                                  "name": "NotActive",
+                                  "value": "NotActive"
+                                },
+                                {
+                                  "description": "Rule is saved and impacting cost allocation.",
+                                  "name": "Active",
+                                  "value": "Active"
+                                },
+                                {
+                                  "description": "Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.",
+                                  "name": "Processing",
+                                  "value": "Processing"
+                                }
+                              ]
+                            }
+                          },
+                          "updatedDate": {
+                            "description": "Time at which the rule was last updated.",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "details",
+                          "status"
+                        ],
+                        "type": "object"
+                      },
+                      "type": {
+                        "description": "Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationRuleList"
+          },
+          {
+            "oldValue": {
+              "additionalProperties": false,
+              "description": "The properties of a cost allocation rule",
+              "properties": {
+                "createdDate": {
+                  "description": "Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "description": {
+                  "description": "Description of a cost allocation rule.",
+                  "type": "string"
+                },
+                "details": {
+                  "description": "Resource details of the cost allocation rule",
+                  "properties": {
+                    "sourceResources": {
+                      "description": "Source resources for cost allocation. At this time, this list can contain no more than one element.",
+                      "items": {
+                        "allOf": [
+                          {
+                            "description": "Common values for resources for cost allocation",
+                            "properties": {
+                              "name": {
+                                "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                                "type": "string"
+                              },
+                              "resourceType": {
+                                "description": "Category of resource to use for allocation.",
+                                "enum": [
+                                  "Dimension",
+                                  "Tag"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "CostAllocationResourceType",
+                                  "values": [
+                                    {
+                                      "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                      "name": "Dimension",
+                                      "value": "Dimension"
+                                    },
+                                    {
+                                      "description": "Allocates cost based on Azure Tag key value pairs.",
+                                      "name": "Tag",
+                                      "value": "Tag"
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "resourceType",
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "properties": {
+                              "values": {
+                                "description": "Source Resources for cost allocation. This list cannot contain more than 25 values.",
+                                "items": {
+                                  "description": "Source resource for cost allocation",
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "values"
+                            ],
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Source resources for cost allocation"
+                      },
+                      "type": "array"
+                    },
+                    "targetResources": {
+                      "description": "Target resources for cost allocation. At this time, this list can contain no more than one element.",
+                      "items": {
+                        "allOf": [
+                          {
+                            "description": "Common values for resources for cost allocation",
+                            "properties": {
+                              "name": {
+                                "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                                "type": "string"
+                              },
+                              "resourceType": {
+                                "description": "Category of resource to use for allocation.",
+                                "enum": [
+                                  "Dimension",
+                                  "Tag"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "CostAllocationResourceType",
+                                  "values": [
+                                    {
+                                      "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                                      "name": "Dimension",
+                                      "value": "Dimension"
+                                    },
+                                    {
+                                      "description": "Allocates cost based on Azure Tag key value pairs.",
+                                      "name": "Tag",
+                                      "value": "Tag"
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "resourceType",
+                              "name"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "properties": {
+                              "policyType": {
+                                "description": "Method to use for allocating cost. FixedProportion indicates that cost will be split based on specified percentage values.",
+                                "enum": [
+                                  "FixedProportion"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "CostAllocationPolicyType"
+                                }
+                              },
+                              "values": {
+                                "description": "Target resources for cost allocation. This list cannot contain more than 25 values.",
+                                "items": {
+                                  "description": "Target resources and allocation",
+                                  "properties": {
+                                    "name": {
+                                      "description": "Target resource for cost allocation",
+                                      "type": "string"
+                                    },
+                                    "percentage": {
+                                      "description": "Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.",
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "percentage",
+                                    "name"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "values",
+                              "policyType"
+                            ],
+                            "type": "object"
+                          }
+                        ],
+                        "description": "Target resources for cost allocation."
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "status": {
+                  "description": "Current status of the rule.",
+                  "enum": [
+                    "NotActive",
+                    "Active",
+                    "Processing"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "RuleStatus",
+                    "values": [
+                      {
+                        "description": "Rule is saved but not used to allocate costs.",
+                        "name": "NotActive",
+                        "value": "NotActive"
+                      },
+                      {
+                        "description": "Rule is saved and impacting cost allocation.",
+                        "name": "Active",
+                        "value": "Active"
+                      },
+                      {
+                        "description": "Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.",
+                        "name": "Processing",
+                        "value": "Processing"
+                      }
+                    ]
+                  }
+                },
+                "updatedDate": {
+                  "description": "Time at which the rule was last updated.",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "details",
+                "status"
+              ],
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/CostAllocationRuleProperties"
+          },
+          {
+            "oldValue": {
+              "description": "The details of the error.",
+              "properties": {
+                "code": {
+                  "description": "Error code.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "message": {
+                  "description": "Error message indicating why the operation failed.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ErrorDetails"
+          },
+          {
+            "oldValue": {
+              "description": "Error response indicates that the service is not able to process the incoming request. The reason is provided in the error message. \n\nSome Error responses: \n\n * 429 TooManyRequests - Request is throttled. Retry after waiting for the time specified in the \"x-ms-ratelimit-microsoft.consumption-retry-after\" header. \n\n * 503 ServiceUnavailable - Service is temporarily unavailable. Retry after waiting for the time specified in the \"Retry-After\" header.",
+              "properties": {
+                "error": {
+                  "description": "The details of the error.",
+                  "properties": {
+                    "code": {
+                      "description": "Error code.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message indicating why the operation failed.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ErrorResponse"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "allOf": [
+                {
+                  "description": "The Resource model definition.",
+                  "properties": {
+                    "eTag": {
+                      "description": "ETag of the resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Resource Id.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "kind": {
+                      "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "location": {
+                      "description": "Location of the resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Resource name.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "sku": {
+                      "description": "SKU of the resource.",
+                      "readOnly": true,
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Resource type.",
+                      "readOnly": true,
+                      "type": "string"
+                    }
+                  },
+                  "type": "object",
+                  "x-ms-azure-resource": true
+                }
+              ],
+              "description": "Important cost-related details about the scope. This can include critical alerts, change advisories, important data points, or tips to optimize costs and facilitate cost management.",
+              "properties": {
+                "properties": {
+                  "description": "The properties of the Insights.",
+                  "properties": {
+                    "details": {
+                      "description": "Lower-level background information about this insight. Note that details schema changes based on kind.",
+                      "type": "object"
+                    },
+                    "eventDate": {
+                      "description": "The day the insight pertains to.",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "impactResolution": {
+                      "description": "Date when the user last modified this view.",
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    "impactTerm": {
+                      "description": "The period where the impact was observed.",
+                      "type": "string"
+                    },
+                    "justification": {
+                      "description": "High-level summary information about this insight. Note that justification schema changes based on kind.",
+                      "type": "object"
+                    },
+                    "scope": {
+                      "description": "Cost Management scope for Insights in storage. This includes 'subscriptions/{subscriptionId}' for subscription scope",
+                      "type": "string"
+                    },
+                    "severity": {
+                      "description": "Severity of anomaly to be used for surfacing High severity anomalies first.",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "Insight status kept from storage.",
+                      "type": "string"
+                    },
+                    "timeDetected": {
+                      "description": "The datetime when this anomaly was detected.",
+                      "format": "date-time",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/Insights"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Result of listing insights. It contains a list of available cost insights.",
+              "properties": {
+                "nextLink": {
+                  "description": "The link (URL) to the next page of results.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "values": {
+                  "description": "The list of cost insights.",
+                  "items": {
+                    "allOf": [
+                      {
+                        "description": "The Resource model definition.",
+                        "properties": {
+                          "eTag": {
+                            "description": "ETag of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "kind": {
+                            "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "location": {
+                            "description": "Location of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Resource name.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "sku": {
+                            "description": "SKU of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "x-ms-azure-resource": true
+                      }
+                    ],
+                    "description": "Important cost-related details about the scope. This can include critical alerts, change advisories, important data points, or tips to optimize costs and facilitate cost management.",
+                    "properties": {
+                      "properties": {
+                        "description": "The properties of the Insights.",
+                        "properties": {
+                          "details": {
+                            "description": "Lower-level background information about this insight. Note that details schema changes based on kind.",
+                            "type": "object"
+                          },
+                          "eventDate": {
+                            "description": "The day the insight pertains to.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "impactResolution": {
+                            "description": "Date when the user last modified this view.",
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "impactTerm": {
+                            "description": "The period where the impact was observed.",
+                            "type": "string"
+                          },
+                          "justification": {
+                            "description": "High-level summary information about this insight. Note that justification schema changes based on kind.",
+                            "type": "object"
+                          },
+                          "scope": {
+                            "description": "Cost Management scope for Insights in storage. This includes 'subscriptions/{subscriptionId}' for subscription scope",
+                            "type": "string"
+                          },
+                          "severity": {
+                            "description": "Severity of anomaly to be used for surfacing High severity anomalies first.",
+                            "type": "string"
+                          },
+                          "status": {
+                            "description": "Insight status kept from storage.",
+                            "type": "string"
+                          },
+                          "timeDetected": {
+                            "description": "The datetime when this anomaly was detected.",
+                            "format": "date-time",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "readOnly": true,
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/InsightsCollectionResponse"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The properties of the Insights.",
+              "properties": {
+                "details": {
+                  "description": "Lower-level background information about this insight. Note that details schema changes based on kind.",
+                  "type": "object"
+                },
+                "eventDate": {
+                  "description": "The day the insight pertains to.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "impactResolution": {
+                  "description": "Date when the user last modified this view.",
+                  "format": "date-time",
+                  "type": "string"
+                },
+                "impactTerm": {
+                  "description": "The period where the impact was observed.",
+                  "type": "string"
+                },
+                "justification": {
+                  "description": "High-level summary information about this insight. Note that justification schema changes based on kind.",
+                  "type": "object"
+                },
+                "scope": {
+                  "description": "Cost Management scope for Insights in storage. This includes 'subscriptions/{subscriptionId}' for subscription scope",
+                  "type": "string"
+                },
+                "severity": {
+                  "description": "Severity of anomaly to be used for surfacing High severity anomalies first.",
+                  "type": "string"
+                },
+                "status": {
+                  "description": "Insight status kept from storage.",
+                  "type": "string"
+                },
+                "timeDetected": {
+                  "description": "The datetime when this anomaly was detected.",
+                  "format": "date-time",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/InsightsProperties"
+          },
+          {
+            "oldValue": {
+              "description": "The reason this name is not available.",
+              "enum": [
+                "Invalid",
+                "AlreadyExists",
+                "Valid"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "Reason"
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/Reason"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The Resource model definition.",
+              "properties": {
+                "eTag": {
+                  "description": "ETag of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "id": {
+                  "description": "Resource Id.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "kind": {
+                  "description": "Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "location": {
+                  "description": "Location of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Resource name.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "sku": {
+                  "description": "SKU of the resource.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Resource type.",
+                  "readOnly": true,
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "x-ms-azure-resource": true
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ResourceWithKind"
+          },
+          {
+            "oldValue": {
+              "description": "Current status of the rule.",
+              "enum": [
+                "NotActive",
+                "Active",
+                "Processing"
+              ],
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "RuleStatus",
+                "values": [
+                  {
+                    "description": "Rule is saved but not used to allocate costs.",
+                    "name": "NotActive",
+                    "value": "NotActive"
+                  },
+                  {
+                    "description": "Rule is saved and impacting cost allocation.",
+                    "name": "Active",
+                    "value": "Active"
+                  },
+                  {
+                    "description": "Rule is saved and cost allocation is being updated. Readonly value that cannot be submitted in a put request.",
+                    "name": "Processing",
+                    "value": "Processing"
+                  }
+                ]
+              }
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/RuleStatus"
+          },
+          {
+            "oldValue": {
+              "allOf": [
+                {
+                  "description": "Common values for resources for cost allocation",
+                  "properties": {
+                    "name": {
+                      "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                      "type": "string"
+                    },
+                    "resourceType": {
+                      "description": "Category of resource to use for allocation.",
+                      "enum": [
+                        "Dimension",
+                        "Tag"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "CostAllocationResourceType",
+                        "values": [
+                          {
+                            "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                            "name": "Dimension",
+                            "value": "Dimension"
+                          },
+                          {
+                            "description": "Allocates cost based on Azure Tag key value pairs.",
+                            "name": "Tag",
+                            "value": "Tag"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "resourceType",
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "values": {
+                      "description": "Source Resources for cost allocation. This list cannot contain more than 25 values.",
+                      "items": {
+                        "description": "Source resource for cost allocation",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "values"
+                  ],
+                  "type": "object"
+                }
+              ],
+              "description": "Source resources for cost allocation"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/SourceCostAllocationResource"
+          },
+          {
+            "oldValue": {
+              "allOf": [
+                {
+                  "description": "Common values for resources for cost allocation",
+                  "properties": {
+                    "name": {
+                      "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag",
+                      "type": "string"
+                    },
+                    "resourceType": {
+                      "description": "Category of resource to use for allocation.",
+                      "enum": [
+                        "Dimension",
+                        "Tag"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "CostAllocationResourceType",
+                        "values": [
+                          {
+                            "description": "Indicates an Azure dimension such as a subscription id or resource group name is being used for allocation.",
+                            "name": "Dimension",
+                            "value": "Dimension"
+                          },
+                          {
+                            "description": "Allocates cost based on Azure Tag key value pairs.",
+                            "name": "Tag",
+                            "value": "Tag"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "resourceType",
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "policyType": {
+                      "description": "Method to use for allocating cost. FixedProportion indicates that cost will be split based on specified percentage values.",
+                      "enum": [
+                        "FixedProportion"
+                      ],
+                      "type": "string",
+                      "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "CostAllocationPolicyType"
+                      }
+                    },
+                    "values": {
+                      "description": "Target resources for cost allocation. This list cannot contain more than 25 values.",
+                      "items": {
+                        "description": "Target resources and allocation",
+                        "properties": {
+                          "name": {
+                            "description": "Target resource for cost allocation",
+                            "type": "string"
+                          },
+                          "percentage": {
+                            "description": "Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.",
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "percentage",
+                          "name"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "values",
+                    "policyType"
+                  ],
+                  "type": "object"
+                }
+              ],
+              "description": "Target resources for cost allocation."
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/TargetCostAllocationResource"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": "Version of the API to be used with the client request (e.g. '2020-06-01').",
+            "value": "Version of the API to be used with the client request. The current version for Insights is 2020-08-01-preview",
+            "op": "replace",
+            "from": "",
+            "path": "/apiVersionParameter/description"
+          },
+          {
+            "oldValue": {
+              "description": "BillingAccount ID",
+              "in": "path",
+              "name": "billingAccountId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/billingAccountIdParameter"
+          },
+          {
+            "oldValue": {
+              "description": "Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.",
+              "in": "path",
+              "name": "ruleName",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ruleNameParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The scope associated with Insights operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId} for BillingProfile scope.",
+              "in": "path",
+              "name": "scope",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method",
+              "x-ms-skip-url-encoding": true
+            },
+            "op": "add",
+            "from": "",
+            "path": "/scopeGetInsightsParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2020-03-01-preview",
+        "to": "2020-08-01-preview"
+      }
+    },
+    "paths": {
+      "added": [
+        "/{scope}/providers/Microsoft.CostManagement/insights"
+      ],
+      "deleted": [
+        "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/costAllocationRules/checkNameAvailability",
+        "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/costAllocationRules/{ruleName}",
+        "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/costAllocationRules"
+      ]
+    },
+    "tags": {
+      "deleted": [
+        "CostAllocationRules"
+      ]
+    }
+  },
+  "tools_a": {
+    "CostAllocationRules_List": "FunctionDef(\n  name='CostAllocationRules_List',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='billingAccountId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Get the list of all cost allocation rules for a billing account or enterprise enrollment.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Billing/billingAccounts/'),\n          FormattedValue(\n            value=Name(id='billingAccountId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.CostManagement/costAllocationRules')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='billingAccountId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: billingAccountId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='CostAllocationRules_List')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get the list of all cost allocation rules for a billing account or enterprise enrollment.'))])],\n  type_params=[])",
+    "CostAllocationRules_CheckNameAvailability": "FunctionDef(\n  name='CostAllocationRules_CheckNameAvailability',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='billingAccountId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Checks availability and correctness of a name for a cost allocation rule')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Billing/billingAccounts/'),\n          FormattedValue(\n            value=Name(id='billingAccountId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.CostManagement/costAllocationRules/checkNameAvailability')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='billingAccountId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: billingAccountId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='post',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='CostAllocationRules_CheckNameAvailability')),\n        keyword(\n          arg='description',\n          value=Constant(value='Checks availability and correctness of a name for a cost allocation rule'))])],\n  type_params=[])",
+    "CostAllocationRules_Get": "FunctionDef(\n  name='CostAllocationRules_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='billingAccountId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='ruleName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Get a cost allocation rule by rule name and billing account or enterprise enrollment.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Billing/billingAccounts/'),\n          FormattedValue(\n            value=Name(id='billingAccountId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.CostManagement/costAllocationRules/'),\n          FormattedValue(\n            value=Name(id='ruleName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='billingAccountId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: billingAccountId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='ruleName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: ruleName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='CostAllocationRules_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get a cost allocation rule by rule name and billing account or enterprise enrollment.'))])],\n  type_params=[])",
+    "CostAllocationRules_CreateOrUpdate": "FunctionDef(\n  name='CostAllocationRules_CreateOrUpdate',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='billingAccountId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='ruleName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Create/Update a rule to allocate cost between different resources within a billing account or enterprise enrollment.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Billing/billingAccounts/'),\n          FormattedValue(\n            value=Name(id='billingAccountId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.CostManagement/costAllocationRules/'),\n          FormattedValue(\n            value=Name(id='ruleName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='billingAccountId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: billingAccountId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='ruleName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: ruleName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='put',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='CostAllocationRules_CreateOrUpdate')),\n        keyword(\n          arg='description',\n          value=Constant(value='Create/Update a rule to allocate cost between different resources within a billing account or enterprise enrollment.'))])],\n  type_params=[])",
+    "CostAllocationRules_Delete": "FunctionDef(\n  name='CostAllocationRules_Delete',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='billingAccountId',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='ruleName',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Delete cost allocation rule for billing account or enterprise enrollment.')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.Billing/billingAccounts/'),\n          FormattedValue(\n            value=Name(id='billingAccountId', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.CostManagement/costAllocationRules/'),\n          FormattedValue(\n            value=Name(id='ruleName', ctx=Load()),\n            conversion=-1)])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='billingAccountId', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: billingAccountId')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='ruleName', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: ruleName')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='delete',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='CostAllocationRules_Delete')),\n        keyword(\n          arg='description',\n          value=Constant(value='Delete cost allocation rule for billing account or enterprise enrollment.'))])],\n  type_params=[])"
+  },
+  "tools_b": {
+    "Insights_Get": "FunctionDef(\n  name='Insights_Get',\n  args=arguments(\n    posonlyargs=[],\n    args=[\n      arg(\n        arg='scope',\n        annotation=Name(id='str', ctx=Load())),\n      arg(\n        arg='api_version',\n        annotation=Subscript(\n          value=Name(id='Optional', ctx=Load()),\n          slice=Name(id='str', ctx=Load()),\n          ctx=Load()))],\n    kwonlyargs=[],\n    kw_defaults=[],\n    defaults=[\n      Constant(value=None)]),\n  body=[\n    Expr(\n      value=Constant(value='Get cost-related insights for the given scope')),\n    Assign(\n      targets=[\n        Name(id='base_url', ctx=Store())],\n      value=Constant(value='https://management.azure.com')),\n    Assign(\n      targets=[\n        Name(id='url', ctx=Store())],\n      value=JoinedStr(\n        values=[\n          FormattedValue(\n            value=Name(id='base_url', ctx=Load()),\n            conversion=-1),\n          Constant(value='/'),\n          FormattedValue(\n            value=Name(id='scope', ctx=Load()),\n            conversion=-1),\n          Constant(value='/providers/Microsoft.CostManagement/insights')])),\n    Assign(\n      targets=[\n        Name(id='params', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='headers', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='cookies', ctx=Store())],\n      value=Dict(keys=[], values=[])),\n    Assign(\n      targets=[\n        Name(id='extra_headers', ctx=Store())],\n      value=Call(\n        func=Attribute(\n          value=Name(id='os', ctx=Load()),\n          attr='getenv',\n          ctx=Load()),\n        args=[\n          Constant(value='EXTRA_HEADERS')],\n        keywords=[])),\n    If(\n      test=Name(id='extra_headers', ctx=Load()),\n      body=[\n        Try(\n          body=[\n            For(\n              target=Tuple(\n                elts=[\n                  Name(id='k', ctx=Store()),\n                  Name(id='v', ctx=Store())],\n                ctx=Store()),\n              iter=Call(\n                func=Attribute(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='json', ctx=Load()),\n                      attr='loads',\n                      ctx=Load()),\n                    args=[\n                      Name(id='extra_headers', ctx=Load())],\n                    keywords=[]),\n                  attr='items',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              body=[\n                Assign(\n                  targets=[\n                    Subscript(\n                      value=Name(id='headers', ctx=Load()),\n                      slice=Name(id='k', ctx=Load()),\n                      ctx=Store())],\n                  value=Name(id='v', ctx=Load()))],\n              orelse=[])],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Name(id='print', ctx=Load()),\n                    args=[\n                      Constant(value='Failed to parse EXTRA_HEADERS:'),\n                      Name(id='e', ctx=Load())],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    Assign(\n      targets=[\n        Name(id='auth_satisfied', ctx=Store())],\n      value=Constant(value=False)),\n    Assign(\n      targets=[\n        Name(id='auth_error_msgs', ctx=Store())],\n      value=List(elts=[], ctx=Load())),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Try(\n          body=[\n            Assign(\n              targets=[\n                Name(id='access_token', ctx=Store())],\n              value=Call(\n                func=Attribute(\n                  value=Name(id='os', ctx=Load()),\n                  attr='getenv',\n                  ctx=Load()),\n                args=[\n                  Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                keywords=[])),\n            If(\n              test=UnaryOp(\n                op=Not(),\n                operand=Name(id='access_token', ctx=Load())),\n              body=[\n                Raise(\n                  exc=Call(\n                    func=Name(id='ValueError', ctx=Load()),\n                    args=[\n                      Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')],\n                    keywords=[]))],\n              orelse=[]),\n            Assign(\n              targets=[\n                Subscript(\n                  value=Name(id='headers', ctx=Load()),\n                  slice=Constant(value='Authorization'),\n                  ctx=Store())],\n              value=JoinedStr(\n                values=[\n                  Constant(value='Bearer '),\n                  FormattedValue(\n                    value=Name(id='access_token', ctx=Load()),\n                    conversion=-1)])),\n            Assign(\n              targets=[\n                Name(id='auth_satisfied', ctx=Store())],\n              value=Constant(value=True))],\n          handlers=[\n            ExceptHandler(\n              type=Name(id='Exception', ctx=Load()),\n              name='e',\n              body=[\n                Expr(\n                  value=Call(\n                    func=Attribute(\n                      value=Name(id='auth_error_msgs', ctx=Load()),\n                      attr='append',\n                      ctx=Load()),\n                    args=[\n                      Call(\n                        func=Name(id='str', ctx=Load()),\n                        args=[\n                          Name(id='e', ctx=Load())],\n                        keywords=[])],\n                    keywords=[]))])],\n          orelse=[],\n          finalbody=[])],\n      orelse=[]),\n    If(\n      test=UnaryOp(\n        op=Not(),\n        operand=Name(id='auth_satisfied', ctx=Load())),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              BinOp(\n                left=Constant(value='No valid authentication found. Details: '),\n                op=Add(),\n                right=Call(\n                  func=Attribute(\n                    value=Constant(value='; '),\n                    attr='join',\n                    ctx=Load()),\n                  args=[\n                    Name(id='auth_error_msgs', ctx=Load())],\n                  keywords=[]))],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='scope', ctx=Load()),\n        ops=[\n          Is()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Raise(\n          exc=Call(\n            func=Name(id='ValueError', ctx=Load()),\n            args=[\n              Constant(value='Missing required path parameter: scope')],\n            keywords=[]))],\n      orelse=[]),\n    If(\n      test=Compare(\n        left=Name(id='api_version', ctx=Load()),\n        ops=[\n          IsNot()],\n        comparators=[\n          Constant(value=None)]),\n      body=[\n        Assign(\n          targets=[\n            Subscript(\n              value=Name(id='params', ctx=Load()),\n              slice=Constant(value='api-version'),\n              ctx=Store())],\n          value=Name(id='api_version', ctx=Load()))],\n      orelse=[]),\n    Try(\n      body=[\n        Assign(\n          targets=[\n            Name(id='resp', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Name(id='url', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='params',\n                value=Name(id='params', ctx=Load())),\n              keyword(\n                arg='headers',\n                value=Name(id='headers', ctx=Load())),\n              keyword(\n                arg='cookies',\n                value=Name(id='cookies', ctx=Load()))])),\n        Expr(\n          value=Call(\n            func=Attribute(\n              value=Name(id='resp', ctx=Load()),\n              attr='raise_for_status',\n              ctx=Load()),\n            args=[],\n            keywords=[])),\n        If(\n          test=Compare(\n            left=Constant(value='application/json'),\n            ops=[\n              In()],\n            comparators=[\n              Call(\n                func=Attribute(\n                  value=Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='headers',\n                    ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='Content-Type'),\n                  Constant(value='')],\n                keywords=[])]),\n          body=[\n            Return(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='resp', ctx=Load()),\n                  attr='json',\n                  ctx=Load()),\n                args=[],\n                keywords=[]))],\n          orelse=[\n            Return(\n              value=Dict(\n                keys=[\n                  Constant(value='raw'),\n                  Constant(value='status_code')],\n                values=[\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='text',\n                    ctx=Load()),\n                  Attribute(\n                    value=Name(id='resp', ctx=Load()),\n                    attr='status_code',\n                    ctx=Load())]))])],\n      handlers=[\n        ExceptHandler(\n          type=Attribute(\n            value=Attribute(\n              value=Name(id='requests', ctx=Load()),\n              attr='exceptions',\n              ctx=Load()),\n            attr='RequestException',\n            ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='HTTP request failed: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))]),\n        ExceptHandler(\n          type=Name(id='Exception', ctx=Load()),\n          name='e',\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  JoinedStr(\n                    values=[\n                      Constant(value='Unexpected error: '),\n                      FormattedValue(\n                        value=Call(\n                          func=Name(id='str', ctx=Load()),\n                          args=[\n                            Name(id='e', ctx=Load())],\n                          keywords=[]),\n                        conversion=-1)])],\n                keywords=[]))])],\n      orelse=[],\n      finalbody=[])],\n  decorator_list=[\n    Call(\n      func=Attribute(\n        value=Name(id='mcp', ctx=Load()),\n        attr='tool',\n        ctx=Load()),\n      args=[],\n      keywords=[\n        keyword(\n          arg='name',\n          value=Constant(value='Insights_Get')),\n        keyword(\n          arg='description',\n          value=Constant(value='Get cost-related insights for the given scope'))])],\n  type_params=[])"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "oasdiff": {
+    "info": {
+      "version": {
+        "from": "2021-06-01-preview",
+        "to": "2023-09-01-preview"
+      }
+    },
+    "paths": {
+      "modified": {
+        "/providers/Microsoft.ResourceGraph/operations": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/OperationsList/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/providers/Microsoft.ResourceGraph/resources": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Access a properties field/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Basic management group query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Basic query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Basic tenant query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Complex query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Filter resources/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/First page query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Next page query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Query with a facet request/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Random page query/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "2021-06-01-preview",
+                        "value": "2023-09-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Summarize resources by location/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "preview",
+  "version_transition": "2021-06-01-preview -> 2023-09-01-preview"
+}

@@ -1,0 +1,226 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": {
+              "description": "Error Response.",
+              "properties": {
+                "error": {
+                  "description": "Error Body contract.",
+                  "properties": {
+                    "code": {
+                      "description": "Service-defined error code. This code serves as a sub-status for the HTTP error code specified in the response.",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "The list of invalid fields send in request, in case of validation error.",
+                      "items": {
+                        "description": "Error Field contract.",
+                        "properties": {
+                          "code": {
+                            "description": "Property level error code.",
+                            "type": "string"
+                          },
+                          "message": {
+                            "description": "Human-readable representation of property-level error.",
+                            "type": "string"
+                          },
+                          "target": {
+                            "description": "Property name.",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array",
+                      "x-ms-identifiers": [
+                        "message",
+                        "target"
+                      ]
+                    },
+                    "message": {
+                      "description": "Human-readable representation of the error.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ErrorResponse"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The name of the API Management gateway config connection.",
+              "in": "path",
+              "maxLength": 30,
+              "minLength": 1,
+              "name": "configConnectionName",
+              "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ConfigConnectionNameParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The name of the API Management gateway.",
+              "in": "path",
+              "maxLength": 45,
+              "minLength": 1,
+              "name": "gatewayName",
+              "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/GatewayNameParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Policy restrictions after an entity level",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "policyRestrictionId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PolicyRestrictionIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Product-API link identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "apiLinkId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ProductApiLinkIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Product-Group link identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "groupLinkId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ProductGroupLinkIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Tag-API link identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "apiLinkId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TagApiLinkIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Tag-operation link identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "operationLinkId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TagOperationLinkIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Tag-product link identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "productLinkId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TagProductLinkIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Workspace identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "workspaceId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/WorkspaceIdParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2022-08-01",
+        "to": "2024-05-01"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "stable",
+  "version_transition": "2022-08-01 -> 2024-05-01"
+}

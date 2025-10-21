@@ -9,7 +9,7 @@ import pickle
 def load_spec(spec_path):
     """Load and resolve OpenAPI specification."""
     try:
-        return ResolvingParser(spec_path, recursion_limit=1000000000).specification
+        return ResolvingParser(spec_path, recursion_limit=50).specification
     except Exception as e:
         raise ValueError(f"Failed to load specification from {spec_path}: {e}")
 

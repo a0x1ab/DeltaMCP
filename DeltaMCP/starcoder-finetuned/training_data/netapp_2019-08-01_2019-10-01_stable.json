@@ -1,0 +1,2417 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Authorize request",
+              "properties": {
+                "remoteVolumeResourceId": {
+                  "description": "Resource id",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/authorizeRequest"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "src",
+              "dst"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/replicationObject/properties/endpointType/enum"
+          },
+          {
+            "oldValue": "src, dst",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/properties/endpointType/example"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/properties/endpointType/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "EndpointType"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/replicationObject/properties/endpointType/x-ms-enum"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The remote region for the other end of the Volume Replication.",
+              "type": "string"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/replicationObject/properties/remoteVolumeRegion"
+          },
+          {
+            "oldValue": "remoteVolumeResourceId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/properties/remoteVolumeResourceId/title"
+          },
+          {
+            "oldValue": "replicationId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/properties/replicationId/title"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "_10minutely",
+              "hourly",
+              "daily"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/replicationObject/properties/replicationSchedule/enum"
+          },
+          {
+            "oldValue": "10minutely, hourly, daily",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/properties/replicationSchedule/example"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/properties/replicationSchedule/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "ReplicationSchedule"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/replicationObject/properties/replicationSchedule/x-ms-enum"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/replicationObject/required/2"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": "replicationSchedule",
+            "op": "replace",
+            "from": "",
+            "path": "/replicationObject/required/0"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Replication status",
+              "properties": {
+                "errorMessage": {
+                  "description": "Displays error message if the replication is in an error state",
+                  "type": "string"
+                },
+                "healthy": {
+                  "description": "Replication health check",
+                  "type": "boolean"
+                },
+                "mirrorState": {
+                  "description": "The status of the replication",
+                  "enum": [
+                    "Uninitialized",
+                    "Mirrored",
+                    "Broken"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "MirrorState"
+                  }
+                },
+                "relationshipStatus": {
+                  "description": "Status of the mirror relationship",
+                  "enum": [
+                    "Idle",
+                    "Transferring"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": true,
+                    "name": "RelationshipStatus"
+                  }
+                },
+                "totalProgress": {
+                  "description": "The progress of the replication",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/replicationStatus"
+          },
+          {
+            "oldValue": "DataProtection volume, can have a replication object",
+            "value": "DataProtection type volumes include an object containing details of the replication",
+            "op": "replace",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/description"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "src",
+              "dst"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+          },
+          {
+            "oldValue": "src, dst",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "EndpointType"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The remote region for the other end of the Volume Replication.",
+              "type": "string"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+          },
+          {
+            "oldValue": "remoteVolumeResourceId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+          },
+          {
+            "oldValue": "replicationId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "_10minutely",
+              "hourly",
+              "daily"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+          },
+          {
+            "oldValue": "10minutely, hourly, daily",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "ReplicationSchedule"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/required/2"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": "replicationSchedule",
+            "op": "replace",
+            "from": "",
+            "path": "/volume/properties/properties/properties/dataProtection/properties/replication/required/0"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Restoring",
+              "type": "boolean"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/isRestoring"
+          },
+          {
+            "oldValue": null,
+            "value": true,
+            "op": "add",
+            "from": "",
+            "path": "/volume/properties/properties/properties/mountTargets/readOnly"
+          },
+          {
+            "oldValue": "Set of protocol types",
+            "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+            "op": "replace",
+            "from": "",
+            "path": "/volume/properties/properties/properties/protocolTypes/description"
+          },
+          {
+            "oldValue": "DataProtection volume, can have a replication object",
+            "value": "DataProtection type volumes include an object containing details of the replication",
+            "op": "replace",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/description"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "src",
+              "dst"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+          },
+          {
+            "oldValue": "src, dst",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "EndpointType"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The remote region for the other end of the Volume Replication.",
+              "type": "string"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+          },
+          {
+            "oldValue": "remoteVolumeResourceId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+          },
+          {
+            "oldValue": "replicationId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "_10minutely",
+              "hourly",
+              "daily"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+          },
+          {
+            "oldValue": "10minutely, hourly, daily",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "ReplicationSchedule"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/required/2"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": "replicationSchedule",
+            "op": "replace",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/dataProtection/properties/replication/required/0"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Restoring",
+              "type": "boolean"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/isRestoring"
+          },
+          {
+            "oldValue": null,
+            "value": true,
+            "op": "add",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/mountTargets/readOnly"
+          },
+          {
+            "oldValue": "Set of protocol types",
+            "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+            "op": "replace",
+            "from": "",
+            "path": "/volumeList/properties/value/items/properties/properties/properties/protocolTypes/description"
+          },
+          {
+            "oldValue": "DataProtection volume, can have a replication object",
+            "value": "DataProtection type volumes include an object containing details of the replication",
+            "op": "replace",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/description"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "src",
+              "dst"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+          },
+          {
+            "oldValue": "src, dst",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/endpointType/example"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/endpointType/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "EndpointType"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "The remote region for the other end of the Volume Replication.",
+              "type": "string"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+          },
+          {
+            "oldValue": "remoteVolumeResourceId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+          },
+          {
+            "oldValue": "replicationId",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/replicationId/title"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "_10minutely",
+              "hourly",
+              "daily"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+          },
+          {
+            "oldValue": "10minutely, hourly, daily",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "modelAsString": true,
+              "name": "ReplicationSchedule"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+          },
+          {
+            "oldValue": "replicationSchedule",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/required/2"
+          },
+          {
+            "oldValue": "endpointType",
+            "value": "replicationSchedule",
+            "op": "replace",
+            "from": "",
+            "path": "/volumeProperties/properties/dataProtection/properties/replication/required/0"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Restoring",
+              "type": "boolean"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/isRestoring"
+          },
+          {
+            "oldValue": null,
+            "value": true,
+            "op": "add",
+            "from": "",
+            "path": "/volumeProperties/properties/mountTargets/readOnly"
+          },
+          {
+            "oldValue": "Set of protocol types",
+            "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+            "op": "replace",
+            "from": "",
+            "path": "/volumeProperties/properties/protocolTypes/description"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": "2019-08-01",
+            "value": "2019-10-01",
+            "op": "replace",
+            "from": "",
+            "path": "/ApiVersionParameter/default"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2019-08-01",
+        "to": "2019-10-01"
+      }
+    },
+    "paths": {
+      "added": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/replicationStatus",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/authorizeReplication",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/breakReplication",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/resyncReplication",
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/deleteReplication"
+      ],
+      "modified": {
+        "/providers/Microsoft.NetApp/operations": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/checkFilePathAvailability": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/CheckFilePathAvailability/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "tags": {
+                  "added": [
+                    "NetApp Resource"
+                  ]
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/checkNameAvailability": {
+          "operations": {
+            "modified": {
+              "POST": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/CheckNameAvailability/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "tags": {
+                  "added": [
+                    "NetApp Resource"
+                  ]
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Delete/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Update/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_CreateOrUpdate/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Delete/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Update/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_CreateOrUpdate/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "DataProtection volume, can have a replication object",
+                              "value": "DataProtection type volumes include an object containing details of the replication",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "src",
+                                "dst"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+                            },
+                            {
+                              "oldValue": "src, dst",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "EndpointType"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The remote region for the other end of the Volume Replication.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+                            },
+                            {
+                              "oldValue": "remoteVolumeResourceId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+                            },
+                            {
+                              "oldValue": "replicationId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "_10minutely",
+                                "hourly",
+                                "daily"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+                            },
+                            {
+                              "oldValue": "10minutely, hourly, daily",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ReplicationSchedule"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/required/2"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": "replicationSchedule",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection/properties/replication/required/0"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/mountTargets/readOnly"
+                            },
+                            {
+                              "oldValue": "Set of protocol types",
+                              "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/protocolTypes/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Delete/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "DataProtection volume, can have a replication object",
+                              "value": "DataProtection type volumes include an object containing details of the replication",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "src",
+                                "dst"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+                            },
+                            {
+                              "oldValue": "src, dst",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "EndpointType"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The remote region for the other end of the Volume Replication.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+                            },
+                            {
+                              "oldValue": "remoteVolumeResourceId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+                            },
+                            {
+                              "oldValue": "replicationId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "_10minutely",
+                                "hourly",
+                                "daily"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+                            },
+                            {
+                              "oldValue": "10minutely, hourly, daily",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ReplicationSchedule"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/2"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": "replicationSchedule",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/0"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/mountTargets/readOnly"
+                            },
+                            {
+                              "oldValue": "Set of protocol types",
+                              "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/protocolTypes/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Update/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "DataProtection volume, can have a replication object",
+                              "value": "DataProtection type volumes include an object containing details of the replication",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "src",
+                                "dst"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+                            },
+                            {
+                              "oldValue": "src, dst",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "EndpointType"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The remote region for the other end of the Volume Replication.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+                            },
+                            {
+                              "oldValue": "remoteVolumeResourceId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+                            },
+                            {
+                              "oldValue": "replicationId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "_10minutely",
+                                "hourly",
+                                "daily"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+                            },
+                            {
+                              "oldValue": "10minutely, hourly, daily",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ReplicationSchedule"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/2"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": "replicationSchedule",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/0"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/mountTargets/readOnly"
+                            },
+                            {
+                              "oldValue": "Set of protocol types",
+                              "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/protocolTypes/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_CreateOrUpdate/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "body": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "added": [
+                                    "isRestoring"
+                                  ],
+                                  "modified": {
+                                    "dataProtection": {
+                                      "description": {
+                                        "from": "DataProtection volume, can have a replication object",
+                                        "to": "DataProtection type volumes include an object containing details of the replication"
+                                      },
+                                      "properties": {
+                                        "modified": {
+                                          "replication": {
+                                            "required": {
+                                              "deleted": [
+                                                "endpointType"
+                                              ]
+                                            },
+                                            "properties": {
+                                              "added": [
+                                                "remoteVolumeRegion"
+                                              ],
+                                              "modified": {
+                                                "endpointType": {
+                                                  "extensions": {
+                                                    "added": [
+                                                      "x-ms-enum"
+                                                    ]
+                                                  },
+                                                  "title": {
+                                                    "from": "endpointType",
+                                                    "to": ""
+                                                  },
+                                                  "enum": {
+                                                    "enumAdded": true,
+                                                    "added": [
+                                                      "src",
+                                                      "dst"
+                                                    ]
+                                                  },
+                                                  "example": {
+                                                    "from": "src, dst",
+                                                    "to": null
+                                                  }
+                                                },
+                                                "remoteVolumeResourceId": {
+                                                  "title": {
+                                                    "from": "remoteVolumeResourceId",
+                                                    "to": ""
+                                                  }
+                                                },
+                                                "replicationId": {
+                                                  "title": {
+                                                    "from": "replicationId",
+                                                    "to": ""
+                                                  }
+                                                },
+                                                "replicationSchedule": {
+                                                  "extensions": {
+                                                    "added": [
+                                                      "x-ms-enum"
+                                                    ]
+                                                  },
+                                                  "title": {
+                                                    "from": "replicationSchedule",
+                                                    "to": ""
+                                                  },
+                                                  "enum": {
+                                                    "enumAdded": true,
+                                                    "added": [
+                                                      "_10minutely",
+                                                      "hourly",
+                                                      "daily"
+                                                    ]
+                                                  },
+                                                  "example": {
+                                                    "from": "10minutely, hourly, daily",
+                                                    "to": null
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "mountTargets": {
+                                      "readOnly": {
+                                        "from": false,
+                                        "to": true
+                                      }
+                                    },
+                                    "protocolTypes": {
+                                      "description": {
+                                        "from": "Set of protocol types",
+                                        "to": "Set of protocol types, default NFSv3, CIFS for SMB protocol"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "DataProtection volume, can have a replication object",
+                              "value": "DataProtection type volumes include an object containing details of the replication",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "src",
+                                "dst"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+                            },
+                            {
+                              "oldValue": "src, dst",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "EndpointType"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The remote region for the other end of the Volume Replication.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+                            },
+                            {
+                              "oldValue": "remoteVolumeResourceId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+                            },
+                            {
+                              "oldValue": "replicationId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "_10minutely",
+                                "hourly",
+                                "daily"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+                            },
+                            {
+                              "oldValue": "10minutely, hourly, daily",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ReplicationSchedule"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/2"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": "replicationSchedule",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/0"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/mountTargets/readOnly"
+                            },
+                            {
+                              "oldValue": "Set of protocol types",
+                              "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/protocolTypes/description"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "201": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "DataProtection volume, can have a replication object",
+                              "value": "DataProtection type volumes include an object containing details of the replication",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "src",
+                                "dst"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/enum"
+                            },
+                            {
+                              "oldValue": "src, dst",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/example"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "EndpointType"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/endpointType/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The remote region for the other end of the Volume Replication.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeRegion"
+                            },
+                            {
+                              "oldValue": "remoteVolumeResourceId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/remoteVolumeResourceId/title"
+                            },
+                            {
+                              "oldValue": "replicationId",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationId/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "_10minutely",
+                                "hourly",
+                                "daily"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/enum"
+                            },
+                            {
+                              "oldValue": "10minutely, hourly, daily",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/example"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ReplicationSchedule"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/properties/replicationSchedule/x-ms-enum"
+                            },
+                            {
+                              "oldValue": "replicationSchedule",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/2"
+                            },
+                            {
+                              "oldValue": "endpointType",
+                              "value": "replicationSchedule",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection/properties/replication/required/0"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/mountTargets/readOnly"
+                            },
+                            {
+                              "oldValue": "Set of protocol types",
+                              "value": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/protocolTypes/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/mountTargets": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/MountTargets_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}": {
+          "operations": {
+            "modified": {
+              "DELETE": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Delete/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Update/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PUT": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2019-08-01",
+                        "value": "2019-10-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Create/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "query": {
+                      "api-version": {
+                        "extensions": {
+                          "modified": {
+                            "default": [
+                              {
+                                "oldValue": "2019-08-01",
+                                "value": "2019-10-01",
+                                "op": "replace",
+                                "from": "",
+                                "path": ""
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "stable",
+  "version_transition": "2019-08-01 -> 2019-10-01"
+}

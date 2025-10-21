@@ -113,28 +113,42 @@ def is_tool_affected_by_changes(tool_name, changed_paths):
         return True
     
     tool_name_lower = tool_name.lower()
-    if isinstance(changed_paths, dict):
-        paths_to_check = []
-        if 'paths' in changed_paths:
-            for path, changes in changed_paths['paths'].items():
-                paths_to_check.append(path)
-        else:
-            for key, value in changed_paths.items():
-                if isinstance(value, (str, list)):
-                    paths_to_check.extend([key] + (value if isinstance(value, list) else [value]))
-    elif isinstance(changed_paths, list):
-        paths_to_check = changed_paths
-    else:
-        paths_to_check = [str(changed_paths)]
+    for path in changed_paths:
+        path_lower = path.lower()
+        if any(part in tool_name_lower for part in path_lower.split('/')):
+            return True
     
-    for path in paths_to_check:
-        path_str = str(path).lower()
-        path_parts = path_str.replace('/', ' ').replace('-', ' ').replace('_', ' ').split()
-        
-        for part in path_parts:
-            if len(part) > 2 and part in tool_name_lower:
-                return True
     return False
+
+def parse_version_date(version_str):
+    """Parse version string to datetime for sorting."""
+    try:
+        return datetime.strptime(version_str, "%Y-%m-%d")
+    except ValueError:
+        try:
+            return datetime.strptime(version_str, "%Y-%m-%d-preview")
+        except ValueError:
+            return datetime.min
+
+def get_consecutive_version_pairs(versions):
+    """Get consecutive version pairs for proper API evolution tracking."""
+    if len(versions) < 2:
+        return []
+    sorted_versions = sorted(versions, key=parse_version_date)
+    pairs = []
+    for i in range(len(sorted_versions) - 1):
+        pairs.append((sorted_versions[i], sorted_versions[i + 1]))
+    return pairs
+
+def has_valid_oasdiff(diff):
+    """Check if the oasdiff output is valid and contains meaningful changes."""
+    if not isinstance(diff, dict):
+        return False
+    if "error" in diff:
+        return False
+    if not diff.get("paths") and not diff.get("extensions"):
+        return False
+    return True
 
 def convert_function_to_ast(func_source):
     try:
@@ -167,7 +181,7 @@ def process_version_pair(args):
     sys.path.insert(0, str(script_dir.parent))
     import helpers
     
-    service, version_a, version_b = args
+    service, version_a, version_b, api_type = args
     
     workspace_root = Path(__file__).resolve().parent.parent.parent
     specs_dir = workspace_root / "azure-rest-api-specs" / "specification"
@@ -185,10 +199,10 @@ def process_version_pair(args):
         return
     
     provider_dir = provider_dirs[0]
-    stable_dir = provider_dir / "stable"
+    api_dir = provider_dir / api_type  # 'stable' or 'preview'
     
-    version_a_dir = stable_dir / version_a
-    version_b_dir = stable_dir / version_b
+    version_a_dir = api_dir / version_a
+    version_b_dir = api_dir / version_b
     
     spec_a_files = list(version_a_dir.glob("*.json"))
     spec_b_files = list(version_b_dir.glob("*.json"))
@@ -199,9 +213,8 @@ def process_version_pair(args):
     try:
         diff = helpers.compare_specs(str(spec_a_files[0]), str(spec_b_files[0]))
         
-        # Skip if oasdiff failed
-        if isinstance(diff, dict) and 'error' in diff:
-            logging.warning(f"Skipping {service} {version_a}->{version_b}: oasdiff error - {diff['error'][:100]}...")
+        if not has_valid_oasdiff(diff):
+            logging.warning(f"Skipping {service} {version_a}->{version_b} ({api_type}): invalid oasdiff")
             return
         
         stub_a = generate_stub(runner, str(spec_a_files[0]), data_dir, version_a, service)
@@ -238,14 +251,14 @@ def process_version_pair(args):
             "tools_b": ast_functions_b
         }
         
-        logging.info(f"Generated {service} {version_a}->{version_b}: {len(ast_functions_a)} tools A, {len(ast_functions_b)} tools B")
+        logging.info(f"Generated {service} {version_a}->{version_b} ({api_type}): {len(ast_functions_a)} tools A, {len(ast_functions_b)} tools B")
         
-        output_file = data_dir / f"{service}_{version_a}_{version_b}.json"
+        output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}.json"
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(training_sample, f, indent=2, ensure_ascii=False)
             
     except Exception as e:
-        error_msg = f"Failed processing {service} {version_a}->{version_b}: {str(e)}"
+        error_msg = f"Failed processing {service} {version_a}->{version_b} ({api_type}): {str(e)}"
         logging.error(error_msg)
         logging.error(traceback.format_exc())
     finally:
@@ -293,15 +306,27 @@ def main():
             continue
         
         provider_dir = provider_dirs[0]
-        stable_dir = provider_dir / "stable"
         
-        if not stable_dir.exists():
-            continue
-        
-        versions = sorted([v for v in stable_dir.iterdir() if v.is_dir()], key=lambda x: x.name)
-        
-        for i in range(len(versions) - 1):
-            version_pairs.append((service_name, versions[i].name, versions[i + 1].name))
+        # Process both stable and preview APIs
+        for api_type in ['stable', 'preview']:
+            api_dir = provider_dir / api_type
+            
+            if not api_dir.exists():
+                continue
+            
+            # Get all version directories
+            version_dirs = [v for v in api_dir.iterdir() if v.is_dir() and not v.name.startswith('.')]
+            version_names = [v.name for v in version_dirs]
+            
+            if len(version_names) < 2:
+                continue
+            
+            # Get consecutive version pairs
+            consecutive_pairs = get_consecutive_version_pairs(version_names)
+            
+            # Add to processing queue with api_type
+            for version_a, version_b in consecutive_pairs:
+                version_pairs.append((service_name, version_a, version_b, api_type))
     
     if version_pairs:
         logging.info(f"Processing {len(version_pairs)} version pairs in parallel")

@@ -1,0 +1,74 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Identity for the resource.",
+              "properties": {
+                "principalId": {
+                  "description": "The principal id of the system assigned identity. This property will only be provided for a system assigned identity.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "tenantId": {
+                  "description": "The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.",
+                  "readOnly": true,
+                  "type": "string"
+                },
+                "type": {
+                  "description": "The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.",
+                  "enum": [
+                    "SystemAssigned",
+                    "UserAssigned",
+                    "SystemAssigned, UserAssigned",
+                    "None"
+                  ],
+                  "type": "string",
+                  "x-ms-enum": {
+                    "modelAsString": false,
+                    "name": "ResourceIdentityType"
+                  }
+                },
+                "userAssignedIdentities": {
+                  "additionalProperties": {
+                    "properties": {
+                      "clientId": {
+                        "description": "The client id of user assigned identity.",
+                        "readOnly": true,
+                        "type": "string"
+                      },
+                      "principalId": {
+                        "description": "The principal id of user assigned identity.",
+                        "readOnly": true,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "description": "The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.",
+                  "type": "object"
+                }
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ManagedServiceIdentity"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2018-08-01",
+        "to": "2018-10-01"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "stable",
+  "version_transition": "2018-08-01 -> 2018-10-01"
+}

@@ -1,0 +1,52 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "parameters": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Client Application identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 256,
+              "minLength": 1,
+              "name": "clientApplicationId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ClientApplicationIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Client Application Product Link identifier. Must be unique in the current API Management service instance.",
+              "in": "path",
+              "maxLength": 256,
+              "minLength": 1,
+              "name": "clientApplicationProductLinkId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ClientApplicationProductLinkIdParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2024-06-01-preview",
+        "to": "2024-10-01-preview"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "preview",
+  "version_transition": "2024-06-01-preview -> 2024-10-01-preview"
+}

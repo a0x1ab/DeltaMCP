@@ -1,0 +1,58 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": "Status of the Azure async operation. Possible values are: 'InProgress', 'Succeeded', and 'Failed'.",
+            "value": "Status of the Azure async operation.",
+            "op": "replace",
+            "from": "",
+            "path": "/AzureAsyncOperationResult/properties/status/description"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Client API version.",
+              "enum": [
+                "2017-03-30"
+              ],
+              "in": "query",
+              "name": "api-version",
+              "required": true,
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "ApiVersion"
+              }
+            },
+            "op": "add",
+            "from": "",
+            "path": "/ApiVersionVmssParameter"
+          }
+        ],
+        "securityDefinitions": [
+          {
+            "oldValue": "Azure Active Directory OAuth2 Flow",
+            "value": "Azure Active Directory OAuth2 Flow.",
+            "op": "replace",
+            "from": "",
+            "path": "/azure_auth/description"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2019-02-01",
+        "to": "2019-04-01"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "stable",
+  "version_transition": "2019-02-01 -> 2019-04-01"
+}

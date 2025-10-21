@@ -1,0 +1,117 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "definitions": [
+          {
+            "oldValue": null,
+            "value": [
+              "message",
+              "target"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/ErrorResponse/properties/error/properties/details/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "message",
+              "target"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/ErrorResponseBody/properties/details/x-ms-identifiers"
+          },
+          {
+            "oldValue": null,
+            "value": [
+              "name"
+            ],
+            "op": "add",
+            "from": "",
+            "path": "/RegionListResult/properties/value/x-ms-identifiers"
+          }
+        ],
+        "parameters": [
+          {
+            "oldValue": null,
+            "value": {
+              "description": "A resource identifier.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "id",
+              "pattern": "(^[\\w]+$)|(^[\\w][\\w\\-]+[\\w]$)",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/IdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "default": "xml",
+              "description": "Policy fragment content format.",
+              "enum": [
+                "xml",
+                "rawxml"
+              ],
+              "in": "query",
+              "name": "format",
+              "required": false,
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "PolicyFragmentContentFormat",
+                "values": [
+                  {
+                    "description": "The contents are inline and Content type is an XML document.",
+                    "value": "xml"
+                  },
+                  {
+                    "description": "The contents are inline and Content type is a non XML encoded policy document.",
+                    "value": "rawxml"
+                  }
+                ]
+              },
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PolicyFragmentContentFormat"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Portal configuration identifier.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "portalConfigId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PortalConfigIdParameter"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2021-04-01-preview",
+        "to": "2021-12-01-preview"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "preview",
+  "version_transition": "2021-04-01-preview -> 2021-12-01-preview"
+}

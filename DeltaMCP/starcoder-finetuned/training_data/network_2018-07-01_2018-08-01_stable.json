@@ -1,0 +1,14 @@
+{
+  "oasdiff": {
+    "info": {
+      "version": {
+        "from": "2018-07-01",
+        "to": "2018-08-01"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "stable",
+  "version_transition": "2018-07-01 -> 2018-08-01"
+}

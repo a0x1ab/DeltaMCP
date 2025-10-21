@@ -1,0 +1,176 @@
+{
+  "oasdiff": {
+    "extensions": {
+      "modified": {
+        "parameters": [
+          {
+            "oldValue": "^[^*#&+:<>?]+$",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ApiIdParameter/pattern"
+          },
+          {
+            "oldValue": "^[^*#&+:<>?]+$",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/BackendIdParameter/pattern"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "hcId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/GatewayHostnameConfigurationIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "gatewayId",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/GatewayIdParameter"
+          },
+          {
+            "oldValue": "^[^*#&+:<>?]+$",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/GroupIdParameter/pattern"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Identifier of the NamedValue.",
+              "in": "path",
+              "maxLength": 256,
+              "name": "namedValueId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/NamedValueIdParameter"
+          },
+          {
+            "oldValue": "^[^*#&+:<>?]+$",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/OperationIdParameter/pattern"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "default": "xml",
+              "description": "Policy Export Format.",
+              "enum": [
+                "xml",
+                "rawxml"
+              ],
+              "in": "query",
+              "name": "format",
+              "required": false,
+              "type": "string",
+              "x-ms-enum": {
+                "modelAsString": true,
+                "name": "PolicyExportFormat",
+                "values": [
+                  {
+                    "description": "The contents are inline and Content type is an XML document.",
+                    "value": "xml"
+                  },
+                  {
+                    "description": "The contents are inline and Content type is a non XML encoded policy document.",
+                    "value": "rawxml"
+                  }
+                ]
+              },
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/PolicyExportFormat"
+          },
+          {
+            "oldValue": "^[^*#&+:<>?]+$",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/ProductIdParameter/pattern"
+          },
+          {
+            "oldValue": {
+              "description": "Identifier of the property.",
+              "in": "path",
+              "maxLength": 256,
+              "name": "propId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/PropertyIdParameter"
+          },
+          {
+            "oldValue": null,
+            "value": {
+              "description": "Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.",
+              "in": "path",
+              "maxLength": 80,
+              "minLength": 1,
+              "name": "tagDescriptionId",
+              "pattern": "^[^*#&+:<>?]+$",
+              "required": true,
+              "type": "string",
+              "x-ms-parameter-location": "method"
+            },
+            "op": "add",
+            "from": "",
+            "path": "/TagDescriptionIdParameter"
+          },
+          {
+            "oldValue": "^[^*#&+:<>?]+$",
+            "value": null,
+            "op": "remove",
+            "from": "",
+            "path": "/UserIdParameter/pattern"
+          }
+        ]
+      }
+    },
+    "info": {
+      "version": {
+        "from": "2018-06-01-preview",
+        "to": "2019-12-01-preview"
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {},
+  "api_type": "preview",
+  "version_transition": "2018-06-01-preview -> 2019-12-01-preview"
+}
