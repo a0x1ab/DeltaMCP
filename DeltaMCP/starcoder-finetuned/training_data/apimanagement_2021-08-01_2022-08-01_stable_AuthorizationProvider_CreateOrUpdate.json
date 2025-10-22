@@ -1,0 +1,163 @@
+{
+  "oasdiff": {
+    "paths": {
+      "added": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders": {
+          "operations": {
+            "added": {
+              "get": {
+                "tags": [
+                  "AuthorizationProvider"
+                ],
+                "operationId": "AuthorizationProvider_ListByService",
+                "description": "Lists a collection of authorization providers defined within a service instance.",
+                "x-ms-examples": {
+                  "ApiManagementListAuthorizationProviders": {
+                    "$ref": "./examples/ApiManagementListAuthorizationProviders.json"
+                  }
+                },
+                "parameters": [
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+                  },
+                  {
+                    "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
+                  },
+                  {
+                    "name": "$filter",
+                    "in": "query",
+                    "required": false,
+                    "type": "string",
+                    "description": "|     Field     |     Usage     |     Supported operators     |     Supported functions     |</br>|-------------|-------------|-------------|-------------|</br>| name | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>| displayName | filter | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |</br>"
+                  },
+                  {
+                    "$ref": "./apimanagement.json#/parameters/TopQueryParameter"
+                  },
+                  {
+                    "$ref": "./apimanagement.json#/parameters/SkipQueryParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "A Collection of the Authorization Provider entities for the specified API Management service instance.",
+                    "schema": {
+                      "$ref": "./definitions.json#/definitions/AuthorizationProviderCollection"
+                    }
+                  },
+                  "default": {
+                    "description": "Error response describing why the operation failed.",
+                    "schema": {
+                      "$ref": "./apimanagement.json#/definitions/ErrorResponse"
+                    }
+                  }
+                },
+                "x-ms-pageable": {
+                  "nextLinkName": "nextLink"
+                },
+                "x-ms-odata": "./definitions.json#/definitions/AuthorizationProviderContract"
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/authorizationProviders/{authorizationProviderId}": {
+          "operations": {
+            "added": {
+              "put": {
+                "tags": [
+                  "AuthorizationProvider"
+                ],
+                "operationId": "AuthorizationProvider_CreateOrUpdate",
+                "description": "Creates or updates authorization provider.",
+                "x-ms-examples": {
+                  "ApiManagementCreateAuthorizationProviderAADAuthCode": {
+                    "$ref": "./examples/ApiManagementCreateAuthorizationProviderAADAuthCode.json"
+                  },
+                  "ApiManagementCreateAuthorizationProviderAADClientCred": {
+                    "$ref": "./examples/ApiManagementCreateAuthorizationProviderAADClientCred.json"
+                  },
+                  "ApiManagementCreateAuthorizationProviderGenericOAuth2": {
+                    "$ref": "./examples/ApiManagementCreateAuthorizationProviderGenericOAuth2.json"
+                  },
+                  "ApiManagementCreateAuthorizationProviderOOBGoogle": {
+                    "$ref": "./examples/ApiManagementCreateAuthorizationProviderOOBGoogle.json"
+                  }
+                },
+                "parameters": [
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+                  },
+                  {
+                    "$ref": "./apimanagement.json#/parameters/ServiceNameParameter"
+                  },
+                  {
+                    "$ref": "./apimanagement.json#/parameters/AuthorizationProviderIdParameter"
+                  },
+                  {
+                    "name": "parameters",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "./definitions.json#/definitions/AuthorizationProviderContract"
+                    },
+                    "description": "Create parameters."
+                  },
+                  {
+                    "$ref": "./apimanagement.json#/parameters/IfMatchOptionalParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "201": {
+                    "description": "Authorization provider was successfully created.",
+                    "schema": {
+                      "$ref": "./definitions.json#/definitions/AuthorizationProviderContract"
+                    },
+                    "headers": {
+                      "ETag": {
+                        "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "200": {
+                    "description": "The existing Authorization provider was successfully updated.",
+                    "schema": {
+                      "$ref": "./definitions.json#/definitions/AuthorizationProviderContract"
+                    },
+                    "headers": {
+                      "ETag": {
+                        "description": "Current entity state version. Should be treated as opaque and used to make conditional HTTP requests.",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "default": {
+                    "description": "Error response describing why the operation failed.",
+                    "schema": {
+                      "$ref": "./apimanagement.json#/definitions/ErrorResponse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {
+    "AuthorizationProvider_CreateOrUpdate": "FunctionDef(name='AuthorizationProvider_CreateOrUpdate', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='serviceName', annotation=Name(id='str', ctx=Load())), arg(arg='authorizationProviderId', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='Creates or updates authorization provider.')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.ApiManagement/service/'), FormattedValue(value=Name(id='serviceName', ctx=Load()), conversion=-1), Constant(value='/authorizationProviders/'), FormattedValue(value=Name(id='authorizationProviderId', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='serviceName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: serviceName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='authorizationProviderId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: authorizationProviderId')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='put', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='AuthorizationProvider_CreateOrUpdate')), keyword(arg='description', value=Constant(value='Creates or updates authorization provider.'))])])"
+  }
+}

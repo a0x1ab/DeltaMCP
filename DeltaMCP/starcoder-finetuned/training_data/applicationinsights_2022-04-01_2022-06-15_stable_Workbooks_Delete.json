@@ -1,0 +1,113 @@
+{
+  "oasdiff": {
+    "paths": {
+      "deleted": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks": {
+          "operations": {
+            "deleted": {
+              "get": {
+                "description": "Get all Workbooks defined within a specified resource group and category.",
+                "operationId": "Workbooks_ListByResourceGroup",
+                "parameters": [
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/CategoryParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/TagsParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SourceIdParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/CanFetchWorkbookContentParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "A list containing 0 or more workbook definitions.",
+                    "schema": {
+                      "$ref": "#/definitions/WorkbooksListResult"
+                    }
+                  },
+                  "default": {
+                    "description": "Error response describing why the operation failed.",
+                    "schema": {
+                      "$ref": "#/definitions/WorkbookError"
+                    }
+                  }
+                },
+                "x-ms-pageable": {
+                  "nextLinkName": "nextLink"
+                },
+                "x-ms-examples": {
+                  "WorkbooksList": {
+                    "$ref": "./examples/WorkbooksList.json"
+                  },
+                  "WorkbooksManagedList": {
+                    "$ref": "./examples/WorkbooksManagedList.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/workbooks/{resourceName}": {
+          "operations": {
+            "deleted": {
+              "delete": {
+                "description": "Delete a workbook.",
+                "operationId": "Workbooks_Delete",
+                "parameters": [
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ResourceGroupNameParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/WorkbookResourceNamePropertyParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "The workbook has been successfully deleted."
+                  },
+                  "204": {
+                    "description": "The resource doesn't exist."
+                  },
+                  "default": {
+                    "description": "Error response describing why the operation failed.",
+                    "schema": {
+                      "$ref": "#/definitions/WorkbookError"
+                    }
+                  }
+                },
+                "x-ms-examples": {
+                  "WorkbookDelete": {
+                    "$ref": "./examples/WorkbookDelete.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {
+    "Workbooks_Delete": "FunctionDef(name='Workbooks_Delete', args=arguments(posonlyargs=[], args=[arg(arg='resourceName', annotation=Name(id='str', ctx=Load())), arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='Delete a workbook.')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.Insights/workbooks/'), FormattedValue(value=Name(id='resourceName', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='delete', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='Workbooks_Delete')), keyword(arg='description', value=Constant(value='Delete a workbook.'))])])"
+  },
+  "tools_b": {}
+}

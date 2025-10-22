@@ -1,0 +1,289 @@
+{
+  "oasdiff": {
+    "paths": {
+      "added": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/regenerateKey": {
+          "operations": {
+            "added": {
+              "post": {
+                "tags": [
+                  "StorageAccounts"
+                ],
+                "operationId": "StorageAccounts_RegenerateKey",
+                "description": "Regenerates one of the access keys for the specified storage account.",
+                "parameters": [
+                  {
+                    "name": "resourceGroupName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the resource group within the user's subscription."
+                  },
+                  {
+                    "name": "accountName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+                    "maxLength": 24,
+                    "minLength": 3
+                  },
+                  {
+                    "name": "regenerateKey",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccountRegenerateKeyParameters"
+                    },
+                    "description": "Specifies name of the key which should be regenerated -- key1 or key2."
+                  },
+                  {
+                    "$ref": "#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- specified key regenerated successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccountListKeysResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts": {
+          "operations": {
+            "added": {
+              "get": {
+                "tags": [
+                  "StorageAccounts"
+                ],
+                "operationId": "StorageAccounts_ListByResourceGroup",
+                "description": "Lists all the storage accounts available under the given resource group. Note that storage keys are not returned; use the ListKeys operation for this.",
+                "parameters": [
+                  {
+                    "name": "resourceGroupName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the resource group within the user's subscription."
+                  },
+                  {
+                    "$ref": "#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- List of storage accounts in the given resource group retrieved and returned successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccountListResult"
+                    }
+                  }
+                },
+                "x-ms-pageable": {
+                  "nextLinkName": null
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}": {
+          "operations": {
+            "added": {
+              "put": {
+                "tags": [
+                  "StorageAccounts"
+                ],
+                "operationId": "StorageAccounts_Create",
+                "description": "Asynchronously creates a new storage account with the specified parameters. If an account is already created and a subsequent create request is issued with different properties, the account properties will be updated. If an account is already created and a subsequent create or update request is issued with the exact same set of properties, the request will succeed.",
+                "parameters": [
+                  {
+                    "name": "resourceGroupName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the resource group within the user's subscription."
+                  },
+                  {
+                    "name": "accountName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+                    "maxLength": 24,
+                    "minLength": 3
+                  },
+                  {
+                    "name": "parameters",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccountCreateParameters"
+                    },
+                    "description": "The parameters to provide for the created account."
+                  },
+                  {
+                    "$ref": "#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- returned when the storage account was already created from a previous request with the same properties specified in the request body.",
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccount"
+                    }
+                  },
+                  "202": {
+                    "description": "Accepted -- Create or update request accepted; operation will complete asynchronously."
+                  }
+                },
+                "x-ms-long-running-operation": true
+              },
+              "delete": {
+                "tags": [
+                  "StorageAccounts"
+                ],
+                "operationId": "StorageAccounts_Delete",
+                "description": "Deletes a storage account in Microsoft Azure.",
+                "parameters": [
+                  {
+                    "name": "resourceGroupName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the resource group within the user's subscription."
+                  },
+                  {
+                    "name": "accountName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+                    "maxLength": 24,
+                    "minLength": 3
+                  },
+                  {
+                    "$ref": "#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- storage account deleted successfully."
+                  },
+                  "204": {
+                    "description": "NoContent -- account does not exist in the subscription."
+                  }
+                }
+              },
+              "get": {
+                "tags": [
+                  "StorageAccounts"
+                ],
+                "operationId": "StorageAccounts_GetProperties",
+                "description": "Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.",
+                "parameters": [
+                  {
+                    "name": "resourceGroupName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the resource group within the user's subscription."
+                  },
+                  {
+                    "name": "accountName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
+                    "maxLength": 24,
+                    "minLength": 3
+                  },
+                  {
+                    "$ref": "#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- properties retrieved successfully for the storage account.",
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccount"
+                    }
+                  }
+                }
+              },
+              "patch": {
+                "tags": [
+                  "StorageAccounts"
+                ],
+                "operationId": "StorageAccounts_Update",
+                "description": "The update operation can be used to update the SKU, encryption, access tier, or tags for a storage account. It can also be used to map the account to a custom domain. Only one custom domain is supported per storage account; the replacement/change of custom domain is not supported. In order to replace an old custom domain, the old value must be cleared/unregistered before a new value can be set. The update of multiple properties is supported. This call does not change the storage keys for the account. If you want to change the storage account keys, use the regenerate keys operation. The location and name of the storage account cannot be changed after creation.",
+                "parameters": [
+                  {
+                    "name": "resourceGroupName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the resource group within the user's subscription."
+                  },
+                  {
+                    "name": "accountName",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+                    "maxLength": 24,
+                    "minLength": 3
+                  },
+                  {
+                    "name": "parameters",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccountUpdateParameters"
+                    },
+                    "description": "The parameters to provide for the updated account."
+                  },
+                  {
+                    "$ref": "#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- storage account properties updated successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/StorageAccount"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {
+    "StorageAccounts_RegenerateKey": "FunctionDef(name='StorageAccounts_RegenerateKey', args=arguments(posonlyargs=[], args=[arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='api_version', annotation=Subscript(value=Name(id='Optional', ctx=Load()), slice=Name(id='str', ctx=Load()), ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[Constant(value=None)]), body=[Expr(value=Constant(value='Regenerates one of the access keys for the specified storage account.')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.Storage/storageAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/regenerateKey')])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='api_version', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]), body=[Assign(targets=[Subscript(value=Name(id='params', ctx=Load()), slice=Constant(value='api-version'), ctx=Store())], value=Name(id='api_version', ctx=Load()))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='post', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='StorageAccounts_RegenerateKey')), keyword(arg='description', value=Constant(value='Regenerates one of the access keys for the specified storage account.'))])])"
+  }
+}

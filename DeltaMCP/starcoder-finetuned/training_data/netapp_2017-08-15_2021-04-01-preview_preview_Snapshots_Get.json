@@ -1,0 +1,3507 @@
+{
+  "oasdiff": {
+    "paths": {
+      "modified": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_List/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_List/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_List/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_List/responses/200/body/value/0/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_List/responses/200/body/value/0/name"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_List/responses/200/body/value/0/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_List/responses/200/body/value/0/type"
+                      }
+                    ],
+                    "x-ms-pageable": [
+                      {
+                        "oldValue": null,
+                        "value": "nextLink",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/nextLinkName"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe all NetApp Accounts in a resource group"
+                },
+                "description": {
+                  "from": "Lists all NetApp accounts in the resource group",
+                  "to": "List and describe all NetApp accounts in the resource group."
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "URL to get the next set of results.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/nextLink"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/activeDirectoryId/x-nullable"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Name of the active directory machine. This optional parameter is used only while creating kerberos volume",
+                                "example": "ADServerName",
+                                "maxLength": 64,
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/adName"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "If enabled, AES encryption will be enabled for SMB communication.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/aesEncryption"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": " If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/allowLocalNfsUsersWithLdap"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier",
+                                "example": [
+                                  "user1",
+                                  "user2"
+                                ],
+                                "items": {
+                                  "maxLength": 255,
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/backupOperators"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Comma separated list of DNS server IP addresses for the Active Directory domain",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/dNS"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain",
+                                "example": "101.102.103.104,101.102.103.105",
+                                "pattern": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)((, ?)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/dns"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.",
+                                "example": "101.102.103.104",
+                                "pattern": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)((, ?)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/kdcIP"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies whether or not the LDAP traffic needs to be secured via TLS.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/ldapOverTLS"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies whether or not the LDAP traffic needs to be signed.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/ldapSigning"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "CN=Computers",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/organizationalUnit/default"
+                            },
+                            {
+                              "oldValue": "Plain text password of Active Directory domain administrator",
+                              "value": "Plain text password of Active Directory domain administrator, value is masked in the response",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/password/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/password/x-ms-secret"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/sMBServerName"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier",
+                                "example": [
+                                  "user1",
+                                  "user2"
+                                ],
+                                "items": {
+                                  "maxLength": 255,
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/securityOperators"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.",
+                                "example": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuVENDQW9XZ0F3SUJBZ0lRR3FXdnRxeHBvSTFJV3Z4VGdJbElWREFOQmdrcWhraUc5dzBCQVFzRkFEQlYKTVJNd0VRWUtDWkltaVpQeUxHUUJHUllEWTI5dE1SY3dGUVlLQ1pJbWlaUHlMR1FCR1JZSGFHRnlhV3R5WWpFbApNQ01HQTFVRUF4TWNhR0Z5YVd0eVlpMVhTVTR0TWtKUFZrRkZTMEkwTkVJdFEwRXRNakFlRncweU1EQTFNRFV3Ck56TTVORGxhRncweU1EQTFNRFl3TnpRNU5EaGFNRlV4RXpBUkJnb0praWFKay9Jc1pBRVpGZ05qYjIweEZ6QVYKQmdvSmtpYUprL0lzWkFFWkZnZG9ZWEpwYTNKaU1TVXdJd1lEVlFRREV4eG9ZWEpwYTNKaUxWZEpUaTB5UWs5VwpRVVZMUWpRMFFpMURRUzB5TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFqMHByCnhaaXpNaDBqYnRwN1ZOc0JrRVJ2MVpZT0MzMEtqaGRWdEExRm1MeFM2cXlycmpMZUdXOXRSd2ZnUkR0eVBodTIKZVJTcVpTUjF6Z1hZR0s0Nys3Y3F0YnB2UElOektCb0dOWERIVTNxVWlleXJWSjFDVzRKNjJodUdrbUV1VVVkMApKMXBxNTVxbjk1SmRUbWh1dmZlTUxxeHB5c01nbGVnY281ZFhoN0hsQkhwaTNKMFN4ZnhVWmxKMVZiOFJZVEZhCkJiMGFlTVZaRzRKeVREaktiMlR1TmFXOG1aUE5vOFBMRDRocjdndFNZUEQvQ1dVVGV5QlpoZC9LTzNPczlWVEIKYmpLUGtWd0J2WEs2SlFMSGprNFBHS3VYZDhaWVFyajBtOWNIZDNmcWNYTXlQUnQ2TlJ4ak0yMTUxckFzSkVhNgpWZC9ta056akpXalBrT2VZUVFJREFRQUJvMmt3WnpBVEJna3JCZ0VFQVlJM0ZBSUVCaDRFQUVNQVFUQU9CZ05WCkhROEJBZjhFQkFNQ0FZWXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVDVEc2ODJSay9kMysKWGtHa0VMakRFMjI4ZjNnd0VBWUpLd1lCQkFHQ054VUJCQU1DQVFBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQgpBR1RjTTNnWExIU05wS014RHEvUFpZbWZCMmNlN3VhMmxxbXpzZSt4QmthSTE0WXdzZE5ZQjZBVTNFWDM3QWpZCjd3bm9xQzY1N0U2RVhTODVDckoyNXJNTHo4OEtONGI3cUg5RUowSS9XVHg5YTdUT0ZENENWQThuL0xwNGh1Ym4KNlBFalY5NFlZWXBXTG1hTkkvbGFReWsxSHVJbDFSTCttVDFnSWQ4ZWZXZ1UvNmlVVEw3eGMrdjkyNHBuTHhISwpOSnNTV3c0NFk5a0R5SU9KOXFjWUlBN1lhTkxPZTRjSysvQlRvdDh0dVVKT1hHLzdBRmtxR2EyQVA4MmFZOStKCnkwSmU2OG5nTHJ1dVU4VHpneVpqdkFHcTRrVEVOdWFoaFdHVC9KWkEzOXhSNUV4MmNMUUplcE5NdnlZbUZ3Z1UKME8zYlA0OWNBVFVCMXoyQ3Y5aTRQbVk9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+                                "maxLength": 10240,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-ms-secret": true
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/serverRootCACertificate"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The Active Directory site the service will limit Domain Controller discovery to",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/site"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/smbServerName"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "Created",
+                                "Updating",
+                                "InUse",
+                                "Deleted",
+                                "Error"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/status/enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/status/readOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ActiveDirectoryStatus",
+                                "values": [
+                                  {
+                                    "description": "Active Directory created but not in use",
+                                    "value": "Created"
+                                  },
+                                  {
+                                    "description": "Active Directory in use by SMB Volume",
+                                    "value": "InUse"
+                                  },
+                                  {
+                                    "description": "Active Directory Deleted",
+                                    "value": "Deleted"
+                                  },
+                                  {
+                                    "description": "Error with the Active Directory",
+                                    "value": "Error"
+                                  },
+                                  {
+                                    "description": "Active Directory Updating",
+                                    "value": "Updating"
+                                  }
+                                ]
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/status/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Any details in regards to the Status of the Active Directory",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/activeDirectories/items/properties/statusDetails"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Encryption settings",
+                                "properties": {
+                                  "keySource": {
+                                    "description": "Encryption Key Source. Possible values are: 'Microsoft.NetApp'.",
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/encryption"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Metadata pertaining to creation and last modification of the resource.",
+                                "properties": {
+                                  "createdAt": {
+                                    "description": "The timestamp of resource creation (UTC).",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "createdBy": {
+                                    "description": "The identity that created the resource.",
+                                    "type": "string"
+                                  },
+                                  "createdByType": {
+                                    "description": "The type of identity that created the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  },
+                                  "lastModifiedAt": {
+                                    "description": "The timestamp of resource last modification (UTC)",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedBy": {
+                                    "description": "The identity that last modified the resource.",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedByType": {
+                                    "description": "The type of identity that last modified the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  }
+                                },
+                                "readOnly": true,
+                                "type": "object"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/systemData"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags/additionalProperties"
+                            },
+                            {
+                              "oldValue": "Resource tags",
+                              "value": "Tags are a list of key-value pairs that describe the resource",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags/description"
+                            },
+                            {
+                              "oldValue": "properties",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/required/1"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_Get/responses/200/body/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_Get/responses/200/body/name"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": [
+                          {
+                            "activeDirectoryId": "02da3711-6c58-2d64-098a-e3af7afaf936",
+                            "aesEncryption": true,
+                            "dns": "10.10.10.3",
+                            "domain": "10.10.10.3",
+                            "ldapSigning": true,
+                            "organizationalUnit": "Engineering",
+                            "site": "SiteName",
+                            "smbServerName": "SMBServer",
+                            "status": "InUse",
+                            "statusDetails": "Status Details",
+                            "username": "ad_user_name"
+                          }
+                        ],
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_Get/responses/200/body/properties/activeDirectories"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/responses/200/body/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Accounts_Get/responses/200/body/type"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe a NetApp Account"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/activeDirectoryId/x-nullable"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Name of the active directory machine. This optional parameter is used only while creating kerberos volume",
+                                "example": "ADServerName",
+                                "maxLength": 64,
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/adName"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "If enabled, AES encryption will be enabled for SMB communication.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/aesEncryption"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": " If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/allowLocalNfsUsersWithLdap"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier",
+                                "example": [
+                                  "user1",
+                                  "user2"
+                                ],
+                                "items": {
+                                  "maxLength": 255,
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/backupOperators"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Comma separated list of DNS server IP addresses for the Active Directory domain",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/dNS"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain",
+                                "example": "101.102.103.104,101.102.103.105",
+                                "pattern": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)((, ?)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/dns"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.",
+                                "example": "101.102.103.104",
+                                "pattern": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)((, ?)(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))*$",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/kdcIP"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies whether or not the LDAP traffic needs to be secured via TLS.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/ldapOverTLS"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Specifies whether or not the LDAP traffic needs to be signed.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/ldapSigning"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "CN=Computers",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/organizationalUnit/default"
+                            },
+                            {
+                              "oldValue": "Plain text password of Active Directory domain administrator",
+                              "value": "Plain text password of Active Directory domain administrator, value is masked in the response",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/password/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/password/x-ms-secret"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/sMBServerName"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier",
+                                "example": [
+                                  "user1",
+                                  "user2"
+                                ],
+                                "items": {
+                                  "maxLength": 255,
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/securityOperators"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.",
+                                "example": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURuVENDQW9XZ0F3SUJBZ0lRR3FXdnRxeHBvSTFJV3Z4VGdJbElWREFOQmdrcWhraUc5dzBCQVFzRkFEQlYKTVJNd0VRWUtDWkltaVpQeUxHUUJHUllEWTI5dE1SY3dGUVlLQ1pJbWlaUHlMR1FCR1JZSGFHRnlhV3R5WWpFbApNQ01HQTFVRUF4TWNhR0Z5YVd0eVlpMVhTVTR0TWtKUFZrRkZTMEkwTkVJdFEwRXRNakFlRncweU1EQTFNRFV3Ck56TTVORGxhRncweU1EQTFNRFl3TnpRNU5EaGFNRlV4RXpBUkJnb0praWFKay9Jc1pBRVpGZ05qYjIweEZ6QVYKQmdvSmtpYUprL0lzWkFFWkZnZG9ZWEpwYTNKaU1TVXdJd1lEVlFRREV4eG9ZWEpwYTNKaUxWZEpUaTB5UWs5VwpRVVZMUWpRMFFpMURRUzB5TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFqMHByCnhaaXpNaDBqYnRwN1ZOc0JrRVJ2MVpZT0MzMEtqaGRWdEExRm1MeFM2cXlycmpMZUdXOXRSd2ZnUkR0eVBodTIKZVJTcVpTUjF6Z1hZR0s0Nys3Y3F0YnB2UElOektCb0dOWERIVTNxVWlleXJWSjFDVzRKNjJodUdrbUV1VVVkMApKMXBxNTVxbjk1SmRUbWh1dmZlTUxxeHB5c01nbGVnY281ZFhoN0hsQkhwaTNKMFN4ZnhVWmxKMVZiOFJZVEZhCkJiMGFlTVZaRzRKeVREaktiMlR1TmFXOG1aUE5vOFBMRDRocjdndFNZUEQvQ1dVVGV5QlpoZC9LTzNPczlWVEIKYmpLUGtWd0J2WEs2SlFMSGprNFBHS3VYZDhaWVFyajBtOWNIZDNmcWNYTXlQUnQ2TlJ4ak0yMTUxckFzSkVhNgpWZC9ta056akpXalBrT2VZUVFJREFRQUJvMmt3WnpBVEJna3JCZ0VFQVlJM0ZBSUVCaDRFQUVNQVFUQU9CZ05WCkhROEJBZjhFQkFNQ0FZWXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVDVEc2ODJSay9kMysKWGtHa0VMakRFMjI4ZjNnd0VBWUpLd1lCQkFHQ054VUJCQU1DQVFBd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQgpBR1RjTTNnWExIU05wS014RHEvUFpZbWZCMmNlN3VhMmxxbXpzZSt4QmthSTE0WXdzZE5ZQjZBVTNFWDM3QWpZCjd3bm9xQzY1N0U2RVhTODVDckoyNXJNTHo4OEtONGI3cUg5RUowSS9XVHg5YTdUT0ZENENWQThuL0xwNGh1Ym4KNlBFalY5NFlZWXBXTG1hTkkvbGFReWsxSHVJbDFSTCttVDFnSWQ4ZWZXZ1UvNmlVVEw3eGMrdjkyNHBuTHhISwpOSnNTV3c0NFk5a0R5SU9KOXFjWUlBN1lhTkxPZTRjSysvQlRvdDh0dVVKT1hHLzdBRmtxR2EyQVA4MmFZOStKCnkwSmU2OG5nTHJ1dVU4VHpneVpqdkFHcTRrVEVOdWFoaFdHVC9KWkEzOXhSNUV4MmNMUUplcE5NdnlZbUZ3Z1UKME8zYlA0OWNBVFVCMXoyQ3Y5aTRQbVk9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+                                "maxLength": 10240,
+                                "minLength": 1,
+                                "type": "string",
+                                "x-ms-secret": true
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/serverRootCACertificate"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The Active Directory site the service will limit Domain Controller discovery to",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/site"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/smbServerName"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "Created",
+                                "Updating",
+                                "InUse",
+                                "Deleted",
+                                "Error"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/status/enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": true,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/status/readOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "modelAsString": true,
+                                "name": "ActiveDirectoryStatus",
+                                "values": [
+                                  {
+                                    "description": "Active Directory created but not in use",
+                                    "value": "Created"
+                                  },
+                                  {
+                                    "description": "Active Directory in use by SMB Volume",
+                                    "value": "InUse"
+                                  },
+                                  {
+                                    "description": "Active Directory Deleted",
+                                    "value": "Deleted"
+                                  },
+                                  {
+                                    "description": "Error with the Active Directory",
+                                    "value": "Error"
+                                  },
+                                  {
+                                    "description": "Active Directory Updating",
+                                    "value": "Updating"
+                                  }
+                                ]
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/status/x-ms-enum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Any details in regards to the Status of the Active Directory",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/statusDetails"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Encryption settings",
+                                "properties": {
+                                  "keySource": {
+                                    "description": "Encryption Key Source. Possible values are: 'Microsoft.NetApp'.",
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/encryption"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Metadata pertaining to creation and last modification of the resource.",
+                                "properties": {
+                                  "createdAt": {
+                                    "description": "The timestamp of resource creation (UTC).",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "createdBy": {
+                                    "description": "The identity that created the resource.",
+                                    "type": "string"
+                                  },
+                                  "createdByType": {
+                                    "description": "The type of identity that created the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  },
+                                  "lastModifiedAt": {
+                                    "description": "The timestamp of resource last modification (UTC)",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedBy": {
+                                    "description": "The identity that last modified the resource.",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedByType": {
+                                    "description": "The type of identity that last modified the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  }
+                                },
+                                "readOnly": true,
+                                "type": "object"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/systemData"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/tags/additionalProperties"
+                            },
+                            {
+                              "oldValue": "Resource tags",
+                              "value": "Tags are a list of key-value pairs that describe the resource",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/tags/description"
+                            },
+                            {
+                              "oldValue": "properties",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/required/1"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_List/responses/200/body/value/0/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1/pool1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_List/responses/200/body/value/0/name"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/responses/200/body/value/0/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Auto",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_List/responses/200/body/value/0/properties/qosType"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": 281.474,
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_List/responses/200/body/value/0/properties/totalThroughputMibps"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts/capacityPools",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_List/responses/200/body/value/0/type"
+                      }
+                    ],
+                    "x-ms-pageable": [
+                      {
+                        "oldValue": null,
+                        "value": "nextLink",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/nextLinkName"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe all Capacity Pools"
+                },
+                "description": {
+                  "from": "Lists all capacity pools in the NetApp Account",
+                  "to": "List all capacity pools in the NetApp Account"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "URL to get the next set of results.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/nextLink"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": "Auto",
+                                "description": "The qos type of the pool",
+                                "enum": [
+                                  "Auto",
+                                  "Manual"
+                                ],
+                                "example": "Manual",
+                                "title": "qosType",
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "qosType",
+                                  "values": [
+                                    {
+                                      "description": "qos type Auto",
+                                      "value": "Auto"
+                                    },
+                                    {
+                                      "description": "qos type Manual",
+                                      "value": "Manual"
+                                    }
+                                  ]
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/qosType"
+                            },
+                            {
+                              "oldValue": 4398046511104,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/size/default"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Total throughput of pool in Mibps",
+                                "example": 164.221,
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/totalThroughputMibps"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Utilized throughput of pool in Mibps",
+                                "example": 164.221,
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/utilizedThroughputMibps"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "size",
+                                "serviceLevel"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/required"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags/additionalProperties"
+                            },
+                            {
+                              "oldValue": "Resource tags",
+                              "value": "Tags are a list of key-value pairs that describe the resource",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags/description"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "poolName",
+                        "value": "pool1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/poolName"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1/pool1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/name"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Manual",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/properties/qosType"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": 281.474,
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/properties/totalThroughputMibps"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": 100.47,
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/properties/utilizedThroughputMibps"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts/capacityPools",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Pools_Get/responses/200/body/type"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe a Capacity Pool"
+                },
+                "description": {
+                  "from": "Get a capacity pool",
+                  "to": "Get details of the specified capacity pool"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName",
+                      "poolName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": "Auto",
+                                "description": "The qos type of the pool",
+                                "enum": [
+                                  "Auto",
+                                  "Manual"
+                                ],
+                                "example": "Manual",
+                                "title": "qosType",
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "qosType",
+                                  "values": [
+                                    {
+                                      "description": "qos type Auto",
+                                      "value": "Auto"
+                                    },
+                                    {
+                                      "description": "qos type Manual",
+                                      "value": "Manual"
+                                    }
+                                  ]
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/qosType"
+                            },
+                            {
+                              "oldValue": 4398046511104,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/size/default"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Total throughput of pool in Mibps",
+                                "example": 164.221,
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/totalThroughputMibps"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Utilized throughput of pool in Mibps",
+                                "example": 164.221,
+                                "readOnly": true,
+                                "type": "number"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/utilizedThroughputMibps"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "size",
+                                "serviceLevel"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/required"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/tags/additionalProperties"
+                            },
+                            {
+                              "oldValue": "Resource tags",
+                              "value": "Tags are a list of key-value pairs that describe the resource",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/tags/description"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName",
+                "poolName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "poolName",
+                        "value": "pool1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/poolName"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_List/responses/200/body/value/0/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1/pool1/volume1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_List/responses/200/body/value/0/name"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/responses/200/body/value/0/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": 128,
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_List/responses/200/body/value/0/properties/throughputMibps"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_List/responses/200/body/value/0/type"
+                      }
+                    ],
+                    "x-ms-pageable": [
+                      {
+                        "oldValue": null,
+                        "value": "nextLink",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/nextLinkName"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe all volumes"
+                },
+                "description": {
+                  "from": "List volumes",
+                  "to": "List all volumes within the capacity pool"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName",
+                      "poolName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "URL to get the next set of results.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/nextLink"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "UUID v4 or resource identifier used to identify the Backup.",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}|(\\\\?([^\\/]*[\\/])*)([^\\/]+)$",
+                                "title": "Backup ID",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/backupId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Unique Baremetal Tenant Identifier.",
+                                "example": "9560acf5-4e3a-12e7-9bdb-02007cca7779",
+                                "readOnly": true,
+                                "title": "Baremetal Tenant ID",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/baremetalTenantId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 80,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/creationToken/maxLength"
+                            },
+                            {
+                              "oldValue": 40,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/creationToken/maximum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 1,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/creationToken/minLength"
+                            },
+                            {
+                              "oldValue": 16,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/creationToken/minimum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "^[a-zA-Z][a-zA-Z0-9\\-]{0,79}$",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/creationToken/pattern"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "DataProtection type volumes include an object containing details of the replication",
+                                "properties": {
+                                  "backup": {
+                                    "description": "Volume Backup Properties",
+                                    "properties": {
+                                      "backupEnabled": {
+                                        "description": "Backup Enabled",
+                                        "type": "boolean"
+                                      },
+                                      "backupPolicyId": {
+                                        "description": "Backup Policy Resource ID",
+                                        "type": "string"
+                                      },
+                                      "policyEnforced": {
+                                        "description": "Policy Enforced",
+                                        "type": "boolean"
+                                      },
+                                      "vaultId": {
+                                        "description": "Vault Resource ID",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "replication": {
+                                    "description": "Replication properties",
+                                    "properties": {
+                                      "endpointType": {
+                                        "description": "Indicates whether the local volume is the source or destination for the Volume Replication",
+                                        "enum": [
+                                          "src",
+                                          "dst"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                          "modelAsString": true,
+                                          "name": "EndpointType"
+                                        }
+                                      },
+                                      "remoteVolumeRegion": {
+                                        "description": "The remote region for the other end of the Volume Replication.",
+                                        "type": "string"
+                                      },
+                                      "remoteVolumeResourceId": {
+                                        "description": "The resource ID of the remote volume.",
+                                        "type": "string"
+                                      },
+                                      "replicationId": {
+                                        "description": "Id",
+                                        "type": "string"
+                                      },
+                                      "replicationSchedule": {
+                                        "description": "Schedule",
+                                        "enum": [
+                                          "_10minutely",
+                                          "hourly",
+                                          "daily"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                          "modelAsString": true,
+                                          "name": "ReplicationSchedule"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "replicationSchedule",
+                                      "remoteVolumeResourceId"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "snapshot": {
+                                    "description": "Volume Snapshot Properties",
+                                    "properties": {
+                                      "snapshotPolicyId": {
+                                        "description": "Snapshot Policy ResourceId",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "title": "DataProtection"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/dataProtection"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Encryption Key Source. Possible values are: 'Microsoft.NetApp'",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/encryptionKeySource"
+                            },
+                            {
+                              "oldValue": "Export policy rule",
+                              "value": "Set of export policy rules",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Export policy rule",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": true,
+                                "description": "Has root access to volume",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/hasRootAccess"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5ReadOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5ReadWrite"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5iReadOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5iReadWrite"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5pReadOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5pReadWrite"
+                            },
+                            {
+                              "oldValue": "Allows NFSv3 protocol",
+                              "value": "Allows NFSv3 protocol. Enable only for NFSv3 type volumes",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/nfsv3/description"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Allows NFSv4 protocol",
+                                "type": "boolean"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/nfsv4"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/nfsv41"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "int32",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/ruleIndex/format"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Export policy rule",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "exportPolicy",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/kerberosEnabled"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Specifies whether LDAP is enabled or not for a given NFS volume.",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/ldapEnabled"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "List of mount targets",
+                                "items": {
+                                  "description": "Mount target properties",
+                                  "properties": {
+                                    "fileSystemId": {
+                                      "description": "UUID v4 used to identify the MountTarget",
+                                      "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                      "maxLength": 36,
+                                      "minLength": 36,
+                                      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                      "title": "fileSystemId",
+                                      "type": "string"
+                                    },
+                                    "ipAddress": {
+                                      "description": "The mount target's IPv4 address",
+                                      "example": "1.2.3.4",
+                                      "readOnly": true,
+                                      "title": "ipAddress",
+                                      "type": "string"
+                                    },
+                                    "mountTargetId": {
+                                      "description": "UUID v4 used to identify the MountTarget",
+                                      "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                      "maxLength": 36,
+                                      "minLength": 36,
+                                      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                      "readOnly": true,
+                                      "title": "mountTargetId",
+                                      "type": "string"
+                                    },
+                                    "smbServerFqdn": {
+                                      "description": "The SMB server's Fully Qualified Domain Name, FQDN",
+                                      "example": "fullyqualified.domainname.com",
+                                      "title": "smbServerFQDN",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "fileSystemId"
+                                  ],
+                                  "type": "object"
+                                },
+                                "readOnly": true,
+                                "title": "mountTargets",
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/mountTargets"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": "Basic",
+                                "description": "Basic network, or Standard features available to the volume.",
+                                "enum": [
+                                  "Basic",
+                                  "Standard"
+                                ],
+                                "example": "Standard",
+                                "title": "Network features",
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "NetworkFeatures",
+                                  "values": [
+                                    {
+                                      "description": "Basic network feature.",
+                                      "value": "Basic"
+                                    },
+                                    {
+                                      "description": "Standard network feature.",
+                                      "value": "Standard"
+                                    }
+                                  ]
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/networkFeatures"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Network Sibling Set ID for the the group of volumes sharing networking resources.",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "readOnly": true,
+                                "title": "Network Sibling Set ID",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/networkSiblingSetId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                                "example": [
+                                  "NFSv4.1"
+                                ],
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "protocolTypes",
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/protocolTypes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": "unix",
+                                "description": "The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol",
+                                "enum": [
+                                  "ntfs",
+                                  "unix"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "SecurityStyle"
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/securityStyle"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Enables continuously available share property for smb volume. Only applicable for SMB volume",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/smbContinuouslyAvailable"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/smbEncryption"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": true,
+                                "description": "If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/snapshotDirectoryVisible"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "UUID v4 or resource identifier used to identify the Snapshot.",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}|(\\\\?([^\\/]*[\\/])*)([^\\/]+)$",
+                                "title": "Snapshot ID",
+                                "type": "string",
+                                "x-nullable": true
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/snapshotId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Provides storage to network proximity information for the volume.",
+                                "enum": [
+                                  "Default",
+                                  "T1",
+                                  "T2"
+                                ],
+                                "example": 1,
+                                "readOnly": true,
+                                "title": "Storage to Network Proximity",
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "VolumeStorageToNetworkProximity",
+                                  "values": [
+                                    {
+                                      "description": "Basic storage to network connectivity.",
+                                      "value": "Default"
+                                    },
+                                    {
+                                      "description": "Standard T1 storage to network connectivity.",
+                                      "value": "T1"
+                                    },
+                                    {
+                                      "description": "Standard T2 storage to network connectivity.",
+                                      "value": "T2"
+                                    }
+                                  ]
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/storageToNetworkProximity"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": 0,
+                                "example": 128.22,
+                                "maximum": 4500,
+                                "minimum": 0,
+                                "title": "Maximum throughput in Mibps that can be achieved by this volume",
+                                "type": "number"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/throughputMibps"
+                            },
+                            {
+                              "oldValue": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.",
+                              "value": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/usageThreshold/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "What type of volume is this",
+                                "example": "DataProtection",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/volumeType"
+                            },
+                            {
+                              "oldValue": "serviceLevel",
+                              "value": "usageThreshold",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/required/1"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "subnetId",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/required/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags/additionalProperties"
+                            },
+                            {
+                              "oldValue": "Resource tags",
+                              "value": "Tags are a list of key-value pairs that describe the resource",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags/description"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName",
+                "poolName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "poolName",
+                        "value": "pool1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/poolName"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": "volumeName",
+                        "value": "volume1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/volumeName"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_Get/responses/200/body/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1/pool1/volume1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_Get/responses/200/body/name"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/responses/200/body/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": 128,
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_Get/responses/200/body/properties/throughputMibps"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Volumes_Get/responses/200/body/type"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe a volume"
+                },
+                "description": {
+                  "from": "Get a volume",
+                  "to": "Get the details of the specified volume"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName",
+                      "poolName",
+                      "volumeName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "UUID v4 or resource identifier used to identify the Backup.",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}|(\\\\?([^\\/]*[\\/])*)([^\\/]+)$",
+                                "title": "Backup ID",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/backupId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Unique Baremetal Tenant Identifier.",
+                                "example": "9560acf5-4e3a-12e7-9bdb-02007cca7779",
+                                "readOnly": true,
+                                "title": "Baremetal Tenant ID",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/baremetalTenantId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 80,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/creationToken/maxLength"
+                            },
+                            {
+                              "oldValue": 40,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/creationToken/maximum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": 1,
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/creationToken/minLength"
+                            },
+                            {
+                              "oldValue": 16,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/creationToken/minimum"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "^[a-zA-Z][a-zA-Z0-9\\-]{0,79}$",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/creationToken/pattern"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "DataProtection type volumes include an object containing details of the replication",
+                                "properties": {
+                                  "backup": {
+                                    "description": "Volume Backup Properties",
+                                    "properties": {
+                                      "backupEnabled": {
+                                        "description": "Backup Enabled",
+                                        "type": "boolean"
+                                      },
+                                      "backupPolicyId": {
+                                        "description": "Backup Policy Resource ID",
+                                        "type": "string"
+                                      },
+                                      "policyEnforced": {
+                                        "description": "Policy Enforced",
+                                        "type": "boolean"
+                                      },
+                                      "vaultId": {
+                                        "description": "Vault Resource ID",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  },
+                                  "replication": {
+                                    "description": "Replication properties",
+                                    "properties": {
+                                      "endpointType": {
+                                        "description": "Indicates whether the local volume is the source or destination for the Volume Replication",
+                                        "enum": [
+                                          "src",
+                                          "dst"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                          "modelAsString": true,
+                                          "name": "EndpointType"
+                                        }
+                                      },
+                                      "remoteVolumeRegion": {
+                                        "description": "The remote region for the other end of the Volume Replication.",
+                                        "type": "string"
+                                      },
+                                      "remoteVolumeResourceId": {
+                                        "description": "The resource ID of the remote volume.",
+                                        "type": "string"
+                                      },
+                                      "replicationId": {
+                                        "description": "Id",
+                                        "type": "string"
+                                      },
+                                      "replicationSchedule": {
+                                        "description": "Schedule",
+                                        "enum": [
+                                          "_10minutely",
+                                          "hourly",
+                                          "daily"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                          "modelAsString": true,
+                                          "name": "ReplicationSchedule"
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "replicationSchedule",
+                                      "remoteVolumeResourceId"
+                                    ],
+                                    "type": "object"
+                                  },
+                                  "snapshot": {
+                                    "description": "Volume Snapshot Properties",
+                                    "properties": {
+                                      "snapshotPolicyId": {
+                                        "description": "Snapshot Policy ResourceId",
+                                        "type": "string"
+                                      }
+                                    },
+                                    "type": "object"
+                                  }
+                                },
+                                "title": "DataProtection"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/dataProtection"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Encryption Key Source. Possible values are: 'Microsoft.NetApp'",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/encryptionKeySource"
+                            },
+                            {
+                              "oldValue": "Export policy rule",
+                              "value": "Set of export policy rules",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Export policy rule",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": true,
+                                "description": "Has root access to volume",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/hasRootAccess"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5 Read only access. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5ReadOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5 Read and write access. To be use with swagger version 2020-05-01 or later",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5ReadWrite"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5i Read only access. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5iReadOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5i Read and write access. To be use with swagger version 2020-05-01 or later",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5iReadWrite"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5p Read only access. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5pReadOnly"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Kerberos5p Read and write access. To be use with swagger version 2020-05-01 or later",
+                                "example": true,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5pReadWrite"
+                            },
+                            {
+                              "oldValue": "Allows NFSv3 protocol",
+                              "value": "Allows NFSv3 protocol. Enable only for NFSv3 type volumes",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/nfsv3/description"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Allows NFSv4 protocol",
+                                "type": "boolean"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/nfsv4"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/nfsv41"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "int32",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/ruleIndex/format"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Export policy rule",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "exportPolicy",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/title"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Restoring",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/isRestoring"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/kerberosEnabled"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Specifies whether LDAP is enabled or not for a given NFS volume.",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/ldapEnabled"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "List of mount targets",
+                                "items": {
+                                  "description": "Mount target properties",
+                                  "properties": {
+                                    "fileSystemId": {
+                                      "description": "UUID v4 used to identify the MountTarget",
+                                      "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                      "maxLength": 36,
+                                      "minLength": 36,
+                                      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                      "title": "fileSystemId",
+                                      "type": "string"
+                                    },
+                                    "ipAddress": {
+                                      "description": "The mount target's IPv4 address",
+                                      "example": "1.2.3.4",
+                                      "readOnly": true,
+                                      "title": "ipAddress",
+                                      "type": "string"
+                                    },
+                                    "mountTargetId": {
+                                      "description": "UUID v4 used to identify the MountTarget",
+                                      "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                      "maxLength": 36,
+                                      "minLength": 36,
+                                      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                      "readOnly": true,
+                                      "title": "mountTargetId",
+                                      "type": "string"
+                                    },
+                                    "smbServerFqdn": {
+                                      "description": "The SMB server's Fully Qualified Domain Name, FQDN",
+                                      "example": "fullyqualified.domainname.com",
+                                      "title": "smbServerFQDN",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "fileSystemId"
+                                  ],
+                                  "type": "object"
+                                },
+                                "readOnly": true,
+                                "title": "mountTargets",
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/mountTargets"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": "Basic",
+                                "description": "Basic network, or Standard features available to the volume.",
+                                "enum": [
+                                  "Basic",
+                                  "Standard"
+                                ],
+                                "example": "Standard",
+                                "title": "Network features",
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "NetworkFeatures",
+                                  "values": [
+                                    {
+                                      "description": "Basic network feature.",
+                                      "value": "Basic"
+                                    },
+                                    {
+                                      "description": "Standard network feature.",
+                                      "value": "Standard"
+                                    }
+                                  ]
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/networkFeatures"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Network Sibling Set ID for the the group of volumes sharing networking resources.",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "readOnly": true,
+                                "title": "Network Sibling Set ID",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/networkSiblingSetId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
+                                "example": [
+                                  "NFSv4.1"
+                                ],
+                                "items": {
+                                  "type": "string"
+                                },
+                                "title": "protocolTypes",
+                                "type": "array"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/protocolTypes"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": "unix",
+                                "description": "The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol",
+                                "enum": [
+                                  "ntfs",
+                                  "unix"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "SecurityStyle"
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/securityStyle"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Enables continuously available share property for smb volume. Only applicable for SMB volume",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/smbContinuouslyAvailable"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": false,
+                                "description": "Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later",
+                                "example": false,
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/smbEncryption"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": true,
+                                "description": "If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/snapshotDirectoryVisible"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "UUID v4 or resource identifier used to identify the Snapshot.",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}|(\\\\?([^\\/]*[\\/])*)([^\\/]+)$",
+                                "title": "Snapshot ID",
+                                "type": "string",
+                                "x-nullable": true
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/snapshotId"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Provides storage to network proximity information for the volume.",
+                                "enum": [
+                                  "Default",
+                                  "T1",
+                                  "T2"
+                                ],
+                                "example": 1,
+                                "readOnly": true,
+                                "title": "Storage to Network Proximity",
+                                "type": "string",
+                                "x-ms-enum": {
+                                  "modelAsString": true,
+                                  "name": "VolumeStorageToNetworkProximity",
+                                  "values": [
+                                    {
+                                      "description": "Basic storage to network connectivity.",
+                                      "value": "Default"
+                                    },
+                                    {
+                                      "description": "Standard T1 storage to network connectivity.",
+                                      "value": "T1"
+                                    },
+                                    {
+                                      "description": "Standard T2 storage to network connectivity.",
+                                      "value": "T2"
+                                    }
+                                  ]
+                                }
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/storageToNetworkProximity"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "default": 0,
+                                "example": 128.22,
+                                "maximum": 4500,
+                                "minimum": 0,
+                                "title": "Maximum throughput in Mibps that can be achieved by this volume",
+                                "type": "number"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/throughputMibps"
+                            },
+                            {
+                              "oldValue": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.",
+                              "value": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/usageThreshold/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "What type of volume is this",
+                                "example": "DataProtection",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/volumeType"
+                            },
+                            {
+                              "oldValue": "serviceLevel",
+                              "value": "usageThreshold",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/required/1"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "subnetId",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/required/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/tags/additionalProperties"
+                            },
+                            {
+                              "oldValue": "Resource tags",
+                              "value": "Tags are a list of key-value pairs that describe the resource",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/tags/description"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName",
+                "poolName",
+                "volumeName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "poolName",
+                        "value": "pool1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/poolName"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": "volumeName",
+                        "value": "volume1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/parameters/volumeName"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1/pool1/volume1/snapshot1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/name"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "2017-08-15T13:23:33Z",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/properties/created"
+                      },
+                      {
+                        "oldValue": "2017-08-15T13:23:33Z",
+                        "value": null,
+                        "op": "remove",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/properties/creationDate"
+                      },
+                      {
+                        "oldValue": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                        "value": null,
+                        "op": "remove",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/properties/fileSystemId"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_List/responses/200/body/value/0/type"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe all snapshots"
+                },
+                "description": {
+                  "from": "List snapshots",
+                  "to": "List all snapshots associated with the volume"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName",
+                      "poolName",
+                      "volumeName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The creation date of the snapshot",
+                                "example": "2017-08-15 13:23:33",
+                                "format": "date-time",
+                                "readOnly": true,
+                                "title": "name",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/created"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "The creation date of the snapshot",
+                                "example": "2017-08-15 13:23:33",
+                                "format": "date-time",
+                                "readOnly": true,
+                                "title": "name",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/creationDate"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "UUID v4 used to identify the FileSystem",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "title": "fileSystemId",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/fileSystemId"
+                            },
+                            {
+                              "oldValue": [
+                                "fileSystemId"
+                              ],
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/required"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource tags",
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/properties/tags"
+                            },
+                            {
+                              "oldValue": "properties",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/value/items/required/1"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName",
+                "poolName",
+                "volumeName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "accountName",
+                        "value": "account1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/accountName"
+                      },
+                      {
+                        "oldValue": "2017-08-15",
+                        "value": "2021-04-01-preview",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "poolName",
+                        "value": "pool1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/poolName"
+                      },
+                      {
+                        "oldValue": "resourceGroup",
+                        "value": "myRG",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/resourceGroupName"
+                      },
+                      {
+                        "oldValue": "snapshotName",
+                        "value": "snapshot1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/snapshotName"
+                      },
+                      {
+                        "oldValue": "subscriptionId",
+                        "value": "D633CC2E-722B-4AE1-B636-BBD9E4C60ED9",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/subscriptionId"
+                      },
+                      {
+                        "oldValue": "volumeName",
+                        "value": "volume1",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/parameters/volumeName"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/id"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "account1/pool1/volume1/snapshot1",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/name"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "2017-08-15T13:23:33Z",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/properties/created"
+                      },
+                      {
+                        "oldValue": "2017-08-15T13:23:33Z",
+                        "value": null,
+                        "op": "remove",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/properties/creationDate"
+                      },
+                      {
+                        "oldValue": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                        "value": null,
+                        "op": "remove",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/properties/fileSystemId"
+                      },
+                      {
+                        "oldValue": "Created",
+                        "value": "Succeeded",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/properties/provisioningState"
+                      },
+                      {
+                        "oldValue": null,
+                        "value": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots",
+                        "op": "add",
+                        "from": "",
+                        "path": "/Snapshots_Get/responses/200/body/type"
+                      }
+                    ]
+                  }
+                },
+                "summary": {
+                  "from": "",
+                  "to": "Describe a snapshot"
+                },
+                "description": {
+                  "from": "Get a snapshot",
+                  "to": "Get details of the specified snapshot"
+                },
+                "parameters": {
+                  "added": {
+                    "path": [
+                      "subscriptionId",
+                      "resourceGroupName",
+                      "accountName",
+                      "poolName",
+                      "volumeName",
+                      "snapshotName"
+                    ],
+                    "query": [
+                      "api-version"
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The creation date of the snapshot",
+                                "example": "2017-08-15 13:23:33",
+                                "format": "date-time",
+                                "readOnly": true,
+                                "title": "name",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/created"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "The creation date of the snapshot",
+                                "example": "2017-08-15 13:23:33",
+                                "format": "date-time",
+                                "readOnly": true,
+                                "title": "name",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/creationDate"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "UUID v4 used to identify the FileSystem",
+                                "example": "9760acf5-4638-11e7-9bdb-020073ca3333",
+                                "maxLength": 36,
+                                "minLength": 36,
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "title": "fileSystemId",
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/fileSystemId"
+                            },
+                            {
+                              "oldValue": [
+                                "fileSystemId"
+                              ],
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/required"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource tags",
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/tags"
+                            },
+                            {
+                              "oldValue": "properties",
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/required/1"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "default": {
+                      "extensions": {
+                        "deleted": [
+                          "schema"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "parameters": {
+            "deleted": {
+              "path": [
+                "subscriptionId",
+                "resourceGroupName",
+                "accountName",
+                "poolName",
+                "volumeName",
+                "snapshotName"
+              ],
+              "query": [
+                "api-version"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {
+    "Snapshots_Get": "FunctionDef(name='Snapshots_Get', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='poolName', annotation=Name(id='str', ctx=Load())), arg(arg='volumeName', annotation=Name(id='str', ctx=Load())), arg(arg='snapshotName', annotation=Name(id='str', ctx=Load())), arg(arg='api_version', annotation=Subscript(value=Name(id='Optional', ctx=Load()), slice=Name(id='str', ctx=Load()), ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[Constant(value=None)]), body=[Expr(value=Constant(value='Get a snapshot')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.NetApp/netAppAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/capacityPools/'), FormattedValue(value=Name(id='poolName', ctx=Load()), conversion=-1), Constant(value='/volumes/'), FormattedValue(value=Name(id='volumeName', ctx=Load()), conversion=-1), Constant(value='/snapshots/'), FormattedValue(value=Name(id='snapshotName', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='poolName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: poolName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='volumeName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: volumeName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='snapshotName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: snapshotName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='api_version', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]), body=[Assign(targets=[Subscript(value=Name(id='params', ctx=Load()), slice=Constant(value='api-version'), ctx=Store())], value=Name(id='api_version', ctx=Load()))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='get', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='Snapshots_Get')), keyword(arg='description', value=Constant(value='Get a snapshot'))])])"
+  },
+  "tools_b": {
+    "Snapshots_Get": "FunctionDef(name='Snapshots_Get', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='poolName', annotation=Name(id='str', ctx=Load())), arg(arg='volumeName', annotation=Name(id='str', ctx=Load())), arg(arg='snapshotName', annotation=Name(id='str', ctx=Load())), arg(arg='api_version', annotation=Subscript(value=Name(id='Optional', ctx=Load()), slice=Name(id='str', ctx=Load()), ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[Constant(value=None)]), body=[Expr(value=Constant(value='Get details of the specified snapshot')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.NetApp/netAppAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/capacityPools/'), FormattedValue(value=Name(id='poolName', ctx=Load()), conversion=-1), Constant(value='/volumes/'), FormattedValue(value=Name(id='volumeName', ctx=Load()), conversion=-1), Constant(value='/snapshots/'), FormattedValue(value=Name(id='snapshotName', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='poolName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: poolName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='volumeName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: volumeName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='snapshotName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: snapshotName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='api_version', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]), body=[Assign(targets=[Subscript(value=Name(id='params', ctx=Load()), slice=Constant(value='api-version'), ctx=Store())], value=Name(id='api_version', ctx=Load()))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='get', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='Snapshots_Get')), keyword(arg='description', value=Constant(value='Describe a snapshot: Get details of the specified snapshot'))])])"
+  }
+}

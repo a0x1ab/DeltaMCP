@@ -1,0 +1,1095 @@
+{
+  "oasdiff": {
+    "paths": {
+      "modified": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}": {
+          "operations": {
+            "modified": {
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2021-06-01",
+                        "value": "2021-08-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Update/parameters/api-version"
+                      },
+                      {
+                        "oldValue": "https://management.azure.com/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/providers/Microsoft.NetApp/locations/eastus/operationResults/18c499e1-2a3c-441c-950e-4b456c991c18?api-version=2021-08-01&operationResultResponseType=Location",
+                        "value": "https://management.azure.com/subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/providers/Microsoft.NetApp/locations/eastus/operationResults/a0216c17-f9d6-4b99-9faf-9ebd4883d0e4?api-version=2021-08-01&operationResultResponseType=Location",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Update/responses/202/headers/Location"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "body": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "modified": {
+                                    "activeDirectories": {
+                                      "extensions": {
+                                        "added": [
+                                          "x-ms-identifiers"
+                                        ]
+                                      },
+                                      "items": {
+                                        "properties": {
+                                          "added": [
+                                            "encryptDCConnections"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [
+                                {
+                                  "allOf": [
+                                    {
+                                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                      "properties": {
+                                        "id": {
+                                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "description": "The name of the resource",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "systemData": {
+                                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                                          "properties": {
+                                            "createdAt": {
+                                              "description": "The timestamp of resource creation (UTC).",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "createdBy": {
+                                              "description": "The identity that created the resource.",
+                                              "type": "string"
+                                            },
+                                            "createdByType": {
+                                              "description": "The type of identity that created the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            },
+                                            "lastModifiedAt": {
+                                              "description": "The timestamp of resource last modification (UTC)",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedBy": {
+                                              "description": "The identity that last modified the resource.",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedByType": {
+                                              "description": "The type of identity that last modified the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            }
+                                          },
+                                          "readOnly": true,
+                                          "type": "object"
+                                        },
+                                        "type": {
+                                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "title": "Resource",
+                                      "type": "object",
+                                      "x-ms-azure-resource": true
+                                    }
+                                  ],
+                                  "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                                  "properties": {
+                                    "location": {
+                                      "description": "The geo-location where the resource lives",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "tags": {
+                                      "additionalProperties": {
+                                        "type": "string"
+                                      },
+                                      "description": "Resource tags.",
+                                      "type": "object",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create",
+                                        "update"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "location"
+                                  ],
+                                  "title": "Tracked Resource",
+                                  "type": "object"
+                                }
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource Id",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/id"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource location",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "read",
+                                  "create"
+                                ]
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/location"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource name",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/name"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/encryptDCConnections"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "activeDirectoryId"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Metadata pertaining to creation and last modification of the resource.",
+                                "properties": {
+                                  "createdAt": {
+                                    "description": "The timestamp of resource creation (UTC).",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "createdBy": {
+                                    "description": "The identity that created the resource.",
+                                    "type": "string"
+                                  },
+                                  "createdByType": {
+                                    "description": "The type of identity that created the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  },
+                                  "lastModifiedAt": {
+                                    "description": "The timestamp of resource last modification (UTC)",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedBy": {
+                                    "description": "The identity that last modified the resource.",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedByType": {
+                                    "description": "The type of identity that last modified the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  }
+                                },
+                                "readOnly": true,
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/systemData"
+                            },
+                            {
+                              "oldValue": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Tags are a list of key-value pairs that describe the resource",
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/tags"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource type",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/type"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/x-ms-azure-resource"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "202": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [
+                                {
+                                  "allOf": [
+                                    {
+                                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                      "properties": {
+                                        "id": {
+                                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "description": "The name of the resource",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "systemData": {
+                                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                                          "properties": {
+                                            "createdAt": {
+                                              "description": "The timestamp of resource creation (UTC).",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "createdBy": {
+                                              "description": "The identity that created the resource.",
+                                              "type": "string"
+                                            },
+                                            "createdByType": {
+                                              "description": "The type of identity that created the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            },
+                                            "lastModifiedAt": {
+                                              "description": "The timestamp of resource last modification (UTC)",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedBy": {
+                                              "description": "The identity that last modified the resource.",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedByType": {
+                                              "description": "The type of identity that last modified the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            }
+                                          },
+                                          "readOnly": true,
+                                          "type": "object"
+                                        },
+                                        "type": {
+                                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "title": "Resource",
+                                      "type": "object",
+                                      "x-ms-azure-resource": true
+                                    }
+                                  ],
+                                  "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                                  "properties": {
+                                    "location": {
+                                      "description": "The geo-location where the resource lives",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "tags": {
+                                      "additionalProperties": {
+                                        "type": "string"
+                                      },
+                                      "description": "Resource tags.",
+                                      "type": "object",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create",
+                                        "update"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "location"
+                                  ],
+                                  "title": "Tracked Resource",
+                                  "type": "object"
+                                }
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource Id",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/id"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource location",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "read",
+                                  "create"
+                                ]
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/location"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource name",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/name"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.",
+                                "type": "boolean"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/items/properties/encryptDCConnections"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "activeDirectoryId"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/activeDirectories/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Metadata pertaining to creation and last modification of the resource.",
+                                "properties": {
+                                  "createdAt": {
+                                    "description": "The timestamp of resource creation (UTC).",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "createdBy": {
+                                    "description": "The identity that created the resource.",
+                                    "type": "string"
+                                  },
+                                  "createdByType": {
+                                    "description": "The type of identity that created the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  },
+                                  "lastModifiedAt": {
+                                    "description": "The timestamp of resource last modification (UTC)",
+                                    "format": "date-time",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedBy": {
+                                    "description": "The identity that last modified the resource.",
+                                    "type": "string"
+                                  },
+                                  "lastModifiedByType": {
+                                    "description": "The type of identity that last modified the resource.",
+                                    "enum": [
+                                      "User",
+                                      "Application",
+                                      "ManagedIdentity",
+                                      "Key"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                      "modelAsString": true,
+                                      "name": "createdByType"
+                                    }
+                                  }
+                                },
+                                "readOnly": true,
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/systemData"
+                            },
+                            {
+                              "oldValue": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Tags are a list of key-value pairs that describe the resource",
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/tags"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource type",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/type"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/x-ms-azure-resource"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/backupPolicies/{backupPolicyName}": {
+          "operations": {
+            "modified": {
+              "PATCH": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2021-06-01",
+                        "value": "2021-08-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/BackupPolicies_Update/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "modified": {
+                    "body": {
+                      "body": {
+                        "schema": {
+                          "properties": {
+                            "modified": {
+                              "properties": {
+                                "properties": {
+                                  "deleted": [
+                                    "name"
+                                  ],
+                                  "modified": {
+                                    "volumeBackups": {
+                                      "extensions": {
+                                        "added": [
+                                          "x-ms-identifiers"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [
+                                {
+                                  "allOf": [
+                                    {
+                                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                      "properties": {
+                                        "id": {
+                                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "description": "The name of the resource",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "systemData": {
+                                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                                          "properties": {
+                                            "createdAt": {
+                                              "description": "The timestamp of resource creation (UTC).",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "createdBy": {
+                                              "description": "The identity that created the resource.",
+                                              "type": "string"
+                                            },
+                                            "createdByType": {
+                                              "description": "The type of identity that created the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            },
+                                            "lastModifiedAt": {
+                                              "description": "The timestamp of resource last modification (UTC)",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedBy": {
+                                              "description": "The identity that last modified the resource.",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedByType": {
+                                              "description": "The type of identity that last modified the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            }
+                                          },
+                                          "readOnly": true,
+                                          "type": "object"
+                                        },
+                                        "type": {
+                                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "title": "Resource",
+                                      "type": "object",
+                                      "x-ms-azure-resource": true
+                                    }
+                                  ],
+                                  "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                                  "properties": {
+                                    "location": {
+                                      "description": "The geo-location where the resource lives",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "tags": {
+                                      "additionalProperties": {
+                                        "type": "string"
+                                      },
+                                      "description": "Resource tags.",
+                                      "type": "object",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create",
+                                        "update"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "location"
+                                  ],
+                                  "title": "Tracked Resource",
+                                  "type": "object"
+                                }
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource Id",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/id"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource location",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "read",
+                                  "create"
+                                ]
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/location"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource name",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/name"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Name of backup policy",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/name"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "volumeName"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/volumeBackups/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Tags are a list of key-value pairs that describe the resource",
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/tags"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource type",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/type"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/x-ms-azure-resource"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "202": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": null,
+                              "value": [
+                                {
+                                  "allOf": [
+                                    {
+                                      "description": "Common fields that are returned in the response for all Azure Resource Manager resources",
+                                      "properties": {
+                                        "id": {
+                                          "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "name": {
+                                          "description": "The name of the resource",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        },
+                                        "systemData": {
+                                          "description": "Metadata pertaining to creation and last modification of the resource.",
+                                          "properties": {
+                                            "createdAt": {
+                                              "description": "The timestamp of resource creation (UTC).",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "createdBy": {
+                                              "description": "The identity that created the resource.",
+                                              "type": "string"
+                                            },
+                                            "createdByType": {
+                                              "description": "The type of identity that created the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            },
+                                            "lastModifiedAt": {
+                                              "description": "The timestamp of resource last modification (UTC)",
+                                              "format": "date-time",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedBy": {
+                                              "description": "The identity that last modified the resource.",
+                                              "type": "string"
+                                            },
+                                            "lastModifiedByType": {
+                                              "description": "The type of identity that last modified the resource.",
+                                              "enum": [
+                                                "User",
+                                                "Application",
+                                                "ManagedIdentity",
+                                                "Key"
+                                              ],
+                                              "type": "string",
+                                              "x-ms-enum": {
+                                                "modelAsString": true,
+                                                "name": "createdByType"
+                                              }
+                                            }
+                                          },
+                                          "readOnly": true,
+                                          "type": "object"
+                                        },
+                                        "type": {
+                                          "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+                                          "readOnly": true,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "title": "Resource",
+                                      "type": "object",
+                                      "x-ms-azure-resource": true
+                                    }
+                                  ],
+                                  "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
+                                  "properties": {
+                                    "location": {
+                                      "description": "The geo-location where the resource lives",
+                                      "type": "string",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create"
+                                      ]
+                                    },
+                                    "tags": {
+                                      "additionalProperties": {
+                                        "type": "string"
+                                      },
+                                      "description": "Resource tags.",
+                                      "type": "object",
+                                      "x-ms-mutability": [
+                                        "read",
+                                        "create",
+                                        "update"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "location"
+                                  ],
+                                  "title": "Tracked Resource",
+                                  "type": "object"
+                                }
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/allOf"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource Id",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/id"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource location",
+                                "type": "string",
+                                "x-ms-mutability": [
+                                  "read",
+                                  "create"
+                                ]
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/location"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource name",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/name"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Name of backup policy",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/properties/properties/name"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "volumeName"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/volumeBackups/x-ms-identifiers"
+                            },
+                            {
+                              "oldValue": {
+                                "additionalProperties": {
+                                  "type": "string"
+                                },
+                                "description": "Tags are a list of key-value pairs that describe the resource",
+                                "type": "object"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/tags"
+                            },
+                            {
+                              "oldValue": {
+                                "description": "Resource type",
+                                "readOnly": true,
+                                "type": "string"
+                              },
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/properties/type"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": null,
+                              "op": "remove",
+                              "from": "",
+                              "path": "/x-ms-azure-resource"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {
+    "BackupPolicies_Update": "FunctionDef(name='BackupPolicies_Update', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='backupPolicyName', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='Patch a backup policy for Netapp Account')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.NetApp/netAppAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/backupPolicies/'), FormattedValue(value=Name(id='backupPolicyName', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='backupPolicyName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: backupPolicyName')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='patch', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='BackupPolicies_Update')), keyword(arg='description', value=Constant(value='Patch a backup policy: Patch a backup policy for Netapp Account'))])])"
+  },
+  "tools_b": {
+    "BackupPolicies_Update": "FunctionDef(name='BackupPolicies_Update', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='backupPolicyName', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='Patch a backup policy for Netapp Account')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.NetApp/netAppAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/backupPolicies/'), FormattedValue(value=Name(id='backupPolicyName', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='backupPolicyName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: backupPolicyName')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='patch', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='BackupPolicies_Update')), keyword(arg='description', value=Constant(value='Patch a backup policy: Patch a backup policy for Netapp Account'))])])"
+  }
+}

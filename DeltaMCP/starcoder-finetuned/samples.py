@@ -93,35 +93,44 @@ def extract_changed_tool_functions(stub_file, changed_paths):
                         break
             
             if has_tool_decorator and tool_name:
-                if is_tool_affected_by_changes(tool_name, changed_paths):
-                    if hasattr(node, 'lineno') and hasattr(node, 'end_lineno'):
-                        start_line = node.lineno - 1  # Convert to 0-based indexing
-                        end_line = node.end_lineno if node.end_lineno else start_line + 1
-                        
-                        decorator_start = start_line
-                        for dec in node.decorator_list:
-                            if hasattr(dec, 'lineno'):
-                                decorator_start = min(decorator_start, dec.lineno - 1)
-                        
-                        func_source = '\n'.join(source_lines[decorator_start:end_line])
-                        func_source = textwrap.dedent(func_source)
-                        extracted_functions[tool_name] = func_source.strip()
+                if hasattr(node, 'lineno') and hasattr(node, 'end_lineno'):
+                    start_line = node.lineno - 1
+                    end_line = node.end_lineno if node.end_lineno else start_line + 1
+                    
+                    decorator_start = start_line
+                    for dec in node.decorator_list:
+                        if hasattr(dec, 'lineno'):
+                            decorator_start = min(decorator_start, dec.lineno - 1)
+                    
+                    func_source = '\n'.join(source_lines[decorator_start:end_line])
+                    func_source = textwrap.dedent(func_source)
+                    
+                    affected_result = is_tool_affected_by_changes(func_source, changed_paths)
+                    if affected_result:
+                        is_affected, relevant_paths = affected_result
+                        extracted_functions[tool_name] = {
+                            'function_source': func_source.strip(),
+                            'relevant_paths': relevant_paths
+                        }
     return extracted_functions
 
-def is_tool_affected_by_changes(tool_name, changed_paths):
+def is_tool_affected_by_changes(func_source, changed_paths):
     if not changed_paths:
         return True
     
-    tool_name_lower = tool_name.lower()
+    relevant_paths = {}
+    func_source_lower = func_source.lower()
+    
     for path in changed_paths:
         path_lower = path.lower()
-        if any(part in tool_name_lower for part in path_lower.split('/')):
-            return True
-    
-    return False
+        if path_lower in func_source_lower:
+            relevant_paths[path] = True
+                
+    if relevant_paths:
+        return (True, relevant_paths)
+    return (False, {})
 
 def parse_version_date(version_str):
-    """Parse version string to datetime for sorting."""
     try:
         return datetime.strptime(version_str, "%Y-%m-%d")
     except ValueError:
@@ -131,7 +140,6 @@ def parse_version_date(version_str):
             return datetime.min
 
 def get_consecutive_version_pairs(versions):
-    """Get consecutive version pairs for proper API evolution tracking."""
     if len(versions) < 2:
         return []
     sorted_versions = sorted(versions, key=parse_version_date)
@@ -141,7 +149,6 @@ def get_consecutive_version_pairs(versions):
     return pairs
 
 def has_valid_oasdiff(diff):
-    """Check if the oasdiff output is valid and contains meaningful changes."""
     if not isinstance(diff, dict):
         return False
     if "error" in diff:
@@ -150,15 +157,209 @@ def has_valid_oasdiff(diff):
         return False
     return True
 
-def convert_function_to_ast(func_source):
+def convert_function_to_ast(function_source):
+    if not function_source:
+        return ""
+    
     try:
-        tree = ast.parse(func_source)
+        tree = ast.parse(function_source)
+        if tree.body and isinstance(tree.body[0], ast.FunctionDef):
+            return ast.dump(tree.body[0])
+        return ""
+    except Exception as e:
+        logging.warning(f"Failed to convert function to AST: {e}")
+        return ""
+
+def extract_http_method_from_function(function_source):
+    if not function_source:
+        return None
+    
+    try:
+        tree = ast.parse(function_source)
+        
         for node in ast.walk(tree):
-            if isinstance(node, ast.FunctionDef):
-                return ast.dump(node, indent=2)
+            if (isinstance(node, ast.Call) and 
+                isinstance(node.func, ast.Attribute) and
+                isinstance(node.func.value, ast.Name) and
+                node.func.value.id == 'requests'):
+                
+                method = node.func.attr.upper()
+                if method in ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS']:
+                    return method
+        
         return None
-    except Exception:
+    except Exception as e:
+        logging.warning(f"Failed to extract HTTP method from function: {e}")
         return None
+
+def filter_oasdiff_by_operation(oasdiff, http_method, relevant_paths):
+    if not isinstance(oasdiff, dict) or 'paths' not in oasdiff:
+        return oasdiff
+    
+    if not http_method or not relevant_paths:
+        return oasdiff
+    
+    filtered_diff = {"paths": {}}
+    
+    for change_type, paths_data in oasdiff['paths'].items():
+        if not isinstance(paths_data, dict):
+            continue
+            
+        filtered_paths = {}
+        
+        for path, path_data in paths_data.items():
+            if path not in relevant_paths:
+                continue
+                
+            if isinstance(path_data, dict) and 'operations' in path_data:
+                filtered_operations = {}
+                
+                for op_change_type, operations_data in path_data['operations'].items():
+                    if isinstance(operations_data, dict) and http_method in operations_data:
+                        if op_change_type not in filtered_operations:
+                            filtered_operations[op_change_type] = {}
+                        filtered_operations[op_change_type][http_method] = operations_data[http_method]
+                
+                if filtered_operations:
+                    filtered_path_data = path_data.copy()
+                    filtered_path_data['operations'] = filtered_operations
+                    filtered_paths[path] = filtered_path_data
+            else:
+                filtered_paths[path] = path_data
+        
+        if filtered_paths:
+            filtered_diff['paths'][change_type] = filtered_paths
+    
+    return filtered_diff if any(filtered_diff['paths'].values()) else {"paths": {}}
+
+def extract_operation_details_from_spec(spec_file, path, http_method=None):
+    if not spec_file:
+        return None
+        
+    try:
+        import json
+        with open(spec_file, 'r') as f:
+            spec = json.load(f)
+        
+        paths = spec.get('paths', {})
+        if path not in paths:
+            return None
+            
+        path_data = paths[path]
+        
+        if http_method and http_method.lower() in path_data:
+            return {http_method.lower(): path_data[http_method.lower()]}
+        
+        return path_data
+        
+    except Exception as e:
+        logging.warning(f"Failed to extract operation details from {spec_file}: {e}")
+        return None
+
+def create_training_sample(change_type, tool_name, paths_data, full_diff, tool_a_data, tool_b_data, service, version_a, version_b, api_type, spec_a_file=None, spec_b_file=None):
+    tool_a_source = tool_a_data.get('function_source', '')
+    tool_a_paths = tool_a_data.get('relevant_paths', {})
+    
+    tool_b_source = tool_b_data.get('function_source', '')
+    tool_b_paths = tool_b_data.get('relevant_paths', {})
+    
+    http_method = None
+    if tool_a_source:
+        http_method = extract_http_method_from_function(tool_a_source)
+    elif tool_b_source:
+        http_method = extract_http_method_from_function(tool_b_source)
+    
+    ast_a = convert_function_to_ast(tool_a_source) if tool_a_source else ""
+    ast_b = convert_function_to_ast(tool_b_source) if tool_b_source else ""
+    
+    all_relevant_paths = {}
+    all_relevant_paths.update(tool_a_paths)
+    all_relevant_paths.update(tool_b_paths)
+    
+    if change_type == 'modified':
+        if not all_relevant_paths:
+            return None
+            
+        filtered_diff = {"paths": {"modified": {
+            path: data for path, data in paths_data.items() 
+            if path in all_relevant_paths
+        }}}
+        
+        if http_method and filtered_diff.get('paths', {}).get('modified'):
+            filtered_diff = filter_oasdiff_by_operation(filtered_diff, http_method, all_relevant_paths)
+            
+    elif change_type == 'added':
+        relevant_added_paths = [path for path in paths_data if path in all_relevant_paths]
+        if not relevant_added_paths:
+            return None
+        
+        added_operations = {}
+        for path in relevant_added_paths:
+            op_details = extract_operation_details_from_spec(spec_b_file, path, http_method)
+            if op_details:
+                added_operations[path] = {"operations": {"added": op_details}}
+        
+        if added_operations:
+            filtered_diff = {"paths": {"added": added_operations}}
+        else:
+            filtered_diff = {"paths": {"added": relevant_added_paths}}
+        
+    elif change_type == 'deleted':
+        relevant_deleted_paths = [path for path in paths_data if path in all_relevant_paths]
+        if not relevant_deleted_paths:
+            return None
+        
+        deleted_operations = {}
+        for path in relevant_deleted_paths:
+            op_details = extract_operation_details_from_spec(spec_a_file, path, http_method)
+            if op_details:
+                deleted_operations[path] = {"operations": {"deleted": op_details}}
+        
+        if deleted_operations:
+            filtered_diff = {"paths": {"deleted": deleted_operations}}
+        else:
+            filtered_diff = {"paths": {"deleted": relevant_deleted_paths}}
+    
+    else:
+        return None
+    
+    if not any(filtered_diff.get('paths', {}).values()):
+        return None
+    
+    tools_a_dict = {tool_name: ast_a} if ast_a else {}
+    tools_b_dict = {tool_name: ast_b} if ast_b else {}
+    
+    if not is_valid_training_sample(filtered_diff, tools_a_dict, tools_b_dict, tool_name):
+        return None
+    
+    return {
+        "oasdiff": filtered_diff,
+        "tools_a": tools_a_dict,
+        "tools_b": tools_b_dict
+    }
+
+
+def is_valid_training_sample(oasdiff, tools_a, tools_b, tool_name):
+    if not isinstance(oasdiff, dict) or 'paths' not in oasdiff:
+        return True
+    
+    tool_in_a = bool(tools_a.get(tool_name))
+    tool_in_b = bool(tools_b.get(tool_name))
+    
+    paths = oasdiff['paths']
+    
+    for change_type in paths:
+        if change_type == 'modified':
+            if not (tool_in_a and tool_in_b):
+                return False
+        elif change_type == 'added':
+            if not (not tool_in_a and tool_in_b):
+                return False
+        elif change_type == 'deleted':
+            if not (tool_in_a and not tool_in_b):
+                return False
+    
+    return True
 
 @ray.remote
 def process_version_pair(args):
@@ -199,7 +400,7 @@ def process_version_pair(args):
         return
     
     provider_dir = provider_dirs[0]
-    api_dir = provider_dir / api_type  # 'stable' or 'preview'
+    api_dir = provider_dir / api_type
     
     version_a_dir = api_dir / version_a
     version_b_dir = api_dir / version_b
@@ -228,34 +429,67 @@ def process_version_pair(args):
             for change_type, paths_data in diff['paths'].items():
                 if isinstance(paths_data, dict):
                     changed_paths.extend(paths_data.keys())
+                elif isinstance(paths_data, list):
+                    changed_paths.extend(paths_data)
         
-        functions_a = extract_changed_tool_functions(stub_a, changed_paths)
-        functions_b = extract_changed_tool_functions(stub_b, changed_paths)
+        if not changed_paths:
+            logging.info(f"Skipping {service} {version_a}->{version_b} ({api_type}): no changed paths")
+            return
         
-        ast_functions_a = {}
-        ast_functions_b = {}
+        samples_created = 0
         
-        for tool_name, func_source in functions_a.items():
-            ast_dump = convert_function_to_ast(func_source)
-            if ast_dump:
-                ast_functions_a[tool_name] = ast_dump
+        for change_type, paths_data in diff['paths'].items():
+            if change_type == 'modified' and isinstance(paths_data, dict):
+                functions_a = extract_changed_tool_functions(stub_a, list(paths_data.keys()))
+                functions_b = extract_changed_tool_functions(stub_b, list(paths_data.keys()))
+                all_tool_names = set(functions_a.keys()) | set(functions_b.keys())
+                
+                for tool_name in all_tool_names:
+                    sample = create_training_sample(
+                        change_type, tool_name, paths_data, diff,
+                        functions_a.get(tool_name, {}), functions_b.get(tool_name, {}),
+                        service, version_a, version_b, api_type,
+                        str(spec_a_files[0]), str(spec_b_files[0])
+                    )
+                    if sample:
+                        output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}_{tool_name}.json"
+                        with open(output_file, 'w', encoding='utf-8') as f:
+                            json.dump(sample, f, indent=2, ensure_ascii=False)
+                        samples_created += 1
+                        
+            elif change_type == 'added' and isinstance(paths_data, list):
+                functions_b = extract_changed_tool_functions(stub_b, paths_data)
+                
+                for tool_name in functions_b.keys():
+                    sample = create_training_sample(
+                        change_type, tool_name, paths_data, diff,
+                        {}, functions_b.get(tool_name, {}),
+                        service, version_a, version_b, api_type,
+                        str(spec_a_files[0]), str(spec_b_files[0])
+                    )
+                    if sample:
+                        output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}_{tool_name}.json"
+                        with open(output_file, 'w', encoding='utf-8') as f:
+                            json.dump(sample, f, indent=2, ensure_ascii=False)
+                        samples_created += 1
+                        
+            elif change_type == 'deleted' and isinstance(paths_data, list):
+                functions_a = extract_changed_tool_functions(stub_a, paths_data)
+                
+                for tool_name in functions_a.keys():
+                    sample = create_training_sample(
+                        change_type, tool_name, paths_data, diff,
+                        functions_a.get(tool_name, {}), {},
+                        service, version_a, version_b, api_type,
+                        str(spec_a_files[0]), str(spec_b_files[0])
+                    )
+                    if sample:
+                        output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}_{tool_name}.json"
+                        with open(output_file, 'w', encoding='utf-8') as f:
+                            json.dump(sample, f, indent=2, ensure_ascii=False)
+                        samples_created += 1
         
-        for tool_name, func_source in functions_b.items():
-            ast_dump = convert_function_to_ast(func_source)
-            if ast_dump:
-                ast_functions_b[tool_name] = ast_dump
-        
-        training_sample = {
-            "oasdiff": diff,
-            "tools_a": ast_functions_a,
-            "tools_b": ast_functions_b
-        }
-        
-        logging.info(f"Generated {service} {version_a}->{version_b} ({api_type}): {len(ast_functions_a)} tools A, {len(ast_functions_b)} tools B")
-        
-        output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}.json"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(training_sample, f, indent=2, ensure_ascii=False)
+        logging.info(f"Generated {service} {version_a}->{version_b} ({api_type}): {samples_created} individual tool samples")
             
     except Exception as e:
         error_msg = f"Failed processing {service} {version_a}->{version_b} ({api_type}): {str(e)}"
@@ -307,24 +541,20 @@ def main():
         
         provider_dir = provider_dirs[0]
         
-        # Process both stable and preview APIs
         for api_type in ['stable', 'preview']:
             api_dir = provider_dir / api_type
             
             if not api_dir.exists():
                 continue
             
-            # Get all version directories
             version_dirs = [v for v in api_dir.iterdir() if v.is_dir() and not v.name.startswith('.')]
             version_names = [v.name for v in version_dirs]
             
             if len(version_names) < 2:
                 continue
             
-            # Get consecutive version pairs
             consecutive_pairs = get_consecutive_version_pairs(version_names)
             
-            # Add to processing queue with api_type
             for version_a, version_b in consecutive_pairs:
                 version_pairs.append((service_name, version_a, version_b, api_type))
     

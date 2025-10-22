@@ -1,0 +1,107 @@
+{
+  "oasdiff": {
+    "paths": {
+      "added": {
+        "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups/{tenantActionGroupName}": {
+          "operations": {
+            "added": {
+              "patch": {
+                "description": "Updates an existing tenant action group's tags. To update other fields use the CreateOrUpdate method.",
+                "operationId": "TenantActionGroups_Update",
+                "parameters": [
+                  {
+                    "$ref": "#/parameters/ManagementGroupIdParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/ActionGroupNameParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/TenantIdParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "name": "tenantActionGroupPatch",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/ActionGroupPatchBody"
+                    },
+                    "description": "Parameters supplied to the operation."
+                  }
+                ],
+                "responses": {
+                  "default": {
+                    "description": "Error response describing why the operation failed.",
+                    "schema": {
+                      "$ref": "#/definitions/ErrorResponse"
+                    }
+                  },
+                  "200": {
+                    "description": "An existing tenant action group was successfully updated.",
+                    "schema": {
+                      "$ref": "#/definitions/TenantActionGroupResource"
+                    }
+                  }
+                },
+                "x-ms-examples": {
+                  "Patch a tenant action group": {
+                    "$ref": "./examples/patchTenantActionGroup.json"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/tenantActionGroups": {
+          "operations": {
+            "added": {
+              "get": {
+                "description": "Get a list of all tenant action groups in a management group.",
+                "operationId": "TenantActionGroups_ListByManagementGroupId",
+                "x-ms-examples": {
+                  "List tenant action groups at management group level": {
+                    "$ref": "./examples/listTenantActionGroups.json"
+                  }
+                },
+                "x-ms-pageable": {
+                  "nextLinkName": null
+                },
+                "parameters": [
+                  {
+                    "$ref": "#/parameters/ManagementGroupIdParameter"
+                  },
+                  {
+                    "$ref": "#/parameters/TenantIdParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v2/types.json#/parameters/ApiVersionParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "The request succeeded.",
+                    "schema": {
+                      "$ref": "#/definitions/TenantActionGroupList"
+                    }
+                  },
+                  "default": {
+                    "description": "An error occurred and the list of tenant action groups could not be retrieved.",
+                    "schema": {
+                      "$ref": "#/definitions/ErrorResponse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {
+    "TenantActionGroups_Update": "FunctionDef(name='TenantActionGroups_Update', args=arguments(posonlyargs=[], args=[arg(arg='managementGroupId', annotation=Name(id='str', ctx=Load())), arg(arg='tenantActionGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='x_ms_client_tenant_id', annotation=Subscript(value=Name(id='Optional', ctx=Load()), slice=Name(id='str', ctx=Load()), ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[Constant(value=None)]), body=[Expr(value=Constant(value=\"Updates an existing tenant action group's tags. To update other fields use the CreateOrUpdate method.\")), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.Management/managementGroups/'), FormattedValue(value=Name(id='managementGroupId', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.Insights/tenantActionGroups/'), FormattedValue(value=Name(id='tenantActionGroupName', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='managementGroupId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: managementGroupId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='tenantActionGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: tenantActionGroupName')], keywords=[]))], orelse=[]), Assign(targets=[Name(id='header_value', ctx=Store())], value=IfExp(test=Compare(left=Name(id='x_ms_client_tenant_id', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]), body=Name(id='x_ms_client_tenant_id', ctx=Load()), orelse=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='X_MS_CLIENT_TENANT_ID')], keywords=[]))), If(test=Compare(left=Name(id='header_value', ctx=Load()), ops=[IsNot()], comparators=[Constant(value=None)]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='x-ms-client-tenant-id'), ctx=Store())], value=Name(id='header_value', ctx=Load()))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='patch', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='TenantActionGroups_Update')), keyword(arg='description', value=Constant(value=\"Updates an existing tenant action group's tags. To update other fields use the CreateOrUpdate method.\"))])])"
+  }
+}

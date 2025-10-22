@@ -1,0 +1,395 @@
+{
+  "oasdiff": {
+    "paths": {
+      "modified": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Accounts_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "Total throughput of pool in Mibps",
+                              "value": "Total throughput of pool in MiB/s",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/totalThroughputMibps/description"
+                            },
+                            {
+                              "oldValue": "Utilized throughput of pool in Mibps",
+                              "value": "Utilized throughput of pool in MiB/s",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/utilizedThroughputMibps/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Pools_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "Total throughput of pool in Mibps",
+                              "value": "Total throughput of pool in MiB/s",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/totalThroughputMibps/description"
+                            },
+                            {
+                              "oldValue": "Utilized throughput of pool in Mibps",
+                              "value": "Utilized throughput of pool in MiB/s",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/utilizedThroughputMibps/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_List/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'",
+                              "value": "Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/encryptionKeySource/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Microsoft.KeyVault",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/encryptionKeySource/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Customer-managed key encryption",
+                                "value": "Microsoft.KeyVault"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/encryptionKeySource/x-ms-enum/values/-"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": false,
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5ReadWrite/example"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": false,
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5iReadWrite/example"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": false,
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5pReadWrite/example"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "read",
+                                "create"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/kerberosEnabled/x-ms-mutability"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/keyVaultPrivateEndpointResourceId"
+                            },
+                            {
+                              "oldValue": "Maximum throughput in Mibps that can be achieved by this volume and this will be accepted as input only for manual qosType volume",
+                              "value": "Maximum throughput in MiB/s that can be achieved by this volume and this will be accepted as input only for manual qosType volume",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/throughputMibps/title"
+                            },
+                            {
+                              "oldValue": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.",
+                              "value": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/value/items/properties/properties/properties/usageThreshold/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_Get/parameters/api-version"
+                      }
+                    ]
+                  }
+                },
+                "responses": {
+                  "modified": {
+                    "200": {
+                      "extensions": {
+                        "modified": {
+                          "schema": [
+                            {
+                              "oldValue": "Source of key used to encrypt data in volume. Possible values (case-insensitive) are: 'Microsoft.NetApp'",
+                              "value": "Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/encryptionKeySource/description"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": "Microsoft.KeyVault",
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/encryptionKeySource/enum/-"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "Customer-managed key encryption",
+                                "value": "Microsoft.KeyVault"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/encryptionKeySource/x-ms-enum/values/-"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": false,
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5ReadWrite/example"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": false,
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5iReadWrite/example"
+                            },
+                            {
+                              "oldValue": true,
+                              "value": false,
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/exportPolicy/properties/rules/items/properties/kerberos5pReadWrite/example"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": [
+                                "read",
+                                "create"
+                              ],
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/kerberosEnabled/x-ms-mutability"
+                            },
+                            {
+                              "oldValue": null,
+                              "value": {
+                                "description": "The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.",
+                                "type": "string"
+                              },
+                              "op": "add",
+                              "from": "",
+                              "path": "/properties/properties/properties/keyVaultPrivateEndpointResourceId"
+                            },
+                            {
+                              "oldValue": "Maximum throughput in Mibps that can be achieved by this volume and this will be accepted as input only for manual qosType volume",
+                              "value": "Maximum throughput in MiB/s that can be achieved by this volume and this will be accepted as input only for manual qosType volume",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/throughputMibps/title"
+                            },
+                            {
+                              "oldValue": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 500 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.",
+                              "value": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.",
+                              "op": "replace",
+                              "from": "",
+                              "path": "/properties/properties/properties/usageThreshold/description"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/restoreStatus": {
+          "operations": {
+            "modified": {
+              "GET": {
+                "extensions": {
+                  "modified": {
+                    "x-ms-examples": [
+                      {
+                        "oldValue": "2022-01-01",
+                        "value": "2022-03-01",
+                        "op": "replace",
+                        "from": "",
+                        "path": "/Volumes_RestoreStatus/parameters/api-version"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {
+    "Backups_GetVolumeRestoreStatus": "FunctionDef(name='Backups_GetVolumeRestoreStatus', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='poolName', annotation=Name(id='str', ctx=Load())), arg(arg='volumeName', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='Get the status of the restore for a volume')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.NetApp/netAppAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/capacityPools/'), FormattedValue(value=Name(id='poolName', ctx=Load()), conversion=-1), Constant(value='/volumes/'), FormattedValue(value=Name(id='volumeName', ctx=Load()), conversion=-1), Constant(value='/restoreStatus')])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='poolName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: poolName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='volumeName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: volumeName')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='get', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='Backups_GetVolumeRestoreStatus')), keyword(arg='description', value=Constant(value=\"Get volume's restore status: Get the status of the restore for a volume\"))])])"
+  },
+  "tools_b": {
+    "Backups_GetVolumeRestoreStatus": "FunctionDef(name='Backups_GetVolumeRestoreStatus', args=arguments(posonlyargs=[], args=[arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load())), arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='poolName', annotation=Name(id='str', ctx=Load())), arg(arg='volumeName', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='Get the status of the restore for a volume')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourceGroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.NetApp/netAppAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/capacityPools/'), FormattedValue(value=Name(id='poolName', ctx=Load()), conversion=-1), Constant(value='/volumes/'), FormattedValue(value=Name(id='volumeName', ctx=Load()), conversion=-1), Constant(value='/restoreStatus')])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='poolName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: poolName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='volumeName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: volumeName')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='get', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='Backups_GetVolumeRestoreStatus')), keyword(arg='description', value=Constant(value=\"Get volume's restore status: Get the status of the restore for a volume\"))])])"
+  }
+}

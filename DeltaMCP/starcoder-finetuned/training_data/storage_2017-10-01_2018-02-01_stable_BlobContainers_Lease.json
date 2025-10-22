@@ -1,0 +1,279 @@
+{
+  "oasdiff": {
+    "paths": {
+      "added": {
+        "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/lease": {
+          "operations": {
+            "added": {
+              "post": {
+                "tags": [
+                  "BlobContainers"
+                ],
+                "operationId": "BlobContainers_Lease",
+                "x-ms-examples": {
+                  "Acquire a lease on a container": {
+                    "$ref": "./examples/BlobContainersLease_Acquire.json"
+                  },
+                  "Break a lease on a container": {
+                    "$ref": "./examples/BlobContainersLease_Break.json"
+                  }
+                },
+                "description": "The Lease Container operation establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite.",
+                "parameters": [
+                  {
+                    "$ref": "./storage.json#/parameters/ResourceGroupName"
+                  },
+                  {
+                    "$ref": "#/parameters/AccountName"
+                  },
+                  {
+                    "$ref": "#/parameters/ContainerName"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  },
+                  {
+                    "name": "parameters",
+                    "in": "body",
+                    "schema": {
+                      "$ref": "#/definitions/LeaseContainerRequest"
+                    },
+                    "description": "Lease Container request body."
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- Lease Container operation completed successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/LeaseContainerResponse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers": {
+          "operations": {
+            "added": {
+              "get": {
+                "tags": [
+                  "BlobContainers"
+                ],
+                "operationId": "BlobContainers_List",
+                "x-ms-examples": {
+                  "ListContainers": {
+                    "$ref": "./examples/BlobContainersList.json"
+                  }
+                },
+                "description": "Lists all containers and does not support a prefix like data plane. Also SRP today does not return continuation token.",
+                "parameters": [
+                  {
+                    "$ref": "./storage.json#/parameters/ResourceGroupName"
+                  },
+                  {
+                    "$ref": "#/parameters/AccountName"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- List Container operation completed successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/ListContainerItems"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}": {
+          "operations": {
+            "added": {
+              "put": {
+                "tags": [
+                  "BlobContainers"
+                ],
+                "operationId": "BlobContainers_Create",
+                "x-ms-examples": {
+                  "PutContainers": {
+                    "$ref": "./examples/BlobContainersPut.json"
+                  }
+                },
+                "description": "Creates a new container under the specified account as described by request body. The container resource includes metadata and properties for that container. It does not include a list of the blobs contained by the container. ",
+                "parameters": [
+                  {
+                    "$ref": "./storage.json#/parameters/ResourceGroupName"
+                  },
+                  {
+                    "$ref": "#/parameters/AccountName"
+                  },
+                  {
+                    "$ref": "#/parameters/ContainerName"
+                  },
+                  {
+                    "name": "blobContainer",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/BlobContainer"
+                    },
+                    "description": "Properties of the blob container to create."
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "201": {
+                    "description": "Created -- Create Container operation completed successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/BlobContainer"
+                    }
+                  }
+                }
+              },
+              "patch": {
+                "tags": [
+                  "BlobContainers"
+                ],
+                "operationId": "BlobContainers_Update",
+                "x-ms-examples": {
+                  "UpdateContainers": {
+                    "$ref": "./examples/BlobContainersPatch.json"
+                  }
+                },
+                "description": "Updates container properties as specified in request body. Properties not mentioned in the request will be unchanged. Update fails if the specified container doesn't already exist. ",
+                "parameters": [
+                  {
+                    "$ref": "./storage.json#/parameters/ResourceGroupName"
+                  },
+                  {
+                    "$ref": "#/parameters/AccountName"
+                  },
+                  {
+                    "$ref": "#/parameters/ContainerName"
+                  },
+                  {
+                    "name": "blobContainer",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/BlobContainer"
+                    },
+                    "description": "Properties to update for the blob container."
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- Update Container operation completed successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/BlobContainer",
+                      "description": "Properties of the updated blob container."
+                    }
+                  }
+                }
+              },
+              "get": {
+                "tags": [
+                  "BlobContainers"
+                ],
+                "operationId": "BlobContainers_Get",
+                "x-ms-examples": {
+                  "GetContainers": {
+                    "$ref": "./examples/BlobContainersGet.json"
+                  }
+                },
+                "description": "Gets properties of a specified container. ",
+                "parameters": [
+                  {
+                    "$ref": "./storage.json#/parameters/ResourceGroupName"
+                  },
+                  {
+                    "$ref": "#/parameters/AccountName"
+                  },
+                  {
+                    "$ref": "#/parameters/ContainerName"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- Get Container operation completed successfully.",
+                    "schema": {
+                      "$ref": "#/definitions/BlobContainer"
+                    }
+                  }
+                }
+              },
+              "delete": {
+                "tags": [
+                  "BlobContainers"
+                ],
+                "operationId": "BlobContainers_Delete",
+                "x-ms-examples": {
+                  "DeleteContainers": {
+                    "$ref": "./examples/BlobContainersDelete.json"
+                  }
+                },
+                "description": "Deletes specified container under its account.",
+                "parameters": [
+                  {
+                    "$ref": "./storage.json#/parameters/ResourceGroupName"
+                  },
+                  {
+                    "$ref": "#/parameters/AccountName"
+                  },
+                  {
+                    "$ref": "#/parameters/ContainerName"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/ApiVersionParameter"
+                  },
+                  {
+                    "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK -- Delete Container operation completed successfully."
+                  },
+                  "204": {
+                    "description": "No Content -- The Container not exist."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tools_a": {},
+  "tools_b": {
+    "BlobContainers_Lease": "FunctionDef(name='BlobContainers_Lease', args=arguments(posonlyargs=[], args=[arg(arg='accountName', annotation=Name(id='str', ctx=Load())), arg(arg='containerName', annotation=Name(id='str', ctx=Load())), arg(arg='subscriptionId', annotation=Name(id='str', ctx=Load())), arg(arg='resourceGroupName', annotation=Name(id='str', ctx=Load()))], kwonlyargs=[], kw_defaults=[], defaults=[]), body=[Expr(value=Constant(value='The Lease Container operation establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite.')), Assign(targets=[Name(id='base_url', ctx=Store())], value=Constant(value='https://management.azure.com')), Assign(targets=[Name(id='url', ctx=Store())], value=JoinedStr(values=[FormattedValue(value=Name(id='base_url', ctx=Load()), conversion=-1), Constant(value='/subscriptions/'), FormattedValue(value=Name(id='subscriptionId', ctx=Load()), conversion=-1), Constant(value='/resourcegroups/'), FormattedValue(value=Name(id='resourceGroupName', ctx=Load()), conversion=-1), Constant(value='/providers/Microsoft.Storage/storageAccounts/'), FormattedValue(value=Name(id='accountName', ctx=Load()), conversion=-1), Constant(value='/blobServices/default/containers/'), FormattedValue(value=Name(id='containerName', ctx=Load()), conversion=-1), Constant(value='/lease')])), Assign(targets=[Name(id='params', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='headers', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='cookies', ctx=Store())], value=Dict(keys=[], values=[])), Assign(targets=[Name(id='extra_headers', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='EXTRA_HEADERS')], keywords=[])), If(test=Name(id='extra_headers', ctx=Load()), body=[Try(body=[For(target=Tuple(elts=[Name(id='k', ctx=Store()), Name(id='v', ctx=Store())], ctx=Store()), iter=Call(func=Attribute(value=Call(func=Attribute(value=Name(id='json', ctx=Load()), attr='loads', ctx=Load()), args=[Name(id='extra_headers', ctx=Load())], keywords=[]), attr='items', ctx=Load()), args=[], keywords=[]), body=[Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Name(id='k', ctx=Load()), ctx=Store())], value=Name(id='v', ctx=Load()))], orelse=[])], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Name(id='print', ctx=Load()), args=[Constant(value='Failed to parse EXTRA_HEADERS:'), Name(id='e', ctx=Load())], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=False)), Assign(targets=[Name(id='auth_error_msgs', ctx=Store())], value=List(elts=[], ctx=Load())), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Try(body=[Assign(targets=[Name(id='access_token', ctx=Store())], value=Call(func=Attribute(value=Name(id='os', ctx=Load()), attr='getenv', ctx=Load()), args=[Constant(value='AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[])), If(test=UnaryOp(op=Not(), operand=Name(id='access_token', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing OAuth2 access token in .env: AZURE_AUTH_AUTHORIZATIONCODE_ACCESS_TOKEN')], keywords=[]))], orelse=[]), Assign(targets=[Subscript(value=Name(id='headers', ctx=Load()), slice=Constant(value='Authorization'), ctx=Store())], value=JoinedStr(values=[Constant(value='Bearer '), FormattedValue(value=Name(id='access_token', ctx=Load()), conversion=-1)])), Assign(targets=[Name(id='auth_satisfied', ctx=Store())], value=Constant(value=True))], handlers=[ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Expr(value=Call(func=Attribute(value=Name(id='auth_error_msgs', ctx=Load()), attr='append', ctx=Load()), args=[Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[])], keywords=[]))])], orelse=[], finalbody=[])], orelse=[]), If(test=UnaryOp(op=Not(), operand=Name(id='auth_satisfied', ctx=Load())), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[BinOp(left=Constant(value='No valid authentication found. Details: '), op=Add(), right=Call(func=Attribute(value=Constant(value='; '), attr='join', ctx=Load()), args=[Name(id='auth_error_msgs', ctx=Load())], keywords=[]))], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='accountName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: accountName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='containerName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: containerName')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='subscriptionId', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: subscriptionId')], keywords=[]))], orelse=[]), If(test=Compare(left=Name(id='resourceGroupName', ctx=Load()), ops=[Is()], comparators=[Constant(value=None)]), body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[Constant(value='Missing required path parameter: resourceGroupName')], keywords=[]))], orelse=[]), Try(body=[Assign(targets=[Name(id='resp', ctx=Store())], value=Call(func=Attribute(value=Name(id='requests', ctx=Load()), attr='post', ctx=Load()), args=[Name(id='url', ctx=Load())], keywords=[keyword(arg='params', value=Name(id='params', ctx=Load())), keyword(arg='headers', value=Name(id='headers', ctx=Load())), keyword(arg='cookies', value=Name(id='cookies', ctx=Load()))])), Expr(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='raise_for_status', ctx=Load()), args=[], keywords=[])), If(test=Compare(left=Constant(value='application/json'), ops=[In()], comparators=[Call(func=Attribute(value=Attribute(value=Name(id='resp', ctx=Load()), attr='headers', ctx=Load()), attr='get', ctx=Load()), args=[Constant(value='Content-Type'), Constant(value='')], keywords=[])]), body=[Return(value=Call(func=Attribute(value=Name(id='resp', ctx=Load()), attr='json', ctx=Load()), args=[], keywords=[]))], orelse=[Return(value=Dict(keys=[Constant(value='raw'), Constant(value='status_code')], values=[Attribute(value=Name(id='resp', ctx=Load()), attr='text', ctx=Load()), Attribute(value=Name(id='resp', ctx=Load()), attr='status_code', ctx=Load())]))])], handlers=[ExceptHandler(type=Attribute(value=Attribute(value=Name(id='requests', ctx=Load()), attr='exceptions', ctx=Load()), attr='RequestException', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='HTTP request failed: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))]), ExceptHandler(type=Name(id='Exception', ctx=Load()), name='e', body=[Raise(exc=Call(func=Name(id='ValueError', ctx=Load()), args=[JoinedStr(values=[Constant(value='Unexpected error: '), FormattedValue(value=Call(func=Name(id='str', ctx=Load()), args=[Name(id='e', ctx=Load())], keywords=[]), conversion=-1)])], keywords=[]))])], orelse=[], finalbody=[])], decorator_list=[Call(func=Attribute(value=Name(id='mcp', ctx=Load()), attr='tool', ctx=Load()), args=[], keywords=[keyword(arg='name', value=Constant(value='BlobContainers_Lease')), keyword(arg='description', value=Constant(value='The Lease Container operation establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite.'))])])"
+  }
+}
