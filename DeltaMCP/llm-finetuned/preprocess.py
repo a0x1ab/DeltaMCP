@@ -3,39 +3,34 @@ import random
 from pathlib import Path
 
 
-def format_prompt(oasdiff, tools_a):
-    prompt_parts = []
-    prompt_parts.append("# Task")
-    prompt_parts.append("Generate the updated tool implementation (as AST) based on the OpenAPI diff:")
-    prompt_parts.append("")
-    
-    prompt_parts.append("# OpenAPI Specification Diff")
-    prompt_parts.append(json.dumps(oasdiff, indent=2))
-    prompt_parts.append("")
+def format_chat_text(oasdiff, tools_a, tools_b):
+    """Format the data into a single chat text format."""
+    # Format the user message
+    user_message = "Generate the updated tool implementation as required in the form of an AST based on the OpenAPI diff."
+    user_message += f" OpenAPI Specification Diff: {json.dumps(oasdiff)}"
     
     if tools_a:
-        prompt_parts.append("# Existing Tool Implementation (AST)")
+        # Convert tools_a dict to a more readable format
+        tools_a_str = ""
         for tool_name, tool_ast in tools_a.items():
-            prompt_parts.append(f"## {tool_name}")
-            prompt_parts.append(tool_ast)
-            prompt_parts.append("")
+            tools_a_str += f"{tool_name}: {tool_ast}; "
+        user_message += f" and the existing tool implementation as an AST is: {tools_a_str.rstrip('; ')}"
     else:
-        prompt_parts.append("# No existing tool implementation")
-        prompt_parts.append("")
+        user_message += " and there is no existing tool implementation"
     
-    return "\n".join(prompt_parts)
-
-
-def format_completion(tools_b):
+    # Format the assistant response
     if not tools_b:
-        return "# No tool implementation needed (tool deleted)"
+        assistant_message = "No tool implementation needed (tool deleted)"
+    else:
+        assistant_parts = []
+        for tool_name, tool_ast in tools_b.items():
+            assistant_parts.append(f"{tool_name}: {tool_ast}")
+        assistant_message = "; ".join(assistant_parts)
     
-    completion_parts = []
-    for tool_name, tool_ast in tools_b.items():
-        completion_parts.append(f"# {tool_name}")
-        completion_parts.append(tool_ast)
+    # Combine into chat format
+    chat_text = f"User: {user_message}\nAssistant: {assistant_message}"
     
-    return "\n".join(completion_parts)
+    return chat_text
 
 
 def load_training_samples(data_dir):
@@ -60,9 +55,8 @@ def create_training_examples(samples):
     
     for sample in samples:
         try:
-            prompt = format_prompt(sample["oasdiff"], sample["tools_a"])
-            completion = format_completion(sample["tools_b"])
-            examples.append({"prompt": prompt, "completion": completion})
+            chat_text = format_chat_text(sample["oasdiff"], sample["tools_a"], sample["tools_b"])
+            examples.append({"text": chat_text})
         except:
             continue
     
