@@ -4,9 +4,11 @@ import json
 import ast
 import argparse
 import shutil
+import textwrap
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import warnings
+from concurrent.futures import ThreadPoolExecutor, as_completed
 warnings.filterwarnings("ignore", category=UserWarning, module="urllib3")
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -29,6 +31,13 @@ class DeltaMCPGenerator:
         self.device = device
         self.tokenizer = None
         self.model = None
+        self.max_workers = max(1, min((os.cpu_count() or 1), 4))
+        self.original_tools: Dict[str, str] = {}
+        self._progress_state = None
+        self._tag_comments = {
+            "added": "#added with DeltaMCP",
+            "updated": "#updated with DeltaMCP"
+        }
         self._load_model()
     
     def _load_model(self):
@@ -117,7 +126,7 @@ class DeltaMCPGenerator:
                         
                         source_lines = source_code.split('\n')
                         func_source = '\n'.join(source_lines[start_line:end_line])
-                        tools[node.name] = func_source
+                        tools[node.name] = textwrap.dedent(func_source)
             
             print(f"Extracted {len(tools)} tools from stub file")
             return tools
@@ -130,6 +139,7 @@ class DeltaMCPGenerator:
         print("Generating training samples...")
         
         tools_a = self.extract_tools_from_stub(stub_a)
+        self.original_tools = tools_a.copy()
         if not tools_a:
             print("No tools found in stub A")
             return []
@@ -160,25 +170,41 @@ class DeltaMCPGenerator:
         print(f"Found {len(changed_paths)} changed paths")
         
         samples = []
-        for tool_name, tool_source in tools_a.items():
-            is_affected, relevant_paths = is_tool_affected_by_changes(tool_source, changed_paths)
-            
-            if not is_affected:
-                continue
-            
-            http_method = extract_http_method_from_function(tool_source)
-            
-            filtered_diff = filter_oasdiff_by_operation(diff, http_method, relevant_paths)
-            
-            if not any(filtered_diff.get('paths', {}).values()):
-                continue
-            
-            sample = self._create_training_sample(
-                tool_name, tool_source, filtered_diff, relevant_paths
-            )
-            
+
+        future_to_tool = {}
+        tools_list = list(tools_a.items())
+        self._start_progress("Preparing samples", len(tools_list))
+        if not tools_list:
+            self._finish_progress()
+            return samples
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            for tool_name, tool_source in tools_list:
+                future = executor.submit(
+                    self._prepare_sample,
+                    tool_name,
+                    tool_source,
+                    diff,
+                    changed_paths
+                )
+                future_to_tool[future] = tool_name
+
+            prepared: Dict[str, Optional[Dict]] = {}
+            for future in as_completed(future_to_tool):
+                tool_name = future_to_tool[future]
+                try:
+                    prepared[tool_name] = future.result()
+                except Exception as exc:
+                    print(f"Failed to prepare sample for {tool_name}: {exc}")
+                    prepared[tool_name] = None
+                finally:
+                    self._advance_progress()
+
+        for tool_name, _ in tools_list:
+            sample = prepared.get(tool_name)
             if sample:
                 samples.append(sample)
+
+        self._finish_progress()
         
         print(f"Generated {len(samples)} training samples")
         return samples
@@ -194,7 +220,8 @@ class DeltaMCPGenerator:
                 "tool_name": tool_name,
                 "tools_a": tools_a,
                 "relevant_paths": relevant_paths,
-                "diff": compressed_diff
+                "diff": compressed_diff,
+                "action": "update"
             }
             
             return sample
@@ -272,10 +299,65 @@ class DeltaMCPGenerator:
             print(f"Error generating response: {e}")
             return "# Error generating response"
     
-    def _upsert_tool_in_stub(self, stub_content: str, tool_name: str, generated_block: str) -> str:
+    def _prepare_sample(self, tool_name: str, tool_source: str, diff: Dict, changed_paths: List[str]) -> Optional[Dict]:
+        affected_result = is_tool_affected_by_changes(tool_source, changed_paths)
+
+        if not affected_result or not affected_result[0]:
+            return None
+
+        _, relevant_paths = affected_result
+        http_method = extract_http_method_from_function(tool_source)
+        filtered_diff = filter_oasdiff_by_operation(diff, http_method, relevant_paths)
+
+        if not any(filtered_diff.get('paths', {}).values()):
+            return None
+
+        action = self._determine_action(filtered_diff)
+
+        if action == "remove":
+            return {
+                "tool_name": tool_name,
+                "action": "remove",
+                "relevant_paths": relevant_paths,
+                "http_method": http_method
+            }
+
+        sample = self._create_training_sample(tool_name, tool_source, filtered_diff, relevant_paths)
+        return sample
+
+    def _determine_action(self, filtered_diff: Dict) -> str:
+        paths = filtered_diff.get("paths", {}) if isinstance(filtered_diff, dict) else {}
+        has_delete = False
+        has_update = False
+
+        for change_type, path_data in paths.items():
+            normalized = str(change_type).lower()
+            if normalized in {"deleted", "removed"}:
+                has_delete = True
+            elif normalized in {"modified", "changed", "added", "updated"}:
+                has_update = True
+
+            if isinstance(path_data, dict):
+                for data in path_data.values():
+                    if not isinstance(data, dict):
+                        continue
+                    operations = data.get("operations", {})
+                    if isinstance(operations, dict):
+                        for op_change_type in operations.keys():
+                            norm_op = str(op_change_type).lower()
+                            if norm_op in {"deleted", "removed"}:
+                                has_delete = True
+                            elif norm_op in {"modified", "changed", "added", "updated"}:
+                                has_update = True
+
+        if has_delete and not has_update:
+            return "remove"
+        return "update"
+
+    def _upsert_tool_in_stub(self, stub_content: str, tool_name: str, generated_block: str) -> Tuple[str, str]:
         new_block = generated_block.strip()
         if not new_block:
-            return stub_content
+            return stub_content, "skipped"
 
         stub_lines = stub_content.splitlines()
         new_lines = new_block.splitlines()
@@ -284,6 +366,8 @@ class DeltaMCPGenerator:
             tree = ast.parse(stub_content)
         except SyntaxError:
             tree = None
+
+        tag_comment = self._tag_comments["updated"]
 
         if tree is not None:
             for node in ast.walk(tree):
@@ -295,12 +379,109 @@ class DeltaMCPGenerator:
                     start_idx = max(start_line - 1, 0)
                     end_idx = end_line
 
-                    stub_lines = stub_lines[:start_idx] + new_lines + stub_lines[end_idx:]
-                    updated = "\n".join(stub_lines).rstrip() + "\n"
-                    return updated
+                    while start_idx > 0 and stub_lines[start_idx - 1].strip() in self._tag_comments.values():
+                        start_idx -= 1
 
-        updated_stub = stub_content.rstrip("\n") + "\n\n" + new_block.rstrip() + "\n"
-        return updated_stub
+                    replacement = [tag_comment] + new_lines
+                    stub_lines = stub_lines[:start_idx] + replacement + stub_lines[end_idx:]
+                    updated = "\n".join(stub_lines).rstrip() + "\n"
+                    return updated, "updated"
+
+        tag_comment = self._tag_comments["added"]
+        block_with_comment = "\n".join([tag_comment] + new_lines)
+        separator = "\n\n" if stub_content.rstrip("\n") else ""
+        updated_stub = stub_content.rstrip("\n") + separator + block_with_comment.rstrip() + "\n"
+        return updated_stub, "added"
+
+    def _remove_tool_from_stub(self, stub_content: str, tool_name: str) -> Tuple[str, bool]:
+        try:
+            tree = ast.parse(stub_content)
+        except SyntaxError:
+            return stub_content, False
+
+        stub_lines = stub_content.splitlines()
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.FunctionDef) and node.name == tool_name:
+                decorator_lines = [getattr(dec, 'lineno', node.lineno) for dec in node.decorator_list]
+                start_line = min(decorator_lines) if decorator_lines else node.lineno
+                end_line = node.end_lineno
+
+                start_idx = max(start_line - 1, 0)
+                end_idx = end_line
+
+                while start_idx > 0 and stub_lines[start_idx - 1].strip() in self._tag_comments.values():
+                    start_idx -= 1
+
+                stub_lines = stub_lines[:start_idx] + stub_lines[end_idx:]
+                updated = "\n".join(stub_lines).rstrip() + "\n"
+                return updated, True
+
+        return stub_content, False
+
+    def _apply_removal_footer(self, stub_content: str, has_removals: bool) -> str:
+        stripped = stub_content.rstrip("\n")
+        lines = stripped.splitlines()
+
+        removal_tag = "#removed with DeltaMCP"
+
+        while lines and lines[-1].strip() == "":
+            lines.pop()
+
+        if has_removals:
+            if not lines or lines[-1].strip() != removal_tag:
+                lines.append(removal_tag)
+        else:
+            while lines and lines[-1].strip() == removal_tag:
+                lines.pop()
+
+        if not lines:
+            return ""
+
+        return "\n".join(lines) + "\n"
+
+    def _start_progress(self, label: str, total: int):
+        self._progress_state = {
+            "label": label,
+            "total": max(total, 0),
+            "current": 0
+        }
+        if total <= 0:
+            return
+        self._render_progress()
+
+    def _advance_progress(self):
+        if not self._progress_state or self._progress_state["total"] <= 0:
+            return
+        self._progress_state["current"] = min(
+            self._progress_state["current"] + 1,
+            self._progress_state["total"]
+        )
+        self._render_progress()
+
+    def _finish_progress(self):
+        if not self._progress_state or self._progress_state["total"] <= 0:
+            self._progress_state = None
+            return
+        self._progress_state["current"] = self._progress_state["total"]
+        self._render_progress(end=True)
+        self._progress_state = None
+
+    def _render_progress(self, end: bool = False):
+        state = self._progress_state
+        if not state or state["total"] <= 0:
+            return
+        total = state["total"]
+        current = state["current"]
+        bar_length = 40
+        filled = int(bar_length * current / total) if total else bar_length
+        bar = "#" * filled + "-" * (bar_length - filled)
+        message = f"\r{state['label']}: [{bar}] {current}/{total}"
+        sys.stdout.write(message)
+        sys.stdout.flush()
+        if end:
+            sys.stdout.write("\n")
+            sys.stdout.flush()
 
     def process_samples(self, samples: List[Dict], stub_path: str, output_file: str):
         print(f"Processing {len(samples)} samples...")
@@ -313,25 +494,48 @@ class DeltaMCPGenerator:
             return
 
         updated_tools: List[str] = []
+        added_tools: List[str] = []
+        removed_tools: List[str] = []
 
-        for i, sample in enumerate(samples, 1):
+        total = len(samples)
+        self._start_progress("Applying changes", total)
+
+        for index, sample in enumerate(samples, 1):
             tool_name = sample.get('tool_name', 'Unknown')
-            print(f"Processing sample {i}/{len(samples)}: {tool_name}")
+
+            if sample.get("action") == "remove":
+                updated_stub, removed = self._remove_tool_from_stub(updated_stub, tool_name)
+                if removed:
+                    removed_tools.append(tool_name)
+                else:
+                    print(f"Could not remove tool {tool_name}; tool not found in stub")
+                self._advance_progress()
+                continue
 
             prompt = self.create_prompt_from_sample(sample)
             response = self.generate_response(prompt)
 
             if '@mcp.tool' not in response:
                 print(f"Skipping {tool_name}: model response did not include a tool definition")
+                self._advance_progress()
                 continue
 
-            updated_stub = self._upsert_tool_in_stub(updated_stub, tool_name, response)
-            updated_tools.append(tool_name)
+            updated_stub, status = self._upsert_tool_in_stub(updated_stub, tool_name, response)
 
-        if not updated_tools:
+            if status == "updated":
+                updated_tools.append(tool_name)
+            elif status == "added":
+                added_tools.append(tool_name)
+
+            self._advance_progress()
+
+        self._finish_progress()
+
+        if not (updated_tools or added_tools or removed_tools):
             print("No tools were updated. Writing original stub to output path.")
 
         try:
+            updated_stub = self._apply_removal_footer(updated_stub, bool(removed_tools))
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(updated_stub)
         except Exception as exc:
