@@ -8,6 +8,8 @@ import ast
 import textwrap
 import logging
 import traceback
+import copy
+import re
 from datetime import datetime
 from pathlib import Path
 script_dir = Path(__file__).resolve().parent
@@ -16,6 +18,105 @@ try:
     import helpers
 except ImportError:
     sys.path.append(str(script_dir.parent))
+
+_KEYMAP = {
+    "oasdiff": "od",
+    "paths": "p",
+    "added": "a",
+    "deleted": "d",
+    "modified": "m",
+    "operations": "ops",
+    "description": "desc",
+    "operationId": "opId",
+    "tags": "t",
+    "x-ms-examples": "ex",
+    "x-ms-long-running-operation": "lro",
+    "x-ms-pageable": "page",
+    "responses": "resp",
+    "parameters": "params",
+    "schema": "sch",
+    "$ref": "r",
+    "extensions": "ext",
+    "properties": "prop",
+    "oldValue": "ov",
+    "value": "v",
+    "path": "pth",
+    "op": "o",
+    "from": "f",
+}
+
+_PATH_REPLACEMENTS = [
+    (r"/subscriptions/\{subscriptionId\}", "/subs/{s}"),
+    (r"/resourceGroups/\{resourceGroupName\}", "/rg/{rg}"),
+    (r"/providers/Microsoft\.Storage", "/prov/MS.Storage"),
+    (r"/providers/Microsoft\.Subscription", "/prov/MS.Subscription"),
+]
+
+def _shorten_keys(obj):
+    if isinstance(obj, dict):
+        new_obj = {}
+        for k, v in obj.items():
+            short_key = _KEYMAP.get(k, k)
+            new_obj[short_key] = _shorten_keys(v)
+        return new_obj
+    elif isinstance(obj, list):
+        return [_shorten_keys(i) for i in obj]
+    return obj
+
+def _flatten_ops(o):
+    if not isinstance(o, dict) or "ops" not in o:
+        return o
+
+    new_ops = {}
+    for change_type in ("a", "d", "m"):
+        if change_type in o["ops"]:
+            for method, val in o["ops"][change_type].items():
+                new_ops[f"{method}+{change_type}"] = val
+    if not new_ops:
+        for method, val in o["ops"].items():
+            new_ops[method] = val
+    o["ops"] = new_ops
+    return o
+
+def _apply_path_shortcuts(p):
+    if not isinstance(p, str):
+        return p
+    for pattern, repl in _PATH_REPLACEMENTS:
+        p = re.sub(pattern, repl, p)
+    return p
+
+def compress_oasdiff(oasdiff_obj):
+    obj = copy.deepcopy(oasdiff_obj)
+    obj = _shorten_keys(obj)
+
+    if "od" in obj and "p" in obj["od"]:
+        paths = obj["od"]["p"]
+        new_paths = {}
+        for change_type, path_block in paths.items():
+            short_type = _KEYMAP.get(change_type, change_type)
+            new_block = {}
+            for path, path_val in path_block.items():
+                short_path = _apply_path_shortcuts(path)
+                if isinstance(path_val, dict):
+                    path_val = _flatten_ops(path_val)
+                new_block[short_path] = path_val
+            new_paths[short_type] = new_block
+        return {"p": new_paths}
+    elif "paths" in obj:
+        paths = obj["paths"]
+        new_paths = {}
+        for change_type, path_block in paths.items():
+            short_type = _KEYMAP.get(change_type, change_type)
+            new_block = {}
+            for path, path_val in path_block.items():
+                short_path = _apply_path_shortcuts(path)
+                if isinstance(path_val, dict):
+                    path_val = _flatten_ops(path_val)
+                new_block[short_path] = path_val
+            new_paths[short_type] = new_block
+        return {"p": new_paths}
+
+    return obj
 
 def load_automcp_runner(script_path):
     import importlib.util
@@ -157,19 +258,6 @@ def has_valid_oasdiff(diff):
         return False
     return True
 
-def convert_function_to_ast(function_source):
-    if not function_source:
-        return ""
-    
-    try:
-        tree = ast.parse(function_source)
-        if tree.body and isinstance(tree.body[0], ast.FunctionDef):
-            return ast.dump(tree.body[0])
-        return ""
-    except Exception as e:
-        logging.warning(f"Failed to convert function to AST: {e}")
-        return ""
-
 def extract_http_method_from_function(function_source):
     if not function_source:
         return None
@@ -215,10 +303,20 @@ def filter_oasdiff_by_operation(oasdiff, http_method, relevant_paths):
                 filtered_operations = {}
                 
                 for op_change_type, operations_data in path_data['operations'].items():
-                    if isinstance(operations_data, dict) and http_method in operations_data:
-                        if op_change_type not in filtered_operations:
-                            filtered_operations[op_change_type] = {}
-                        filtered_operations[op_change_type][http_method] = operations_data[http_method]
+                    http_method_lower = http_method.lower() if http_method else None
+                    http_method_upper = http_method.upper() if http_method else None
+                    
+                    if isinstance(operations_data, dict):
+                        method_key = None
+                        if http_method_lower and http_method_lower in operations_data:
+                            method_key = http_method_lower
+                        elif http_method_upper and http_method_upper in operations_data:
+                            method_key = http_method_upper
+                        
+                        if method_key:
+                            if op_change_type not in filtered_operations:
+                                filtered_operations[op_change_type] = {}
+                            filtered_operations[op_change_type][method_key] = operations_data[method_key]
                 
                 if filtered_operations:
                     filtered_path_data = path_data.copy()
@@ -256,6 +354,50 @@ def extract_operation_details_from_spec(spec_file, path, http_method=None):
         logging.warning(f"Failed to extract operation details from {spec_file}: {e}")
         return None
 
+def convert_ast_to_code(source):
+    if isinstance(source, str) and source.startswith('FunctionDef('):
+        try:
+            safe_dict = {
+                'FunctionDef': ast.FunctionDef,
+                'arguments': ast.arguments,
+                'arg': ast.arg,
+                'Name': ast.Name,
+                'Load': ast.Load,
+                'Store': ast.Store,
+                'Call': ast.Call,
+                'Attribute': ast.Attribute,
+                'keyword': ast.keyword,
+                'Constant': ast.Constant,
+                'Expr': ast.Expr,
+                'Assign': ast.Assign,
+                'JoinedStr': ast.JoinedStr,
+                'FormattedValue': ast.FormattedValue,
+                'Subscript': ast.Subscript,
+                'Dict': ast.Dict,
+                'List': ast.List,
+                'If': ast.If,
+                'Compare': ast.Compare,
+                'UnaryOp': ast.UnaryOp,
+                'Not': ast.Not,
+                'Is': ast.Is,
+                'IsNot': ast.IsNot,
+                'In': ast.In,
+                'BinOp': ast.BinOp,
+                'Add': ast.Add,
+                'Try': ast.Try,
+                'ExceptHandler': ast.ExceptHandler,
+                'For': ast.For,
+                'Tuple': ast.Tuple,
+                'Return': ast.Return,
+                'Raise': ast.Raise,
+                'Slice': ast.Slice,
+            }
+            ast_node = eval(source, {"__builtins__": {}}, safe_dict)
+            return ast.unparse(ast_node)
+        except Exception as e:
+            return source
+    return source
+
 def create_training_sample(change_type, tool_name, paths_data, full_diff, tool_a_data, tool_b_data, service, version_a, version_b, api_type, spec_a_file=None, spec_b_file=None):
     tool_a_source = tool_a_data.get('function_source', '')
     tool_a_paths = tool_a_data.get('relevant_paths', {})
@@ -268,9 +410,6 @@ def create_training_sample(change_type, tool_name, paths_data, full_diff, tool_a
         http_method = extract_http_method_from_function(tool_a_source)
     elif tool_b_source:
         http_method = extract_http_method_from_function(tool_b_source)
-    
-    ast_a = convert_function_to_ast(tool_a_source) if tool_a_source else ""
-    ast_b = convert_function_to_ast(tool_b_source) if tool_b_source else ""
     
     all_relevant_paths = {}
     all_relevant_paths.update(tool_a_paths)
@@ -326,18 +465,23 @@ def create_training_sample(change_type, tool_name, paths_data, full_diff, tool_a
     if not any(filtered_diff.get('paths', {}).values()):
         return None
     
-    tools_a_dict = {tool_name: ast_a} if ast_a else {}
-    tools_b_dict = {tool_name: ast_b} if ast_b else {}
+    tool_a_final = convert_ast_to_code(tool_a_source) if tool_a_source else ''
+    tool_b_final = convert_ast_to_code(tool_b_source) if tool_b_source else ''
+    
+    tools_a_dict = {tool_name: tool_a_final} if tool_a_final else {}
+    tools_b_dict = {tool_name: tool_b_final} if tool_b_final else {}
     
     if not is_valid_training_sample(filtered_diff, tools_a_dict, tools_b_dict, tool_name):
         return None
     
-    return {
-        "oasdiff": filtered_diff,
+    compressed_oasdiff = compress_oasdiff(filtered_diff)
+    
+    result = {
         "tools_a": tools_a_dict,
         "tools_b": tools_b_dict
     }
-
+    result.update(compressed_oasdiff)
+    return result
 
 def is_valid_training_sample(oasdiff, tools_a, tools_b, tool_name):
     if not isinstance(oasdiff, dict) or 'paths' not in oasdiff:
@@ -386,7 +530,7 @@ def process_version_pair(args):
     
     workspace_root = Path(__file__).resolve().parent.parent.parent
     specs_dir = workspace_root / "azure-rest-api-specs" / "specification"
-    data_dir = workspace_root / "DeltaMCP" / "starcoder-finetuned" / "training_data"
+    data_dir = workspace_root / "DeltaMCP" / "llm-finetuned" / "training_data"
     data_dir.mkdir(exist_ok=True)
     automcp_script_path = workspace_root / "AutoMCP" / "run_automcp.py"
     
@@ -454,7 +598,7 @@ def process_version_pair(args):
                     if sample:
                         output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}_{tool_name}.json"
                         with open(output_file, 'w', encoding='utf-8') as f:
-                            json.dump(sample, f, indent=2, ensure_ascii=False)
+                            json.dump(sample, f, separators=(',', ':'), ensure_ascii=False)
                         samples_created += 1
                         
             elif change_type == 'added' and isinstance(paths_data, list):
@@ -470,7 +614,7 @@ def process_version_pair(args):
                     if sample:
                         output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}_{tool_name}.json"
                         with open(output_file, 'w', encoding='utf-8') as f:
-                            json.dump(sample, f, indent=2, ensure_ascii=False)
+                            json.dump(sample, f, separators=(',', ':'), ensure_ascii=False)
                         samples_created += 1
                         
             elif change_type == 'deleted' and isinstance(paths_data, list):
@@ -486,7 +630,7 @@ def process_version_pair(args):
                     if sample:
                         output_file = data_dir / f"{service}_{version_a}_{version_b}_{api_type}_{tool_name}.json"
                         with open(output_file, 'w', encoding='utf-8') as f:
-                            json.dump(sample, f, indent=2, ensure_ascii=False)
+                            json.dump(sample, f, separators=(',', ':'), ensure_ascii=False)
                         samples_created += 1
         
         logging.info(f"Generated {service} {version_a}->{version_b} ({api_type}): {samples_created} individual tool samples")
@@ -568,6 +712,71 @@ def main():
     
     ray.shutdown()
     logging.info(f"Training data generation finished at {datetime.now()}")
+    logging.info("Creating training JSONL file...")
+    create_training_jsonl()
+    logging.info("Training JSONL file created successfully")
+
+def create_training_jsonl():
+    output_jsonl = Path("training_data.jsonl")
+    samples_dir = Path("training_data")  
+
+    all_files = list(samples_dir.glob("*.json"))
+    all_files.sort()
+
+    with open(output_jsonl, "w", encoding="utf-8") as f_out:
+        for file_path in all_files:
+            with open(file_path, "r", encoding="utf-8") as f_in:
+                sample = json.load(f_in)
+                tools_a = sample.get("tools_a", {})
+                tools_b = sample.get("tools_b", {})
+                p = sample.get("p", {})
+
+                tools_a_str = "<none>" if not tools_a else "\n".join(f"- {name}(...)" for name in tools_a.keys())
+
+                deleted_lines = []
+                for path, path_val in p.get("d", {}).items():
+                    for op_key, op_val in path_val.get("ops", {}).items():
+                        ctype = op_key.split("+")[1] if "+" in op_key else "deleted"
+                        if ctype.lower() == "d":
+                            tool_name = op_val.get("opId")
+                            if tool_name:
+                                deleted_lines.append(f"# REMOVE {tool_name}")
+                deleted_text = "\n".join(deleted_lines)
+
+                added_text = "\n\n".join(tools_b.values()) if tools_b else ""
+                assistant_text = "\n".join([deleted_text, added_text]).strip()
+                if not assistant_text:
+                    assistant_text = "# No tools generated"
+
+                diff_lines = []
+                for change_type, path_data in p.items():
+                    if isinstance(path_data, dict):
+                        for path, path_val in path_data.items():
+                            if isinstance(path_val, dict) and "ops" in path_val:
+                                for op_key, op_val in path_val.get("ops", {}).items():
+                                    if "+" in op_key:
+                                        method, ctype = op_key.split("+")
+                                    else:
+                                        method = op_key
+                                        ctype = change_type
+                                    opId = op_val.get("opId", "")
+                                    desc = op_val.get("desc", "")
+                                    diff_lines.append(f"- {ctype.capitalize()} operation:\n  {method.upper()} {path}\n  OperationId: {opId}\n  Summary: {desc}")
+                    elif isinstance(path_data, list):
+                        for path in path_data:
+                            diff_lines.append(f"- {change_type.capitalize()} operation:\n  {path}\n  Summary: Path {change_type}")
+                diff_summary = "\n".join(diff_lines) if diff_lines else "<none>"
+
+                user_text = f"User: Update tools based on diff. Existing tools: {tools_a_str}. Changes: {diff_summary}"
+
+                hf_sample = {"text": f"{user_text}\n\nAssistant:\n{assistant_text}"}
+                f_out.write(json.dumps(hf_sample, ensure_ascii=False) + "\n")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "jsonl":
+        print("Creating training JSONL file...")
+        create_training_jsonl()
+        print("Training JSONL file created successfully!")
+    else:
+        main()
