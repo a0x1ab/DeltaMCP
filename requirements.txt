@@ -6,3 +6,7 @@ fastmcp
 uvicorn
 prance
 ray
+torch
+transformers
+accelerate
+peft
