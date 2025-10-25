@@ -5,8 +5,11 @@ import ast
 import argparse
 import shutil
 import textwrap
+import threading
+import io
+import re
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 import warnings
 from concurrent.futures import ThreadPoolExecutor, as_completed
 warnings.filterwarnings("ignore", category=UserWarning, module="urllib3")
@@ -25,19 +28,53 @@ from samples import (
 
 
 class DeltaMCPGenerator:
+
+    HTTP_METHODS: Set[str] = {"GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"}
     
-    def __init__(self, model_name: str = "DeltaMCP-Phi-3-24Oct", device: str = "auto"):
+    def __init__(
+        self,
+        model_name: str = "DeltaMCP-Phi-3-24Oct",
+        device: str = "auto",
+        max_workers: Optional[int] = None,
+        prepare_workers: Optional[int] = None,
+        apply_workers: Optional[int] = None,
+        inference_workers: Optional[int] = None
+    ):
         self.model_path = str(Path(__file__).parent / "llm-finetuned" / model_name)
         self.device = device
         self.tokenizer = None
         self.model = None
-        self.max_workers = max(1, min((os.cpu_count() or 1), 4))
+
+        cpu_count = os.cpu_count() or 1
+
+        def resolve_workers(value: Optional[int], fallback: int) -> int:
+            if value is None:
+                return max(1, fallback)
+            return max(1, min(value, cpu_count))
+
+        default_pool = min(cpu_count, 8) if cpu_count > 4 else cpu_count
+        self.max_workers = resolve_workers(max_workers, default_pool)
+        self.prepare_workers = resolve_workers(prepare_workers, self.max_workers)
+        self.apply_workers = resolve_workers(apply_workers, self.max_workers)
+
+        if inference_workers is None:
+            default_inference = max(1, min(self.apply_workers, max(1, cpu_count // 2)))
+        else:
+            default_inference = inference_workers
+        self.inference_workers = resolve_workers(default_inference, default_inference)
+        self._inference_semaphore = threading.Semaphore(self.inference_workers)
+
         self.original_tools: Dict[str, str] = {}
-        self._progress_state = None
+        self._progress_state: Optional[Dict[str, int]] = None
+        self._progress_lock = threading.Lock()
         self._tag_comments = {
             "added": "#added with DeltaMCP",
             "updated": "#updated with DeltaMCP"
         }
+        self.spec_a_path: Optional[str] = None
+        self.spec_b_path: Optional[str] = None
+        self._spec_b_data: Optional[Dict] = None
+        self._http_methods_lower = {method.lower() for method in self.HTTP_METHODS}
         self._load_model()
     
     def _load_model(self):
@@ -68,6 +105,10 @@ class DeltaMCPGenerator:
                     device_map=self.device,
                     torch_dtype='auto'
                 ).eval()
+            try:
+                self.tokenizer.padding_side = "left"
+            except Exception:
+                pass
             if self.tokenizer.pad_token_id is None and self.tokenizer.eos_token_id is not None:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
             print("Model loaded successfully!")
@@ -177,7 +218,7 @@ class DeltaMCPGenerator:
         if not tools_list:
             self._finish_progress()
             return samples
-        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+        with ThreadPoolExecutor(max_workers=self.prepare_workers) as executor:
             for tool_name, tool_source in tools_list:
                 future = executor.submit(
                     self._prepare_sample,
@@ -233,9 +274,18 @@ class DeltaMCPGenerator:
     def create_prompt_from_sample(self, sample: Dict) -> str:
         tools_a = sample.get("tools_a", {})
         diff_data = sample.get("diff", {})
-        
-        tools_a_str = "<none>" if not tools_a else "\n".join(f"- {name}(...)" for name in tools_a.keys())
-        
+
+        if tools_a:
+            existing_blocks: List[str] = []
+            for name, code in tools_a.items():
+                sanitized = code.strip()
+                existing_blocks.append(
+                    f"Tool `{name}` current implementation:\n```python\n{sanitized}\n```"
+                )
+            tools_a_str = "\n\n".join(existing_blocks)
+        else:
+            tools_a_str = "<none>"
+
         diff_lines = []
         p = diff_data.get("p", {})
         
@@ -264,7 +314,22 @@ class DeltaMCPGenerator:
                     )
         
         diff_summary = "\n".join(diff_lines) if diff_lines else "<none>"
-        user_text = f"User: Update tools based on diff. Existing tools: {tools_a_str}. Changes: {diff_summary}"
+        guidance = (
+            "Follow these mandatory rules:\n"
+            "1. Preserve the existing `@mcp.tool` decorator metadata (name, description, parameter list).\n"
+            "2. Keep the HTTP verb and request construction identical unless the diff explicitly requires a change.\n"
+            "3. Do not add or remove path/query parameters unless mandated by the diff.\n"
+            "4. Retain the authentication, headers, and error handling blocks exactly as shown.\n"
+            "5. Only adjust request/response payload handling per the diff.\n"
+            "6. Respond with valid Python code starting at the decorator, no commentary."
+        )
+
+        user_text = (
+            "User: Update the tool implementation to reflect the diff while following the rules.\n"
+            f"Existing implementation(s):\n{tools_a_str}\n\n"
+            f"Changes to apply:\n{diff_summary}\n\n"
+            f"{guidance}"
+        )
         return f"{user_text}\n\nAssistant:\n"
     
     def generate_response(self, prompt: str) -> str:
@@ -277,7 +342,8 @@ class DeltaMCPGenerator:
             input_ids = input_ids.to(target_device)
             attention_mask = attention_mask.to(target_device)
 
-            output_ids = self._generate_tokens(input_ids, attention_mask, do_sample=False)
+            with self._inference_semaphore:
+                output_ids = self._generate_tokens(input_ids, attention_mask, do_sample=False)
 
             response = self.tokenizer.decode(
                 output_ids[0][input_ids.shape[1]:],
@@ -286,7 +352,8 @@ class DeltaMCPGenerator:
             cleaned = self._clean_response(response)
 
             if "@mcp.tool" not in cleaned:
-                output_ids = self._generate_tokens(input_ids, attention_mask, do_sample=True)
+                with self._inference_semaphore:
+                    output_ids = self._generate_tokens(input_ids, attention_mask, do_sample=True)
                 response = self.tokenizer.decode(
                     output_ids[0][input_ids.shape[1]:],
                     skip_special_tokens=True
@@ -440,43 +507,175 @@ class DeltaMCPGenerator:
 
         return "\n".join(lines) + "\n"
 
+    def _load_spec_data(self, spec_path: Optional[str]) -> Optional[Dict]:
+        if not spec_path:
+            return None
+        try:
+            with open(spec_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as exc:
+            print(f"Warning: unable to load spec data from {spec_path}: {exc}")
+            return None
+
+    def _get_methods_for_path(self, spec_data: Optional[Dict], path: str) -> Set[str]:
+        methods: Set[str] = set()
+        if not spec_data or not path:
+            return methods
+        paths = spec_data.get("paths")
+        if not isinstance(paths, dict):
+            return methods
+        path_item = paths.get(path)
+        if not isinstance(path_item, dict):
+            return methods
+        for key in path_item.keys():
+            if isinstance(key, str) and key.lower() in self._http_methods_lower:
+                methods.add(key.upper())
+        return methods
+
+    def _determine_expected_http_method(self, tool_name: str, sample: Dict) -> Optional[str]:
+        original_source = self.original_tools.get(tool_name)
+        original_method = extract_http_method_from_function(original_source) if original_source else None
+
+        relevant = sample.get("relevant_paths") or {}
+        if isinstance(relevant, dict):
+            paths = list(relevant.keys())
+        elif isinstance(relevant, list):
+            paths = relevant
+        else:
+            paths = []
+
+        if not paths:
+            return original_method.upper() if original_method else None
+
+        aggregated_methods: Set[str] = set()
+        for path in paths:
+            path_methods = self._get_methods_for_path(self._spec_b_data, path)
+            aggregated_methods.update(path_methods)
+            if original_method and original_method.upper() in path_methods:
+                return original_method.upper()
+
+        if not aggregated_methods:
+            return original_method.upper() if original_method else None
+        if len(aggregated_methods) == 1:
+            return next(iter(aggregated_methods))
+        return original_method.upper() if original_method else None
+
+    def _rewrite_http_method(self, tool_name: str, generated_block: str, expected_method: str) -> str:
+        if not generated_block or not expected_method:
+            return generated_block
+
+        current_method = extract_http_method_from_function(generated_block)
+        if current_method and current_method.upper() == expected_method.upper():
+            return generated_block
+
+        expected_lower = expected_method.lower()
+
+        pattern = re.compile(r"requests\.(?P<verb>[a-zA-Z_][a-zA-Z0-9_]*)")
+
+        def replace_first(match: re.Match) -> str:
+            verb = match.group('verb')
+            lower = verb.lower()
+            if lower == expected_lower:
+                return match.group(0)
+            if lower in self._http_methods_lower:
+                print(f"Adjusting HTTP method for {tool_name}: {verb.upper()} -> {expected_method.upper()}")
+                return f"requests.{expected_lower}"
+            return match.group(0)
+
+        new_block, count = pattern.subn(replace_first, generated_block, count=1)
+        return new_block if count else generated_block
+
+    def _enforce_expected_http_method(self, tool_name: str, sample: Dict, generated_block: str) -> str:
+        expected_method = self._determine_expected_http_method(tool_name, sample)
+        if not expected_method:
+            return generated_block
+        return self._rewrite_http_method(tool_name, generated_block, expected_method)
+
+    def _batched_generate(self, prompts: List[str], batch_size: int = 2) -> List[str]:
+        if not prompts:
+            return []
+
+        results: List[str] = []
+        batch_size = max(1, batch_size)
+
+        for start in range(0, len(prompts), batch_size):
+            batch_prompts = prompts[start:start + batch_size]
+            enc = self.tokenizer(batch_prompts, return_tensors='pt', padding=True)
+            input_ids = enc["input_ids"]
+            attention_mask = enc.get("attention_mask")
+
+            if attention_mask is None:
+                attention_mask = torch.ones_like(input_ids)
+
+            target_device = next(self.model.parameters()).device
+            input_ids = input_ids.to(target_device)
+            attention_mask = attention_mask.to(target_device)
+
+            gen_kwargs = {
+                "input_ids": input_ids,
+                "attention_mask": attention_mask,
+                "max_new_tokens": 2048,
+                "do_sample": False,
+                "pad_token_id": self.tokenizer.eos_token_id
+            }
+
+            with self._inference_semaphore:
+                with torch.no_grad():
+                    output_ids = self.model.generate(**gen_kwargs)
+
+            for idx in range(len(batch_prompts)):
+                prompt_len = int(attention_mask[idx].sum().item())
+                generated_ids = output_ids[idx][prompt_len:]
+        decoded = self.tokenizer.decode(generated_ids, skip_special_tokens=True)
+        cleaned = self._clean_response(decoded) or decoded.strip()
+        cleaned = textwrap.dedent(cleaned).strip()
+        results.append(cleaned)
+
+        return results
+
     def _start_progress(self, label: str, total: int):
-        self._progress_state = {
-            "label": label,
-            "total": max(total, 0),
-            "current": 0
-        }
+        with self._progress_lock:
+            self._progress_state = {
+                "label": label,
+                "total": max(total, 0),
+                "current": 0
+            }
         if total <= 0:
             return
         self._render_progress()
 
     def _advance_progress(self):
-        if not self._progress_state or self._progress_state["total"] <= 0:
-            return
-        self._progress_state["current"] = min(
-            self._progress_state["current"] + 1,
-            self._progress_state["total"]
-        )
+        with self._progress_lock:
+            if not self._progress_state or self._progress_state["total"] <= 0:
+                return
+            self._progress_state["current"] = min(
+                self._progress_state["current"] + 1,
+                self._progress_state["total"]
+            )
         self._render_progress()
 
     def _finish_progress(self):
-        if not self._progress_state or self._progress_state["total"] <= 0:
-            self._progress_state = None
-            return
-        self._progress_state["current"] = self._progress_state["total"]
+        with self._progress_lock:
+            if not self._progress_state or self._progress_state["total"] <= 0:
+                self._progress_state = None
+                return
+            self._progress_state["current"] = self._progress_state["total"]
         self._render_progress(end=True)
-        self._progress_state = None
+        with self._progress_lock:
+            self._progress_state = None
 
     def _render_progress(self, end: bool = False):
-        state = self._progress_state
-        if not state or state["total"] <= 0:
-            return
-        total = state["total"]
-        current = state["current"]
+        with self._progress_lock:
+            state = self._progress_state
+            if not state or state["total"] <= 0:
+                return
+            total = state["total"]
+            current = state["current"]
+            label = state["label"]
         bar_length = 40
         filled = int(bar_length * current / total) if total else bar_length
         bar = "#" * filled + "-" * (bar_length - filled)
-        message = f"\r{state['label']}: [{bar}] {current}/{total}"
+        message = f"\r{label}: [{bar}] {current}/{total}"
         sys.stdout.write(message)
         sys.stdout.flush()
         if end:
@@ -497,37 +696,49 @@ class DeltaMCPGenerator:
         added_tools: List[str] = []
         removed_tools: List[str] = []
 
-        total = len(samples)
+        removal_samples = [sample for sample in samples if sample.get("action") == "remove"]
+        update_samples = [sample for sample in samples if sample.get("action") != "remove"]
+
+        total = len(removal_samples) + len(update_samples)
         self._start_progress("Applying changes", total)
 
-        for index, sample in enumerate(samples, 1):
+        for sample in removal_samples:
             tool_name = sample.get('tool_name', 'Unknown')
-
-            if sample.get("action") == "remove":
-                updated_stub, removed = self._remove_tool_from_stub(updated_stub, tool_name)
-                if removed:
-                    removed_tools.append(tool_name)
-                else:
-                    print(f"Could not remove tool {tool_name}; tool not found in stub")
-                self._advance_progress()
-                continue
-
-            prompt = self.create_prompt_from_sample(sample)
-            response = self.generate_response(prompt)
-
-            if '@mcp.tool' not in response:
-                print(f"Skipping {tool_name}: model response did not include a tool definition")
-                self._advance_progress()
-                continue
-
-            updated_stub, status = self._upsert_tool_in_stub(updated_stub, tool_name, response)
-
-            if status == "updated":
-                updated_tools.append(tool_name)
-            elif status == "added":
-                added_tools.append(tool_name)
-
+            updated_stub, removed = self._remove_tool_from_stub(updated_stub, tool_name)
+            if removed:
+                removed_tools.append(tool_name)
+            else:
+                print(f"Could not remove tool {tool_name}; tool not found in stub")
             self._advance_progress()
+
+        if update_samples:
+            prompts = [self.create_prompt_from_sample(sample) for sample in update_samples]
+            responses = self._batched_generate(prompts, batch_size=2)
+
+            for idx, sample in enumerate(update_samples):
+                tool_name = sample.get('tool_name', 'Unknown')
+                response = responses[idx] if idx < len(responses) else ""
+
+                if '@mcp.tool' not in response:
+                    print(f"Retrying {tool_name}: batched response missing tool definition")
+                    fallback = self.generate_response(prompts[idx])
+                    fallback = textwrap.dedent(fallback).strip()
+                    if '@mcp.tool' not in fallback:
+                        print(f"Skipping {tool_name}: model response did not include a tool definition")
+                        self._advance_progress()
+                        continue
+                    response = fallback
+
+                response = self._enforce_expected_http_method(tool_name, sample, response)
+
+                updated_stub, status = self._upsert_tool_in_stub(updated_stub, tool_name, response)
+
+                if status == "updated":
+                    updated_tools.append(tool_name)
+                elif status == "added":
+                    added_tools.append(tool_name)
+
+                self._advance_progress()
 
         self._finish_progress()
 
@@ -551,6 +762,10 @@ class DeltaMCPGenerator:
         print(f"Spec B: {spec_b}")
         print(f"Output file: {output_file}")
         
+        self.spec_a_path = spec_a
+        self.spec_b_path = spec_b
+        self._spec_b_data = self._load_spec_data(spec_b)
+
         samples = self.generate_training_samples(stub_a, spec_a, spec_b)
         
         if not samples:
@@ -574,7 +789,11 @@ def main():
     parser.add_argument("--spec-b", required=True, help="Path to specification B (JSON)")
     parser.add_argument("--output", help="Output Python stub file (auto-generated if not specified)")
     parser.add_argument("--model", default="DeltaMCP-Phi-3-24Oct", choices=["DeltaMCP-Phi-3-24Oct", "DeltaMCP-StarCoder-Q-24Oct"], help="Model to use")
-    parser.add_argument("--device", default="auto", help="Device for model inference (auto, cuda, cpu)")
+    parser.add_argument("--device", default="auto", help="Device for model inference (auto, cuda, cpu, mps)")
+    parser.add_argument("--workers", type=int, help="Deprecated: sets both prepare and apply worker pools")
+    parser.add_argument("--prepare-workers", type=int, help="Worker pool size for sample preparation")
+    parser.add_argument("--apply-workers", type=int, help="Worker pool size for response generation")
+    parser.add_argument("--inference-workers", type=int, help="Maximum concurrent inference calls")
     
     args = parser.parse_args()
     
@@ -593,7 +812,14 @@ def main():
         os.makedirs(output_dir)
     
     try:
-        generator = DeltaMCPGenerator(args.model, args.device)
+        generator = DeltaMCPGenerator(
+            args.model,
+            args.device,
+            max_workers=args.workers,
+            prepare_workers=args.prepare_workers,
+            apply_workers=args.apply_workers,
+            inference_workers=args.inference_workers
+        )
         
         generator.run(args.stub_a, args.spec_a, args.spec_b, args.output)
         
