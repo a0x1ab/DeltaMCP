@@ -3,7 +3,7 @@ use_peft: true
 lora_r: 8
 lora_alpha: 32
 lora_dropout: 0.1
-output_dir: DeltaMCP/llm-finetuned/sft-runs/run-$(date +%Y%m%d-%H%M%S)
+output_dir: DeltaMCP/llm-finetuned/sft-runs/DeltaMCP-StarCoder
 learning_rate: 0.0002
 num_train_epochs: 3
 per_device_train_batch_size: 1

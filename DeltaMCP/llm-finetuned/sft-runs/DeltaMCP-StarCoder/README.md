@@ -1,7 +1,7 @@
 ---
 base_model: bigcode/starcoder
 library_name: transformers
-model_name: run-$(date +%Y%m%d-%H%M%S)
+model_name: DeltaMCP-StarCoder
 tags:
 - generated_from_trainer
 - trl
@@ -9,7 +9,7 @@ tags:
 licence: license
 ---
 
-# Model Card for run-$(date +%Y%m%d-%H%M%S)
+# Model Card for DeltaMCP-StarCoder
 
 This model is a fine-tuned version of [bigcode/starcoder](https://huggingface.co/bigcode/starcoder).
 It has been trained using [TRL](https://github.com/huggingface/trl).
