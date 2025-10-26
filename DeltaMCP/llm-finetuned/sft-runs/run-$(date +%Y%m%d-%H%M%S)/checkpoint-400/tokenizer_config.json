@@ -176,12 +176,10 @@
     "<reponame>"
   ],
   "bos_token": "<|endoftext|>",
-  "chat_template": "{% if not add_generation_prompt is defined %}{% set add_generation_prompt = false %}{% endif %}{% for message in messages %}{{'<|im_start|>' + message['role'] + '\n' + message['content'] + '<|im_end|>' + '\n'}}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant\n' }}{% endif %}",
   "clean_up_tokenization_spaces": false,
   "eos_token": "<|endoftext|>",
   "extra_special_tokens": {},
-  "model_max_length": 4096,
-  "pad_token": "<|endoftext|>",
+  "model_max_length": 1000000000000000019884624838656,
   "tokenizer_class": "GPT2Tokenizer",
   "unk_token": "<|endoftext|>",
   "vocab_size": 49152
