@@ -126,7 +126,7 @@ The CLI accepts any compatible pair of baseline stub + `storage.json` specs. If 
 3. Commit your changes with clear messages
 4. Open a pull request describing coverage impact & diff size
 
-We welcome improvements to diff handling, evaluation metrics, and visualization polish.
+We welcome improvements to diff handling and updates.
 
 ## License
 
