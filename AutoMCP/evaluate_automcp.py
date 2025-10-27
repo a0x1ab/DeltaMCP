@@ -11,7 +11,6 @@ from run_automcp import AutoMCPRunner
 
 class AutoMCPEvaluator:
     def __init__(self):
-        # If we're running from the AutoMCP directory, go up one level
         current_dir = Path.cwd()
         if current_dir.name == "AutoMCP":
             self.root = current_dir.parent
@@ -184,7 +183,6 @@ class AutoMCPEvaluator:
         return sum(cpu_values) / len(cpu_values) if cpu_values else 0.0
 
     def count_tools_in_file(self, file_path):
-        """Count the number of @mcp.tool decorators in a Python file."""
         if not file_path.exists():
             return 0
         
@@ -199,7 +197,6 @@ class AutoMCPEvaluator:
             return 0
 
     def tools_generated_count(self, version):
-        """Get the total number of tools generated for a specific experiment version."""
         generated_dir = self.generated_dir / version
         
         if not generated_dir.exists():

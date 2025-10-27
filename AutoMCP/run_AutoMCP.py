@@ -9,7 +9,6 @@ class AutoMCPRunner:
         if workspace_root:
             self.root = Path(workspace_root)
         else:
-            # If we're running from the AutoMCP directory, go up one level
             current_dir = Path.cwd()
             if current_dir.name == "AutoMCP":
                 self.root = current_dir.parent

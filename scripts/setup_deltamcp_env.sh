@@ -9,8 +9,22 @@ MICROMAMBA_BIN=${MICROMAMBA_BIN:-"$MICROMAMBA_ROOT/micromamba"}
 MAMBA_ROOT_PREFIX=${MAMBA_ROOT_PREFIX:-"$HOME/.local/share/mamba"}
 
 if [ ! -x "$MICROMAMBA_BIN" ]; then
+  ARCH=$(uname -m)
+  case "$ARCH" in
+    x86_64|amd64)
+      MICROMAMBA_PLATFORM="linux-64"
+      ;;
+    aarch64|arm64)
+      MICROMAMBA_PLATFORM="linux-aarch64"
+      ;;
+    *)
+      echo "Unsupported architecture: $ARCH" >&2
+      exit 1
+      ;;
+  esac
+
   mkdir -p "$MICROMAMBA_ROOT"
-  curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj -C "$MICROMAMBA_ROOT" --strip-components=1 bin/micromamba
+  curl -Ls "https://micro.mamba.pm/api/micromamba/${MICROMAMBA_PLATFORM}/latest" | tar -xvj -C "$MICROMAMBA_ROOT" --strip-components=1 bin/micromamba
 fi
 
 "$MICROMAMBA_BIN" shell init -s bash -p "$MAMBA_ROOT_PREFIX" >/dev/null 2>&1 || true

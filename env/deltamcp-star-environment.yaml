@@ -1,0 +1,32 @@
+name: deltamcp-star
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - psutil
+  - uvicorn
+  - requests
+  - tokenizers
+  - sentencepiece
+  - pytorch=2.4.*
+  - torchvision=0.19.*
+  - torchaudio=2.4.*
+  - cpuonly
+  - git
+  - pip:
+      - python-dotenv
+      - mcp
+      - fastmcp
+      - prance
+      - ray
+      - matplotlib
+      - transformers==4.44.2
+      - accelerate==0.34.2
+  - peft==0.14.0
+      - datasets
+      - huggingface-hub
+      - safetensors

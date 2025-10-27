@@ -27,6 +27,35 @@ from samples import (
 )
 
 
+def discover_trained_model_dirs(models_root: Path) -> List[Path]:
+    base_path = Path(models_root)
+    if not base_path.exists():
+        return []
+
+    try:
+        entries = list(base_path.iterdir())
+    except Exception:
+        return []
+
+    candidates: List[Path] = []
+    for entry in entries:
+        if not entry.is_dir():
+            continue
+
+        has_adapter = (entry / "adapter_model.safetensors").exists()
+        has_full_model = (entry / "pytorch_model.bin").exists() or (entry / "model.safetensors").exists()
+        has_config = (entry / "config.json").exists() or (entry / "adapter_config.json").exists()
+
+        if has_config and (has_adapter or has_full_model):
+            candidates.append(entry)
+            continue
+
+        if any((entry / name).is_dir() for name in ("checkpoint", "checkpoints", "final")):
+            candidates.append(entry)
+
+    return sorted(candidates, key=lambda item: item.name.lower())
+
+
 class DeltaMCPGenerator:
 
     HTTP_METHODS: Set[str] = {"GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"}
@@ -88,7 +117,7 @@ class DeltaMCPGenerator:
                 base_model_name = adapter_config["base_model_name_or_path"]
                 print(f"Base model: {base_model_name}")
                 tokenizer_source = self.model_path if (Path(self.model_path) / "tokenizer_config.json").exists() else base_model_name
-                self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_source)
+                self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, use_fast=False)
                 base_model = AutoModelForCausalLM.from_pretrained(
                     base_model_name,
                     device_map=self.device,
@@ -99,7 +128,7 @@ class DeltaMCPGenerator:
                 self.model = PeftModel.from_pretrained(base_model, self.model_path).eval()
             else:
                 print("Loading full model...")
-                self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
+                self.tokenizer = AutoTokenizer.from_pretrained(self.model_path, use_fast=False)
                 self.model = AutoModelForCausalLM.from_pretrained(
                     self.model_path,
                     device_map=self.device,
@@ -118,12 +147,43 @@ class DeltaMCPGenerator:
 
     @staticmethod
     def _clean_response(text: str) -> str:
-        if "@mcp.tool" in text:
-            text = text[text.index("@mcp.tool"):]
+        if not text:
+            return ""
+
+        text = text.replace("\r\n", "\n")
         text = text.replace("<|im_end|>", "")
-        for prefix in ("Assistant:", "A:"):
+        text = text.strip()
+
+        for prefix in ("Assistant:", "assistant:", "A:", "a:"):
             if text.startswith(prefix):
                 text = text[len(prefix):].lstrip()
+
+        code_block = ""
+        fenced_blocks = re.findall(r"```(?:python)?\n(.*?)\n```", text, re.DOTALL)
+        for block in fenced_blocks:
+            if "@mcp.tool" in block:
+                code_block = block
+                break
+
+        if code_block:
+            text = code_block
+        elif "@mcp.tool" in text:
+            text = text[text.index("@mcp.tool") :]
+
+        stop_tokens = (
+            "\n```",
+            "\nUser:",
+            "\nExisting implementation",
+            "\nChanges to apply",
+            "\nAssistant:",
+            "\nassistant:",
+        )
+        for token in stop_tokens:
+            idx = text.find(token)
+            if idx != -1:
+                text = text[:idx]
+
+        text = text.replace("```", "")
         return text.strip()
 
     def _generate_tokens(self, input_ids: torch.Tensor, attention_mask: torch.Tensor, do_sample: bool):
@@ -421,13 +481,30 @@ class DeltaMCPGenerator:
             return "remove"
         return "update"
 
+    def detect_indent(lines: List[str]) -> str:
+        for line in lines:
+            stripped = line.lstrip()
+            if stripped.startswith("@mcp.tool"):
+                return line[: len(line) - len(stripped)]
+        for line in lines:
+            if line.startswith("    "):
+                return "    "
+            if line.startswith("\t"):
+                return "\t"
+        return "    "
+
+    def apply_indent(lines: List[str], indent: str) -> List[str]:
+        if not indent:
+            return lines
+        return [f"{indent}{line}" if line else "" for line in lines]
+
     def _upsert_tool_in_stub(self, stub_content: str, tool_name: str, generated_block: str) -> Tuple[str, str]:
         new_block = generated_block.strip()
         if not new_block:
             return stub_content, "skipped"
 
         stub_lines = stub_content.splitlines()
-        new_lines = new_block.splitlines()
+        new_lines = textwrap.dedent(new_block).splitlines()
 
         try:
             tree = ast.parse(stub_content)
@@ -449,16 +526,65 @@ class DeltaMCPGenerator:
                     while start_idx > 0 and stub_lines[start_idx - 1].strip() in self._tag_comments.values():
                         start_idx -= 1
 
-                    replacement = [tag_comment] + new_lines
+                    indent = re.match(r"^\s*", stub_lines[start_idx]).group(0) if stub_lines else ""
+                    if not indent:
+                        indent = detect_indent(stub_lines)
+                    indented_block = apply_indent(new_lines, indent)
+                    replacement = [f"{indent}{tag_comment}" if indent else tag_comment] + indented_block
                     stub_lines = stub_lines[:start_idx] + replacement + stub_lines[end_idx:]
                     updated = "\n".join(stub_lines).rstrip() + "\n"
+                    updated = self._deduplicate_tool_definitions(updated, tool_name)
                     return updated, "updated"
 
         tag_comment = self._tag_comments["added"]
-        block_with_comment = "\n".join([tag_comment] + new_lines)
+        indent = detect_indent(stub_lines)
+        indented_block = apply_indent(new_lines, indent)
+        block_with_comment = "\n".join([f"{indent}{tag_comment}" if indent else tag_comment] + indented_block)
         separator = "\n\n" if stub_content.rstrip("\n") else ""
         updated_stub = stub_content.rstrip("\n") + separator + block_with_comment.rstrip() + "\n"
+        updated_stub = self._deduplicate_tool_definitions(updated_stub, tool_name)
         return updated_stub, "added"
+
+    def _deduplicate_tool_definitions(self, stub_content: str, tool_name: str) -> str:
+        try:
+            tree = ast.parse(stub_content)
+        except SyntaxError:
+            return stub_content
+
+        lines = stub_content.splitlines()
+        occurrences: List[Tuple[int, int, bool]] = []
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.FunctionDef) and node.name == tool_name:
+                decorator_lines = [getattr(dec, 'lineno', node.lineno) for dec in node.decorator_list]
+                start_line = min(decorator_lines) if decorator_lines else node.lineno
+                end_line = node.end_lineno
+
+                start_idx = max(start_line - 1, 0)
+                end_idx = end_line
+
+                while start_idx > 0 and lines[start_idx - 1].strip() in self._tag_comments.values():
+                    start_idx -= 1
+
+                has_tag = False
+                if 0 <= start_idx < len(lines):
+                    has_tag = lines[start_idx].strip() in self._tag_comments.values()
+
+                occurrences.append((start_idx, end_idx, has_tag))
+
+        if len(occurrences) <= 1:
+            return stub_content
+
+        occurrences.sort(key=lambda item: (0 if item[2] else 1, item[0]))
+        keep_start, keep_end, _ = occurrences[0]
+
+        new_lines = lines[:]
+        for start_idx, end_idx, _ in sorted(occurrences[1:], key=lambda item: item[0], reverse=True):
+            del new_lines[start_idx:end_idx]
+            while start_idx < len(new_lines) and new_lines[start_idx].strip() == "" and (start_idx == 0 or new_lines[start_idx - 1].strip() == ""):
+                del new_lines[start_idx]
+
+        return "\n".join(new_lines).rstrip() + "\n"
 
     def _remove_tool_from_stub(self, stub_content: str, tool_name: str) -> Tuple[str, bool]:
         try:

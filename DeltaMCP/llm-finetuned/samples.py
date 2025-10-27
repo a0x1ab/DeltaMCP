@@ -717,11 +717,21 @@ def main():
     logging.info("Training JSONL file created successfully")
 
 def create_training_jsonl():
-    output_jsonl = Path("training_data.jsonl")
-    samples_dir = Path("training_data")  
+    script_dir = Path(__file__).resolve().parent
+    output_jsonl = script_dir / "training_data.jsonl"
+    samples_dir = script_dir / "training_data"
 
     all_files = list(samples_dir.glob("*.json"))
     all_files.sort()
+
+    action_summaries = {
+        "a": "New operation added to the service.",
+        "added": "New operation added to the service.",
+        "m": "Operation modified to reflect spec changes.",
+        "modified": "Operation modified to reflect spec changes.",
+        "d": "Operation removed from the service.",
+        "deleted": "Operation removed from the service."
+    }
 
     with open(output_jsonl, "w", encoding="utf-8") as f_out:
         for file_path in all_files:
@@ -731,7 +741,14 @@ def create_training_jsonl():
                 tools_b = sample.get("tools_b", {})
                 p = sample.get("p", {})
 
-                tools_a_str = "<none>" if not tools_a else "\n".join(f"- {name}(...)" for name in tools_a.keys())
+                if not tools_a:
+                    tools_a_str = "<none>"
+                else:
+                    blocks = []
+                    for code in tools_a.values():
+                        sanitized = textwrap.dedent(code).strip()
+                        blocks.append(f"```python\n{sanitized}\n```")
+                    tools_a_str = "\n\n".join(blocks)
 
                 deleted_lines = []
                 for path, path_val in p.get("d", {}).items():
@@ -743,7 +760,13 @@ def create_training_jsonl():
                                 deleted_lines.append(f"# REMOVE {tool_name}")
                 deleted_text = "\n".join(deleted_lines)
 
-                added_text = "\n\n".join(tools_b.values()) if tools_b else ""
+                if tools_b:
+                    added_segments = []
+                    for code in tools_b.values():
+                        added_segments.append(f"```python\n{textwrap.dedent(code).strip()}\n```")
+                    added_text = "\n\n".join(added_segments)
+                else:
+                    added_text = ""
                 assistant_text = "\n".join([deleted_text, added_text]).strip()
                 if not assistant_text:
                     assistant_text = "# No tools generated"
@@ -761,13 +784,22 @@ def create_training_jsonl():
                                         ctype = change_type
                                     opId = op_val.get("opId", "")
                                     desc = op_val.get("desc", "")
-                                    diff_lines.append(f"- {ctype.capitalize()} operation:\n  {method.upper()} {path}\n  OperationId: {opId}\n  Summary: {desc}")
+                                    summary = desc.strip() if isinstance(desc, str) else ""
+                                    if not summary:
+                                        summary = action_summaries.get(ctype.lower(), "Operation updated to match upstream spec.")
+                                    diff_lines.append(f"- {ctype.capitalize()} operation:\n  {method.upper()} {path}\n  OperationId: {opId}\n  Summary: {summary}")
                     elif isinstance(path_data, list):
                         for path in path_data:
-                            diff_lines.append(f"- {change_type.capitalize()} operation:\n  {path}\n  Summary: Path {change_type}")
+                            summary = action_summaries.get(change_type.lower(), f"Path {change_type}.")
+                            diff_lines.append(f"- {change_type.capitalize()} operation:\n  {path}\n  Summary: {summary}")
                 diff_summary = "\n".join(diff_lines) if diff_lines else "<none>"
 
-                user_text = f"User: Update tools based on diff. Existing tools: {tools_a_str}. Changes: {diff_summary}"
+                user_sections = [
+                    "User: Update tools based on diff while preserving tool metadata and request structure.",
+                    f"Existing implementation(s):\n{tools_a_str}",
+                    f"Changes to apply:\n{diff_summary}"
+                ]
+                user_text = "\n\n".join(user_sections)
 
                 hf_sample = {"text": f"{user_text}\n\nAssistant:\n{assistant_text}"}
                 f_out.write(json.dumps(hf_sample, ensure_ascii=False) + "\n")

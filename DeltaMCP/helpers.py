@@ -7,14 +7,12 @@ import ast
 import pickle
 
 def load_spec(spec_path):
-    """Load and resolve OpenAPI specification."""
     try:
         return ResolvingParser(spec_path, recursion_limit=5000).specification
     except Exception as e:
         raise ValueError(f"Failed to load specification from {spec_path}: {e}")
 
 def compare_specs(old_spec_path, new_spec_path):
-    """Compare two OpenAPI specifications and return the differences."""
     old, new = load_spec(old_spec_path), load_spec(new_spec_path)
     for n, s in zip(['old.json', 'new.json'], [old, new]):
         json.dump(s, open(n, 'w'))
@@ -23,7 +21,6 @@ def compare_specs(old_spec_path, new_spec_path):
     return json.loads(r.stdout) if r.returncode == 0 and r.stdout.strip() else {"error": r.stderr or "No differences found"}
 
 def convert_to_ast(original_stub, ast_file="ast_output.pkl"):
-    """Convert a Python stub file to its AST object and save via pickle."""
     with open(original_stub, "r") as f:
         source_code = f.read()
     tree = ast.parse(source_code)
@@ -32,7 +29,6 @@ def convert_to_ast(original_stub, ast_file="ast_output.pkl"):
     return tree
 
 def convert_from_ast(ast_file="ast_output.pkl", output_stub="upgraded_server.py"):
-    """Load AST object from file and convert back to Python stub file."""
     with open(ast_file, "rb") as f:
         tree = pickle.load(f)
     python_code = ast.unparse(tree)
@@ -41,14 +37,12 @@ def convert_from_ast(ast_file="ast_output.pkl", output_stub="upgraded_server.py"
     return python_code
 
 def get_range_of_lines(ast_tree, func_name):
-    """Returns the starting and ending line numbers of a function definition within an AST tree."""
     for node in ast.walk(ast_tree):
         if isinstance(node, ast.FunctionDef) and node.name == func_name:
             return (node.lineno, node.end_lineno)
     return None
 
 def generate_diff(old_spec_path, new_spec_path, original_stub):
-    """Generate a diff between two specs, annotating changed paths with function names from the stub."""
     differences = compare_specs(old_spec_path, new_spec_path)
     ast_tree = convert_to_ast(original_stub)
     paths = differences.get('paths', {})
