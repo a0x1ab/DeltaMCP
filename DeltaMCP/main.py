@@ -481,7 +481,8 @@ class DeltaMCPGenerator:
             return "remove"
         return "update"
 
-    def detect_indent(lines: List[str]) -> str:
+    @staticmethod
+    def _detect_indent(lines: List[str]) -> str:
         for line in lines:
             stripped = line.lstrip()
             if stripped.startswith("@mcp.tool"):
@@ -493,7 +494,8 @@ class DeltaMCPGenerator:
                 return "\t"
         return "    "
 
-    def apply_indent(lines: List[str], indent: str) -> List[str]:
+    @staticmethod
+    def _apply_indent(lines: List[str], indent: str) -> List[str]:
         if not indent:
             return lines
         return [f"{indent}{line}" if line else "" for line in lines]
@@ -528,8 +530,8 @@ class DeltaMCPGenerator:
 
                     indent = re.match(r"^\s*", stub_lines[start_idx]).group(0) if stub_lines else ""
                     if not indent:
-                        indent = detect_indent(stub_lines)
-                    indented_block = apply_indent(new_lines, indent)
+                        indent = self._detect_indent(stub_lines)
+                    indented_block = self._apply_indent(new_lines, indent)
                     replacement = [f"{indent}{tag_comment}" if indent else tag_comment] + indented_block
                     stub_lines = stub_lines[:start_idx] + replacement + stub_lines[end_idx:]
                     updated = "\n".join(stub_lines).rstrip() + "\n"
@@ -537,8 +539,8 @@ class DeltaMCPGenerator:
                     return updated, "updated"
 
         tag_comment = self._tag_comments["added"]
-        indent = detect_indent(stub_lines)
-        indented_block = apply_indent(new_lines, indent)
+        indent = self._detect_indent(stub_lines)
+        indented_block = self._apply_indent(new_lines, indent)
         block_with_comment = "\n".join([f"{indent}{tag_comment}" if indent else tag_comment] + indented_block)
         separator = "\n\n" if stub_content.rstrip("\n") else ""
         updated_stub = stub_content.rstrip("\n") + separator + block_with_comment.rstrip() + "\n"
